@@ -1,0 +1,459 @@
+% !TEX root = ../TSG_Administrator's_Guide_SV20.11_v1.0_EN.tex
+%
+\pdfbookmark[0]{Appendix C Log Fields Description}{Appendix C Log Fields Description}
+\chapter*{\hypertarget{link:Appendix C Log Fields Description}{Appendix C Log Fields Description}}
+\label{sec:appendix_c}
+
+\notemark\textit{The column with * is the default display column after logging in to the system for the first time. Once the user has made the configuration, 
+the configuration will be saved in the browser's local data. The next time the user logs in to the system through the same machine and the same browser, 
+it will display columns that the user has previously configured. The fields with bold font are the Log Fields used when creating reports.}
+
+\pdfbookmark[1]{Log Type}{Log Type}
+\section*{\hypertarget{link:Log Type}{Log Type}}
+\label{sec:appendix_c:logtype}
+
+\begin{longtable}{p{0.31\textwidth}|p{0.63\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Log Type}}  & \textcolor{white}{Schema Type} \\\hline  
+    Security Event Logs &	All types \\\hline 
+    Proxy Event Logs &	Base, HTTP and DoH \\\hline 
+    Session Records &	All types except Radius \\\hline 
+    Radius Logs &	Base and Radius \\\hline 
+\end{longtable}
+
+\pdfbookmark[1]{Base}{Base}
+\section*{\hypertarget{link:Base}{Base}}
+\label{sec:appendix_c:base}
+
+\begin{longtable}{p{0.34\textwidth}|p{0.58\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline  
+    Log ID * &	A log entry identifier incremented sequentially; each log has a unique number \\\hline
+    \textbf{Receive Time *} &	Time the log was received \\\hline
+    \textbf{Subscriber ID *} &	Identifier of RADIUS Accounting for Subscriber Access (if applicable) \\\hline
+    \textbf{Client IP *} &	Original session client IP address. \\\hline
+    \textbf{Internal IP} &	Internal region IP of the session (if applicable) \\\hline
+    Client Port &	Client port utilized by the session \\\hline
+    L4 Protocol &	Transport layer protocol associated with the session \\\hline
+    Address Type &	IP protocol version associated with the session, 4 or 6 \\\hline
+    \textbf{Server IP *} &	Original session server IP address \\\hline
+    \textbf{Server Port *} &	Server port utilized by the session \\\hline
+    \textbf{External IP} &	 External region IP of the session (if applicable) \\\hline
+    \textbf{Action} &	Action taken for the session; possible values are:
+                    \begin{itemize}
+                        \item Allow - session was allowed by policy. 
+                        \item Deny - session was denied by policy.  
+                        \item Monitor - session was allowed by policy and a log will be generated when matched.
+                        \item Intercept - Intercept HTTP/HTTPS traffic for proxy. If the traffic use SSL/TSL, it will be decrypted.  
+                        \item Redirect - The Proxy redirect matched HTTP session to a predefined URL. 
+                        \item Replace - The Proxy Searches in a given HTTP part to Find a given string, and Replace any matches with another given string.     
+                        \item Hijack - The Proxy hijack a downloading file. 
+                        \item Insert - The Proxy insert a “js” or “css” scripts to webpages. 
+                    \end{itemize}
+                 \\\hline
+    Direction &	Indicates session client-to-server direction, possible values are:
+
+
+                    Egress—Internal to External
+
+
+                    Ingress—External to Internal 
+                \\\hline
+    \textbf{Sled IP} &	IP of sled which the session was logged \\\hline
+    Client Location &	Location the session client IP from.\\\hline
+    Client ASN &	BGP Autonomous system number the session client IP from\\\hline
+    \textbf{Server Location} &	Location the session server IP from\\\hline
+    Server ASN &	BGP Autonomous system number the session server IP from\\\hline
+    Sessions &	Number of sessions with same client IP, server IP, Application, seen within 5 seconds\\\hline
+    Packets Sent &	Number of client-to-server packets for the session\\\hline
+    Packets Received &	Number of server-to-client packets for the session\\\hline
+    Bytes Sent &	Number of bytes in the client-to-server direction of the session\\\hline
+    Bytes Received &	Number of bytes in the server-to-client direction of the session\\\hline
+    \textbf{Sub Action *} &	Sub Action taken for action; possible values are:
+
+
+                            drop—session was dropped by deny action
+
+
+                            block—session was blocked by deny action
+
+
+                            alert—session was alerted by deny action
+
+
+                            allow—session was allowed by intercept action
+
+
+                            deny—session was denied by intercept action
+
+
+                            monitor—session was monitored by intercept action
+
+
+                            redirect—session was redirected by intercept action
+
+
+                            replace—session was replaced by intercept action
+
+
+                            hijack—session was hijacked by intercept action
+
+
+                            insert—session was inserted by intercept action \\\hline
+    Device ID &	Unique identifier of devices on which the session was logged  \\\hline
+    Data Center &	Name of data center on which the session was logged \\\hline
+    Application Label &	Application label associated with the session \\\hline
+    Protocol Label &	Protocol associated with the session \\\hline
+    L7 Protocol &	Layer 7 Protocol associated with the session \\\hline
+    Start Time &	Time of session start  \\\hline
+    End Time &	Time of session end \\\hline
+    Establish Latency &	Establish time of the session \\\hline
+    Duration(ms) &	Elapsed time of the session \\\hline
+    Stream Direction &	Captured packet direction of the session, possible values are: c2s, s2c, double \\\hline
+    Session ID &	An internal numerical identifier applied of the session \\\hline
+    Fragmentation Packets(c2s) &	Number of IP fragment packets in client-to-server direction of the session \\\hline
+    Fragmentation Packets(s2c) &	Number of IP fragment packets in server-to-client direction of the session \\\hline
+    Sequence Gap Loss(c2s) &	Number of TCP gap loss packets in client-to-server direction of the session \\\hline
+    Sequence Gap Loss(s2c) &	Number of TCP gap loss packets in server-to-client direction of the session \\\hline
+    Unorder Packets(c2s) &	Number of TCP out of order packets in client-to-server direction of the session \\\hline
+    Unorder Packets(s2c) &	Number of TCP out of order packets in server-to-client direction of the session \\\hline                                   
+\end{longtable}
+
+\pdfbookmark[1]{Log Fields per Protocol}{Log Fields per Protocol}
+\section*{\hypertarget{link:Log Fields per Protocol}{Log Fields per Protocol}}
+\label{sec:appendix_c:protocol}
+
+\pdfbookmark[2]{HTTP}{HTTP}
+\subsection*{\hypertarget{link:HTTP}{HTTP}}
+\label{sec:appendix_c:protocol:HTTP}
+
+\begin{longtable}{p{0.33\textwidth}|p{0.61\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    \textbf{Http.URL} &	Uniform Resource Locator (URL) of current HTTP session \\\hline
+    Http.Host &	Host of current HTTP session \\\hline
+    \textbf{Http.Domain} &	Domain of current HTTP session \\\hline
+    Http.Cookie &	Cookie of current HTTP session \\\hline
+    Http.Referer &	Reference of current HTTP session \\\hline
+    Http.User Agent &	User-Agent of current HTTP session \\\hline
+    Http.Content Length &	Content Length of current HTTP session \\\hline
+    Http.Content Type &	Content Type of current HTTP session \\\hline
+    Http.Set Cookie &	Set Cookie of current HTTP session \\\hline
+    Http.Version &	HTTP protocol version of current HTTP session, possible values are: http1, http2 \\\hline
+    \tabincell{l}{Http.Response\\ Latency(ms)} &	HTTP response latency of current HTTP session \\\hline
+    Http.Action File Size &	HTTP sub action profile size of current HTTP session, possible sub actions are:
+
+
+                            alert
+
+
+                            hijack
+
+
+                            insert \\\hline
+    Http.Session Duration(ms) &	Duration time of current HTTP session \\\hline
+\end{longtable}
+
+\pdfbookmark[2]{MAIL}{MAIL}
+\subsection*{\hypertarget{link:MAIL}{MAIL}}
+\label{sec:appendix_c:protocol:MAIL}
+
+\begin{longtable}{p{0.26\textwidth}|p{0.68\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    Mail.Protocol Type &	Specific mail protocol type of current Mail session, possible values are: smtp, imap, pop \\\hline
+    Mail.Account &	Account of current Mail session \\\hline
+    Mail.From CMD &	From information of current Mail session \\\hline
+    Mail.To CMD &	To information of current Mail session \\\hline
+    Mail.From &	Sender account of current mail session \\\hline
+    Mail.To &	Receiver account of current mail session \\\hline
+    Mail.CC &	Mail carbon copy account of current mail session \\\hline
+    Mail.BCC &	Mail blind carbon copy account of current mail session \\\hline
+    Mail.Subject &	Subject of current mail session \\\hline
+    Mail.Attachment &	Attachment name of current mail session \\\hline
+    Mail.EML File &	EML file download link of current mail session    \\\hline
+\end{longtable}
+
+\pdfbookmark[2]{DNS}{DNS}
+\subsection*{\hypertarget{link:DNS}{DNS}}
+\label{sec:appendix_c:protocol:DNS}
+
+\begin{longtable}{p{0.29\textwidth}|p{0.65\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    Dns.Message ID &	Message identifier of current DNS session \\\hline
+    Dns.QR &	Query/Response Flag of current DNS session \\\hline
+    Dns.OPCODE &	Operation Code of current DNS session \\\hline
+    Dns.AA &	Authoritative Answer Flag of current DNS session \\\hline
+    Dns.TC &	Truncation Flag of current DNS session \\\hline
+    Dns.RD &	Recursion Desired of current DNS session \\\hline
+    Dns.RA &	Recursion Available of current DNS session \\\hline
+    Dns.RCODE &	Response Code of current DNS session \\\hline
+    Dns.QDCOUNT &	Question Count of current DNS session \\\hline
+    Dns.ANCOUNT &	Answer Record Count of current DNS session \\\hline
+    Dns.NSCOUNT &	Authority Record Count of current DNS session \\\hline
+    Dns.ARCOUNT &	Additional Record Count of current DNS session \\\hline
+    Dns.QNAME &	Query domain name of current DNS session \\\hline
+    Dns.QTYPE &	Query type of current DNS session \\\hline
+    Dns.QCLASS &	Query class of current DNS session \\\hline
+    Dns.cname &	Canonical Name Record of current DNS session \\\hline
+    Dns.SUB &	Extension description of current DNS session, possible values are: dns, dnssec \\\hline
+    Dns.RR &	Resource records of current DNS session \\\hline    
+\end{longtable}
+
+\pdfbookmark[2]{SSL}{SSL}
+\subsection*{\hypertarget{link:SSL}{SSL}}
+\label{sec:appendix_c:protocol:SSL}
+
+\begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    \textbf{SSL.SNI} &	Server Name Indication of current SSL session \\\hline
+    SSL.SAN &	Subject Alternative Name of current SSL session \\\hline
+    SSL.CN &	Common Name of current SSL session \\\hline
+    SSL.Pinning &	Pinning status of current SSL session, possible values are:
+
+
+                    0-not pinning 
+
+
+                    1-pinning 
+
+
+                    2-maybe pinning \\\hline
+    SSL.Intercept State &	Intercept State of current SSL session, possible values are:
+
+
+                            0-passthrough,
+
+
+                            1-intercept
+
+
+                            2-shutdown \\\hline
+    \tabincell{l}{SSL.Server Side\\ Latency(ms)} &	Server side establish latency of current SSL session \\\hline
+    \tabincell{l}{SSL.Client Side\\ Latency(ms)} &	Client side establish latency of current SSL session \\\hline
+    SSL.Server Side Version &	Server-side SSL version latency of current session, possible values are:
+
+
+                                SSLv3, TLSv1, TLSv1.1, TLSv1.2, TLSv1.3, unknown \\\hline
+    SSL.Client Side Version &	Client-side SSL version latency of current session, possible values are:
+
+
+                                SSLv3, TLSv1, TLSv1.1, TLSv1.2, TLSv1.3, unknown \\\hline
+    SSL.Certificate Verify &	Certificate verify status of current SSL session, possible values are:
+
+
+                                0-passed
+
+
+                                1-failed \\\hline
+    SSL.Error &	Error message of current SSL session \\\hline
+    SSL.JA3 hash &	JA3 Fingerprint is hashed with MD5 \\\hline                                                               
+\end{longtable}
+
+\pdfbookmark[2]{QUIC}{QUIC}
+\subsection*{\hypertarget{link:QUIC}{QUIC}}
+\label{sec:appendix_c:protocol:QUIC}
+
+\begin{longtable}{p{0.31\textwidth}|p{0.63\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    Quic.Version &	Version of current QUIC session \\\hline 
+    Quic.SNI &	Server Name Indication of current QUIC session \\\hline 
+    Quic.User Agent &	User Agent of current QUIC session \\\hline     
+\end{longtable}   
+
+\pdfbookmark[2]{DoH}{DoH}
+\subsection*{\hypertarget{link:DoH}{DoH}}
+\label{sec:appendix_c:protocol:DoH}
+
+\begin{longtable}{p{0.23\textwidth}|p{0.71\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    DoH.URL &	Uniform Resource Locator (URL) of current DoH session \\\hline
+    DoH.Host &	Host of current DoH session \\\hline
+    DoH.Cookie &	Cookie of current DoH session \\\hline
+    DoH.Referer &	Referer of current DoH session \\\hline
+    DoH.User Agent &	User Agent of current DoH session \\\hline
+    DoH.Version &	HTTP Version of current DoH session, possible values are: http1, http2 \\\hline
+    DoH.Message ID &	Message ID of current DoH session \\\hline
+    DoH.QR &	Query/Response Flag of current DoH session \\\hline
+    DoH.OPCODE &	Operation Code of current DoH session \\\hline
+    DoH.AA &	Authoritative Answer Flag of current DoH session \\\hline
+    DoH.TC &	Truncation Flag of current DoH session \\\hline
+    DoH.RD &	Recursion Desired of current DoH session \\\hline
+    DoH.RA &	Recursion Available of current DoH session \\\hline
+    DoH.RCODE &	Response Code of current DoH session \\\hline
+    DoH.QDCOUNT &	Question Count of current DoH session \\\hline
+    DoH.ANCOUNT &	Answer Record Count of current DoH session \\\hline
+    DoH.NSCOUNT &	Authority Record Count of current DoH session \\\hline
+    DoH.ARCOUNT &	Additional Record Count of current DoH session \\\hline
+    DoH.QNAME &	Query domain name of current DoH session \\\hline
+    DoH.QTYPE &	Query type of current DoH session \\\hline
+    DoH.QCLASS &	Query class of current DoH session \\\hline
+    DoH.CNAME &	Canonical Name Record of current DoH session \\\hline
+    DoH.SUB &	Extension description of current DoH session, possible values are: dns, dnssec \\\hline
+    DoH.RR &	Resource records of current DoH session \\\hline    
+\end{longtable} 
+
+\pdfbookmark[2]{FTP}{FTP}
+\subsection*{\hypertarget{link:FTP}{FTP}}
+\label{sec:appendix_c:protocol:FTP}
+
+\begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    Ftp.Account &	Account of current ftp session \\\hline
+    Ftp.URL &	Uniform Resource Identifier of current ftp session \\\hline
+    Ftp.Content &	File content of current ftp session   \\\hline
+\end{longtable} 
+
+\pdfbookmark[2]{RADIUS}{RADIUS}
+\subsection*{\hypertarget{link:RADIUS}{RADIUS}}
+\label{sec:appendix_c:protocol:RADIUS}
+
+\begin{longtable}{p{0.29\textwidth}|p{0.65\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    Packet Type &	Packet type of current radius session, possible values are:
+
+
+                    1- Access-Request
+
+
+                    2- Access-Accept
+
+
+                    3- Access-Reject
+
+
+                    4- Accounting-Request
+
+
+                    5- Accounting-Response
+
+
+                    11-Access-Challenge \\\hline
+    Account &	RADIUS account of current radius session \\\hline
+    \textbf{Nas IP *} &	NAS device IP of current radius session \\\hline
+    \textbf{Framed IP *} &	IP address assigned by RADIUS server to user of current radius session \\\hline
+    Session Timeout &	Timeout of current radius session \\\hline
+    Idle Timeout &	Maximum idle time of current radius session \\\hline
+    ACC Status Type * &	Account status type of current radius session, possible values are:
+
+
+                        1-Start
+
+
+                        2-Stop
+
+
+                        3-Interim-Update \\\hline
+    \tabincell{l}{Acct Terminate\\ Cause} &	Account terminating reason of current radius session, possible values are:
+
+
+                                            1-User Request
+
+
+                                            2-Lost Carrier
+
+
+                                            3-Lost Service
+
+
+                                            4-Idle Timeout
+
+
+                                            5-Session Timeout
+
+
+                                            6-Admin Reset
+
+
+                                            7-Admin Reboot
+
+
+                                            8-Port Error
+
+
+                                            9-NAS Error
+
+
+                                            10-NAS Request
+
+
+                                            11-NAS Reboot
+
+
+                                            12-Port Unneeded
+
+
+                                            13-Port Preempted
+
+
+                                            14-Port Suspended
+
+
+                                            15-Service Unavailable
+
+
+                                            16-Callback
+
+
+                                            17-User Error
+
+
+                                            18-Host Request \\\hline
+    Event Timestamp &	Dial-in user request event time stamp of current radius session \\\hline
+    Service Type &	Dial-in user request authentication type, possible values are:
+
+
+                    2(Framed): A Framed Protocol should be started for the User, such as PPP or SLIP.
+
+
+                    5(Outbound): The user should be granted access to outgoing devices. 
+
+
+                    10(Call Check): Used by the NAS in an Access-Request packet to indicate that a call is being received and that the RADIUS server should send back an Access-Accept to answer the call. \\\hline
+    Nas Port &	NAS-Port of current radius session \\\hline
+    Framed Protocol &	Framed Protocol of current radius session, possible values are:
+
+
+                        1-PPP
+
+
+                        2-SLIP
+
+
+                        3-AppleTalk Remote Access Protocol (ARAP)
+
+
+                        4-Gandalf proprietary SingleLink/MultiLink protocol
+
+
+                        5-Xylogics proprietary IPX/SLIP
+
+
+                        6-X.75 Synchronous \\\hline                                                                                
+    Callback Number &	A dialing number to be used for callback of current radius session \\\hline
+    Callback ID &	Callback Identifier of current radius session \\\hline
+    Termination Action &	Action the NAS should take when the specified service is completed, possible values are:
+
+
+                            0-Default
+
+
+                            1-RADIUS-Request \\\hline
+    Called Station Id &	NAS device Identifier of current radius session \\\hline
+    Calling Station Id &	Client Identifier of current radius session \\\hline
+    Acct Delay Time &	Indicates how many seconds the user has been trying to send record of current radius session \\\hline
+    Acct Session ID &	A unique accounting ID of current radius session \\\hline
+    Acct Multi Session ID &	A unique Accounting ID to make it easy to link together multiple related sessions \\\hline
+    Acct Input Octets &	Input bytes of current radius account \\\hline
+    Acct Output Octets &	Output bytes of current radius account \\\hline
+    Acct Input Packets &	Input Packets of current radius account \\\hline
+    Acct Output Packets &	Output Packets of current radius account \\\hline
+    Acct Session Time &	Indicates how many seconds the user has received service for \\\hline
+    Acct Link Count &	Count of links which are known to have been in a given multilink session at the time the accounting record \\\hline
+    Acct Interim Interva &l	Indicates the number of seconds between each interim update in seconds \\\hline                            
+\end{longtable} 
+
+\pdfbookmark[2]{APP}{APP}
+\subsection*{\hypertarget{link:APP}{APP}}
+\label{sec:appendix_c:protocol:APP}
+
+\begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    app\_extra\_info  &	Detail information about the application. \\\hline
+\end{longtable} 

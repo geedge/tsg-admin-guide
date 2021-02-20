@@ -1,0 +1,420 @@
+
+% !TEX root = ../TSG_Administrator's_Guide_SV20.11_v1.0_EN.tex
+%
+\pdfbookmark[0]{Getting Started}{Getting Started}
+\chapter*{\hypertarget{link:Getting Started}{Getting Started}}
+\label{sec:intro}
+\addcontentsline{toc}{chapter}{Preface}
+
+The following topics provide system overview and detailed steps to help you logging into Tiangou Secure Gateway (TSG). 
+Then it goes on to elaborate how to set up a basic security policy and a basic proxy policy. 
+Administrators can configure, manage, and monitor Tiangou Secure Gateway using the web interface, CLI, and TSG Integration API.
+
+{
+% \color{ctcolortitle}
+\color{linkblue}
+\hyperlink{link:system overview}{> System Overview} \\
+\hyperlink{link:Logging into the System}{> Logging into the System} \\
+\hyperlink{link:Set Up a Basic Security Policy}{> Set Up a Basic Security Policy}\\
+\hyperlink{link:Set Up a Basic Proxy Policy}{> Set Up a Basic Proxy Policy}\\
+\hyperlink{link:Command Line Interface}{> Command Line Interface}\\
+\hyperlink{link:TSG Integration API}{> TSG Integration API}\\
+\hyperlink{link:TSG Administration}{> TSG Administration}\\
+}
+\clearpage
+
+\pdfbookmark[1]{System Overview}{System Overview}
+\section*{\hypertarget{link:system overview}{System Overview}}
+\label{sec:intro:overview}
+
+\pdfbookmark[2]{Purpose}{Purpose}
+\subsection*{\hypertarget{link:Purpose}{Purpose}}
+\label{sec:intro:overview:purpose}
+
+The Tiangou Secure Gateway (TSG) can be used for any purpose where keeping track of the traffic flowing in a network is useful.
+
+
+The following are examples of such purposes:\\
+• Protecting the network from malicious traffic.\\
+• Enforcing network policies.\\
+• Lawful interception.\\
+• Network performance optimization.\\
+• Network visualization\\
+
+\pdfbookmark[2]{System Introduction}{System Introduction}
+\subsection*{\hypertarget{link:System Introduction}{System Introduction}}
+\label{sec:intro:overview:introduction}
+
+Tiangou Secure Gateway (TSG) is a scalable traffic management product for all types of network environments. 
+TSG performs deep packet and flow inspection on Internet Protocol (IP) packets, and classifies their content using stream-based analysis engine. 
+TSG Firewalls are devices or programs that control the flow of network traffic between networks or hosts that employ differing security postures. 
+TSG firewall uses a network stack to process the packet, like the OSI model. When a network packet passes through, it will be parsed and resembled to a network session. 
+And the reassembled network session is decoded to identify the embedded content.
+
+
+Tiangou Secure Gateway’s Proxy module enables authorities to perform layer 4-7 advanced manipulation of application and user traffic for interception. 
+The Proxy is deployed in transparent mode; thus, no proxy settings on browser side.
+
+
+TSG enables service providers and organizations to gain insight into their network and control traffic in high-performance environments, 
+such as large data centers and high-bandwidth network perimeters. TSG allows content visibility of HTTP, DNS, MAIL, FTP and SSL. 
+TSG identifies and controls applications as well as evasive tools blocking. The TSG is able to modify HTTP sessions, as well as override redirect request, 
+modify headers, inject scripts, replace texts and respond with an uploaded file. 
+The TSG has an SSL Proxy allows all decrypted traffic to be mirrored to a third-party system for additional analysis.
+
+
+\pdfbookmark[2]{Who is this Guide for?}{Who is this Guide for?}
+\subsection*{\hypertarget{link:Who is this Guide for}{Who is this Guide for?}}
+\label{sec:intro:overview:for}
+
+This manual is for TSG operators, system administrators and implementation personnel.
+
+
+\pdfbookmark[1]{Logging into the System}{Logging into the System}
+\section*{\hypertarget{link:Logging into the System}{Logging into the System}}
+\label{sec:intro:logging}
+
+You can use the Web Interface to perform configuration and monitoring tasks with relative ease. 
+This graphical interface allows you to access TSG using HTTP and it is the best way to perform administrative tasks.
+
+
+It is recommended to use the following web browsers:\\
+• Chrome 83+\\
+However, the best practice is to install the latest version.
+
+
+\begin{description}
+    \item[STEP 1.]Using a browser, open the home page of the system, for example, (http://<IP address>). You can use the IPv4 or IPv6 address.
+    \item[STEP 2.]Enter your username and password defined for the TSG, select your own \textbf{Language} and set the \textbf{Authentication Mode} to \textbf{LOCAL}, then click \textbf{Login}.
+    \item[STEP 3.]You can see your User Name at the top right of the web interface. Click it and you can change the language settings to English, Chinese or Russian. You can also Sign Out from here.
+\end{description}
+
+
+\notemark\textit{Lightweight Directory Access Protocol (LDAP) is a standard protocol for accessing information directories. 
+You can connect to an LDAP server when you set the Authentication Mode to LDAP.}
+
+
+\pdfbookmark[2]{Logging into the Web Interface}{Logging into the Web Interface}
+\subsection*{\hypertarget{link:Logging into the Web Interface}{Logging into the Web Interface}}
+\label{sec:intro:logging:for}
+
+\pdfbookmark[2]{Changing Your Password}{Changing Your Password}
+\subsection*{\hypertarget{link:Changing Your Password}{Changing Your Password}}
+\label{sec:intro:logging:password}
+
+You should periodically change your password. The following procedure explains how to change the password while logged into TSG.
+
+
+\begin{description}
+    \item[STEP 1.]Select \textbf{Administration} > \textbf{Users} and find your account item in the list.
+    \item[STEP 2.]Click the item in the list, then click \textbf{Edit}.
+    \item[STEP 3.]Check your account information and enter your new password.
+    \item[STEP 4.]Click \textbf{OK}.\\
+\end{description}
+
+\pdfbookmark[2]{Login Restrictions}{Login Restrictions}
+\subsection*{\hypertarget{link:Login Restrictions}{Login Restrictions}}
+\label{sec:intro:logging:restrictions}
+
+TSG restricts administrator logins to improve system security. An IP address will be Lockout after maximum login attempts. 
+And you can specify limited IP addresses to be able to login the system. Configure Login Restrictions by the following procedure: 
+
+
+\begin{description}
+    \item[STEP 1.]Select \textbf{Administration} > \textbf{Login Restrictions}.
+    \item[STEP 2.]If you wish to set the IP addresses that are allowed to log in, enable \textbf{Set to allow login IP}. By default, it is off, and all IP addresses are allowed to log in. 
+    Once enabled, up to 256 IPv4 CIDRs can be configured. For example, 192.168.0.1/32, 192.168.1.1/24.
+    \item[STEP 3.](\textcolor{gold}{Optional})Add \textbf{IP} addresses if you enabled Set to allow login IP.
+    \item[STEP 4.]Configure \textbf{Maximum Login Attempts}, if the number of attempts reaches the limit, the client IP will be locked. 
+    \item[STEP 5.]Specify \textbf{Lockout Time}. Within the lockout time period, this client IP cannot log into the system even with the correct user name and password.
+    \item[STEP 6.]Click \textbf{OK}.
+\end{description}
+
+\pdfbookmark[1]{Set Up a Basic Security Policy}{Set Up a Basic Security Policy}
+\section*{\hypertarget{link:Set Up a Basic Security Policy}{Set Up a Basic Security Policy}}
+\label{sec:intro:security}
+
+Use the following workflow set up a very basic Security policy. This gives you a brief idea of policies so that you can verify that you have successfully configured TSG.
+
+\begin{description}
+    \item[STEP 1.] Launch the Web Interface.
+    \begin{enumerate} 
+        \item Select \textbf{Policies} > \textbf{Security} and click \textbf{Create}.
+        \item Enter a descriptive \textbf{Name} for the rule.
+        \item Set the \textbf{Action} to \textbf{Allow}.
+        \item Specify a \textbf{Source} IP Address or leave the value set to \textbf{any}.
+        \item Specify a \textbf{Destination} IP Address or leave the value set to \textbf{any}.
+        \item Select the \textbf{Application}. You can select multiple applications. For more details, see \hyperlink{link:Applications}{\color{linkblue}{Applications}}.
+        \item (\textcolor[RGB]{205,153,16}{Optional})\textbf{Add} a \textbf{Filter} or leave the value empty.
+        \item (\textcolor{gold}{Optional})Specify a \textbf{Tag} or leave the value empty.
+        You can select one or more Policy Tags which are created from \textbf{Policies} > \textbf{Tags} previously. Optionally, you can click the plus icon to create new Tags.
+         After you click the icon, a page will slide in on the right. Enter the \textbf{Tag Category}. Pick a \textbf{Color}. And add one or multiple \textbf{Tags}. 
+         Then you can select the tag you just created from the list.
+        \item (\textcolor{gold}{Optional})Specify \textbf{Effective Devices} by choosing Device Tags or leave the value empty, which means the policy is effective on all devices by default.
+        \item (\textcolor{gold}{Optional})Select a \textbf{Schedule} or leave the value set to always.
+        \item Verify that \textbf{Log Session} is enabled. Only traffic that matches the Security policy rule will be logged in Security Event Logs.
+        \item (\textcolor{gold}{Optional})Enter a \textbf{Description} for the rule.
+        \item Verify that Enabled is enabled.
+        \item Click \textbf{OK}.
+    \end{enumerate}
+    \item[STEP 2.] (\textcolor{gold}{Optional})To verify that you have set up your basic policies effectively, test whether your Security policy rules are being evaluated and determine which Security policy rule applies to a traffic flow. For example, to verify the policy rule that will be applied for a client with the IP address 192.168.0.1 when it sends a HTTP request to the 172.16.0.1 server:
+    \begin{enumerate} 
+        \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
+        \item	Select \textbf{Security Policy Match} from the \textbf{Select Test} drop-down. 
+        \item	Enter the \textbf{Client IP} and \textbf{Server IP} addresses.
+        \item	Specify the \textbf{Client Port} and \textbf{Server Port}.
+        \item	Select the \textbf{Protocol} and \textbf{APP ID} from the drop-down.
+        \item	Click \textbf{Verify} to execute the \textbf{Security policy match} test.    
+    \end{enumerate}
+    \item[STEP 3.] After the policy has been hit, view Logs to monitor the policy rule status and determine the effectiveness of the policy rule. 
+    Select \textbf{Logs} > \textbf{Security Event Logs} and view relative information about the policy.
+\end{description}
+
+
+\notemark\textit{When you are creating or editing policies and objects, click the sidebar menu will not navigate you to the corresponding page. 
+A prompt window will appear to remind you that changes you made are not saved.}
+
+
+\pdfbookmark[1]{Set Up a Basic Proxy Policy}{Set Up a Basic Proxy Policy}
+\section*{\hypertarget{link:Set Up a Basic Proxy Policy}{Set Up a Basic Proxy Policy}}
+\label{sec:intro:proxy}
+
+Security Policies with Intercept actions intercept HTTP/HTTPS traffic for proxy, which is a prerequisite for proxy policy. 
+
+
+You can perform the following to set up a basic proxy policy. \\
+\begin{description}
+    \item[STEP 1.] Add a rule. 
+    \begin{enumerate} 
+        \item Select \textbf{Policies} > \textbf{Proxy} and click \textbf{Create} to add a new rule.
+        \item Enter a descriptive \textbf{Name} for the rule.
+        \item Define what action you want TSG to take for traffic that matches the rule. Select an \textbf{Action}. See \hyperlink{link:Proxy Actions}{\color{linkblue}{Proxy Policy Actions}} for a description of each action.
+        \item Define the matching criteria for the source fields in the packet. Specify a \textbf{Source} IP Address/ User or leave the value set to any.
+        \item Define the matching criteria for the destination fields in the packet. Specify a \textbf{Destination} IP Address or leave the value set to any.
+        \item (\textcolor{gold}{Optional})Specify a \textbf{Filters} as match criteria for the rule. For example, select a \textbf{Category} for \textbf{Host}. If you select a category, only web traffic will match the rule and only if the traffic is destined for that specified category.
+        \item (\textcolor{gold}{Optional})If the Action is Redirect, specify the \textbf{Application}.
+        \item (\textcolor{gold}{Optional})Specify a \textbf{Tag} or leave the value empty. 
+        You can select one or more Policy Tags which are created from \textbf{Policies} > \textbf{Tags} previously. Optionally, you can click the plus icon to create new Tags. 
+        After you click the icon, a page will slide in on the right. Enter the \textbf{Tag Category}. Pick a \textbf{Color}. 
+        And add one or multiple \textbf{Tags}. Then you can select the tag you just created from the list.
+        \item Specify \textbf{Effective Devices} by choosing Device Tags or leave the value empty, which means the policy is effective on all devices by default. 
+        \item (\textcolor{gold}{Optional})Enter a \textbf{Description} for the rule.
+        \item Select a \textbf{Schedule} or leave the value set to always.
+        \item Verify that \textbf{Log Session} is enabled if you wish to have proxy event logs. When Log Session is enabled, select Metadata only for \textbf{Log Options} or set it to All by default. 
+        \item Verify that \textbf{Enabled}is on.
+        \item Click \textbf{OK} to save the policy rule.
+    \end{enumerate}
+    \item[STEP 2.] (\textcolor{gold}{Optional})To verify that you have set up your basic policies effectively, test whether your Proxy Policy rules are being evaluated 
+    and determine which Proxy Policy rule applies to a traffic flow.
+    \begin{enumerate} 
+        \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
+        \item Select \textbf{Proxy Policy Match} from the \textbf{Select Test} drop-down. 
+        \item Enter the \textbf{Client IP} and \textbf{Server IP} addresses or leave it set to default.
+        \item Specify the \textbf{Client Port} and \textbf{Server Port} or leave it set to default.
+        \item Select the \textbf{Protocol} and \textbf{APP ID} from the drop-down. 
+        \item Click \textbf{Verify} to execute the Proxy Policy Match test.
+    \end{enumerate}
+    \item[STEP 3.] Go to \textbf{Logs} > \textbf{Proxy Event Logs} and view \textbf{Logs} to monitor the policy rule status, verify if the proxy rule has been hit and determine the effectiveness of the policy rule.
+\end{description}
+
+\pdfbookmark[1]{Command Line Interface}{Command Line Interface}
+\section*{\hypertarget{link:Command Line Interface}{Command Line Interface}}
+\label{sec:intro:command}
+
+You can use the TSG Command Line Interface (CLI) to perform a series of tasks by entering commands in rapid succession over SSH. 
+The TSG CLI is a TSG specific command shell. By leveraging industry-standard tools and utilities, the CLI provides a set of commands that you can use to monitor and configure TSG devices. 
+TSG CLI supports two types of command, TSG specified commands and Linux-like system operational commands. 
+TSG specified commands help control policy and object, configure and check devices status. The commands related with policy and object control work on all TSG devices cluster. 
+The other CLI commands only work on local device. When you become familiar with the nesting structure and syntax of the commands, the CLI provides quick response times and administrative efficiency.
+
+
+For more details, please view \textcolor{darkblue}{\textbf{\underline{TSG CLI User Guide}}}.
+
+\pdfbookmark[1]{TSG Integration API}{TSG Integration API}
+\section*{\hypertarget{link:TSG Integration API}{TSG Integration API}}
+\label{sec:intro:api}
+
+TSG Integration API is a web service implemented using HTTP requests and responses following architecture style REST the RESTful API. 
+You can use this RESTful API to streamline your operations and integrate with existing, internally developed applications and repositories. 
+
+
+For more details, please refer to \textcolor{darkblue}{\textbf{\underline{TSG Integration API Specification}}}.
+
+
+\pdfbookmark[1]{TSG Administration}{TSG Administration}
+\section*{\hypertarget{link:TSG Administration}{TSG Administration}}
+\label{sec:intro:admin}
+
+\pdfbookmark[2]{Configure TSG Users}{Configure TSG Users}
+\subsection*{\hypertarget{link:Configure TSG Users}{Configure TSG Users}}
+\label{sec:intro:admin:users}
+
+The following table list three authentication mode for TSG:\\
+%\begin{longtable}{ccccccccccc} 
+    %{p{3cm}!{\color{white}\vrule width 3pt}p{12cm}}
+%\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}X|X}
+%\end{longtable}
+%\resizebox{\textwidth}{15mm}{\begin{tabular}{cccccccccccc}
+     %\resizebox{\textwidth}{10cm}{ \midrule \bottomrule 
+\begin{table}[h]
+    \begin{tabularx}{\textwidth}{p{0.27\textwidth}|p{0.67\textwidth}}
+    %\cellcolor[HTML]{000000}{\color[HTML]{FFFFFF} Authentication Mode} & \cellcolor[HTML]{000000}{\color[HTML]{FFFFFF} Privileges}   \\ \hline   
+    \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Authentication Mode}}  & \textcolor{white}{Privileges} \\\hline                                                                                                                                                          
+    LOCAL & The administrative account credentials mechanisms are local to TSG and provide full access to the web interface.\\\hline                                                                                                            
+    SSH Keys & The CLI specified administrative accounts are local to the TSG, but authentication to the CLI is based on SSH keys.\\\hline                                                                                                         
+    External service & The administrative accounts you define locally on TSG serve as references to the accounts defined on an external LDAP server. The external server performs authentication.\\\hline 
+    \end{tabularx}
+\end{table}
+%\begin{table}[h]
+%    \caption[A useless table]{A useless table.}
+%    \labtab{useless}
+%    \begin{tabular}{ c c c c }
+%        \toprule
+%        col1 & col2 & col3 & col 4 \\
+%        \midrule
+%        \multirow{3}{4em}{Multiple row} & cell2 & cell3 & cell4\\ &
+%        cell5 & cell6 & cell7 \\ &
+%        cell8 & cell9 & cell10 \\
+%        \multirow{3}{4em}{Multiple row} & cell2 & cell3 & cell4 \\ &
+%        cell5 & cell6 & cell7 \\ &
+%        cell8 & cell9 & cell10 \\
+%        \bottomrule
+%    \end{tabular}
+%\end{table}
+To restrict system access to authorized users, TSG provides role-based access control (RBAC). The basic concept of RBAC is that permissions are associated with roles, 
+and users are made members of appropriate roles, thereby acquiring the roles' permissions. This leads to “user-role-permission” authorization model. In TSG system, 
+the relationship between users and roles is one-to-one, and the relationship between roles and functional permissions is one-to-many. That is, a user can only have one role, 
+and a role can be assigned multi-level permissions to different features. For each feature, there are three permission levels: Enable, Read Only and Disable. 
+When the user has Read Only permission to a feature which normally is related with certain menu, the user cannot click Create, Edit, Delete, Enable and Disable button 
+and the detail pages of Policies and Objects are locked. 
+
+
+• Enable—Read/write access to the selected feature.\\   
+• Read Only—Read-only access to the selected feature.\\   
+• Disable—No access to the selected feature.\\
+
+\pdfbookmark[3]{Users and Roles}{Users and Roles}
+\subsubsection*{\hypertarget{link:Users and Roles}{Users and Roles}}
+\label{sec:intro:admin:users:role}
+
+Perform the following steps to add a LOCAL administrative account on TSG.\\
+\begin{description}
+    \item[STEP 1.] Select \textbf{Administration} > \textbf{Users}, select tab Users and click \textbf{Create}.
+    \item[STEP 2.] Enter a \textbf{Name} to identify the account.
+    \item[STEP 3.] Enter your \textbf{User Name} which is the login name and \textbf{Password}. 
+    \item[STEP 4.] Please \textbf{Confirm Password}.
+    \item[STEP 5.] If you enable \textbf{Required Password Change}, fill in the \textbf{Required Password Change Period}. 
+    A message will show up when you login after the period expires to enforce you to change to a new password.
+    \item[STEP 6.] Verify that the account is \textbf{Enabled}.
+    \item[STEP 7.] Select \textbf{Role Management} from dropdown list. Each account must and can only have one role, which defines different user permissions. 
+    For details, see \hyperlink{link:Roles and Permissions}{\textcolor{linkblue}{Roles and Permissions}}.
+    \item[STEP 8.] Click \textbf{OK}.
+    \item[STEP 9.] (\textcolor{gold}{Optional})To verify that you have add a TSG account effectively, you can \textbf{Sign Out} and log into the system with the new account. 
+    Select \textbf{Administration} > \textbf{Login Log} and you can view your login information.
+\end{description}
+If compliance, audit, or security requirements stipulate that the default administrative account must be removed from your devices, 
+you can remove it after you create at least one other superuser administrative account. 
+You cannot remove the default administrative account until you configure at least one other superuser administrative account on the device. 
+Perform the following steps to delete an account on TSG.\\
+\begin{description}
+    \item[STEP 1.] Select tab Users of \textbf{Administration} > \textbf{Users} and find the item you want to delete in the list.
+    \item[STEP 2.] Click \textbf{Delete} at the top left. Click \textbf{Delete} to confirm.
+\end{description}
+If you wish to temporarily disable an account, you can search it by User Name or Name at the top right search box. 
+Then click the switch under \textbf{Enable}. Please make sure your account is assigned the proper role with proper permission before you do \textbf{Delete} or \textbf{Enable}. 
+See \hyperlink{link:Roles and Permissions}{\textcolor{linkblue}{Roles and Permissions}} to find more details.
+
+
+\notemark\textit{And TSG supports 100 concurrent users at present.}
+
+\pdfbookmark[3]{Roles and Permissions}{Roles and Permissions}
+\subsubsection*{\hypertarget{link:Roles and Permissions}{Roles and Permissions}}
+\label{sec:intro:admin:users:permission}
+
+There are two predefined roles in TSG, including:\\
+• superuser: full permissions to all features and can create new accounts.\\
+• superreader: read only permissions to all features. 
+
+
+\notemark\textit{If a user’s role permissions enable TSG feature "Administrator-Users-Users" and at least include "Administrator-Users-Roles" Read Only access, 
+the user can create new users, and modify other users’ role permissions. This ability can affect the access rights of all users, please authorize with caution.}
+
+
+Perform the following to create a new role:
+
+
+\begin{description}
+    \item[STEP 1.] Select \textbf{Administration} > \textbf{Users}, select tab Roles and click \textbf{Create}.
+    \item[STEP 2.] Enter a \textbf{Name} to identify the role.
+    \item[STEP 3.] (\textcolor{gold}{Optional})Enter your \textbf{Description}.
+    \item[STEP 4.]	Click the icon before each \textbf{Menu} to switch the permission levels, which defines different permissions.
+    \item[STEP 5.]	Click \textbf{OK}.
+\end{description}
+
+
+\notemark\textit{It is recommended to configure the same access permission for Policies, Objects and Settings menu, because their data are related. 
+Make sure Devices are enabled before you enable Dashboard, because Devices affects the reading of data for device module in Dashboard.}
+
+
+\pdfbookmark[2]{Enroll LDAP Servers}{Enroll LDAP Servers}
+\subsection*{\hypertarget{link:Enroll LDAP Servers}{Enroll LDAP Servers}}
+\label{sec:intro:admin:ldap}
+
+Configuring TSG to connect to a LDAP server enables you to login in LDAP Authentication Mode with LDAP account. Perform the following steps to add a LDAP server on TSG.
+
+
+\begin{description}
+    \item[STEP 1.]	Select \textbf{Administration} > \textbf{LDAP Server} and click \textbf{Create}.
+    \item[STEP 2.]	Define a \textbf{Name} to specify the LDAP server.
+    \item[STEP 3.]	Enter your \textbf{Host} and \textbf{Port} of the LDAP server.
+    \item[STEP 4.]	Enter your \textbf{User Name}, which is the administrative user of LDAP server, and \textbf{User Mapper} which specifies the hierarchy of LDAP user. 
+    \item[STEP 5.]	Enter the \textbf{Password} of user in STEP 4. Verify that \textbf{Enabled} is on.
+    \item[STEP 6.]	\textbf{Test Connection}. After success, click \textbf{OK}.
+    \item[STEP 7.]	(\textcolor{gold}{Optional})To verify that you have add a LDAP server effectively, you can view related information on the \textbf{LDAP Server} list page. 
+\end{description}
+
+
+After setting LDAP server, you can login using the LDAP accounts of enrolled LDAP server. 
+After a LDAP account login TSG first time, the LDAP accounts will show on the tab \textbf{Users} of \textbf{Administration} > \textbf{Users}. 
+The column Source indicates the type of account which is shown as LDAP for LDAP account. 
+The column User name includes the full path for LDAP user, and the value of “uid” is the actual login username on TSG. 
+When logging into TSG system for the first time with LDAP user, TSG system will assign the user the role supperreader by default. 
+If the LDAP user requires other role permissions, you need to login by other users who have permission to modify a user’s role to modify it.
+
+
+In \textbf{Administration} > \textbf{LDAP Server} page, you can view the LDAP Server list. Operator displays who has modified the item, and it can be a LOCAL or LDAP account. 
+Select the item you wish to change in the list and click \textbf{Edit} to modify LDAP server information. 
+You can delete or disable the LDAP server and after that you will not be able to log into the system with the LDAP account.
+
+\pdfbookmark[2]{Audit Log}{Audit Log}
+\subsection*{\hypertarget{link:Audit Log}{Audit Log}}
+\label{sec:intro:admin:audit}
+
+If you perform an operation which influence the running of TSG, TSG will generate a log about this action. 
+For example, Audit Log will record the operations of adding or deleting or updating an object or policy, or clearing traffic logs, etc. 
+You can view \textbf{Administration} > \textbf{Audit Log} to see details. You can query audit logs within certain time range by ID, Source IP or Target Type. 
+Audit logs can be exported as trace evidence. And when you are editing a policy or an object, you will find a link to audit log about this policy or object.
+
+\pdfbookmark[2]{Mail Server}{Mail Server}
+\subsection*{\hypertarget{link:Mail Server}{Mail Server}}
+\label{sec:intro:admin:mail}
+
+Configure Mail Server to send mail alerts, which is currently used to send reports. Perform the following to create a Mail server profile:
+
+
+\begin{description}
+    \item[STEP 1.]	If you perform an operation which influence the running of TSG, TSG will generate a log about this action. 
+    For example, Audit Log will record the operations of adding or deleting or updating an object or policy, or clearing traffic logs. 
+    You can view \textbf{Administration} > \textbf{Audit Log} to see details.
+    \item[STEP 2.]	Select \textbf{Administration} > \textbf{Mail Server}.
+    \item[STEP 3.]	For Simple Mail Transport Protocol (SMTP) server (email server), Add a \textbf{Server} and \textbf{Port}.    
+    \item[STEP 4.]	Enable \textbf{Need Authentication}.
+    \item[STEP 5.]	Define a \textbf{Name} to identify the SMTP server (1-32characters). This field is just a label and doesn’t have to be the hostname of an existing email server. 
+    Define \textbf{E-mail}, the name to show in the \textbf{From} field of the email.
+    \item[STEP 6.]	Enable \textbf{SSL}. 
+    \item[STEP 7.]	Click \textbf{OK} to save the Email server profile.
+\end{description}
+
+
+To verify if the mail server works well, you can generate a Report and \textbf{Enable Notification} to send emails. For details, see \hyperlink{link:View and Manage Reports}{\textcolor{linkblue}{View and Manage Reports}}.
+

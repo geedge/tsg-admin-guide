@@ -1,0 +1,436 @@
+% !TEX root = ../TSG_Administrator's_Guide_SV20.11_v1.0_EN.tex
+%
+\pdfbookmark[0]{Appendix B Predefined Applications}{Appendix B Predefined Applications}
+\chapter*{\hypertarget{link:Appendix B Predefined Applications}{Appendix B Predefined Applications}}
+\label{sec:appendix_b}
+
+\begin{longtable}{p{0.12\textwidth}|p{0.03\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|p{0.45\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{\tabincell{l}{App\\ Name}}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{\tabincell{l}{App\\ ID}}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Category}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Subcategory}} & \textcolor{white}{Description} \\\hline  
+    \tabincell{l}{Unknown\\\_TCP}	& 100 &	unknown	& & \\ \hline
+    \tabincell{l}{Unknown\\\_UDP} & 101 & unknown	& &	\\ \hline
+    \tabincell{l}{Unknown\\\_Other} &	102	& unknown & &		\\ \hline
+	DNS &	103 &	networking &	infrastructure &	(Domain Name System) The Internet's system for converting alphabetic names into numeric IP addresses. \\ \hline
+    FTP &	104 &	general-internet &	file-sharing &	(File Transfer Protocol) A protocol used to transfer files over an IP network. \\ \hline
+    FTPS &	105 &	general-internet &	file-sharing &	(FTP Secure) Transferring files over the secure sockets layer (SSL) protocol. \\ \hline
+    HTTP &	106 &	general-internet &	internet-utility &	(HyperText Transfer Protocol) The communications protocol used to connect to Web servers on the Internet or on a local network (intranet).\\ \hline
+    HTTPS &	107 &	general-internet &	internet-utility &	(HyperText Transport Protocol Secure) The protocol used to access a secure Web server.\\ \hline
+    ICMP &	108 &	networking &	ip-protocol &	(Internet Control Message Protocol) A TCP/IP protocol used to send error and control messages. \\ \hline
+    IKE &	109 &	networking &	encrypted-tunnel &	(Internet Key Exchange) A method for establishing a security association (SA) in the IPsec protocol. IKE authenticates users, negotiates the encryption method and exchanges the secret key. \\ \hline
+    MAIL &	110 &	collaboration &	email & \\ \hline	
+    IMAPS &	111 &	collaboration &	email &	IMAP (Internet Message Access Protocol) Secure \\ \hline	
+    IPSEC &	112 &	networking &	encrypted-tunnel &	(IP SECurity) A security protocol from the IETF that provides authentication and encryption over the Internet.\\ \hline	
+    XMPP &	113 &	networking &	instant-messaging &	Extensible Messaging and Presence Protocol\\ \hline	
+    L2TP &	114 &	networking &	ip-protocol	& \\ \hline	
+    NTP &	115 &	networking &	infrastructure &	\\ \hline	
+    POP3S &	117 &	collaboration &	email &	Pop3 (Post Office Protocol) Secure\\ \hline	
+    PPTP &	118 &	networking &	infrastructure &	\\ \hline	
+    QUIC &	119 &	networking &	infrastructure &	\\ \hline	
+    SIP &	120 &	collaboration &	voip-video &	(Session Initiation Protocol) A very simple text-based application-layer control protocol. It creates, modifies, and terminates sessions with one or more participants. Such sessions include Internet telephony and multimedia conferences.\\ \hline	
+    SMB &	121 &	business-systems &	storage-backup &	(Server Message Block) The file sharing protocol in DOS and Windows.\\ \hline	
+    SMTPS &	123 &	collaboration &	email &	 (Simple Mail Transfer Protocol) Secure\\ \hline	
+    SPDY &	124 &	networking &	encrypted-tunnel &	(SPeeDY) A more efficient Web protocol from Google that is the basis of HTTP/2. \\ \hline	
+    SSH &	125 &	networking &	encrypted-tunnel &	(Secure SHell) A security protocol for logging into a remote server. SSH provides an encrypted session for transferring files and executing server programs. Also serving as a secure client/server connection for applications.\\ \hline
+    SSL &	126 &	networking &	encrypted-tunnel &	(Secure Sockets Layer) An earlier security protocol that was the Internet standard prior to TLS. Developed by Netscape, SSL was widely used to validate the identity of a website and create an encrypted connection. \\ \hline
+    SOCKS &	127 &	networking &	proxy &	(SOCKetS) A circuit-level proxy server for IP networks from the IETF. SOCKS is a general-purpose proxy that is typically used for non-HTTP traffic such as FTP, Telnet, etc. SOCKS4 handles TCP connections while SOCKS5 added support for UDP, ICMP, user authentication and hostname resolution.\\ \hline
+    TELNET &	128 &	networking &	remote-access &	The Internet standard protocol for remote login. Runs on top of TCP/IP. Defined in STD 8, RFC 854 and extended with options by many other RFCs.\\ \hline
+    DHCP &	129 &	networking &	infrastructure &	(Dynamic Host Configuration Protocol) The automatic assigning of IP addresses to client machines logging into an IP network.\\ \hline
+    RADIUS &	130 &	business-systems &	auth-service &	(Remote Authentication Dial-In User Service) An authentication, authorization and accounting (AAA) protocol developed by Livingston Enterprises (later acquired by Lucent). RADIUS uses a challenge/response method for authentication and has been widely used prior to Diameter.\\ \hline 
+    OPENVPN &	131 &	networking &	encrypted-tunnel &	An open source virtual private network (VPN) protocol that is widely used by VPN services to provide anonymity and privacy to users. OpenVPN uses the OpenSSL library for encryption and authentication.\\ \hline	
+    STUN &	132 &	networking &	infrastructure &	(Session Traversal Utilities for NAT) An IETF protocol for real-time voice, video and messaging in an IP network. STUN provides the mechanism to communicate with users behind a network address translation (NAT) firewall, which keeps their IP addresses private within the local network (LAN).\\ \hline	
+    TEREDO &	133 &	networking &	routing &	\\ \hline	
+    DTLS &	134 &	networking &	encrypted-tunnel &	\\ \hline	
+    DOH &	135 &	networking &	encrypted-tunnel &	\\ \hline	
+    ISAKMP &	136 &	networking &	encrypted-tunnel &	(Internet Security Association and Key Management Protocol) A framework for establishing trusted interactions among entities using TCP/IP. \\ \hline
+    MDNS &	137 &	networking &	infrastructure &	(Multicast DNS) Using IP multicast with DNS to provide the capabilities of a DNS server for service discovery in a small network that does not have a DNS server. \\ \hline
+    NETBIOS &	138 &	networking &	infrastructure &	(Network Basic Input/Output System) It provides services related to the session layer of the OSI model allowing applications on separate computers to communicate over a local area network. \\ \hline
+    NETFLOW &	139 &	business-systems &	management &	Routers and switches that support NetFlow can collect IP traffic statistics on all interfaces where NetFlow is enabled, and later export those statistics as NetFlow records toward at least one NetFlow collector - typically a server that does the actual traffic analysis. \\ \hline
+    RDP &	140 &	networking &	encrypted-tunnel &	(Remote Desktop Protocol) An input/output presentation protocol from Microsoft that governs the keyboard, mouse and screen formatting between clients and servers in a thin client environment. Based on the T.share protocol, RDP is used by Microsoft's Terminal Services and Remote Desktop Services to provide thin client, centralized architecture for the datacenter. \\ \hline
+    RTCP &	141 &	media &	photo-video &	RTCP is a companion protocol to RTP that is used to maintain QoS. RTP nodes analyze network conditions and periodically send each other RTCP packets that report on network congestion.\\ \hline
+    RTP &	142 &	media &	photo-video &	(Realtime Transport Protocol) An IP protocol that supports real-time transmission of voice and video. It is widely used for IP telephony and audio and video streaming.\\ \hline
+    SLP &	143 &	networking &	infrastructure &	(Service Location Protocol) An IETF standard used to announce and discover services such as printers and file shares on an IP network. Apple used SLP prior to Mac OS 10.2, but migrated to its Bonjour technology. \\ \hline
+    SNMP &	144 &	networking &	infrastructure &	(Simple Network Management Protocol) A widely used network monitoring and control protocol. Data are passed from SNMP agents, which are hardware and/or software processes reporting activity in each network device (hub, router, bridge, etc.) to the workstation console used to oversee the network. The agents return information contained in a MIB (Management Information Base), which is a data structure that defines what is obtainable from the device and what can be controlled (turned off, on, etc.).\\ \hline
+    SSDP &	145 &	networking &	infrastructure &	(Simple Service Discovery Protocol) A standard for advertising services on a TCP/IP network and discovering them. \\ \hline	
+    TFTP &	146 &	general-internet &	file-sharing &	(Trivial File Transfer Protocol) A lightweight version of the FTP protocol that has no directory browsing or password capability.\\ \hline	
+    BJNP &	147 &	business-systems &	management &	\\ \hline	
+    LDAP &	148 &	business-systems &	auth-service &	(Lightweight Directory Access Protocol) A protocol used to access a directory listing in a TCP/IP network. LDAP is used to query network directories, email servers and other information repositories. \\ \hline	
+    RTMP &	149 &	media &	photo-video &	(Real-Time Messaging Protocol) A proprietary streaming protocol from Adobe that is supported in its Flash Media Server/Adobe Media Server platforms. RTMP defines "virtual channels" that operate independently (audio, video, control messages, etc.).\\ \hline	
+    RTSP &	150 &	media &	photo-video &	(RealTime Streaming Protocol) An application layer protocol used to transmit streaming audio, video and 3D animation over the Internet. It enables the user's client software to provide remote control of the server with functions such as pause, rewind and fast forward.\\ \hline	    
+\end{longtable}
+
+\begin{longtable}{p{0.36\textwidth}|p{0.1\textwidth}|p{0.24\textwidth}|p{0.24\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{App Name}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{App ID}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Category}} & \textcolor{white}{Subcategory} \\\hline  
+    alipay &	1100 &	business-systems &	management\\ \hline
+    baiduhd &	1200 &	collaboration &	instant-messaging\\ \hline
+    taobao &	1300 &	general-internet &	internet-utility\\ \hline
+    eleme &	1400 &	general-internet &	marketing \\ \hline
+    meituan &	1500 &	general-internet &	marketing \\ \hline
+    mobileqq &	1600 &	collaboration &	instant-messaging \\ \hline
+    MobileQQ &	1700 &	general-internet &	web-posting \\ \hline
+    pinduoduo &	1800 &	general-internet &	internet-utility \\ \hline
+    qq &	1900 &	collaboration &	instant-messaging \\ \hline
+    QQ.VoiceCalls &	1901 &	collaboration &	voip-video \\ \hline
+    QQ.VideoCalls &	1902 &	collaboration &	voip-video \\ \hline
+    QQ.Message &	1903 &	collaboration &	instant-messaging \\ \hline
+    QQ.MessageFile &	1904 &	\tabincell{l}{general-internet\\ collaboration}	& \tabincell{l}{file-sharing\\ voip-video} \\ \hline
+    QQ.Login &	1905 &	business-systems &	auth-service \\ \hline
+    qqfile &	2500 &	general-internet &	file-sharing    \\ \hline
+    sougouseries &	2600 &	collaboration &	instant-messaging \\ \hline
+    webqq &	2700 &	collaboration &	instant-messaging \\ \hline
+    txweiyun &	2800 &	general-internet &	file-sharing \\ \hline   
+    youdaonote &	2900 &	business-systems &	office-programs \\ \hline
+    baiduclouddisk &	3000 &	general-internet &	file-sharing \\ \hline
+    applepush &	3100 &	general-internet &	internet-utility \\ \hline
+    badoo &	3200 &	collaboration &	social-networking \\ \hline
+    Badoo.VideoCalls &	3201 &	collaboration &	voip-video \\ \hline
+    Badoo.Message &	3202 &	collaboration &	instant-messaging \\ \hline
+    Badoo.Live &	3203 &	collaboration &	photo-video \\ \hline
+    Badoo.SurfingWebs &	3204 &	collaboration &	social-networking \\ \hline
+    drugvokrug &	3700 &	collaboration &	instant-messaging \\ \hline
+    Drugvokrug.Message &	3701 &	collaboration &	instant-messaging \\ \hline
+    firechat &	3900 &	collaboration &	instant-messaging \\ \hline
+    googlepush &	4000 &	general-internet &	internet-utility \\ \hline
+    Mail.ruAgent &	4100 &	collaboration &	email \\ \hline
+    Mail.ruAgent.VideoCalls &	4101 &	collaboration &	email \\ \hline
+    Mail.ruAgent.Message &	4102 &	collaboration &	instant-messaging \\ \hline
+    MicrosoftUpdate &	4400 &	business-systems &	general-business \\ \hline
+    Odnoklassniki &	4500 &	collaboration &	social-networking \\ \hline
+    Odnoklassniki.VideoCalls &	4501 &	collaboration &	social-networking \\ \hline
+    Odnoklassniki.Message &	4502 &	collaboration &	instant-messaging \\ \hline
+    SignalPrivateMessenger &	4800 &	collaboration &	instant-messaging \\ \hline
+    \tabincell{l}{SignalPrivateMessenger.\\MessageFile} &	4801 &	collaboration &	instant-messaging \\ \hline
+    Skype &	5000 &	collaboration &	voip-video \\ \hline
+    Skype.VideoCalls &	5001 &	collaboration &	\tabincell{l}{voip-video\\
+                                                              file-sharing} \\ \hline
+    Skype.Message &	5002 &	collaboration &	instant-messaging \\ \hline
+    Skype.MessageFile &	5003 &	collaboration &	voip-video \\ \hline
+    Snapchat &	5400 &	collaboration &	instant-messaging \\ \hline
+    Telegram &	5500 &	collaboration &	instant-messaging \\ \hline
+    Telegram.VideoCalls &	5501 &	collaboration &	voip-video \\ \hline
+    Twitter &	5700 &	collaboration &	\tabincell{l}{auth-service\\
+                                                      social-networking} \\ \hline
+    Twitter.Message &	5701 &	collaboration &	social-networking \\ \hline
+    viber &	5800 &	collaboration &	voip-video \\ \hline
+    Viber.VoiceCalls &	5801 &	collaboration &	voip-video \\ \hline
+    Viber.Message &	5802 &	collaboration &	\tabincell{l}{auth-service\\
+                                                          voip-video} \\ \hline
+    Viber.MessageFile &	5803 &	collaboration &	file-sharing \\ \hline
+    Vkontakte &	6300 &	collaboration &	\tabincell{l}{instant-messaging\\
+                                                      auth-service\\
+                                                      social-networking} \\ \hline
+    Vkontakte.VideoCalls &	6301 &	collaboration &	voip-video \\ \hline
+    Vkontakte.Live &	6302 &	collaboration &	photo-video \\ \hline
+    Vkontakte.VOD &	6303 &	collaboration &	photo-video \\ \hline
+    WeChat &	6700 &	collaboration &	\tabincell{l}{auth-service\\
+                                                      instant-messaging} \\ \hline
+    WeChat.VideoCalls &	6701 &	collaboration &	voip-video \\ \hline
+    WeChat.Message &	6702 &	collaboration &	instant-messaging \\ \hline
+    WeChat.MessageFile &	6703 &	general-internet &	file-sharing \\ \hline
+    whatsapp &	7100 &	collaboration &	\tabincell{l}{auth-service\\
+                                                      instant-messaging} \\ \hline
+    WhatsApp.VideoCalls &	7101 &	collaboration &	\tabincell{l}{voip-video\\
+                                                                  instant-messaging} \\ \hline
+    WhatsApp.Message &	7102 &	collaboration &	instant-messaging \\ \hline
+    WhatsApp.MessageFile &	7103 &	general-internet &	file-sharing \\ \hline
+    CMBMobileBank &	7400 &	business-systems &	general-business \\ \hline
+    ICBCMobileBank &	7500 &	business-systems &	general-business \\ \hline
+    bilibili &	7600 &	media &	photo-video \\ \hline
+    douyutv &	7700 &	media &	photo-video \\ \hline
+    facebook &	7800 &	\tabincell{l}{media\\ 
+                                      collaboration}	& \tabincell{l}{photo-video\\
+                                                                        auth-service\\
+                                                                        social-networking} \\ \hline
+    Facebook.VideoCalls &	7801 &	collaboration &	voip-video \\ \hline
+    Facebook.Message &	7802 &	collaboration &	instant-messaging \\ \hline
+    Facebook.Live &	7803 &	media &	photo-video \\ \hline
+    Facebook.MessageFile &	7804 &	media &	photo-video \\ \hline
+    iqiyi &	8300 &	media &	photo-video \\ \hline
+    wangyiyunmusic &	8400 &	media &	audio-streaming \\ \hline
+    periscope &	8500 &	media &	photo-video \\ \hline
+    qqmusic &	8600 &	media &	audio-streaming \\ \hline
+    youtube &	8700 &	media &	photo-video \\ \hline
+    YouTube.Live &	8701 &	media &	photo-video \\ \hline
+    YouTube.VOD &	8702 &	media &	photo-video \\ \hline
+    YouTube.UploadFiles &	8703 &	media &	photo-video \\ \hline
+    YouTube.Search &	8704 &	collaboration &	web-posting \\ \hline
+    ArcadeVPN &	9200 &	networking &	encrypted-tunnel \\ \hline
+    Betternet &	9300 &	networking &	encrypted-tunnel \\ \hline
+    BrowsecVPN &	9400 &	networking &	encrypted-tunnel \\ \hline
+    DubkiVPN &	9500 &	networking &	encrypted-tunnel \\ \hline
+    EasyVPN &	9600 &	networking &	encrypted-tunnel \\ \hline
+    FishVPN &	9700 &	networking &	encrypted-tunnel \\ \hline
+    FoxVPN &	9800 &	networking &	encrypted-tunnel \\ \hline
+    VPNFrance &	9900 &	networking &	encrypted-tunnel \\ \hline
+    freegate &	10000 &	networking &	proxy \\ \hline
+    FreeVPNProxy &	10100 &	networking &	proxy \\ \hline
+    FreeVPNUnlimitedProxy &	10200 &	networking &	proxy \\ \hline
+    VPNGermany &	10300 &	networking &	proxy \\ \hline
+    GooseVPN &	10400 &	networking &	proxy \\ \hline
+    Heywire &	10500 &	networking &	proxy \\ \hline
+    HidemeVPN &	10600 &	networking &	proxy \\ \hline
+    hidemyass &	10700 &	networking &	proxy \\ \hline
+    HolaVPN &	10800 &	networking &	encrypted-tunnel \\ \hline
+    HotSpotshieldVPN &	10900 &	networking &	encrypted-tunnel \\ \hline
+    HotSpotVPN &	11000 &	networking &	encrypted-tunnel \\ \hline
+    LunaVPN &	11100 &	networking &	encrypted-tunnel \\ \hline
+    LuxVPN &	11200 &	networking &	encrypted-tunnel \\ \hline
+    VPNMalaysia &	11300 &	networking &	encrypted-tunnel \\ \hline
+    orbot &	11400 &	networking &	encrypted-tunnel \\ \hline
+    PandaVPN &	11500 &	networking &	encrypted-tunnel \\ \hline
+    psiphon &	11600 &	networking &	proxy \\ \hline
+    PureVPN &	11700 &	networking &	encrypted-tunnel \\ \hline
+    SecureVPN &	11800 &	networking &	encrypted-tunnel \\ \hline
+    SetupVPNChromeExtension &	11900 &	networking &	encrypted-tunnel \\ \hline
+    SuperVPN &	12000 &	networking &	encrypted-tunnel \\ \hline
+    SurfSharkVPN &	12100 &	networking &	proxy \\ \hline
+    Talk2 &	12200 &	networking &	proxy \\ \hline
+    ThunderVPN &	12300 &	networking &	proxy \\ \hline
+    TOROrbot &	12400 &	networking &	encrypted-tunnel \\ \hline
+    TunnelBear &	12500 &	networking &	encrypted-tunnel \\ \hline
+    TurboVPN &	12600 &	networking &	encrypted-tunnel \\ \hline
+    USAVPN &	12700 &	networking &	encrypted-tunnel \\ \hline
+    UVPN &	12800 &	networking &	encrypted-tunnel \\ \hline
+    VPNCanada &	12900 &	networking &	encrypted-tunnel \\ \hline
+    VPNIndonesia &	13000 &	networking &	encrypted-tunnel \\ \hline
+    VPNIndia &	13100 &	networking &	encrypted-tunnel \\ \hline
+    VPNJapan &	13200 &	networking &	encrypted-tunnel \\ \hline
+    VPNKorea &	13300 &	networking &	encrypted-tunnel \\ \hline
+    VPNProxyMaster &	13400 &	networking &	encrypted-tunnel \\ \hline
+    AvastVPN &	13500 &	networking &	encrypted-tunnel \\ \hline
+    VPNRussia &	13600 &	networking &	encrypted-tunnel \\ \hline
+    VPNTap2free &	13700 &	networking &	encrypted-tunnel \\ \hline
+    VPNUkraine &	13800 &	networking &	encrypted-tunnel \\ \hline
+    VPNUSA &	13900 &	networking &	encrypted-tunnel \\ \hline
+    VyprVPN &	14000 &	networking &	encrypted-tunnel \\ \hline
+    WolfVPN &	14100 &	networking &	encrypted-tunnel \\ \hline
+    Ultrasurf &	14200 &	networking &	encrypted-tunnel \\ \hline
+    ZenmateVPN &	14300 &	networking &	proxy \\ \hline
+    SecurityKiss &	14400 &	networking &	encrypted-tunnel \\ \hline
+    VPNOneClick &	14500 &	networking &	encrypted-tunnel \\ \hline
+    NordVPN &	14600 &	networking &	encrypted-tunnel \\ \hline
+    HoxxVPN &	14700 &	networking &	encrypted-tunnel \\ \hline
+    WindscribeVPN &	14800 &	networking &	encrypted-tunnel \\ \hline
+    TouchVPN &	14900 &	networking &	encrypted-tunnel \\ \hline
+    VPN365 &	15000 &	networking &	encrypted-tunnel \\ \hline
+    ProtonVPN &	15100 &	networking &	encrypted-tunnel \\ \hline
+    OVPNspider &	15200 &	networking &	encrypted-tunnel \\ \hline
+    BusinessVPN &	15300 &	networking &	encrypted-tunnel \\ \hline
+    VPNTT &	15400 &	networking &	encrypted-tunnel \\ \hline
+    FoxFlyRouter &	15500 &	networking &	encrypted-tunnel \\ \hline
+    LaowangVPN &	15600 &	networking &	encrypted-tunnel \\ \hline
+    SurfVPN &	15700 &	networking &	encrypted-tunnel \\ \hline
+    BaiJingVPN &	15800 &	networking &	encrypted-tunnel \\ \hline
+    FlexVPN &	15900 &	networking &	encrypted-tunnel \\ \hline
+    LionVPN &	16000 &	networking &	encrypted-tunnel \\ \hline
+    VPNIsrael &	16100 &	networking &	encrypted-tunnel \\ \hline
+    PandaVPNPro &	16200 &	networking &	encrypted-tunnel \\ \hline
+    LieBaoJiaSuQi &	16300 &	networking &	encrypted-tunnel \\ \hline
+    AceVPN &	16400 &	networking &	encrypted-tunnel \\ \hline
+    ShotVPN &	16500 &	networking &	encrypted-tunnel \\ \hline
+    McAfeeVPN &	16600 &	networking &	encrypted-tunnel \\ \hline
+    SmartVPN &	16700 &	networking &	encrypted-tunnel \\ \hline
+    RusVPN &	16800 &	networking &	encrypted-tunnel \\ \hline
+    VPNify &	16900 &	networking &	encrypted-tunnel \\ \hline
+    UnlockSecureFreeVPN &	17000 &	networking &	encrypted-tunnel \\ \hline
+    BestVPNProxy &	17100 &	networking &	encrypted-tunnel \\ \hline
+    MelonVPN &	17200 &	networking &	encrypted-tunnel \\ \hline
+    FreeUnlimitedVPNProxy &	17300 &	networking &	encrypted-tunnel \\ \hline
+    FreeVPNUnblockProxy &	17400 &	networking &	encrypted-tunnel \\ \hline
+    VPNProxyMasterPro &	17500 &	networking &	encrypted-tunnel \\ \hline
+    VPNProxyMasterLite &	17600 &	networking &	encrypted-tunnel \\ \hline
+    CyberGuardVPN &	17700 &	networking &	encrypted-tunnel \\ \hline
+    TopVPN &	17800 &	networking &	encrypted-tunnel \\ \hline
+    FreeZenVPN &	17900 &	networking &	encrypted-tunnel \\ \hline
+    VPNEasy &	18000 &	networking &	encrypted-tunnel \\ \hline
+    SetupVPN &	18100 &	networking &	encrypted-tunnel \\ \hline
+    VPNHub &	18200 &	networking &	encrypted-tunnel \\ \hline
+    FreeVPNWhiteKey &	18300 &	networking &	encrypted-tunnel \\ \hline
+    FreeVPNColorKey &	18400 &	networking &	encrypted-tunnel \\ \hline
+    EutVPN &	18500 &	networking &	encrypted-tunnel \\ \hline
+    UFOVPNBasic &	18600 &	networking &	encrypted-tunnel \\ \hline
+    FinchVPN &	18700 &	networking &	encrypted-tunnel \\ \hline
+    FlashVPN &	18800 &	networking &	encrypted-tunnel \\ \hline
+    LunaVPNFreeProxy &	18900 &	networking &	encrypted-tunnel \\ \hline
+    StarVPN &	19000 &	networking &	encrypted-tunnel \\ \hline
+    PlexVPN &	19100 &	networking &	encrypted-tunnel \\ \hline
+    DailyVPN &	19200 &	networking &	encrypted-tunnel \\ \hline
+    CyberGhostVPN &	19300 &	networking &	encrypted-tunnel \\ \hline
+    VPNLite &	19400 &	networking &	encrypted-tunnel \\ \hline
+    SnapVPN &	19500 &	networking &	encrypted-tunnel \\ \hline
+    VPNRobot &	19600 &	networking &	encrypted-tunnel \\ \hline
+    BESTVPN &	19700 &	networking &	encrypted-tunnel \\ \hline
+    JapanVPNMasterFree &	19800 &	networking &	encrypted-tunnel \\ \hline
+    IPVanishVPN &	19900 &	networking &	encrypted-tunnel \\ \hline
+    UnlimitedVPN &	20000 &	networking &	encrypted-tunnel \\ \hline
+    OneVPN &	20100 &	networking &	encrypted-tunnel \\ \hline
+    AppsverseAvVPN &	20200 &	networking &	encrypted-tunnel \\ \hline
+    CloudVPN &	20300 &	networking &	encrypted-tunnel \\ \hline
+    VPNInf &	20400 &	networking &	encrypted-tunnel \\ \hline
+    MelonVPNNew &	20500 &	networking &	encrypted-tunnel \\ \hline
+    GeckoVPN &	20600 &	networking &	encrypted-tunnel \\ \hline
+    Seed4MeVPN &	20700 &	networking &	encrypted-tunnel \\ \hline
+    MatrixVPN &	20800 &	networking &	encrypted-tunnel \\ \hline
+    ElectroVPN &	20900 &	networking &	encrypted-tunnel \\ \hline
+    BVPN &	21000 &	networking &	encrypted-tunnel \\ \hline
+    WASELProVPN &	21100 &	networking &	encrypted-tunnel \\ \hline
+    IWASEL &	21200 &	networking &	encrypted-tunnel \\ \hline
+    CatVPN &	21300 &	networking &	encrypted-tunnel \\ \hline
+    PhoneGuardianVPN &	21400 &	networking &	encrypted-tunnel \\ \hline
+    VpnBeaver &	21500 &	networking &	encrypted-tunnel \\ \hline
+    SpeedVPN &	21600 &	networking &	encrypted-tunnel \\ \hline
+    TroidVPN &	21700 &	networking &	encrypted-tunnel \\ \hline
+    SmallRabbitVPN &	21800 &	networking &	encrypted-tunnel \\ \hline
+    ArmadaVPN &	21900 &	networking &	encrypted-tunnel \\ \hline
+    GOVPN &	22000 &	networking &	encrypted-tunnel \\ \hline
+    IvacyVPN &	22100 &	networking &	encrypted-tunnel \\ \hline
+    VPNGO &	22200 &	networking &	encrypted-tunnel \\ \hline
+    Try2CatchVPN &	22300 &	networking &	encrypted-tunnel \\ \hline
+    BoxPN &	22400 &	networking &	encrypted-tunnel \\ \hline
+    VPNTunnel &	22500 &	networking &	encrypted-tunnel \\ \hline
+    VPNAI &	22600 &	networking &	encrypted-tunnel \\ \hline
+    FreeVPN &	22700 &	networking &	encrypted-tunnel \\ \hline
+    YinHeVPN &	22800 &	networking &	encrypted-tunnel \\ \hline
+    FreeSSVPN &	22900 &	networking &	encrypted-tunnel \\ \hline
+    FreeMikaVPN &	23000 &	networking &	encrypted-tunnel \\ \hline
+    AntVPN &	23100 &	networking &	encrypted-tunnel \\ \hline
+    WaspVPN &	23200 &	networking &	encrypted-tunnel \\ \hline
+    RejinderiFreeVPN &	23300 &	networking &	encrypted-tunnel \\ \hline
+    GoatVPN &	23400 &	networking &	encrypted-tunnel \\ \hline
+    SoloVPN &	23500 &	networking &	encrypted-tunnel \\ \hline
+    HouWangVPN &	23600 &	networking &	encrypted-tunnel \\ \hline
+    Nash &	23700 &	networking &	encrypted-tunnel \\ \hline
+    HOTVPN &	23800 &	networking &	encrypted-tunnel \\ \hline
+    WORLDVPN &	23900 &	networking &	encrypted-tunnel \\ \hline
+    HexatechVPN &	24000 &	networking &	encrypted-tunnel \\ \hline
+    R-VPN &	24100 &	networking &	encrypted-tunnel \\ \hline
+    SatuVPN &	24200 &	networking &	encrypted-tunnel \\ \hline
+    PolestarVPN &	24300 &	networking &	encrypted-tunnel \\ \hline
+    VPNMonster &	24400 &	networking &	encrypted-tunnel \\ \hline
+    BuddyVPN &	24500 &	networking &	encrypted-tunnel \\ \hline
+    VPNEARTH &	24600 &	networking &	encrypted-tunnel \\ \hline
+    FastFreeVPN &	24700 &	networking &	encrypted-tunnel \\ \hline
+    liquiduRocketVPN &	24800 &	networking &	encrypted-tunnel \\ \hline
+    TunnelLight &	24900 &	networking &	encrypted-tunnel \\ \hline
+    NetVPN &	25000 &	networking &	encrypted-tunnel \\ \hline
+    SmartLockVPN &	25100 &	networking &	encrypted-tunnel \\ \hline
+    BoxVPN &	25200 &	networking &	encrypted-tunnel \\ \hline
+    TheBestVPNHotspotMaster &	25300 &	networking &	encrypted-tunnel \\ \hline
+    VPNChina &	25400 &	networking &	encrypted-tunnel \\ \hline
+    VPNBlue &	25500 &	networking &	encrypted-tunnel \\ \hline
+    BlueVPN &	25600 &	networking &	encrypted-tunnel \\ \hline
+    VPNPlus &	25700 &	networking &	encrypted-tunnel \\ \hline
+    VPNBlue &	25800 &	networking &	encrypted-tunnel \\ \hline
+    VPNCity &	25900 &	networking &	encrypted-tunnel \\ \hline
+    FreshVPN &	26000 &	networking &	encrypted-tunnel \\ \hline
+    PhoenixVPN &	26100 &	networking &	encrypted-tunnel \\ \hline
+    LightVPN &	26200 &	networking &	encrypted-tunnel \\ \hline
+    BESTVPN &	26300 &	networking &	encrypted-tunnel \\ \hline
+    LvYeVPN &	26400 &	networking &	encrypted-tunnel \\ \hline
+    VPNBOTTLE &	26500 &	networking &	encrypted-tunnel \\ \hline
+    VPNExpress &	26600 &	networking &	encrypted-tunnel \\ \hline
+    PrivatixVPN &	26700 &	networking &	encrypted-tunnel \\ \hline
+    WhatsVPN &	26800 &	networking &	encrypted-tunnel \\ \hline
+    OrangeVPN &	26900 &	networking &	encrypted-tunnel \\ \hline
+    SuperVPN &	27000 &	networking &	encrypted-tunnel \\ \hline
+    LiteVPN &	27100 &	networking &	encrypted-tunnel \\ \hline
+    JustVPN &	27200 &	networking &	encrypted-tunnel \\ \hline
+    HoxxVPN &	27300 &	networking &	encrypted-tunnel \\ \hline
+    OmanVPN &	27400 &	networking &	encrypted-tunnel \\ \hline
+    TaiwanVPN &	27500 &	networking &	encrypted-tunnel \\ \hline
+    WangVPN &	27600 &	networking &	encrypted-tunnel \\ \hline
+    EgyptVPN &	27700 &	networking &	encrypted-tunnel \\ \hline
+    BrazilVPN &	27800 &	networking &	encrypted-tunnel \\ \hline
+    SpainVPN &	27900 &	networking &	encrypted-tunnel \\ \hline
+    NewZealandVPN &	28000 &	networking &	encrypted-tunnel \\ \hline
+    PhilippinesVPN &	28100 &	networking &	encrypted-tunnel \\ \hline
+    IndonesiaVPN &	28200 &	networking &	encrypted-tunnel \\ \hline
+    VPNBestVPN &	28300 &	networking &	encrypted-tunnel \\ \hline
+    FROGVPN &	28400 &	networking &	encrypted-tunnel \\ \hline
+    BlackVPN &	28500 &	networking &	encrypted-tunnel \\ \hline
+    ChinaFastVpn &	28600 &	networking &	encrypted-tunnel \\ \hline
+    RussiaFastVPN &	28700 &	networking &	encrypted-tunnel \\ \hline
+    LaoSongVPN &	28800 &	networking &	encrypted-tunnel \\ \hline
+    IranVPN &	28900 &	networking &	encrypted-tunnel \\ \hline
+    ZVPN &	29000 &	networking &	encrypted-tunnel \\ \hline
+    OMGVPN &	29100 &	networking &	encrypted-tunnel \\ \hline
+    AmigoVPN &	29200 &	networking &	encrypted-tunnel \\ \hline
+    FreeVPN &	29300 &	networking &	encrypted-tunnel \\ \hline
+    PhilippinesVPN &	29400 &	networking &	encrypted-tunnel \\ \hline
+    EgyptVPN &	29500 &	networking &	encrypted-tunnel \\ \hline
+    PurpleVPN &	29600 &	networking &	encrypted-tunnel \\ \hline
+    MambaVPN &	29700 &	networking &	encrypted-tunnel \\ \hline
+    AirVPN &	29800 &	networking &	encrypted-tunnel \\ \hline
+    LunaVPN &	29900 &	networking &	encrypted-tunnel \\ \hline
+    UFOVPN-NetVPN &	30000 &	networking &	encrypted-tunnel \\ \hline
+    ArvinVPN &	30100 &	networking &	encrypted-tunnel \\ \hline
+    OwlVPNFree &	30200 &	networking &	encrypted-tunnel \\ \hline
+    HalleyVPN &	30300 &	networking &	encrypted-tunnel \\ \hline
+    HotFreeVPN &	30400 &	networking &	encrypted-tunnel \\ \hline
+    VPNPro &	30500 &	networking &	encrypted-tunnel \\ \hline
+    FaceTime.VideoCalls &	30600 &	collaboration &	voip-video \\ \hline
+    zello &	30700 &	collaboration &	social-networking \\ \hline
+    Zello.MessageVoice &	30701 &	collaboration &	voip-video \\ \hline
+    appstore &	30900 &	general-internet &	internet-utility \\ \hline
+    google &	31000 &	general-internet &	internet-utility \\ \hline
+    instagram &	31100 &	media &	photo-video \\ \hline
+    Instagram.VideoCalls &	31101 &	media &	photo-video \\ \hline
+    Instagram.Message &	31102 &	media &	photo-video \\ \hline
+    Instagram.Live &	31103 &	media &	photo-video \\ \hline
+    JingDong &	31500 &	business-systems &	general-business \\ \hline
+    microsoftteam &	31600 &	collaboration &	internet-conferencing \\ \hline
+    Operamini &	31700 &	\tabincell{l}{general-internet\\ networking} &	\tabincell{l}{internet-utility\\ encrypted-tunnel} \\ \hline
+    GooglePlayMarket &	31800 &	general-internet &	internet-utility \\ \hline
+    \tabincell{l}{GooglePlayMarket.\\DownloadFiles} &	31801 &	general-internet &	internet-utility \\ \hline
+    GooglePlayMarket.Search &	31802 &	general-internet &	internet-utility \\ \hline
+    QQWebVideo &	32100 &	collaboration &	voip-video \\ \hline
+    QQVideoChat &	32200 &	collaboration &	voip-video \\ \hline
+    Weibo &	32300 &	collaboration &	social-networking \\ \hline
+    BaiDuTieBa &	32400 &	collaboration &	social-networking \\ \hline
+    WPS &	32500 &	business-systems &	general-business \\ \hline
+    Yandex &	32600 &	general-internet &	file-sharing \\ \hline
+    Office365 &	32700 &	business-systems &	office-programs \\ \hline
+    slack &	32800 &	collaboration &	\tabincell{l}{instant-messaging\\ voip-video} \\ \hline
+    slack.Login &	32901 &	collaboration &	social-business \\ \hline
+    slack.Logout &	32902 &	collaboration &	social-business \\ \hline
+    YandexTurbo &	33100 &	general-internet &	file-sharing \\ \hline
+    Teamviewer &	33200 &	networking &	photo-video \\ \hline
+    Teamviewer.TransferFile &	33201 &	networking &	file-sharing \\ \hline
+    Teamviewer.RemoteControl &	33202 &	networking &	remote-access \\ \hline
+    XiangRiKui &	33500 &	networking & \tabincell{l}{remote-access\\ file-sharing} \\ \hline
+    Xiangrikui.Login &	33501 &	networking &	auth-service \\ \hline
+    HuaTianOA &	33700 &	business-systems &	general-business \\ \hline
+    PHPOA &	33800 &	collaboration &	web-posting \\ \hline
+    78OA &	33900 &	collaboration &	web-posting \\ \hline
+    TongDaOA &	34000 &	collaboration &	web-posting \\ \hline
+    WeaverOA &	34100 &	general-internet &	gaming \\ \hline
+    RanZhiOA &	34200 &	collaboration &	web-posting \\ \hline
+    JinDieOA &	34300 &	business-systems &	management \\ \hline
+    Tita &	34400 &	business-systems &	management \\ \hline
+    IIEARP &	34500 &	business-systems &	general-business \\ \hline
+    WindowsRemote &	34600 &	networking &	remote-access \\ \hline
+    HuaWeiCloudWeLink &	34700 &	business-systems &	\tabincell{l}{voip-video\\ management} \\ \hline
+    \tabincell{l}{HuaWeiCloudWeLink.\\VideoCalls} &	34701 &	business-systems &	office-programs \\ \hline
+    FeiShu &	34900 &	business-systems &	management \\ \hline
+    dingding &	35000 &	business-systems &	management \\ \hline
+    DingDing.VideoCalls &	35001 &	business-systems &	management \\ \hline
+    CSTCloud &	35200 &	business-systems &	internet-conferencing \\ \hline
+    CSTCloud.Login &	35201 &	business-systems &	internet-conferencing \\ \hline
+    ShiMoDocs &	35400 &	business-systems &	office-programs \\ \hline
+    WeiXinWork &	35500 &	collaboration &	instant-messaging \\ \hline
+    WeiXinWork.VideoCalls &	35501 &	collaboration &	voip-video \\ \hline
+    TencentDocs &	35700 &	business-systems &	office-programs \\ \hline
+    YinXiangNotes &	35800 &	business-systems &	office-programs \\ \hline
+    YouDaoNotes &	35900 &	business-systems &	office-programs \\ \hline
+    TencentMeeting &	36000 &	collaboration &	internet-conferencing \\ \hline
+    TencentMeeting.VideoCalls &	36001 &	collaboration &	internet-conferencing \\ \hline
+    Trello &	36200 &	business-systems &	management \\ \hline
+    Quip &	36300 &	business-systems &	general-business \\ \hline
+    XYLink &	36400 &	collaboration &	internet-conferencing \\ \hline
+    XYLink.VideoCalls &	36401 &	collaboration &	internet-conferencing \\ \hline
+    XYLink.Login &	36402 &	collaboration &	internet-conferencing \\ \hline
+    Teambition &	36700 &	business-systems &	office-programs \\ \hline
+    Teambition.Login &	36701 &	business-systems &	office-programs \\ \hline
+    vpngate &	36900 &	meida &	gaming \\ \hline
+    webex &	37000 &	collaboration &	internet-conferencing \\ \hline
+    webex.login &	37001 &	collaboration &	internet-conferencing \\ \hline
+    tunnel\_behavior	 &  37200 &	networking &	encrypted-tunnel \\ \hline
+\end{longtable}    

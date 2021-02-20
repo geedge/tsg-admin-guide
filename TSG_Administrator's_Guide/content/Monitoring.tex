@@ -1,0 +1,779 @@
+% !TEX root = ../TSG_Administrator's_Guide_SV20.11_v1.0_EN.tex
+%
+\pdfbookmark[0]{Monitoring}{Monitoring}
+\chapter*{\hypertarget{link:Monitoring}{Monitoring}}
+\label{sec:monitor}
+
+To forestall potential issues and to accelerate incidence response when needed, TSG provides intelligence about traffic and user patterns using customizable and informative reports. 
+The dashboard, logs, and reports on TSG allow you to monitor activity on your network. You can monitor the logs and filter the information to generate reports with predefined 
+or customized views. For example, you can use the predefined templates to generate reports on user activities or analyze the reports and logs to interpret unusual behavior 
+on your network and generate a custom report on the traffic pattern. For a visually engaging presentation of network activity, the dashboard chart, with which you can interact 
+to find the information you care about. 
+
+{
+\color{linkblue}
+\hyperlink{link:Use the Dashboard}{> Use the Dashboard} \\
+\hyperlink{link:View and Manage Logs}{> View and Manage Logs} \\
+\hyperlink{link:View and Manage Report}{> View and Manage Report}\\
+\hyperlink{link:Take Packet Captures}{> Take Packet Captures}\\
+}
+\clearpage
+
+\pdfbookmark[1]{Use the Dashboard}{Use the Dashboard}
+\section*{\hypertarget{link:Use the Dashboard}{Use the Dashboard}}
+\label{sec:monitor:dashboard}
+
+The TSG Dashboard include two sub menus, Main Board and Live Chart. Main Board show general TSG system overview, endpoints, policy hits statistics. By default, the Main Board shows information of the last 24 hours. However, you can customize time range by clicking the time widget. By default, the statistics on the screen will not refresh automatically. You can turn it on and the Minimum Refresh Time is 15s. The following table describes the Main Board widgets:
+
+
+\begin{longtable}{p{0.15\textwidth}|p{0.21\textwidth}|p{0.56\textwidth}}   
+    \rowcolor{black}\multicolumn{2}{l!{\vlinewhite}}{\textcolor{white}{Main Board}}  & \textcolor{white}{Description}\\\hline                                                                                                                                                          
+    \multirow{5}{*}{\tabincell{l}{System\\ Overview}} & Traffic & Monitor traffic bandwidth over time. You can view Bits, Packets and Sessions number. Bits is the accumulated bits sent/received. Packets is the accumulated packets sent/received. Sessions is the total sessions blocked/allowed.\\ \cline{2-3}
+                                                      & New & Displays the count number of New connections, which go through the system. \\ \cline{2-3}
+                                                      & Live & Displays the count number of current active connections, which go through the system. \\ \cline{2-3}
+                                                      & Device Count & Device Count shows the devices number in TSG, and the devices number that are in Up, Down and Alarm status. And it provides a link to NEZHA system. \\ \cline{2-3}
+                                                      & Security Policy & Enabled count, total count and Disabled count of Security Policy. Hover over Total, and you can also get enabled and disabled count about Proxy Policy. \\ \hline
+    \multirow{2}{*}{\tabincell{l}{Security\\ Policy Hits}} & \tabincell{l}{Security Policy\\ Hits by action}  & Hits are the times that traffic matched the criteria you defined in the Security Policy rule. A display of Security Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes. \\ \cline{2-3}
+                                                                     & \tabincell{l}{Security Policy\\ Top Hits} & Displays Top 10 or 100 Security Policy Hits. You can view either the tables or bars. \\ \hline
+    \multirow{5}{*}{Endpoints} & Active Client IP & Displays Active Client IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
+                               & Active Server IP & Displays Active Server IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
+                               & Active Subscriber ID & Displays Active Subscriber ID by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
+                               & Top URLs & Displays Top URLs of Security and Proxy Policy Hits by session count. You can view either the tables or bars. \\ \cline{2-3}
+                               & Top Domains & Displays Top Domains by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \hline
+    \multirow{3}{*}{\tabincell{l}{Proxy Policy\\ Hits}} & Proxy Policy Hits by action & Hits are the times that traffic matched the criteria you defined in the Proxy Policy rule. A display of Proxy Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes number. \\ \cline{2-3}
+                                                        & \tabincell{l}{Proxy Policy\\ Pinning} & Displays Pinning information for SSL/TSL traffic. \\ \cline{2-3}
+                                                        & Proxy Policy Top Hits & Displays Top 10 or 100 Proxy Policy Hits. You can view either the tables or bars. \\ \hline                                                                                               
+\end{longtable}
+
+
+Live Chart show network summary, survey statistics, throughput and protocol information. Live Chart shows information of last 12 hours, and you can also customize it. Each built-in dashboard contains multiple widgets which can be expanded for detail view. The following table describes the Live Chart widgets:
+
+
+\begin{longtable}{p{0.13\textwidth}|p{0.22\textwidth}|p{0.57\textwidth}}   
+    \rowcolor{black}\multicolumn{2}{l!{\vlinewhite}}{\textcolor{white}{Live Chart}}  & \textcolor{white}{Description}\\\hline   
+    \multicolumn{2}{l!{\vlineblack}}{Network Summary} & Displays Unique Client IP count, Sessions, Date Rate and Throughput. \\ \hline  
+    \multicolumn{2}{l!{\vlineblack}}{Survey Statistics} & Displays the percentage and number of Uncategorized Traffic, One-side Connections, Sequence Gap Loss and Packet Fragmentation. \\ \hline                                                                                                                                                        
+    \multirow{4}{*}{Protocols} & Total Throughput & Displays Total Throughput in real-time by protocol. When you click the Protocol Composition pie chart, it updates dynamically. The first time to enter the page the X-axis displays 20\% of the current time scope. (Sometimes the peak data is outside the display window, so the line graph will appear empty.) You can adjust the display time window as needed. \\ \cline{2-3}
+                               & \tabincell{l}{Protocol\\ Composition} & Classify traffic by protocol shown in pie chart view. The pie chart shows the distribution (or percentage) of each level of protocol and the total bandwidth.\\ \cline{2-3}
+                               & Network Protocol Tree & It is like the Protocol Composition widget, but displayed in tree structure.\\ \cline{2-3}
+                               & Protocol Statistics & Displays the Sent Packets, Received Packets and Sessions of each protocol.\\ \hline
+\end{longtable}
+
+
+\notemark\textit{You can click a specific protocol to display the detailed data about it shown in the adjacent widget: Total Throughput, Network Protocol Tree and Protocol Statistics. As you can see the three widgets change dynamically when you click different protocol. By default, the reports of ETHERNET will be displayed. For the full list of Network Protocol Tree, please refer to Appendix B Network Protocol Tree.}
+
+\pdfbookmark[1]{View and Manage Logs}{View and Manage Logs}
+\section*{\hypertarget{link:View and Manage Logs}{View and Manage Logs}}
+\label{sec:monitor:log}
+
+A log is an automatically generated, time-stamped file that provides an audit trail for network traffic events that TSG monitors. Log records contain columns, which are properties, activities, or behaviors associated with the logged event. Each log type records information for a different event type. You can see the following 4 log types in the Log pages.
+
+
+• Security Event Logs 
+
+
+• Proxy Event Logs
+
+
+• Session Records 
+
+
+• Radius Logs
+
+\pdfbookmark[2]{Log Types}{Log Types}
+\subsection*{\hypertarget{link:Log Types}{Log Types}}
+\label{sec:monitor:log:type}
+
+Security Event Logs and Proxy Event Logs
+
+
+• Security Event Logs and Proxy Event Logs data provides the ability to validate rule additions and rule changes and to monitor the time frame when a rule was used. The log gives you the information to determine whether a rule is effective for access enforcement.
+
+
+Session Records
+
+
+• Session records regardless of policy configuration; it shows all traffic that is allowed on your network. Traffic logs display an entry for the start and end of each session. 
+
+
+Radius Logs
+
+
+• Remote Authentication Dial-In User Service (RADIUS) is a broadly supported networking protocol that provides centralized authentication and authorization. 
+TSG will keep track of radius traffic information, including Packet Type, Account, Nas IP, Framed IP, ACC Status Type and so on. 
+You can use the Account information in radius log to create \hyperlink{link:Subscriber ID}{\color{linkblue}{Subscriber ID}} object.
+
+
+Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
+
+\pdfbookmark[2]{View Logs}{View Logs}
+\subsection*{\hypertarget{link:View Logs}{View Logs}}
+\label{sec:monitor:log:view}
+
+You can view the different log types on TSG in a tabular format.
+
+
+\begin{description}
+    \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. 
+    \item[STEP 2.]	(\textcolor{gold}{Optional}) Customize the log column display.
+    \begin{enumerate} 
+        \item Click the gear icon to the left of any column header.
+        \item Select columns to display from the list. The log updates automatically to match your selections.
+    \end{enumerate}
+    \item[STEP 3.]	View additional details about log entries.
+    \begin{enumerate}
+        \item Click the \textbf{Log ID} for a specific log entry. The Detailed Log View has more information about the source and destination of the session, as well as a list of sessions related to the log entry.
+        \item (\textcolor{gold}{Optional})If you are viewing Security Event Logs and Proxy Event Logs, hover over the \textbf{Policy ID}, 
+        you can view the Policy Name, Action, Application, Destination, Source and Filter. 
+        Hover over the \textbf{Client IP} and \textbf{Server IP}, you can view the corresponding IP, Port, ASN and Location.
+        \item (\textcolor{gold}{Optional}) If you are viewing Radius Log, hover over the \textbf{Subscriber ID}, you can view Subscriber ID, related Security Event Logs and Session Records. 
+        Hover over \textbf{Framed IP}, you can also view related Security Event Logs and Session Records.
+    \end{enumerate}
+\end{description}
+
+\pdfbookmark[2]{Filter Logs}{Filter Logs}
+\subsection*{\hypertarget{link:Filter Logs}{Filter Logs}}
+\label{sec:monitor:log:filter}
+
+The ability to filter logs is useful for focusing on events on your TSG that possess particular attributes. Filter logs by columns that are associated with individual log records. For example, filtering by the Policy ID makes it easier to pinpoint the specific rule you want to locate, even among many similarly rules. If your ruleset is very large and contains many rules, using the rule’s Policy ID as a filter spotlights the particular rule you need to find without having to navigate through pages of results. 
+
+
+\begin{description}
+    \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. For example, \textbf{Proxy Event Logs}.
+    \item[STEP 2.]	Select the log generated time period. By default, it shows logs of last hour.
+    \item[STEP 3.]	Search by one or more artifacts. For example, enter the Client IP 192.168.50.62 and Action Deny to display only entries that contain both artifacts in the log. You can search by the following artifacts: Log ID, Policy ID, Subscriber ID, Client IP, Server IP, Server Port, Action, Sled IP, Session ID, Http.URL, Http.Domain, SSL.SNI and Schema Type.
+\end{description}
+
+\pdfbookmark[2]{Export Logs}{Export Logs}
+\subsection*{\hypertarget{link:Export Logs}{Export Logs}}
+\label{sec:monitor:log:export}
+
+You can export the contents of a log type to a xlsx file. First, Filter Logs according to time and other conditions. Then, Click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
+
+
+\notemark\textit{Maximum export log records are 100000.}
+
+\pdfbookmark[1]{View and Manage Reports}{View and Manage Reports}
+\section*{\hypertarget{link:View and Manage Reports}{View and Manage Reports}}
+\label{sec:monitor:report}
+
+The reporting capabilities on TSG allow you to keep a pulse on your network and focus your efforts on maintaining network security for keeping your users safe and productive.
+
+
+The purpose of the report is to summarize a large amount of log data. Based on the configured report parameters, the data is extracted and displayed graphically, making the data easier and faster to understand. The models and trends revealed in the report already exist in the form of data in the database, but manually locating, cross-referencing and analyzing multiple log files is very difficult and takes a lot of time, especially when the user does not know what kind of trends and models to look for. User-customized reports are created based on the TSG report interface. The reports will summarize logs and generate user-customized graphical reports, providing you with fast and detailed network data. You can then use this information to better understand network behavior or improve network security. 
+
+
+\notemark\textit{Note that the report itself does not provide any recommendations or give any indication of problems. Users must analyze and consider network problems based on report data and graphs.}
+
+
+TSG includes a number of predefined datasets, charts and reports. It can basically meet the needs of most users. 
+You can quickly view network activities based on preset reports for event or behavior analysis. 
+For more details about predefined reports, please refer to \hyperlink{link:Appendix D Predefined Reports}{\color{linkblue}{Appendix D Predefined Reports}}.
+
+
+You can use predefined reports as-is, or you can build custom reports that meet your needs for specific data and actionable tasks. Create and schedule custom reports that show exactly the information you want to see by filtering on conditions and columns to include. You can also include aggregate function for more specific drill down on report data.
+
+
+In order to create purposeful custom reports, you must consider the attributes or key pieces of information that you want to retrieve and analyze. Reports can be sent for email delivery or FTP service if you enable notification when creating a report. 
+
+
+Report is a set of data placed in orderly charts. A chart contains two elements: 
+
+
+• The data set is a SELECT query that extracts the specified data from the database. 
+
+
+• In what format the data is displayed (for example: pie chart, bar chart and table). 
+
+
+Each chart is associated with one dataset. When you generate a report, the dataset associated with each chart extracts data from the logs and populates the charts. Each dataset requires a specific log type.
+
+
+To customize a report, you need to follow three steps.
+
+
+\begin{longtable}{p{0.31\textwidth}|p{0.31\textwidth}|p{0.31\textwidth}} 
+    \multicolumn{1}{c!\vlinewhite}{STEP 1} & \multicolumn{1}{c!\vlinewhite}{STEP 2} & STEP 3  \\
+    \multicolumn{1}{c!\vlinewhite}{\textcolor{linkblue}{\arrowmarkr\arrowmarkr\arrowmarkr}} & \multicolumn{1}{c!\vlinewhite}{\textcolor{linkblue}{\arrowmarkr\arrowmarkr\arrowmarkr}} & \textcolor{linkblue}{\arrowmarkr\arrowmarkr\arrowmarkr} \\
+    \multicolumn{1}{c!\vlinewhite}{Dataset} & \multicolumn{1}{c!\vlinewhite}{Chart Library} & Report                                                                                               
+\end{longtable}
+
+This consideration guides you in making the following selections in a custom report. For example, create a report about the top 10 IP Addresses that visited Google last month by sessions.
+
+
+\begin{description}
+    \item[STEP 1.]	Create a Dataset. Dataset specify what data to extract from logs.
+    \begin{enumerate}
+        \item Select \textbf{Reports} > \textbf{Datasets} menu, and click \textbf{Create}.
+        \item Enter a \textbf{Name}.
+        \item Select a \textbf{Log Type} from the following: Security Event, Proxy Event, Session Records and Radius. Because session records show all traffic that is allowed on your network, select session records.
+        \item Select the \textbf{Group by}. Fields are the result fields of a dataset collection, include group by fields and metric fields. Fields are the dimensions of your report. This will serve as the X-Axis Data Binding options for Chart Libraries. The report mainly displays client IP, so select client IP.
+        \item Specify the \textbf{Data Bindings}, add Field, Aggregate, and Label, which serve as legend of your Chart Libraries. Variable consists of log field. You can add at least one or multiple variables. Aggregate is metric function and the available options are sum, min, max, avg, count, and count distinct. Label is the legend that will show in your Chart Libraries. In this case, Field select Sessions; Aggregate select sum; and sessions is filled in for Label by default.
+        \item (\textcolor{gold}{optional})Specify \textbf{Filter} and \textbf{Having}. Query conditions, only calculated within the data range of a certain field or a few fields that match a specific expression. All lines that do not match the conditions will be excluded from the collections of data. Your selections will automatically generate a SQL. Filter conditions is before data aggregation, and Having is after data aggregation. Since the visiting target is Google, you can set Feild as Http.Domain, set Aggregate as Suffix and set Value to “google.com”. 
+        \item Click \textbf{OK}.
+    \end{enumerate}    
+
+    \item[]Please view the following table for details about new dataset.
+
+        \begin{longtable}{p{0.16\textwidth}|p{0.78\textwidth}}   
+                \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
+                Name & Enter a name for the dataset.\\\hline  
+                Log Type & Data source, select a log type from the dropdown list. 
+                            
+                
+                        The following log types are available:
+                                    
+                        
+                        • Security Event
+                                    
+                        
+                        • Proxy Event 
+                                    
+                        
+                        • Session Records
+                                    
+                        
+                        • Radius Logs \\\hline 
+                        Group by & Collect data from multiple records and group the results by one or more fields (columns).
+                        
+                        
+                        Click the "+" button to add variable.
+                        
+                        
+                        \notemark\textit{Field in Group by will serve as the X-Axis Data Binding options for Chart Libraries.}
+                        
+                        
+                        For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Log Fields Description}}}. \\\hline 
+                Data Bindings & Data Bindings are the result fields of a dataset collection, include group by log fields.
+                
+                
+                                Click the "+" button to add field, aggregate, and description information.
+                                
+                                \begin{itemize}
+                                    \item Field: log fields
+                                    
+
+                                    For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Log Fields Description}}}.
+                                    \item Aggregate: Metric function, Select a value from the dropdown list. The available options vary depending on the selected variable.
+                                    \begin{itemize}
+                                        \item sum \item min  \item max \item avg \item count \item Count Distinct
+                                    \end{itemize}
+                                    \item Label: description information
+                                \end{itemize} \\\hline 
+                Filter & Query conditions, only calculated within the data range of a certain field or a few fields that match a specific expression. All lines that do not match the conditions will be excluded from the collections of data.
+                
+                
+                        Click the "+ Add Condition" button to add field, operator, and value.
+                        \begin{itemize}
+                            \item Field: log field 
+                            \item Operator: Match operator, Select a value from the dropdown list. The available options vary depending on the selected field.
+                            \begin{itemize}
+                                \item =    \item!=    \item >    \item <     \item >=    \item <=   \item Like  \item Not Like    \item notEmpty
+                            \end{itemize}
+                        \item Value: Enter a value for field
+                        \end{itemize} \\\hline
+                Having & Query conditions after data aggregation. Click the "+ Add Condition" button to add field, aggregate, operator and value. \\\hline
+                SQL & Generate SQL based on log type, grouping field, result field, and filter conditions, for user reference only. \\\hline
+            \end{longtable} 
+
+
+        \item[] The following table lists different Group by, Data Bindings and Filter fields for different log types.
+
+
+    \begin{longtable}{p{0.09\textwidth}|p{0.21\textwidth}|p{0.21\textwidth}|p{0.37\textwidth}}   
+        \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{\begin{tabular}{l}Log\\ Type\end{tabular}}}  & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Group by}} & \multicolumn{1}{l!\vlinewhite}{\textcolor{white}{\tabincell{l}{Data Bindings\\ (Metrics)}}} & \textcolor{white}{Filter} \\\hline                                                                                                                                                          
+        \tabincell{l}{Session\\ Records} &   \tabincell{l}{Server IP\\
+                                                            Client IP\\
+                                                            Internal IP\\
+                                                            External IP\\
+                                                            Sled IP\\
+                                                            Device ID\\
+                                                            Client Location\\
+                                                            Server Location\\
+                                                            Subscriber ID\\
+                                                            Client Port\\
+                                                            Server Port\\
+                                                            Schema Type\\
+                                                            L4 Protocol\\
+                                                            L7 Protocol\\
+                                                            Data Center\\
+                                                            Client ASN\\
+                                                            Server ASN\\
+                                                            Start Time\\
+                                                            End Time\\
+                                                            Http.Host\\
+                                                            Http.Domain\\
+                                                            Http.URL\\
+                                                            SSL.SNI\\
+                                                            SSL.JA3 hash\\
+                                                            Receive Time}
+                                            &   \tabincell{l}{Server IP\\
+                                                                            Client IP\\
+                                                                            Internal IP\\
+                                                                            External IP\\
+                                                                            Subscriber ID\\
+                                                                            Sled IP\\
+                                                                            Device ID\\
+                                                                            Packets Sent\\
+                                                                            Packets Received\\
+                                                                            Bytes Sent\\
+                                                                            Bytes Received\\
+                                                                            Sessions\\
+                                                                            Duration(ms)\\
+                                                                            Establish\\ Latency(ms)\\
+                                                                            Fragmentation\\ Packets(c2s)\\
+                                                                            Fragmentation\\ Packets(s2c)\\
+                                                                            Sequence Gap\\ Loss(c2s)\\
+                                                                            Sequence Gap\\ Loss(s2c)\\
+                                                                            Unorder Packets\\(c2s)\\
+                                                                            Unorder Packets\\(s2c)\\
+                                                                            Http.Host\\
+                                                                            Http.Domain\\
+                                                                            Http.URL\\
+                                                                            SSL.SNI\\
+                                                                            SSL.JA3 hash\\
+                                                                            Log ID}  &  \tabincell{l}{Address Type\\
+                                                                                                    Server IP\\
+                                                                                                    Client IP\\
+                                                                                                    Internal IP\\
+                                                                                                    External IP\\
+                                                                                                    Client Port\\
+                                                                                                    Server Port\\
+                                                                                                    Client Location\\
+                                                                                                    Server Location\\
+                                                                                                    Subscriber ID\\
+                                                                                                    Packets Sent\\
+                                                                                                    Packets Received\\
+                                                                                                    Bytes Sent\\
+                                                                                                    Bytes Received\\
+                                                                                                    Fragmentation Packets(c2s)\\
+                                                                                                    Fragmentation Packets(s2c)\\
+                                                                                                    Sequence Gap Loss(c2s)\\
+                                                                                                    Sequence Gap Loss(s2c)\\
+                                                                                                    Unorder Packets(c2s)\\
+                                                                                                    Unorder Packets(s2c)\\
+                                                                                                    L4 Protocol\\
+                                                                                                    L7 Protocol\\
+                                                                                                    Stream Direction\\
+                                                                                                    Direction\\
+                                                                                                    Data Center\\
+                                                                                                    Sled IP\\
+                                                                                                    Device ID\\
+                                                                                                    Schema Type\\
+                                                                                                    Client ASN\\
+                                                                                                    Server ASN\\
+                                                                                                    Start Time\\
+                                                                                                    End Time\\
+                                                                                                    Duration(ms)\\
+                                                                                                    Establish Latency(ms)\\
+                                                                                                    Http.Host\\
+                                                                                                    Http.Domain\\
+                                                                                                    Http.URL\\
+                                                                                                    SSL.SNI\\
+                                                                                                    SSL.JA3 hash}  \\ \hline 
+        \multirow{2}{*}{\tabincell{l}{Security\\ Event}} & \tabincell{l}{Server IP\\
+                                                                        Client IP\\
+                                                                        Internal IP\\
+                                                                        External IP\\
+                                                                        Policy ID\\
+                                                                        Action\\
+                                                                        Sled IP\\
+                                                                        Device ID\\
+                                                                        Client Location\\
+                                                                        Server Location\\
+                                                                        Subscriber ID\\
+                                                                        Client Port\\
+                                                                        Server Port\\
+                                                                        Schema Type\\
+                                                                        L4 Protocol\\
+                                                                        L7 Protocol\\
+                                                                        Data Center\\
+                                                                        Client ASN\\
+                                                                        Server ASN\\
+                                                                        Start Time\\
+                                                                        End Time\\
+                                                                        Http.Host\\
+                                                                        Http.Domain\\
+                                                                        Http.URL\\
+                                                                        SSL.SNI\\
+                                                                        SSL.JA3 hash\\
+                                                                        SSL.Client Side\\ Version\\
+                                                                        SSL.Server Side\\ Version\\
+                                                                        Mail.Account\\
+                                                                        Mail.From\\
+                                                                        Mail.To\\
+                                                                        Quic.SNI\\
+                                                                        Receive Time} & \tabincell{l}{Server IP\\
+                                                                                                    Client IP\\
+                                                                                                    Internal IP\\
+                                                                                                    External IP\\
+                                                                                                    Subscriber ID\\
+                                                                                                    Sled IP\\
+                                                                                                    Device ID\\
+                                                                                                    Sessions\\
+                                                                                                    Packets Sent\\
+                                                                                                    Packets Received\\
+                                                                                                    Bytes Sent\\
+                                                                                                    Bytes Received\\
+                                                                                                    Duration(ms)\\
+                                                                                                    Establish\\ Latency(ms)\\
+                                                                                                    Http.Host\\
+                                                                                                    Http.Domain\\
+                                                                                                    Http.URL\\
+                                                                                                    SSL.SNI\\
+                                                                                                    SSL.JA3 hash\\
+                                                                                                    SSL.Client Side\\ Latency(ms)\\
+                                                                                                    SSL.Server Side\\ Latency(ms)\\
+                                                                                                    Mail.Account\\
+                                                                                                    Mail.From\\
+                                                                                                    Mail.To\\
+                                                                                                    Quic.SNI\\
+                                                                                                    Log ID}  &  %& \\ \cline{5-5}
+                                                                    % &               &                        &    \multirow{-2}{*}{\tabincell{l}{Policy ID\\
+                                                                                                              \tabincell{l}{Policy ID\\
+                                                                                                                            Action\\
+                                                                                                                            Address Type\\
+                                                                                                                            Server IP\\
+                                                                                                                            Client IP\\
+                                                                                                                            Internal IP\\
+                                                                                                                            External IP\\
+                                                                                                                            Client Port\\
+                                                                                                                            Server Port\\
+                                                                                                                            Client Location\\
+                                                                                                                            Server Location\\
+                                                                                                                            Subscriber ID\\
+                                                                                                                            Packets Sent\\
+                                                                                                                            Packets Received\\
+                                                                                                                            Bytes Sent\\
+                                                                                                                            Bytes Received\\
+                                                                                                                            L4 Protocol\\
+                                                                                                                            L7 Protocol\\
+                                                                                                                            Stream Direction\\
+                                                                                                                            Data Center\\
+                                                                                                                            Sled IP\\
+                                                                                                                            Device ID\\
+                                                                                                                            Direction\\
+                                                                                                                            Schema Type\\
+                                                                                                                            Client ASN\\
+                                                                                                                            Server ASN\\
+                                                                                                                            Start Time\\
+                                                                                                                            End Time\\
+                                                                                                                            Duration(ms)\\
+                                                                                                                            Establish Latency(ms)\\
+                                                                                                                            Http.Host\\
+                                                                                                                            Http.Domain\\
+                                                                                                                            Http.URL
+                                                                                                                            Http.Content Type\\
+                                                                                                                            SSL.SNI \\
+                                                                                                                            SSL.JA3 hash\\
+                                                                                                                            SSL.Pinning\\
+                                                                                                                            SSL.Intercept State\\
+                                                                                                                            SSL.Client Side Version\\
+                                                                                                                            SSL.Server Side Version\\
+                                                                                                                            SSL.Certificate Verify\\
+                                                                                                                            SSL.Client Side Latency(ms)\\
+                                                                                                                            SSL.Server Side Latency(ms)} \\\arrayrulecolor{white} \hline 
+                                                         &                             &                        &     \tabincell{l}{
+                                                                                                                                    Mail.Account\\
+                                                                                                                                    Mail.From\\
+                                                                                                                                    Mail.To\\
+                                                                                                                                    Mail.Subject\\
+                                                                                                                                    Quic.SNI}  \\ \arrayrulecolor{black} \hline 
+        \tabincell{l}{Radius\\ Logs} & \tabincell{l}{Nas IP\\
+                                                    Framed IP\\
+                                                    Subscriber ID\\
+                                                    Receive Time}  & \tabincell{l}{Framed IP\\
+                                                                                    Event Timestamp\\
+                                                                                    Packets Sent\\
+                                                                                    Packets Received\\
+                                                                                    Bytes Sent\\
+                                                                                    Bytes Received\\
+                                                                                    Log ID}  & \tabincell{l}{Framed IP\\
+                                                                                                            Subscriber ID\\
+                                                                                                            Packet Type\\
+                                                                                                            Acct Session ID\\
+                                                                                                            Acct Multi Session ID\\
+                                                                                                            ACC Status Type}    \\ \hline 
+        \tabincell{l}{Proxy\\ Event} & \tabincell{l}{Server IP\\
+                                                    Client IP\\
+                                                    Internal IP\\
+                                                    External IP\\
+                                                    Policy ID\\
+                                                    Sub Action\\
+                                                    Sled IP\\
+                                                    Device ID\\
+                                                    Client Location\\
+                                                    Server Location\\
+                                                    Subscriber ID\\
+                                                    Client Port\\
+                                                    Server Port\\
+                                                    Schema Type\\
+                                                    Data Center\\
+                                                    Client ASN\\
+                                                    Server ASN\\
+                                                    Http.Host\\
+                                                    Http.Domain\\
+                                                    Http.URL\\
+                                                    DoH.Host\\
+                                                    DoH.QNAME\\
+                                                    Receive Time}  & \tabincell{l}{Server IP\\
+                                                                                    Client IP\\
+                                                                                    Internal IP\\
+                                                                                    External IP\\
+                                                                                    Subscriber ID\\
+                                                                                    Sled IP\\
+                                                                                    Device ID\\
+                                                                                    Sessions\\
+                                                                                    Bytes Sent\\
+                                                                                    Bytes Received\\
+                                                                                    Http.Host\\
+                                                                                    Http.Domain\\
+                                                                                    Http.URL\\
+                                                                                    DoH.Host\\
+                                                                                    DoH.QNAME\\
+                                                                                    Log ID}  & \tabincell{l}{Policy ID\\
+                                                                                                            Sub Action\\
+                                                                                                            Address Type\\
+                                                                                                            Server IP\\
+                                                                                                            Client IP\\
+                                                                                                            Internal IP\\
+                                                                                                            External IP\\
+                                                                                                            Client Port\\
+                                                                                                            Server Port\\
+                                                                                                            Client Location\\
+                                                                                                            Server Location\\
+                                                                                                            Subscriber ID\\
+                                                                                                            L4 Protocol\\
+                                                                                                            Data Center\\
+                                                                                                            Sled IP\\
+                                                                                                            Device ID\\
+                                                                                                            Client ASN\\
+                                                                                                            Server ASN\\
+                                                                                                            Direction\\
+                                                                                                            Schema Type\\
+                                                                                                            Http.Host\\
+                                                                                                            Http.Domain\\
+                                                                                                            Http.URL\\
+                                                                                                            Http.Content Type\\
+                                                                                                            DoH.Host\\
+                                                                                                            DoH.QNAME}   \\ \hline                                                                                                                          
+    \end{longtable}
+
+    \item[] \notemark\textit{Viewing the SQL query of an existing dataset.\\
+                            To view the SQL query for an existing dataset: \\
+                            1. Go to Reports > Datasets.\\ 
+                            2. Hover the mouse cursor over the dataset on the dataset list. The SQL query is displayed as a tooltip. You can also open the dataset to view the Query and detail information.}
+
+    \item[STEP 2.]	Create Chart Library. Chart set the display form of the dataset.
+    \begin{enumerate}
+        \item Enter a \textbf{Name} and \textbf{Description}.
+        \item Select the \textbf{Dataset} you just created.
+        \item Select \textbf{Chart Type} from the following: Line, Pie, Bar, Area and Table. This selection affects the rest of the available selections. To create Line and Area chart, you must select Group by Receive Time. Here select Bar. 
+        \item Set the \textbf{Data Bindings} for X-Axis and Y-Axis. For X-Axis, set Data Binding to Client IP, set Label to Client IP and set Show Top to 10. For Y-Axis, set Data Binding to Sessions, set Format to Counter(K/M/G) and set Label to Sessions.
+        \item Click \textbf{OK}.
+    \end{enumerate}
+
+    \item[] Please view the following table for details about new chart library.
+
+
+    \begin{longtable}{p{0.16\textwidth}|p{0.78\textwidth}}   
+        \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
+        Name & Enter a name for the dataset.\\\hline  
+        Description & Enter a description of the chart. \\\hline 
+        Dataset & Select a dataset from the dropdown list. \\\hline
+        Chart Type & Select a graph type from the dropdown list, one of Table, Bar, Pie, Line and Area. This selection affects the rest of the available selections.
+        
+        
+                    \notemark\textit{For Line and Area type, Receive Time field must be chosen as one of Group By – Variable in selected dataset to generate meaningful report.} \\\hline
+        \tabincell{l}{Data\\ Bindings} & The data bindings vary depending on the chart type selected. \\\hline
+        \multicolumn{2}{l}{\textbf{Table}}\\\hline
+        Table Type & Regular or Drilldown. \\\hline  
+        Add Column & Click to add Column. Up to 15 columns can be added for a Regular table. 
+        
+        
+                    Drilldown tables have three columns.\\\hline 
+        Columns & The following column settings must be set:
+
+
+                    \begin{itemize}
+                        \item Title: Enter a title for the column.
+                        \item Width: Enter the column width as a percentage.
+                        \item Data Binding: Select a value from the dropdown list. The options vary depending on the selected dataset.
+                        \item Format: Select a value from the dropdown list. You can select Bar to create an intuitional chart.
+                        \item Legend: Description information.
+                        \item Click the "+" button to add more data bindings to the column. Every column must have at least one data binding. The maximum of columns varies depending on the table type.
+                    \end{itemize} \\\hline 
+        Order by & Decide what to order the table by. The available options vary depending on the selected dataset. \\\hline 
+        Show Top & Enter a numerical value. Only the first ‘X’ items are displayed. 
+                   Other items can be bundled to be displayed as Others when you check the \textbf{Bundle rest into ‘Others’} which is above the \textbf{Order By}. \\\hline 
+        Drilldown Top & Enter a numerical value. Only the first ‘X’ items are displayed. This option is only available for Drilldown tables.\\\hline 
+        \multicolumn{2}{l}{\textbf{Bar}}\\\hline
+        X-Axis & \begin{itemize}
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
+                    \item Label: Enter a label for the axis.
+                    \item Show Top: Enter a numerical value. Only the first ‘X’ items are displayed.
+                    \item Other items are bundled into the Others category.
+                 \end{itemize} \\\hline 
+        Y-Axis & \begin{itemize}
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
+                    \item Format: Select a format from the dropdown list: Bandwidth, Counter, Default and Percentage.
+                    \item Label: Enter a label for the axis.            
+                 \end{itemize} \\\hline 
+        Bundle rest into “Others” & Other items are bundled into the Others category if check this option. This reflects in ‘X’ Label of a Bar chart. \\\hline 
+        \multicolumn{2}{l}{\textbf{Pie}}\\\hline
+        Category & \begin{itemize}
+                        \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
+                        \item Label: Enter a label for the axis.
+                        \item Show Top: Enter a numerical value. Only the first ‘X’ items are displayed.
+                        \item Other items can be bundled into the Others category.
+                   \end{itemize} \\\hline 
+        Series & \begin{itemize}
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
+                    \item Format: Select a format from the dropdown list: Bandwidth, Counter, Default and Percentage.
+                    \item Label: Enter a label for the axis.
+                 \end{itemize} \\\hline
+        Bundle rest into “Others” & Other items are bundled into the Others category if check this option. This reflects in Category of a Pie chart.\\\hline
+        \multicolumn{2}{l}{\textbf{Line} or \textbf{Area}}\\\hline
+        X-Axis & \begin{itemize}
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset. The selected dataset should include time filed.
+                    
+
+                    \notemark\textit{Group by must include Receive Time in selected dataset.}
+                    \item Format: Select the format Time from the dropdown list.
+                 \end{itemize} \\\hline
+        Lines & \begin{itemize}
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
+                    \item Format: Select from the dropdown list, one of: Bandwidth, Counter and Default.
+                    \item Type: Select from the dropdown list, one of: Line Up and Line Down.
+                    
+
+                    \notemark\textit{If data in Y-Axis has different units, please select Line Up and Line Down respectively.}
+                    \item Legend: Enter the legend text for the line.            
+                \end{itemize} \\\hline
+        Add line & Click "+" button to add more lines.\\\hline
+    \end{longtable}
+
+    \item[] \notemark\textit{Viewing datasets associated with charts\\
+    To view datasets associated with charts:
+    \begin{enumerate}
+        \item Go to Reports > Chart Libraries.
+        \item In the Chart list pane, find the name of the dataset associated with the chart in the Dataset.
+        \item Go to Reports > Datasets.
+        \item In the Search box, type the name of the dataset.
+        \item Select the dataset that is found, and click View in the toolbar to view it. 
+    \end{enumerate}
+    Or you can perform the following:
+    \begin{enumerate}
+        \item Edit chart.
+        \item Click the Dataset Input. 
+        \item Click the Edit pencil of the dataset in the dataset list, and you can view the dataset.
+    \end{enumerate}}
+    \item[] \notemark\textit{Hover the mouse cursor over the chart name on the chart libraries list, you can view the key information about this chart.}  
+
+    \item[STEP 3.]	Create a Report. You can generate reports directly, or you can use schedule to generate reports regularly. Predefined reports are actually report templates with basic default setting configurations.
+    \begin{enumerate}
+        \item  Enter a \textbf{Name}.
+        \item Select a \textbf{Time Period}. In this case, select ‘last’ ‘1’ ‘month’.
+        \item (\textcolor{gold}{Optional})If you \textbf{Enable Schedule}, select a schedule from drop-down or create a schedule. For more details, see \textbf{Policies} > \textbf{\hyperlink{link:Schedules}{\color{linkblue}{Schedules}}}. Here don’t Enable Schedule.
+        \notemark\textit{The time period defines the time scope of the data in the report. And schedule defines when the report will begin to generate. For example, set Time Period to last 1 hour, and Enable Schedule set to 14:00-18:00 every day. The report will begin to generate at 14:00 every day and the report data comes from 13:00-14:00 of that day. Take another example, set Time Period to today and Enable Schedule to 14:00-18:00 every day. TSG will create a statistical task for the report at 14:00 but it will complete at 24:00 and the report data only comes from that day.}
+        \item (\textcolor{gold}{Optional})If you \textbf{Enable Notification}, you can select FTP or Email as Output Profile. 
+        \begin{itemize}
+            \item Email: Enter recipient's e-mail.
+            \item FTP: Enter server, port, username, password and directory.
+        \end{itemize}
+        \item Select the \textbf{Chart Library} you just created. Enter number and select time unit for \textbf{Time Granularity}. The available options vary depending on the selected chart, only applies to charts with time parameters. This will affect the data density of X-Axis. Here, let it grey by default since it is a Bar chart.
+        \item (\textcolor{gold}{optional})Add \textbf{Filter} if you have related requirements. You can apply log message filters to reports and charts. If add multiple charts, the filter field is limited to the common fields of multiple charts. Here don’t add any Filter.
+        \item Click \textbf{OK}.
+        \item Wait a while for the generation of the report. Click button (\[\blacktriangleright\]) at the left of the report row to get the details of the result. After the status reach 100\%, click \textbf{View} and you’ll see: firstly, the overviews of traffic statistics, then the traffic trend in the time period and finally the results of your custom selections. 
+    \end{enumerate}
+
+    \item[] Please view the following table for details about new report.
+    \begin{longtable}{p{0.18\textwidth}|p{0.76\textwidth}}   
+        \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
+        Name & Enter a name for the dataset.\\\hline  
+        Time Period & The time period the report covers. Select a time period or select customize to manually specify the start and end date and time.
+                        \begin{itemize}
+                            \item today: from 0:00-24:00 today
+                            \item yesterday: from 0:00-24:00 yesterday
+                            \item this: current time period. For example, this 1 hour means from yyyy-mm-dd hh:00:00 to yyyy-mm-dd hh:59:59.
+                            \item last: last time period. For example, last 1 hour means from yyyy-mm-dd hh-1:mi:ss to yyyy-mm-dd hh:mi:ss.
+                            \item previous: previous time period. For example, previous 1 hour means yyyy-mm-dd hh-1:00:00 to yyyy-mm-dd hh:00:00.
+                            \item customize: If you select customize, you can’t Enable Schedule.
+                        \end{itemize} \\\hline 
+        \tabincell{l}{Enable\\ Schedule} & Select to enable schedules.\\\hline 
+        Schedule & Select a schedule from the dropdown list to run the report.\\\hline
+        \tabincell{l}{Enable\\ Notification} & Setting report notification profile.\\\hline
+        Output Profile & Select the output profile from the dropdown list:
+                        \begin{itemize}
+                            \item Email: Enter recipient's e-mail.
+                            \item FTP: Enter server, port, username, password and directory.
+                        \end{itemize} \\\hline 
+        Chart Library & Click the button “+” and select a chart from the slide page Chart Library. \\\hline 
+        \tabincell{l}{Time\\ Granularity} & Enter number and select time unit. The available options vary depending on the selected chart, only applies to charts with time parameters.\\\hline 
+        Add Chart & Click the "+ Add Chart" button to add more charts.\\\hline 
+        Filter & You can apply log message filters to reports and charts. If add multiple charts, the filter field is limited to the common fields of multiple charts.
+                
+        
+                Click the "+ Add Condition" button to add log Field, Operator, and Value.
+                \begin{itemize}
+                    \item Field: Variables in log field for reports. 
+                    \item Operator: Match operator. Select a value from the dropdown list. The available options vary depending on the selected field.  
+                    \begin{itemize}  
+                        \item =    \item !=    \item >    \item <     \item >=    \item <=   \item Like   \item Not Like    \item notEmpty 
+                    \end{itemize}
+                    \item Value: Enter a value for log Field. 
+                \end{itemize} \\\hline
+    \end{longtable}    
+\end{description}
+
+\notemark\textit{To base a report on a predefined template, select the predefined Dataset or Chart Libraries.
+If you Enable Schedule for a report, the execution button (\[\blacktriangleright\]) under Operation will not be available and (-) will show in column Operation. 
+You can view the create time of a result for the report, when you click button (\[\blacktriangleright\]) 
+(switch to button (\[\blacktriangledown\]) to indicate folding back) at the left of a row to unfold the report details. 
+Create time shows the time that the report generated this cycle according to the schedule, not the time you configure the report. 
+The reports are displayed in descending order by create time. For example, you create a report with Time Period “today” 
+and Enable Schedule “Daily, Start Time 14:00 \& End Time 18:00” at 9:00 am. In this case, the first result of report 
+which is shown in (\[\blacktriangledown\]) will be created at 14:00 today with Create Time: YYYY-MM-DD 14:00. 
+Meanwhile the percentage which indicates the ready status of the result will reach 100\% after 24:00:00 since the report configuration was set Time Period as “today”. 
+And you can get a new result at the 14:00 and view the report after midnight every day from now on. 
+The report list displays Last Modified Time and Last Execution Time and you can click the column to make the list display in descending or ascending order.} 
+
+
+For more details about reports best practice, please refer to \hyperlink{link:Make Your Own Reports}{\color{linkblue}{Appendix F Make Your Own Reports}}
+
+
+Advantages of TSG report: 
+\begin{itemize}
+    \item Flexible customization: If the predefined reports do not meet the needs of users, you can add new customized report models at any time according to different scenarios. Reduce the waiting period for statistical requirements, demand communication, development and online. 
+    \item Schedule statistics: support report schedules and it can generate reports regularly. The schedule is flexible, and reports can be generated regularly by day, week, month, and year.
+    \item Report archive: Support online sending or offline exporting to report archive.
+\end{itemize}
+
+\pdfbookmark[1]{Take Packet Captures}{Take Packet Captures}
+\section*{\hypertarget{link:Take Packet Captures}{Take Packet Captures}}
+\label{sec:monitor:packet}
+
+TSG captures packets for all traffic or for specific traffic based on filters that you define. For example, you can configure TSG to only capture packets to and from a specific source and destination IP address or port. You may need to take packet captures when creating a custom application, because you have to gather information about the application.
+
+\begin{description}
+    \item[STEP 1.]	Before you start a packet capture, identify the attributes of the traffic that you want to capture.
+
+
+    For example, to determine the source IP address, and the destination IP address for traffic between two systems. 
+    If you wish to troubleshoot a Security Event Log, go to \textbf{Logs} > \textbf{Security Event Log} and locate the traffic log for the two systems. 
+    Click the \textbf{Log ID} to view the Client IP, Client Port, Server IP, Server Port.
+    \item[STEP 2.]	Set packet capture conditions, so TSG only captures traffic you are interested in.
+    \begin{enumerate}
+        \item Select \textbf{Setting} > \textbf{Trouble Shooting} menu, and select Packet Capture tab.
+        \item Enter a descriptive \textbf{Name}.
+        \item Select \textbf{Address Type}, IPV4 or IPV6.
+        \item Enter \textbf{Client IP}, \textbf{Client Port}, \textbf{Server IP}, \textbf{Server Port}.
+        \item Select TCP, UDP or Any as \textbf{Protocol}.
+        \item Select \textbf{Effective Devices} leave the value set to any.
+        \item Enter \textbf{Captured Number} and \textbf{Capture Duration}.
+        \item Click \textbf{OK}.
+    \end{enumerate} 
+    \item[STEP 3.]	Packet Capture will automatically start after you created it. Generate traffic that matches the filters that you defined. It will stop after your capture duration expires, or you can turn it off manually after TSG captures the data that you want to analyze.
+    \item[STEP 4.]	Click the triangle icon to the left in the list to expand the item, then click \textbf{Download} to download packets or \textbf{Delete} to delete packets.
+    \item[STEP 5.]	View the packet capture files using a network packet analyzer.
+\end{description}

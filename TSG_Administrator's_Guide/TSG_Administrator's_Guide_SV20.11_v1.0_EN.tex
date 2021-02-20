@@ -1,0 +1,134 @@
+% **************************************************
+% Document Class Definition
+% **************************************************
+\documentclass[%
+    paper=A4,               % paper size --> A4 is default in Germany
+    twoside=true,           % onesite or twoside printing
+    openright,              % doublepage cleaning ends up right side
+    parskip=half,           % spacing value / method for paragraphs
+    chapterprefix=true,     % prefix for chapter marks
+    11pt,                   % font size
+    headings=normal,        % size of headings
+    bibliography=totoc,     % include bib in toc
+    listof=totoc,           % include listof entries in toc
+    titlepage=on,           % own page for each title page
+    captions=tableabove,    % display table captions above the float env
+    chapterprefix=false,    % do not display a prefix for chapters
+    appendixprefix=false,    % but display a prefix for appendix chapter
+    draft=false,            % value for draft version
+]{scrreprt}%
+
+
+% **************************************************
+% Setup YOUR thesis document in this file !
+% **************************************************
+\input{Guide_Setup}
+%\input TABLES
+
+% **************************************************
+% Document CONTENT
+% **************************************************
+\begin{document}
+
+% uncomment the following command to fill up pages with
+% whitespace instead of aligning the first and last lines
+% of a page (see \raggedbottom vs. \flushbottom)
+%\raggedbottom
+
+% --------------------------
+% rename document parts
+% --------------------------
+
+% > set short label names for floating environments figure and table
+%\renewcaptionname{ngerman}{\figurename}{Abb.}
+%\renewcaptionname{ngerman}{\tablename}{Tab.}
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+% > rename the title of the LOL, i.e. list of listings (default is "Listings")
+\renewcommand*{\lstlistlistingname}{List of Listings}
+
+% --------------------------
+% Front matter
+% --------------------------
+\pagestyle{empty}				% no header or footers
+\input{content/titlepage}		% INCLUDE: all titlepages
+\clearpage
+%
+\pagenumbering{roman}
+\setcounter{page}{1}
+\currentpdfbookmark{\contentsname}{toc}
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+
+
+
+\setcounter{tocdepth}{2}		% define depth of toc
+\tableofcontents				% display table of contents
+              
+\endgroup
+\cleardoublepage
+
+% --------------------------
+% Body matter
+% --------------------------
+\pagenumbering{arabic}			% arabic page numbering
+\setcounter{page}{7}			% set page counter
+\pagestyle{scrheadings}			% header and footer style
+
+%% Uncomment the following lines using the \part command
+%% to add part sections
+%\part{Chapter Part}
+\input{content/Getting_Started}   % INCLUDE: Getting_Started
+\cleardoublepage
+\input{content/Policies}   % INCLUDE: Policies  
+\cleardoublepage
+\input{content/Objects}   % INCLUDE: Objects  
+\cleardoublepage
+\input{content/Decryption}   % INCLUDE:  Decryption 
+\cleardoublepage
+\input{content/Monitoring}   % INCLUDE:  Monitoring
+\cleardoublepage
+\input{content/Advanced_Setting}   % INCLUDE:  Advanced_Setting
+\cleardoublepage
+
+%\part{Appendix Part}
+\input{content/Appendix_A}         % INCLUDE: Appendix_A
+\cleardoublepage
+\input{content/Appendix_B}         % INCLUDE: Appendix_B
+\cleardoublepage
+\input{content/Appendix_C}         % INCLUDE: Appendix_C
+\cleardoublepage
+\input{content/Appendix_D}         % INCLUDE: Appendix_D
+\cleardoublepage
+\input{content/Appendix_E}         % INCLUDE: Appendix_E
+\cleardoublepage
+\input{content/Appendix_F}         % INCLUDE: Appendix_F
+\cleardoublepage
+
+% --------------------------
+% Back matter
+% --------------------------
+%
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+%\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+\setlength{\bibitemsep}{0pt}
+\printbibliography[nottype=online]
+\newrefcontext[labelprefix={@}]
+\printbibliography[heading=subbibliography,title={Webpages},type=online]
+}
+\cleardoublepage
+
+\input{../example-thesis/content/colophon}
+\cleardoublepage
+
+% **************************************************
+% End of Document CONTENT
+% **************************************************
+\end{document}
