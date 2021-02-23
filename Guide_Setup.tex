@@ -133,6 +133,14 @@
 \usepackage{array}
 \usepackage{shortvrb}
 \usepackage{graphicx}
+\usepackage{transparent}
+\usepackage{import}
+\usepackage{amsmath}
+
+\newcommand{\includesvg}[2]{%
+\def\svgwidth{#1}%
+\import{i}{#2.pdf_tex}%
+}
 
 \newcommand{\vlinewhite}{\color{white}\vrule width 0.5pt}
 \newcommand{\vlineblack}{\color{black}\vrule width 0.5pt}

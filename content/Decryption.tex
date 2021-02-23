@@ -426,14 +426,6 @@ As a best practice, the trusted root certificate certificates should be installe
 The challenge is the behavior of certificate not installed is very similar to certificate pinning. The proxy determines whether the current connection is Not Pinning by querying the SSL fingerprint profile. When an SSL connection fails like certificate pinning, and its fingerprint status is Not Pinning, the application is not considered as certificate pinning. Following figure shows the process.
 
 
-The following graph shows difference on Certificate Pinning and Certificate is Not Installed:
-
-\begin{figure}[htb]
-	\includegraphics[width=\textwidth]{gfx/dynamic_bypass}
-	%\caption{Figure: Inspection Stage}
-	\label{fig:system:dynamic_bypass}
-\end{figure}
-
 You can configure SSL Proxy to automatically bypass those applications, or alternatively, still intercept to make the client install the trusted root certificate.
 
 

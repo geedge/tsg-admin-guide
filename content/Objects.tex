@@ -228,12 +228,25 @@ When creating a security policy, there are built-in protocols and well-known App
 In TSG, application is composed of App ID, Properties and Signature Sequence. App ID is the unique identification of Application. Application Properties include Category, Subcategory, Technology, Risk and Characteristics. You can create Application Selector based on application Properties. Signature refers to the expression of network traffic attributes in a specific scope. Traffic Attribute is a piece of information which obtained from network transfer unit. Signature Sequence is the signatures of the application that appear in a certain order. There is a sequential "and" relationship between signatures.
 
 
-\begin{figure}[htb]
-	\includegraphics[width=\textwidth]{gfx/fig_signatures}
+%\begin{figure}[htb]
+	%\includegraphics[width=\textwidth]{images/AppSketch _Model}
 	%\caption{Figure: Inspection Stage}
-	\label{fig:system:fig_signatures}
-\end{figure}
+	%\label{fig:system:AppSketch _Model}
+%\end{figure}
 
+%\begin{figure}
+%    \centering
+%    \def\svgwidth{\columnwidth}
+%    \input{images/AppSketch_Model.pdf_tex}
+%\end{figure}
+
+%\begin{figure} \centering \def\svgwidth{8cm}\input{drawing.pdf_tex}\end{figure}
+
+\begin{figure}
+    \centering
+    \includesvg{1.1\columnwidth}{../images/AppSketch_Model}
+    %\caption{Figure}
+\end{figure}
 
 The following demonstrates how to create a customized signature.
 

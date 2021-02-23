@@ -1,0 +1,93 @@
+%% Creator: Inkscape 1.0.2-2 (e86c870879, 2021-01-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'images/AppSketch_Model.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{592.44413358bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.39903331)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/AppSketch_Model.pdf}}%
+    \put(0.45110683,0.24883203){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Surrogate 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/AppSketch_Model.pdf}}%
+    \put(0.04231616,0.33382212){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Category\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/AppSketch_Model.pdf}}%
+    \put(0.02916726,0.23952814){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Subcategory\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/AppSketch_Model.pdf}}%
+    \put(0.01789196,0.14523416){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Dependent App\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/AppSketch_Model.pdf}}%
+    \put(0.0343323,0.05094017){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Parent App\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/AppSketch_Model.pdf}}%
+    \put(0.26530394,0.19489281){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}App ID\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{images/AppSketch_Model.pdf}}%
+    \put(0.44970586,0.14747748){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}Surrogate N\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{images/AppSketch_Model.pdf}}%
+    \put(0.57373256,0.06468154){\color[rgb]{0.49803922,0.49803922,0.49803922}\makebox(0,0)[lt]{\lineheight{1}\smash{\begin{tabular}[t]{l}For \textit{n} signatures of one surrogate:\\1. Ordered match\\2. At least \textit{m}\textit{ }\textit{(m<n)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{images/AppSketch_Model.pdf}}%
+    \put(0.6078353,0.28225782){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.9}\smash{\begin{tabular}[t]{l}Signature 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{images/AppSketch_Model.pdf}}%
+    \put(0.60643433,0.2186131){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.9}\smash{\begin{tabular}[t]{l}Signature N\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{images/AppSketch_Model.pdf}}%
+    \put(0.79528898,0.34691536){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.8}\smash{\begin{tabular}[t]{l}Condition Object 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{images/AppSketch_Model.pdf}}%
+    \put(0.79436062,0.21962591){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.8}\smash{\begin{tabular}[t]{l}Condition Object N\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{images/AppSketch_Model.pdf}}%
+    \put(0.73398371,0.31365318){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.75}\smash{\begin{tabular}[t]{l}AND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{images/AppSketch_Model.pdf}}%
+    \put(0.73398371,0.24665461){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.75}\smash{\begin{tabular}[t]{l}AND\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{images/AppSketch_Model.pdf}}%
+    \put(0.95361591,0.3789639){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.7}\smash{\begin{tabular}[t]{l}Item 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{images/AppSketch_Model.pdf}}%
+    \put(0.95268755,0.31777173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.7}\smash{\begin{tabular}[t]{l}Item N\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{images/AppSketch_Model.pdf}}%
+    \put(0.91649854,0.36294048){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.75}\smash{\begin{tabular}[t]{l}OR\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{images/AppSketch_Model.pdf}}%
+    \put(0.91649854,0.33233847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0.75}\smash{\begin{tabular}[t]{l}OR\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

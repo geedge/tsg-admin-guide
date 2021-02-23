@@ -13,10 +13,16 @@ This document describes the packet handling sequence in TSG. TSG Firewall perfor
 
 The Ingress stage, session stage and egress stage are the three stages of TSG traffic processing. The ingress and egress stages handle network functions and make packet forwarding decisions on a per-packet basis. The remaining stages are session-based security functions such as application identification and content inspection. TSG does not change the operation of the MPLS, 802.1Q, IPv4, IPv6 protocols regardless of the configured policies.
 
-\begin{figure}[htb]
-	\includegraphics[width=\textwidth]{gfx/packet_flow}
+%\begin{figure}[htb]
+	%\includegraphics[width=\textwidth]{images/pakcet_life_2020}
 	%\caption{Figure: Inspection Stage}
-	\label{fig:system:packet_flow}
+	%\label{fig:system:pakcet_life_2020}
+%\end{figure}
+
+\begin{figure}
+    \centering
+    \includesvg{1.6\columnwidth}{../images/pakcet_life_2020}
+    %\caption{Figure}
 \end{figure}
 
 \pdfbookmark[1]{Packet Handling Sequence}{Packet Handling Sequence}
