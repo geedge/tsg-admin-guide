@@ -1,0 +1,109 @@
+%% Creator: Inkscape 1.0.2-2 (e86c870879, 2021-01-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'images/policy_enforcement_stage_v2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{566.92874579bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.46323181)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.10814941,0.37550152){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Content Layer}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.11340579,0.23786185){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Session Layer}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.11873273,0.10022395){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Packet Layer}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.03862913,0.43764495){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}More\\ In-depth\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.89503194,0.00971176){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}More Packets\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.26150002,0.14724205){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}IP address\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.26150002,0.11365411){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Location\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.26150002,0.08248269){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Subscriber ID\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.26455507,0.05826452){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.42434211,0.43494452){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Stage 1}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.56593112,0.43494452){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Stage 2}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.86084251,0.43494452){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Stage n}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(1.253553066,0.43494452){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}...\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.27205584,0.19365699){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}HTTP\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.41080568,0.19471539){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}URL, Host\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.54205513,0.19471539){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Request Header\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.6870555,0.19471539){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Request Body\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.27205512,0.23904887){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}Mail\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.41080603,0.24010726){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Account\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.54149951,0.24010726){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}From, To, Subject\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.6870555,0.24010726){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Body\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.27205512,0.28443898){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}DNS\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.41080603,0.28549738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}QNAME\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.39455534,0.37365641){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}Text-based File\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.66444599,0.37471481){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Scan for keywords\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{images/policy_enforcement_stage_v2.pdf}}%
+    \put(0.27093152,0.43404847){\color[rgb]{0.64705882,0.64705882,0.64705882}\makebox(0,0)[lt]{\scriptsize\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{Stage 0}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
