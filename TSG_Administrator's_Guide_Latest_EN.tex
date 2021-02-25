@@ -24,7 +24,11 @@
 % **************************************************
 \input{Guide_Setup}
 %\input TABLES
-
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+%\AtBeginToc{\setcounter{tocdepth}{3}}
+%\AtEndToc{\setcounter{tocdepth}{5}}
+\KOMAoption{toc}{flat}
 % **************************************************
 % Document CONTENT
 % **************************************************
@@ -66,14 +70,10 @@
 %\setlength{\textheight}{230\vscale} % Manually adjust the height of the ToC pages
 
 % Turn on compatibility mode for the etoc package
-\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
-\etocstandardlines % "toc lines as if etoc was not loaded
+%\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+%\etocstandardlines % "toc lines as if etoc was not loaded
 
-\setcounter{secnumdepth}{4}
-%\setcounter{tocdepth}{3}
-%\AtBeginToc{\setcounter{tocdepth}{3}}
-%\AtEndToc{\setcounter{tocdepth}{5}}
-\KOMAoption{toc}{flat}
+
 \tableofcontents				% display table of contents
               
 \endgroup
@@ -132,6 +132,10 @@
 }
 \cleardoublepage
 
+%\bibliographystyle{IEEEtran}
+%\bibliography{IEEEabrv,REFS}
+%\begin{thebibliography}{widest-label}
+%\end{thebibliography}
 
 % **************************************************
 % End of Document CONTENT

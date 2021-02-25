@@ -60,7 +60,8 @@
     colorize=full,%
     colortheme=bluemagenta,%
     configurebiblatex=true,%
-    bibsys=biber,%
+    %bibsys=biber,%
+    bibsys=bibtex,
     bibfile=bib-refs,%
     bibstyle=alphabetic,%
     bibsorting=nty,%
@@ -249,4 +250,7 @@
 		\marginnote[#1]{\localtableofcontents}%
 	\endgroup%
 }
-
+%\usepackage[backend=bibtex]{biblatex}
+%\bibliography{bib-refs.bib}
+%\usepackage[backend = biber, style = nwsuafref, utf8, sorting = centy]{biblatex}  
+%\addbibresource{bib-refs.bib}  %\bibliography{ref}  
