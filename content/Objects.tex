@@ -1,7 +1,8 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-\pdfbookmark[0]{Objects}{Objects}
+%\pdfbookmark[0]{Objects}{Objects}
 \chapter*{\hypertarget{link:Objects}{Objects}}
+\addcontentsline{toc}{chapter}{Objects}
 \label{sec:objects}
 
 A policy object consists of one item or a set of collective items that groups discrete identities such as IP addresses, URLs, applications, or accounts. 
@@ -46,8 +47,9 @@ Click the solid circle to unfold the referenced ancient object and click the hol
 You can reference objects and object groups in your policies. Thus, you reduce the administrative overhead in creating policies. You can identify an object by its name or ID number. The object ID never changes even if you modify the object, such as when you change the object name. 
 
 
-\pdfbookmark[1]{Objects Type}{Objects Type}
+%\pdfbookmark[1]{Objects Type}{Objects Type}
 \section*{\hypertarget{link:Objects Type}{Objects Type}}
+\addcontentsline{toc}{section}{Objects Type}
 \label{sec:objects:type}
 
 You can create the following policy objects on TSG. A policy object consists of one or multiple items, while an object group is composed of one or multiple subordinate objects.
@@ -116,8 +118,9 @@ You can also import objects by clicking the import icon. Only csv and txt format
 
 Select the checkbox for objects in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Object tab to view the Watch List. You can search objects by ID and Name in the list.
 
-\pdfbookmark[1]{IP Addresses}{IP Addresses}
+%\pdfbookmark[1]{IP Addresses}{IP Addresses}
 \section*{\hypertarget{link:IP Addresses}{IP Addresses}}
+\addcontentsline{toc}{section}{IP Addresses}
 \label{sec:objects:ip}
 
 An address object is a set of IP addresses that you can manage in one place and then use in multiple policy rules. You can reference the same address object in multiple policy rules without needing to specify the same individual addresses in each use. Furthermore, create an address object on TSG to group IP addresses, and then reference the address object in a policy rule to avoid having to individually specify multiple IP addresses in the rule. For example, you can create an address object that specifies an IPv4 address range and then reference the address object in a Security policy rule. 
@@ -154,8 +157,9 @@ You can perform the following to create an IP object:
     \item[STEP 9.]	Click \textbf{OK}.
 \end{description}
 
-\pdfbookmark[2]{IP Libraries}{IP Libraries}
+%\pdfbookmark[2]{IP Libraries}{IP Libraries}
 \subsection*{\hypertarget{link:IP Libraries}{IP Libraries}}
+\addcontentsline{toc}{subsection}{IP Libraries}
 \label{sec:objects:ip:library}
 
 IP Libraries map geographic locations to IP addresses. TSG provides built-in IP libraries, so you can select Geography Sub Type when creating IP Address object. You can also import your own geography and IP addresses mappings. 
@@ -179,8 +183,9 @@ The following steps guide you to Create Geography:
 
 You can \textbf{Edit} or \textbf{Delete} imported Geography. When editing built-in geography, please operate with caution. 
 
-\pdfbookmark[1]{Subscriber IDs}{Subscriber IDs}
+%\pdfbookmark[1]{Subscriber IDs}{Subscriber IDs}
 \section*{\hypertarget{link:Subscriber IDs}{Subscriber IDs}}
+\addcontentsline{toc}{section}{Subscriber IDs}
 \label{sec:objects:subscriber}
 
 You can create Subscriber ID to keep track of Radius traffic user. After you create Subscriber ID object, you can use it in your policy rule and Active Subscriber ID will be shown in your dashboard. 
@@ -197,8 +202,9 @@ You can perform the following to create a Subscriber ID:
     \item[STEP 6.]	Click \textbf{OK}.
 \end{description}
 
-\pdfbookmark[1]{Categories}{Categories}
+%\pdfbookmark[1]{Categories}{Categories}
 \section*{\hypertarget{link:Categories}{Categories}}
+\addcontentsline{toc}{section}{Categories}
 \label{sec:objects:category}
 
 Category classifies websites based on site content, features, safety and so on. TSG firewall has built-in categories.
@@ -206,8 +212,9 @@ Category classifies websites based on site content, features, safety and so on. 
 
 Please refer to \hyperlink{link:Appendix A Built-in Category}{\color{linkblue}{Appendix A Built-in Category}} for more details.
 
-\pdfbookmark[1]{Applications}{Applications}
+%\pdfbookmark[1]{Applications}{Applications}
 \section*{\hypertarget{link:Applications}{Applications}}
+\addcontentsline{toc}{section}{Applications}
 \label{sec:objects:application}
 
 An application is any program, or group of programs, that is designed for the end user to perform an activity. Applications enables visibility into the applications on the network, so you can category them and understand their characteristics and their relative risk. This application knowledge allows you to create and enforce security policy rules to allow and inspect applications and deny unwanted applications. When you use policy rules to control traffic, applications can classify traffic without any additional configuration.
@@ -221,8 +228,9 @@ The firewall identifies application with predefined and customized signature. Th
 
 When creating a security policy, there are built-in protocols and well-known Applications and customized Applications in the list. You can search the application you want to fill in. You can also use application selector and group as objects in policy
 
-\pdfbookmark[2]{Signatures}{Signatures}
+%\pdfbookmark[2]{Signatures}{Signatures}
 \subsection*{\hypertarget{link:Signatures}{Signatures}}
+\addcontentsline{toc}{subsection}{Signatures}
 \label{sec:objects:application:signature}
 
 In TSG, application is composed of App ID, Properties and Signature Sequence. App ID is the unique identification of Application. Application Properties include Category, Subcategory, Technology, Risk and Characteristics. You can create Application Selector based on application Properties. Signature refers to the expression of network traffic attributes in a specific scope. Traffic Attribute is a piece of information which obtained from network transfer unit. Signature Sequence is the signatures of the application that appear in a certain order. There is a sequential "and" relationship between signatures.
@@ -265,8 +273,9 @@ The following demonstrates how to create a customized signature.
 
 You can \textbf{Edit} or \textbf{Delete} your signature and reference one or multiple signatures when creating application object.
 
-\pdfbookmark[2]{Customized Attributes}{Customized Attributes}
+%\pdfbookmark[2]{Customized Attributes}{Customized Attributes}
 \subsection*{\hypertarget{link:Customized Attributes}{Customized Attributes}}
+\addcontentsline{toc}{subsection}{Customized Attributes}
 \label{sec:objects:application:attribute}
 
 The traffic attribute is the information obtained after the analysis of the network transmission unit. The attributes used by the App recognition can be found in \textbf{Appendix F Best Practices} > \textbf{\hyperlink{link:Custom Application}{\color{linkblue}{Custom Application}}}.
@@ -295,8 +304,9 @@ The following is a basic example of how to create a customized attribute.
 
 You can \textbf{Edit} or \textbf{Delete} your customized attributes and download the Uploaded File.
 
-\pdfbookmark[2]{Custom Application}{Custom Application}
+%\pdfbookmark[2]{Custom Application}{Custom Application}
 \subsection*{\hypertarget{link:Custom Application}{Custom Application}}
+\addcontentsline{toc}{subsection}{Custom Application}
 \label{sec:objects:application:customize}
 
 Applications allow you classify all traffic, across all ports, all the time. To ensure that your internal custom applications do not show up as unknown traffic, you can create a custom application. Then practice granular policy control over these applications to minimize the range of unidentified traffic on your network. 
@@ -364,8 +374,9 @@ The following is a basic example of how to create a custom application.
     \end{enumerate}
 \end{description}
 
-\pdfbookmark[2]{Application Selector}{Application Selector}
+%\pdfbookmark[2]{Application Selector}{Application Selector}
 \subsection*{\hypertarget{link:Application Selector}{Application Selector}}
+\addcontentsline{toc}{subsection}{Application Selector}
 \label{sec:objects:application:selector}
 
 An application selector is an object that dynamically groups applications based on application attributes that you define, including category, subcategory, technology, risk and characteristics. This is useful when you want to enable access to applications that you do not explicitly sanction, but that you want users to be able to access. For example, you may want to enable employees to choose their own office programs, such as Evernote, Google Docs, or Microsoft Office, for business use. To enable these types of applications, you could create an application selector that matches on the Category business-systems and the Subcategory office-programs. As new applications office programs emerge, these new applications will automatically match the selector you defined; you don’t have to make any additional changes to your policy rules to enable any application that matches the attributes you defined for the selector.
@@ -378,8 +389,9 @@ An application selector is an object that dynamically groups applications based 
     When you have adjusted the filter attributes to match the types of applications you want to safely enable, click \textbf{OK}.
 \end{description}
 
-\pdfbookmark[2]{Application Group}{Application Group}
+%\pdfbookmark[2]{Application Group}{Application Group}
 \subsection*{\hypertarget{link:Application Group}{Application Group}}
+\addcontentsline{toc}{subsection}{Application Group}
 \label{sec:objects:application:group}
 
 An application group is an object that contains applications that you want to treat similarly in a policy. Application groups are useful for allow or deny access to applications that you explicitly sanction or forbid. Grouping sanctioned or forbidden applications simplifies administration of your rules. Instead of having to update individual policy rules when there is a change in the applications you sanction or deny, you can update only the affected application groups.
@@ -395,8 +407,9 @@ When deciding how to group applications, consider how you plan to enforce access
     \item[STEP 5.]	Click \textbf{OK}.    
 \end{description}
 
-\pdfbookmark[1]{Configure Object Group}{Configure Object Group}
+%\pdfbookmark[1]{Configure Object Group}{Configure Object Group}
 \section*{\hypertarget{link:Configure Object Group}{Configure Object Group}}
+\addcontentsline{toc}{section}{Configure Object Group}
 \label{sec:objects:group}
 
 A policy object consists of one or multiple items, while an object group is composed of one or multiple subordinate objects. An object group is also considered as an object. Typically, when creating a policy object, you organize objects that require similar permissions in policy. One object is allowed to reference same type objects as subordinate objects, but not allowed to add items in object. For example, An IP object defines a set of single address, whereas an IP object group can define more than one address object. By grouping objects, you can significantly reduce the administrative overhead in creating policies. You can create object group for all types of objects.

@@ -1,7 +1,8 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-\pdfbookmark[0]{Monitoring}{Monitoring}
+%\pdfbookmark[0]{Monitoring}{Monitoring}
 \chapter*{\hypertarget{link:Monitoring}{Monitoring}}
+\addcontentsline{toc}{chapter}{Monitoring}
 \label{sec:monitor}
 
 To forestall potential issues and to accelerate incidence response when needed, TSG provides intelligence about traffic and user patterns using customizable and informative reports. 
@@ -19,8 +20,9 @@ to find the information you care about.
 }
 \clearpage
 
-\pdfbookmark[1]{Use the Dashboard}{Use the Dashboard}
+%\pdfbookmark[1]{Use the Dashboard}{Use the Dashboard}
 \section*{\hypertarget{link:Use the Dashboard}{Use the Dashboard}}
+\addcontentsline{toc}{section}{Use the Dashboard}
 \label{sec:monitor:dashboard}
 
 The TSG Dashboard include two sub menus, Main Board and Live Chart. Main Board show general TSG system overview, endpoints, policy hits statistics. By default, the Main Board shows information of the last 24 hours. However, you can customize time range by clicking the time widget. By default, the statistics on the screen will not refresh automatically. You can turn it on and the Minimum Refresh Time is 15s. The following table describes the Main Board widgets:
@@ -54,7 +56,7 @@ Live Chart show network summary, survey statistics, throughput and protocol info
     \multicolumn{2}{l!{\vlineblack}}{Network Summary} & Displays Unique Client IP count, Sessions, Date Rate and Throughput. \\ \hline  
     \multicolumn{2}{l!{\vlineblack}}{Survey Statistics} & Displays the percentage and number of Uncategorized Traffic, One-side Connections, Sequence Gap Loss and Packet Fragmentation. \\ \hline                                                                                                                                                        
     \multirow{4}{*}{Protocols} & Total Throughput & Displays Total Throughput in real-time by protocol. When you click the Protocol Composition pie chart, it updates dynamically. The first time to enter the page the X-axis displays 20\% of the current time scope. (Sometimes the peak data is outside the display window, so the line graph will appear empty.) You can adjust the display time window as needed. \\ \cline{2-3}
-                               & \tabincell{l}{Protocol\\ Composition} & Classify traffic by protocol shown in pie chart view. The pie chart shows the distribution (or percentage) of each level of protocol and the total bandwidth.\\ \cline{2-3}
+                               & \tabincell{l}{Protocol\\ Composition} & Classify traffic by protocol shown in Sunburst chart view. The Sunburst chart shows the distribution (or percentage) of each level of protocol and the total bandwidth. Sunburst chart supports zoom in and out. You can also drag and reset it.\\ \cline{2-3}
                                & Network Protocol Tree & It is like the Protocol Composition widget, but displayed in tree structure.\\ \cline{2-3}
                                & Protocol Statistics & Displays the Sent Packets, Received Packets and Sessions of each protocol.\\ \hline
 \end{longtable}
@@ -62,8 +64,9 @@ Live Chart show network summary, survey statistics, throughput and protocol info
 
 \notemark\textit{You can click a specific protocol to display the detailed data about it shown in the adjacent widget: Total Throughput, Network Protocol Tree and Protocol Statistics. As you can see the three widgets change dynamically when you click different protocol. By default, the reports of ETHERNET will be displayed. For the full list of Network Protocol Tree, please refer to Appendix B Network Protocol Tree.}
 
-\pdfbookmark[1]{View and Manage Logs}{View and Manage Logs}
+%\pdfbookmark[1]{View and Manage Logs}{View and Manage Logs}
 \section*{\hypertarget{link:View and Manage Logs}{View and Manage Logs}}
+\addcontentsline{toc}{section}{View and Manage Logs}
 \label{sec:monitor:log}
 
 A log is an automatically generated, time-stamped file that provides an audit trail for network traffic events that TSG monitors. Log records contain columns, which are properties, activities, or behaviors associated with the logged event. Each log type records information for a different event type. You can see the following 4 log types in the Log pages.
@@ -80,8 +83,9 @@ A log is an automatically generated, time-stamped file that provides an audit tr
 
 • Radius Logs
 
-\pdfbookmark[2]{Log Types}{Log Types}
+%\pdfbookmark[2]{Log Types}{Log Types}
 \subsection*{\hypertarget{link:Log Types}{Log Types}}
+\addcontentsline{toc}{subsection}{Log Types}
 \label{sec:monitor:log:type}
 
 Security Event Logs and Proxy Event Logs
@@ -106,8 +110,9 @@ You can use the Account information in radius log to create \hyperlink{link:Subs
 
 Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
 
-\pdfbookmark[2]{View Logs}{View Logs}
+%\pdfbookmark[2]{View Logs}{View Logs}
 \subsection*{\hypertarget{link:View Logs}{View Logs}}
+\addcontentsline{toc}{subsection}{View Logs}
 \label{sec:monitor:log:view}
 
 You can view the different log types on TSG in a tabular format.
@@ -131,21 +136,31 @@ You can view the different log types on TSG in a tabular format.
     \end{enumerate}
 \end{description}
 
-\pdfbookmark[2]{Filter Logs}{Filter Logs}
+%\pdfbookmark[2]{Filter Logs}{Filter Logs}
 \subsection*{\hypertarget{link:Filter Logs}{Filter Logs}}
+\addcontentsline{toc}{subsection}{Filter Logs}
 \label{sec:monitor:log:filter}
 
-The ability to filter logs is useful for focusing on events on your TSG that possess particular attributes. Filter logs by columns that are associated with individual log records. For example, filtering by the Policy ID makes it easier to pinpoint the specific rule you want to locate, even among many similarly rules. If your ruleset is very large and contains many rules, using the rule’s Policy ID as a filter spotlights the particular rule you need to find without having to navigate through pages of results. 
+The ability to filter logs is useful for focusing on events on your TSG that possess particular attributes. 
+Filter logs by columns that are associated with individual log records. For example, filtering by the Policy ID makes it easier to pinpoint the specific rule you want to locate, 
+even among many similarly rules. If your ruleset is very large and contains many rules, using the rule’s Policy ID 
+as a filter spotlights the particular rule you need to find without having to navigate through pages of results. 
 
+
+TSG log filter supports search by multiple fields in AND/OR relation. You can perform exact match search and fuzzy search using Operators. To filter logs, follow these steps:
 
 \begin{description}
     \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. For example, \textbf{Proxy Event Logs}.
-    \item[STEP 2.]	Select the log generated time period. By default, it shows logs of last hour.
-    \item[STEP 3.]	Search by one or more artifacts. For example, enter the Client IP 192.168.50.62 and Action Deny to display only entries that contain both artifacts in the log. You can search by the following artifacts: Log ID, Policy ID, Subscriber ID, Client IP, Server IP, Server Port, Action, Sled IP, Session ID, Http.URL, Http.Domain, SSL.SNI and Schema Type.
+    \item[STEP 2.]	Select the time period picker. By default, it shows logs of \textbf{Last 1 hour}.
+    \item[STEP 3.]  Click \textbf{Add Filter} to add search term. The supported search fields are: Log ID, Policy ID, Subscriber ID, Client IP, Internal IP, Client Port, 
+    Server IP, Server Port, External IP, Action, Sled IP, Schema Type, Data Center, Session ID, TCP Client ISN, TCP Server ISN, Http.URL, Http.Domain, SSL.SNI and SSL. JA3 hash. 
+    Then, select \textbf{Operator}, such as =, !=, in, not in, like, not like, notEmpty, empty. And input the value. If you wish to add multiple search fields, click Add Filter again, and proceed. 
+    TSG support \textbf{AND}/\textbf{OR} relations between search fileds. For example, enter Client IP 192.168.50.62 and Action Deny to display only entries that contain both fields in the log. 
 \end{description}
 
-\pdfbookmark[2]{Export Logs}{Export Logs}
+%\pdfbookmark[2]{Export Logs}{Export Logs}
 \subsection*{\hypertarget{link:Export Logs}{Export Logs}}
+\addcontentsline{toc}{subsection}{Export Logs}
 \label{sec:monitor:log:export}
 
 You can export the contents of a log type to a xlsx file. First, Filter Logs according to time and other conditions. Then, Click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
@@ -153,8 +168,9 @@ You can export the contents of a log type to a xlsx file. First, Filter Logs acc
 
 \notemark\textit{Maximum export log records are 100000.}
 
-\pdfbookmark[1]{View and Manage Reports}{View and Manage Reports}
+%\pdfbookmark[1]{View and Manage Reports}{View and Manage Reports}
 \section*{\hypertarget{link:View and Manage Reports}{View and Manage Reports}}
+\addcontentsline{toc}{section}{View and Manage Reports}
 \label{sec:monitor:report}
 
 The reporting capabilities on TSG allow you to keep a pulse on your network and focus your efforts on maintaining network security for keeping your users safe and productive.
@@ -749,8 +765,9 @@ Advantages of TSG report:
     \item Report archive: Support online sending or offline exporting to report archive.
 \end{itemize}
 
-\pdfbookmark[1]{Take Packet Captures}{Take Packet Captures}
+%\pdfbookmark[1]{Take Packet Captures}{Take Packet Captures}
 \section*{\hypertarget{link:Take Packet Captures}{Take Packet Captures}}
+\addcontentsline{toc}{section}{Take Packet Captures}
 \label{sec:monitor:packet}
 
 TSG captures packets for all traffic or for specific traffic based on filters that you define. For example, you can configure TSG to only capture packets to and from a specific source and destination IP address or port. You may need to take packet captures when creating a custom application, because you have to gather information about the application.

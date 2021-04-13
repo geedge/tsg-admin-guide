@@ -185,6 +185,16 @@
     }{}%
 }
 
+%\renewcommand\tableofcontents{%
+%      \addcontentsline{toc}{chapter}{DAFTAR ISI}\cleardoublepage\null\vspace{-12pt}\hfill\textbf{\large\contentsname}\hfill\null\par
+%      \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
+%      \vspace{30pt}
+%      \@starttoc{toc}%
+%    }
+
+
+
+
 \lefoot[%   > plain
     \ctfooterleftpagenumber%
 ]{%         > srcheadings
@@ -218,38 +228,15 @@
 \DeclareTOCStyleEntries[pagenumberwidth=2.1em]{tocline}{subsubsection,subsection,section}
 
 
-\RequirePackage{etoc} % Required to insert local tables of contents
-\usepackage{etoc}
-\newcounter{margintocdepth} % Set the depth of the margintoc
-\setcounter{margintocdepth}{\subsectiontocdepth}
+%\RequirePackage{etoc} % Required to insert local tables of contents
+%\usepackage{etoc}
+%\newcounter{margintocdepth} % Set the depth of the margintoc
+%\setcounter{margintocdepth}{\subsectiontocdepth}
 
-\newlength{\mtocshift} % Length of the vertical offset used for margin tocs
+%\newlength{\mtocshift} % Length of the vertical offset used for margin tocs
 %\setlength{\mtocshift}{-52\vscale}
 
 % Command to print a table of contents in the margin
-\newcommand{\margintoc}[1][\mtocshift]{ % The first parameter is the vertical offset; by default it is \mtocshift
-	\begingroup%
-		% Set the style for section entries
-		\etocsetstyle{section}%
-		{\parindent -5pt \parskip 3pt}%
-		{\leftskip 20pt \rightskip 12pt} %
-		{\hspace{0.01cm}\llap{\etocnumber\hspace{0.1cm}}\etocname\nobreak\leaders\hbox{\hbox to 1.5ex {\hss.\hss}}\hfill\makebox[-0.1cm][l]{\etocpage}\par}%	
-		{}%
-		% Set the style for subsection entries
-		\etocsetstyle{subsection}%
-		{\parindent -5pt \parskip 0pt}%
-		{\leftskip 20pt \rightskip 12pt}%
-		{\hspace{0.01cm}\llap{\hspace{0.1cm}}\etocname\nobreak\leaders\hbox{\hbox to 1.5ex {\hss.\hss}}\hfill\makebox[-0.1cm][l]{\etocpage}\par}%
-		{}%
-		% Set the global style of the toc
-		%\etocsettocstyle{}{}
-		%\etocsettocstyle{\normalfont\sffamily\normalsize}{}
-		\etocsettocstyle{\usekomafont{section}\small}{}%
-		\etocsetnexttocdepth{\themargintocdepth}%
-		% Print the table of contents in the margin
-		\marginnote[#1]{\localtableofcontents}%
-	\endgroup%
-}
 %\usepackage[backend=bibtex]{biblatex}
 %\bibliography{bib-refs.bib}
 %\usepackage[backend = biber, style = nwsuafref, utf8, sorting = centy]{biblatex}  

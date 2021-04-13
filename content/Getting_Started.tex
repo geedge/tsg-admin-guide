@@ -1,12 +1,11 @@
 
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-\pdfbookmark[0]{Getting Started}{Getting Started}
+%\pdfbookmark[0]{Getting Started}{Getting Started}
 \chapter*{\hypertarget{link:Getting Started}{Getting Started}}
+\addcontentsline{toc}{chapter}{Getting Started}
 \label{sec:intro}
 
-%\chapter{Preface}
-%\addcontentsline{toc}{chapter}{Preface......}
 %\section{test}
 %\addcontentsline{toc}{section}{test......}
 
@@ -27,12 +26,14 @@ Administrators can configure, manage, and monitor Tiangou Secure Gateway using t
 }
 \clearpage
 
-\pdfbookmark[1]{System Overview}{System Overview}
+%\pdfbookmark[1]{System Overview}{System Overview}
 \section*{\hypertarget{link:system overview}{System Overview}}
+\addcontentsline{toc}{section}{System Overview}
 \label{sec:intro:overview}
 
-\pdfbookmark[2]{Purpose}{Purpose}
+%pdfbookmark[2]{Purpose}{Purpose}
 \subsection*{\hypertarget{link:Purpose}{Purpose}}
+\addcontentsline{toc}{subsection}{Purpose}
 \label{sec:intro:overview:purpose}
 
 The Tiangou Secure Gateway (TSG) can be used for any purpose where keeping track of the traffic flowing in a network is useful.
@@ -45,8 +46,9 @@ The following are examples of such purposes:\\
 • Network performance optimization.\\
 • Network visualization
 
-\pdfbookmark[2]{System Introduction}{System Introduction}
+%\pdfbookmark[2]{System Introduction}{System Introduction}
 \subsection*{\hypertarget{link:System Introduction}{System Introduction}}
+\addcontentsline{toc}{subsection}{System Introduction}
 \label{sec:intro:overview:introduction}
 
 Tiangou Secure Gateway (TSG) is a scalable traffic management product for all types of network environments. 
@@ -61,21 +63,23 @@ The Proxy is deployed in transparent mode; thus, no proxy settings on browser si
 
 
 TSG enables service providers and organizations to gain insight into their network and control traffic in high-performance environments, 
-such as large data centers and high-bandwidth network perimeters. TSG allows content visibility of HTTP, DNS, MAIL, FTP and SSL. 
+such as large data centers and high-bandwidth network perimeters. TSG allows content visibility of HTTP, DNS, MAIL, FTP, SSL and SIP. 
 TSG identifies and controls applications as well as evasive tools blocking. The TSG is able to modify HTTP sessions, as well as override redirect request, 
 modify headers, inject scripts, replace texts and respond with an uploaded file. 
 The TSG has an SSL Proxy allows all decrypted traffic to be mirrored to a third-party system for additional analysis.
 
 
-\pdfbookmark[2]{Who is this Guide for?}{Who is this Guide for?}
+%\pdfbookmark[2]{Who is this Guide for?}{Who is this Guide for?}
 \subsection*{\hypertarget{link:Who is this Guide for}{Who is this Guide for?}}
+\addcontentsline{toc}{subsection}{Who is this Guide for?}
 \label{sec:intro:overview:for}
 
 This manual is for TSG operators, system administrators and implementation personnel.
 
 
-\pdfbookmark[1]{Logging into the System}{Logging into the System}
+%\pdfbookmark[1]{Logging into the System}{Logging into the System}
 \section*{\hypertarget{link:Logging into the System}{Logging into the System}}
+\addcontentsline{toc}{section}{Logging into the System}
 \label{sec:intro:logging}
 
 You can use the Web Interface to perform configuration and monitoring tasks with relative ease. 
@@ -98,12 +102,14 @@ However, the best practice is to install the latest version.
 You can connect to an LDAP server when you set the Authentication Mode to LDAP.}
 
 
-\pdfbookmark[2]{Logging into the Web Interface}{Logging into the Web Interface}
+%\pdfbookmark[2]{Logging into the Web Interface}{Logging into the Web Interface}
 \subsection*{\hypertarget{link:Logging into the Web Interface}{Logging into the Web Interface}}
+\addcontentsline{toc}{subsection}{Logging into the Web Interface}
 \label{sec:intro:logging:for}
 
-\pdfbookmark[2]{Changing Your Password}{Changing Your Password}
+%\pdfbookmark[2]{Changing Your Password}{Changing Your Password}
 \subsection*{\hypertarget{link:Changing Your Password}{Changing Your Password}}
+\addcontentsline{toc}{subsection}{Changing Your Password}
 \label{sec:intro:logging:password}
 
 You should periodically change your password. The following procedure explains how to change the password while logged into TSG.
@@ -116,8 +122,9 @@ You should periodically change your password. The following procedure explains h
     \item[STEP 4.]Click \textbf{OK}.\\
 \end{description}
 
-\pdfbookmark[2]{Login Restrictions}{Login Restrictions}
+%\pdfbookmark[2]{Login Restrictions}{Login Restrictions}
 \subsection*{\hypertarget{link:Login Restrictions}{Login Restrictions}}
+\addcontentsline{toc}{subsection}{Login Restrictions}
 \label{sec:intro:logging:restrictions}
 
 TSG restricts administrator logins to improve system security. An IP address will be Lockout after maximum login attempts. 
@@ -134,8 +141,9 @@ And you can specify limited IP addresses to be able to login the system. Configu
     \item[STEP 6.]Click \textbf{OK}.
 \end{description}
 
-\pdfbookmark[1]{Set Up a Basic Security Policy}{Set Up a Basic Security Policy}
+%\pdfbookmark[1]{Set Up a Basic Security Policy}{Set Up a Basic Security Policy}
 \section*{\hypertarget{link:Set Up a Basic Security Policy}{Set Up a Basic Security Policy}}
+\addcontentsline{toc}{section}{Set Up a Basic Security Policy}
 \label{sec:intro:security}
 
 Use the following workflow set up a very basic Security policy. This gives you a brief idea of policies so that you can verify that you have successfully configured TSG.
@@ -179,8 +187,9 @@ Use the following workflow set up a very basic Security policy. This gives you a
 A prompt window will appear to remind you that changes you made are not saved.}
 
 
-\pdfbookmark[1]{Set Up a Basic Proxy Policy}{Set Up a Basic Proxy Policy}
+%\pdfbookmark[1]{Set Up a Basic Proxy Policy}{Set Up a Basic Proxy Policy}
 \section*{\hypertarget{link:Set Up a Basic Proxy Policy}{Set Up a Basic Proxy Policy}}
+\addcontentsline{toc}{section}{Set Up a Basic Proxy Policy}
 \label{sec:intro:proxy}
 
 Security Policies with Intercept actions intercept HTTP/HTTPS traffic for proxy, which is a prerequisite for proxy policy. 
@@ -221,8 +230,9 @@ You can perform the following to set up a basic proxy policy. \\
     \item[STEP 3.] Go to \textbf{Logs} > \textbf{Proxy Event Logs} and view \textbf{Logs} to monitor the policy rule status, verify if the proxy rule has been hit and determine the effectiveness of the policy rule.
 \end{description}
 
-\pdfbookmark[1]{Command Line Interface}{Command Line Interface}
+%\pdfbookmark[1]{Command Line Interface}{Command Line Interface}
 \section*{\hypertarget{link:Command Line Interface}{Command Line Interface}}
+\addcontentsline{toc}{section}{Command Line Interface}
 \label{sec:intro:command}
 
 You can use the TSG Command Line Interface (CLI) to perform a series of tasks by entering commands in rapid succession over SSH. 
@@ -234,8 +244,9 @@ The other CLI commands only work on local device. When you become familiar with 
 
 For more details, please view \textcolor{darkblue}{\textbf{\underline{TSG CLI User Guide}}}.
 
-\pdfbookmark[1]{TSG Integration API}{TSG Integration API}
+%\pdfbookmark[1]{TSG Integration API}{TSG Integration API}
 \section*{\hypertarget{link:TSG Integration API}{TSG Integration API}}
+\addcontentsline{toc}{section}{TSG Integration API}
 \label{sec:intro:api}
 
 TSG Integration API is a web service implemented using HTTP requests and responses following architecture style REST the RESTful API. 
@@ -245,12 +256,14 @@ You can use this RESTful API to streamline your operations and integrate with ex
 For more details, please refer to \textcolor{darkblue}{\textbf{\underline{TSG Integration API Specification}}}.
 
 
-\pdfbookmark[1]{TSG Administration}{TSG Administration}
+%\pdfbookmark[1]{TSG Administration}{TSG Administration}
 \section*{\hypertarget{link:TSG Administration}{TSG Administration}}
+\addcontentsline{toc}{section}{TSG Administration}
 \label{sec:intro:admin}
 
-\pdfbookmark[2]{Configure TSG Users}{Configure TSG Users}
+%\pdfbookmark[2]{Configure TSG Users}{Configure TSG Users}
 \subsection*{\hypertarget{link:Configure TSG Users}{Configure TSG Users}}
+\addcontentsline{toc}{subsection}{Configure TSG Users}
 \label{sec:intro:admin:users}
 
 The following table list three authentication mode for TSG:\\
@@ -297,8 +310,9 @@ and the detail pages of Policies and Objects are locked.
 • Read Only—Read-only access to the selected feature.\\   
 • Disable—No access to the selected feature.\\
 
-\pdfbookmark[3]{Users and Roles}{Users and Roles}
+%\pdfbookmark[3]{Users and Roles}{Users and Roles}
 \subsubsection*{\hypertarget{link:Users and Roles}{Users and Roles}}
+\addcontentsline{toc}{subsubsection}{Users and Roles}
 \label{sec:intro:admin:users:role}
 
 Perform the following steps to add a LOCAL administrative account on TSG.\\
@@ -331,8 +345,9 @@ See \hyperlink{link:Roles and Permissions}{\textcolor{linkblue}{Roles and Permis
 
 \notemark\textit{And TSG supports 100 concurrent users at present.}
 
-\pdfbookmark[3]{Roles and Permissions}{Roles and Permissions}
+%\pdfbookmark[3]{Roles and Permissions}{Roles and Permissions}
 \subsubsection*{\hypertarget{link:Roles and Permissions}{Roles and Permissions}}
+\addcontentsline{toc}{subsubsection}{Roles and Permissions}
 \label{sec:intro:admin:users:permission}
 
 There are two predefined roles in TSG, including:\\
@@ -360,8 +375,9 @@ Perform the following to create a new role:
 Make sure Devices are enabled before you enable Dashboard, because Devices affects the reading of data for device module in Dashboard.}
 
 
-\pdfbookmark[2]{Enroll LDAP Servers}{Enroll LDAP Servers}
+%\pdfbookmark[2]{Enroll LDAP Servers}{Enroll LDAP Servers}
 \subsection*{\hypertarget{link:Enroll LDAP Servers}{Enroll LDAP Servers}}
+\addcontentsline{toc}{subsection}{Enroll LDAP Servers}
 \label{sec:intro:admin:ldap}
 
 Configuring TSG to connect to a LDAP server enables you to login in LDAP Authentication Mode with LDAP account. Perform the following steps to add a LDAP server on TSG.
@@ -390,8 +406,9 @@ In \textbf{Administration} > \textbf{LDAP Server} page, you can view the LDAP Se
 Select the item you wish to change in the list and click \textbf{Edit} to modify LDAP server information. 
 You can delete or disable the LDAP server and after that you will not be able to log into the system with the LDAP account.
 
-\pdfbookmark[2]{Audit Log}{Audit Log}
+%\pdfbookmark[2]{Audit Log}{Audit Log}
 \subsection*{\hypertarget{link:Audit Log}{Audit Log}}
+\addcontentsline{toc}{subsection}{Audit Log}
 \label{sec:intro:admin:audit}
 
 If you perform an operation which influence the running of TSG, TSG will generate a log about this action. 
@@ -399,8 +416,9 @@ For example, Audit Log will record the operations of adding or deleting or updat
 You can view \textbf{Administration} > \textbf{Audit Log} to see details. You can query audit logs within certain time range by ID, Source IP or Target Type. 
 Audit logs can be exported as trace evidence. And when you are editing a policy or an object, you will find a link to audit log about this policy or object.
 
-\pdfbookmark[2]{Mail Server}{Mail Server}
+%\pdfbookmark[2]{Mail Server}{Mail Server}
 \subsection*{\hypertarget{link:Mail Server}{Mail Server}}
+\addcontentsline{toc}{subsection}{Mail Server}
 \label{sec:intro:admin:mail}
 
 Configure Mail Server to send mail alerts, which is currently used to send reports. Perform the following to create a Mail server profile:

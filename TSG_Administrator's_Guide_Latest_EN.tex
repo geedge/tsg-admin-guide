@@ -16,6 +16,7 @@
     chapterprefix=false,    % do not display a prefix for chapters
     appendixprefix=false,    % but display a prefix for appendix chapter
     draft=false,            % value for draft version
+    toctree_only=True,
 ]{scrreprt}% 
 
 
@@ -48,34 +49,41 @@
 %\renewcaptionname{ngerman}{\tablename}{Tab.}
 \renewcaptionname{english}{\figurename}{Fig.}
 \renewcaptionname{english}{\tablename}{Tab.}
-
+%\clearpage
 % > rename the title of the LOL, i.e. list of listings (default is "Listings")
 %\renewcommand*{\lstlistlistingname}{List of Listings}
-
 % --------------------------
 % Front matter
 % --------------------------
 \pagestyle{empty}				% no header or footers
 \input{content/titlepage}		% INCLUDE: all titlepages
-\clearpage
-%
+\cleardoublepage
+
+
+\begingroup % Local scope for the following commands
+%\addtocontents{toc}{\protect\newpage}
+%\addtocontents{toc}{\protect\needspace{2\baselineskip}}
+%{\cfttoctitlefont \contentsname}{\cftaftertoctitle}\par
+%\renewcommand{\cftaftertoctitle}{%
+%\\[\baselineskip]\mbox{}\hfill{\normalfont Page}}
+%\setlength{\cftaftertoctitleskip}{30mm}   %
+%\addtolength{\belowcaptionskip}{10mm}
+%\setlength{\cftbeforechapskip}{30mm}
+\currentpdfbookmark{\contentsname}{toc}
 \pagenumbering{roman}
 \setcounter{page}{1}
-\currentpdfbookmark{\contentsname}{toc}
-\begingroup % Local scope for the following commands
+\pagestyle{plain}			% header and footer style
+
 
 % Define the style for the TOC, LOF, and LOT
 %\setstretch{1} % Uncomment to modify line spacing in the ToC
 %\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
 %\setlength{\textheight}{230\vscale} % Manually adjust the height of the ToC pages
+%\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+%\renewcommand{\cftaftertoctitle}{\hfill}
+\tableofcontents			% display table of contents 为了生成目录，请先执行生成 xelatex,在build整个解决方案；或者生成2次及以上可达到同样效果（因为latex structure toc file生成速度慢的原因 ）。
 
-% Turn on compatibility mode for the etoc package
-%\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
-%\etocstandardlines % "toc lines as if etoc was not loaded
-
-
-\tableofcontents				% display table of contents
-              
+            
 \endgroup
 \cleardoublepage
 
@@ -83,7 +91,7 @@
 % Body matter
 % --------------------------
 \pagenumbering{arabic}			% arabic page numbering
-\setcounter{page}{7}			% set page counter
+\setcounter{page}{1}			% set page counter
 \pagestyle{scrheadings}			% header and footer style
 
 %% Uncomment the following lines using the \part command
@@ -136,6 +144,13 @@
 %\bibliography{IEEEabrv,REFS}
 %\begin{thebibliography}{widest-label}
 %\end{thebibliography}
+
+% --------------------------
+% Copy matter
+% --------------------------
+\pagestyle{empty}				% no header or footers
+\input{content/copypage}		% INCLUDE: all titlepages
+\cleardoublepage
 
 % **************************************************
 % End of Document CONTENT

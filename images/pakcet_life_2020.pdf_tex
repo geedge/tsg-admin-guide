@@ -60,7 +60,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/pakcet_life_2020.pdf}}%
     \put(0.22134901,0.69069077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tunnel  protocol[2]?\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/pakcet_life_2020.pdf}}%
-    \put(0.40525013,0.69833523){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tunnel\\ Decapsulation\end{tabular}}}}%
+    \put(0.40525013,0.69833523){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tunnel\end{tabular}}}}%
+    \put(0.37525013,0.68333523){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Decapsulation\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{images/pakcet_life_2020.pdf}}%
     \put(0.3535372,0.69132331){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Y\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{images/pakcet_life_2020.pdf}}%
@@ -89,7 +90,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=17]{images/pakcet_life_2020.pdf}}%
     \put(0.51723327,0.32216048){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Policy match?\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=18]{images/pakcet_life_2020.pdf}}%
-    \put(0.5233782,0.26963662){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Take action\\ (allow,deny,monitor)\end{tabular}}}}%
+    \put(0.5233782,0.26963662){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Take action\end{tabular}}}}%
+    \put(0.4933782,0.25463662){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}(allow,deny,monitor)\end{tabular}}}}%    
     \put(0,0){\includegraphics[width=\unitlength,page=19]{images/pakcet_life_2020.pdf}}%
     \put(0.68511831,0.45492814){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}TCP Stack\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=20]{images/pakcet_life_2020.pdf}}%
@@ -99,13 +101,15 @@
     \put(0,0){\includegraphics[width=\unitlength,page=22]{images/pakcet_life_2020.pdf}}%
     \put(0.66632267,0.27423315){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Build SSL Session\\ (Cliend-Side)\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=23]{images/pakcet_life_2020.pdf}}%
-    \put(0.81956387,0.52565847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}L7 Decoder\\ (HTTP, HTTP/2, etc)\end{tabular}}}}%
+    \put(0.81956387,0.52565847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}L7 Decoder\end{tabular}}}}%
+    \put(0.78956387,0.51065847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}(HTTP, HTTP/2, etc)\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=24]{images/pakcet_life_2020.pdf}}%
     \put(0.79848644,0.45523804){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Proxy Policy lookup\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=25]{images/pakcet_life_2020.pdf}}%
     \put(0.80606413,0.39245998){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Policy Matched?\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=26]{images/pakcet_life_2020.pdf}}%
-    \put(0.81844951,0.33732217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Take Action\\ (allow, replace, etc)\end{tabular}}}}%
+    \put(0.81844951,0.33732217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Take Action\end{tabular}}}}%
+    \put(0.79844951,0.32232217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}(allow, replace, etc)\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=27]{images/pakcet_life_2020.pdf}}%
     \put(0.84671407,0.36235088){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Y\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=28]{images/pakcet_life_2020.pdf}}%
@@ -115,7 +119,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=30]{images/pakcet_life_2020.pdf}}%
     \put(0.63407293,0.48209532){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}y\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=31]{images/pakcet_life_2020.pdf}}%
-    \put(0.48636959,0.17562342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tunnel\\ Encapsulation\end{tabular}}}}%
+    \put(0.48636959,0.17562342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tunnel\end{tabular}}}}%
+    \put(0.46336959,0.16062342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Encapsulation\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=32]{images/pakcet_life_2020.pdf}}%
     \put(0.47268518,0.10687034){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Send Packet\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=33]{images/pakcet_life_2020.pdf}}%
@@ -129,19 +134,21 @@
     \put(0.08213789,0.03849434){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}[2] Tunnel protocols: PPPOE, IPIP, GRE, PPTP, L2TP, Teredo, GTP \end{tabular}}}}%
     \put(0.08213789,0.02349434){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}[3]  L7 Decoded Protocols: HTTP, SSL/TLS, DNS, MAIL(SMTP, POP3, IMAP), FTP and QUIC \end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=36]{images/pakcet_life_2020.pdf}}%
-    \put(0.26610194,0.63440672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}IP\\ Defragmentation\end{tabular}}}}%
+    \put(0.26610194,0.63440672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}IP\end{tabular}}}}%
+    \put(0.22610194,0.619440672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Defragmentation\end{tabular}}}}% 
     \put(0,0){\includegraphics[width=\unitlength,page=37]{images/pakcet_life_2020.pdf}}%
     \put(0.26782868,0.65748263){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}N\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=38]{images/pakcet_life_2020.pdf}}%
-    \put(0.56978039,0.77718568){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session Lookup\end{tabular}}}}%
+    \put(0.55978039,0.77718568){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session Lookup\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=39]{images/pakcet_life_2020.pdf}}%
-    \put(0.72557827,0.6419271){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session\\ Maintenance\end{tabular}}}}%
+    \put(0.72557827,0.6419271){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session\end{tabular}}}}%
+    \put(0.69557827,0.6269271){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Maintenance\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=40]{images/pakcet_life_2020.pdf}}%
     \put(0.57359789,0.71325403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}New Session?\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=41]{images/pakcet_life_2020.pdf}}%
     \put(0.51730332,0.81906453){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session Setup/ Maintenance\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=42]{images/pakcet_life_2020.pdf}}%
-    \put(0.57226171,0.63428579){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session Setup\end{tabular}}}}%
+    \put(0.56226171,0.63428579){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}Session Setup\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=43]{images/pakcet_life_2020.pdf}}%
     \put(0.73744043,0.71388971){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\tiny\lineheight{1.25}\smash{\begin{tabular}[t]{l}N\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=44]{images/pakcet_life_2020.pdf}}%

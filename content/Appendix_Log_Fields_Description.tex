@@ -1,15 +1,17 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-\pdfbookmark[0]{Appendix C Log Fields Description}{Appendix C Log Fields Description}
+%\pdfbookmark[0]{Appendix C Log Fields Description}{Appendix C Log Fields Description}
 \chapter*{\hypertarget{link:Appendix C Log Fields Description}{Appendix C Log Fields Description}}
+\addcontentsline{toc}{chapter}{Appendix C Log Fields Description}
 \label{sec:appendix_c}
 
 \notemark\textit{The column with * is the default display column after logging in to the system for the first time. Once the user has made the configuration, 
 the configuration will be saved in the browser's local data. The next time the user logs in to the system through the same machine and the same browser, 
 it will display columns that the user has previously configured. The fields with bold font are the Log Fields used when creating reports.}
 
-\pdfbookmark[1]{Log Type}{Log Type}
+%\pdfbookmark[1]{Log Type}{Log Type}
 \section*{\hypertarget{link:Log Type}{Log Type}}
+\addcontentsline{toc}{section}{Log Type}
 \label{sec:appendix_c:logtype}
 
 \begin{longtable}{p{0.31\textwidth}|p{0.63\textwidth}}   
@@ -20,8 +22,9 @@ it will display columns that the user has previously configured. The fields with
     Radius Logs &	Base and Radius \\\hline 
 \end{longtable}
 
-\pdfbookmark[1]{Base}{Base}
+%\pdfbookmark[1]{Base}{Base}
 \section*{\hypertarget{link:Base}{Base}}
+\addcontentsline{toc}{section}{Base}
 \label{sec:appendix_c:base}
 
 \begin{longtable}{p{0.34\textwidth}|p{0.58\textwidth}}   
@@ -114,15 +117,21 @@ it will display columns that the user has previously configured. The fields with
     Sequence Gap Loss(c2s) &	Number of TCP gap loss packets in client-to-server direction of the session \\\hline
     Sequence Gap Loss(s2c) &	Number of TCP gap loss packets in server-to-client direction of the session \\\hline
     Unorder Packets(c2s) &	Number of TCP out of order packets in client-to-server direction of the session \\\hline
-    Unorder Packets(s2c) &	Number of TCP out of order packets in server-to-client direction of the session \\\hline                                   
+    Unorder Packets(s2c) &	Number of TCP out of order packets in server-to-client direction of the session \\\hline
+    TCP Client ISN &	TCP uses a three-way handshake to establish a reliable connection. The connection is full duplex, and both sides synchronize (SYN) and acknowledge (ACK) each other. 
+    The client chooses an initial sequence number, set in the first SYN packet. Initial sequence numbers (ISN) refers to the unique 32-bit sequence number assigned to each new connection 
+    on a TCP-based data communication. An ISN is unique to each connection and separated by each device. Now use a random number in ISN selection process to defeat malicious attacks. \\\hline 
+    TCP Server ISN &	The server also chooses its own initial sequence number, set in the SYN/ACK packet. Each side acknowledges each other's sequence number by incrementing it. \\\hline                                 
 \end{longtable}
 
-\pdfbookmark[1]{Log Fields per Protocol}{Log Fields per Protocol}
+%\pdfbookmark[1]{Log Fields per Protocol}{Log Fields per Protocol}
 \section*{\hypertarget{link:Log Fields per Protocol}{Log Fields per Protocol}}
+\addcontentsline{toc}{section}{Log Fields per Protocol}
 \label{sec:appendix_c:protocol}
 
-\pdfbookmark[2]{HTTP}{HTTP}
+%\pdfbookmark[2]{HTTP}{HTTP}
 \subsection*{\hypertarget{link:HTTP}{HTTP}}
+\addcontentsline{toc}{subsection}{HTTP}
 \label{sec:appendix_c:protocol:HTTP}
 
 \begin{longtable}{p{0.33\textwidth}|p{0.61\textwidth}}   
@@ -151,8 +160,9 @@ it will display columns that the user has previously configured. The fields with
     Http.Session Duration(ms) &	Duration time of current HTTP session \\\hline
 \end{longtable}
 
-\pdfbookmark[2]{MAIL}{MAIL}
+%\pdfbookmark[2]{MAIL}{MAIL}
 \subsection*{\hypertarget{link:MAIL}{MAIL}}
+\addcontentsline{toc}{subsection}{MAIL}
 \label{sec:appendix_c:protocol:MAIL}
 
 \begin{longtable}{p{0.26\textwidth}|p{0.68\textwidth}}   
@@ -170,8 +180,9 @@ it will display columns that the user has previously configured. The fields with
     Mail.EML File &	EML file download link of current mail session    \\\hline
 \end{longtable}
 
-\pdfbookmark[2]{DNS}{DNS}
+%\pdfbookmark[2]{DNS}{DNS}
 \subsection*{\hypertarget{link:DNS}{DNS}}
+\addcontentsline{toc}{subsection}{DNS}
 \label{sec:appendix_c:protocol:DNS}
 
 \begin{longtable}{p{0.29\textwidth}|p{0.65\textwidth}}   
@@ -196,8 +207,9 @@ it will display columns that the user has previously configured. The fields with
     Dns.RR &	Resource records of current DNS session \\\hline    
 \end{longtable}
 
-\pdfbookmark[2]{SSL}{SSL}
+%\pdfbookmark[2]{SSL}{SSL}
 \subsection*{\hypertarget{link:SSL}{SSL}}
+\addcontentsline{toc}{subsection}{SSL}
 \label{sec:appendix_c:protocol:SSL}
 
 \begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
@@ -246,8 +258,9 @@ it will display columns that the user has previously configured. The fields with
     SSL.JA3 hash &	JA3 Fingerprint is hashed with MD5 \\\hline                                                               
 \end{longtable}
 
-\pdfbookmark[2]{QUIC}{QUIC}
+%\pdfbookmark[2]{QUIC}{QUIC}
 \subsection*{\hypertarget{link:QUIC}{QUIC}}
+\addcontentsline{toc}{subsection}{QUIC}
 \label{sec:appendix_c:protocol:QUIC}
 
 \begin{longtable}{p{0.31\textwidth}|p{0.63\textwidth}}   
@@ -257,8 +270,9 @@ it will display columns that the user has previously configured. The fields with
     Quic.User Agent &	User Agent of current QUIC session \\\hline     
 \end{longtable}   
 
-\pdfbookmark[2]{DoH}{DoH}
+%\pdfbookmark[2]{DoH}{DoH}
 \subsection*{\hypertarget{link:DoH}{DoH}}
+\addcontentsline{toc}{subsection}{DoH}
 \label{sec:appendix_c:protocol:DoH}
 
 \begin{longtable}{p{0.23\textwidth}|p{0.71\textwidth}}   
@@ -289,8 +303,9 @@ it will display columns that the user has previously configured. The fields with
     DoH.RR &	Resource records of current DoH session \\\hline    
 \end{longtable} 
 
-\pdfbookmark[2]{FTP}{FTP}
+%\pdfbookmark[2]{FTP}{FTP}
 \subsection*{\hypertarget{link:FTP}{FTP}}
+\addcontentsline{toc}{subsection}{FTP}
 \label{sec:appendix_c:protocol:FTP}
 
 \begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
@@ -300,8 +315,49 @@ it will display columns that the user has previously configured. The fields with
     Ftp.Content &	File content of current ftp session   \\\hline
 \end{longtable} 
 
-\pdfbookmark[2]{RADIUS}{RADIUS}
+%\pdfbookmark[2]{SIP}{SIP}
+\subsection*{\hypertarget{link:SIP}{SIP}}
+\addcontentsline{toc}{subsection}{SIP}
+\label{sec:appendix_c:protocol:SIP}
+
+\begin{longtable}{p{0.33\textwidth}|p{0.61\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    SIP.Call-ID &	Call identifier of current SIP session \\\hline
+    SIP.Originator &	Originator description of current session \\\hline
+    SIP.Responder &	Responder description of current session \\\hline
+    SIP.User-Agent &	A user agent is a logical network endpoint that sends or receives SIP messages and manages SIP sessions. \\\hline
+    SIP.Server &	A network server with UAC and UAS components \\\hline
+    SIP.Originator IP &	IP address of the originator \\\hline
+    SIP.Originator Port &	Port of the originator \\\hline
+    SIP.Originator Media Type &	The media type of the originator \\\hline
+    SIP.Originator Content &	The content information of the originator, using Session Description Protocol(SDP) \\\hline
+    SIP.Responder IP &	IP address of the responder \\\hline
+    SIP.Responder Port &	Port of the responder \\\hline
+    SIP.Responder Media Type &	The media type of the responder \\\hline
+    SIP.Responder Content &	The content information of the responder using Session Description Protocol(SDP) \\\hline
+    SIP.Duration &	Duration time of current SIP session \\\hline
+    SIP.Bye &	Signal termination of a dialog and end a call. This message may be sent by either endpoint of a dialog. \\\hline
+\end{longtable} 
+
+%\pdfbookmark[2]{RTP}{RTP}
+\subsection*{\hypertarget{link:RTP}{RTP}}
+\addcontentsline{toc}{subsection}{RTP}
+\label{sec:appendix_c:protocol:RTP}
+
+\begin{longtable}{p{0.27\textwidth}|p{0.67\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
+    RTP.Payload(c2s) &	Payload type encodings sequence number of c2s \\\hline
+    RTP.Payload(s2c) &	Payload type encodings sequence number of s2c \\\hline
+    RTP.PCAP &	Packet capture path; there are maybe two paths for asymmetric traffic. \\\hline
+    RTP.Direction & {\tabincell{l}{Originator direction. \\
+                    0: unknown \\
+                    1: c2s \\
+                    2: s2c }}	\\\hline
+\end{longtable} 
+
+%\pdfbookmark[2]{RADIUS}{RADIUS}
 \subsection*{\hypertarget{link:RADIUS}{RADIUS}}
+\addcontentsline{toc}{subsection}{RADIUS}
 \label{sec:appendix_c:protocol:RADIUS}
 
 \begin{longtable}{p{0.29\textwidth}|p{0.65\textwidth}}   
@@ -449,8 +505,9 @@ it will display columns that the user has previously configured. The fields with
     Acct Interim Interva &l	Indicates the number of seconds between each interim update in seconds \\\hline                            
 \end{longtable} 
 
-\pdfbookmark[2]{APP}{APP}
+%\pdfbookmark[2]{APP}{APP}
 \subsection*{\hypertarget{link:APP}{APP}}
+\addcontentsline{toc}{subsection}{APP}
 \label{sec:appendix_c:protocol:APP}
 
 \begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   

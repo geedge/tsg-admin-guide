@@ -1,7 +1,8 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-\pdfbookmark[0]{Decryption}{Decryption}
+%\pdfbookmark[0]{Decryption}{Decryption}
 \chapter*{\hypertarget{link:Decryption}{Decryption}}
+\addcontentsline{toc}{chapter}{Decryption}
 \label{sec:decrypt}
 
 Except firewall, TSG has a proxy which utilizes MITM (Man-in-the-middle) technologies and enables you to perform layer 4-7 advanced manipulation of network traffic. 
@@ -20,8 +21,9 @@ Enabling decryption need preparing the keys and certificates required, creating 
 }
 \clearpage
 
-\pdfbookmark[1]{Decryption Concepts}{Decryption Concepts}
+%\pdfbookmark[1]{Decryption Concepts}{Decryption Concepts}
 \section*{\hypertarget{link:Decryption Concepts}{Decryption Concepts}}
+\addcontentsline{toc}{section}{Decryption Concepts}
 \label{sec:decrypt:concept}
 
 The Secure Sockets Layer (SSL) and Transport Layer Security (TLS) encryption protocols secure traffic between two entities, such as a web server and a client. Without special instructions, SSL in this document refers to SSL/TLS. SSL encapsulate traffic, encrypting data so that it is meaningless to entities other than the client and server with the certificates to affirm trust between the devices and the keys to decode the data.
@@ -36,8 +38,9 @@ SSL decryption requires certificates to establish the proxy as a trusted third p
 You can integrate a hardware security module (HSM) with TSG to enable enhanced security for the private keys. 
 To learn more about integrating an HSM, see \hyperlink{link:Manage Keys with a Hardware Security Module}{\color{linkblue}{Manage Keys with a Hardware Security Module}}.
 
-\pdfbookmark[1]{Keys and Certificates}{Keys and Certificates}
+%\pdfbookmark[1]{Keys and Certificates}{Keys and Certificates}
 \section*{\hypertarget{link:Keys and Certificates}{Keys and Certificates}}
+\addcontentsline{toc}{section}{Keys and Certificates}
 \label{sec:decrypt:keys}
 
 Keys are strings of numbers typically generated using a mathematical operation involving random numbers and large primes. Keys transform strings—such as passwords and shared secrets—from unencrypted plaintext to encrypted ciphertext and from encrypted ciphertext to unencrypted plaintext. Keys can be symmetric (the same key is used to encrypt and decrypt) or asymmetric (one key is used for encryption and a mathematically related key is used for decryption). Any system can generate a key.
@@ -56,14 +59,16 @@ TSG allows you to delete installed certificates, including default certificate, 
 but if the certificate is already referenced by a policy, TSG does not allow deleting it. You can modify the referenced certificate instead. 
 For detailed information on certificates, see \hyperlink{link:Certificate Management}{\color{linkblue}{Certificate Management}}.
 
-\pdfbookmark[1]{Certificate Managements}{Certificate Managements}
+%\pdfbookmark[1]{Certificate Managements}{Certificate Managements}
 \section*{\hypertarget{link:Certificate Managements}{Certificate Managements}}
+\addcontentsline{toc}{section}{Certificate Managements}
 \label{sec:decrypt:certificate}
 
 The digital certificates are used to ensure trust between parties in a secure communication session. Each certificate contains a cryptographic key to encrypt plaintext or decrypt ciphertext. Each certificate also includes a digital signature to authenticate the identity of the issuer. The issuer must be in the list of trusted certificate authorities (CAs) of the authenticating party.
 
-\pdfbookmark[2]{Trusted Certificate Authorities}{Trusted Certificate Authorities}
+%\pdfbookmark[2]{Trusted Certificate Authorities}{Trusted Certificate Authorities}
 \subsection*{\hypertarget{link:Trusted Certificate Authorities}{Trusted Certificate Authorities}}
+\addcontentsline{toc}{subsection}{Trusted Certificate Authorities}
 \label{sec:decrypt:certificate:trusted}
 
 TSG trusts the most common and trusted authorities (CAs) by default. These trusted certificate providers are responsible for issuing the certificates TSG requires to secure connections to the internet. The additional CAs you might want to add are trusted enterprise CAs that your organization requires. You can perform the following to import a certificate:
@@ -82,8 +87,9 @@ If the CA certificate expires, the system will automatically set the status of t
 To download it, you can click the cloud icon under \textbf{File}, and wait a few seconds for the file to be downloaded to your local folder. 
 You can search CAs based on ID, Name, Issuer, Common Name and Certificate Fingerprint, or the combination. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Decryption Keyrings}{Decryption Keyrings}
+%\pdfbookmark[2]{Decryption Keyrings}{Decryption Keyrings}
 \subsection*{\hypertarget{link:Decryption Keyrings}{Decryption Keyrings}}
+\addcontentsline{toc}{subsection}{Decryption Keyrings}
 \label{sec:decrypt:certificate:keyring}
 
 If your enterprise has its own public key infrastructure (PKI), you can import a certificate and private key into TSG from your enterprise certificate authority (CA). Enterprise CA certificates (unlike most certificates purchased from a trusted, third-party CA) can automatically issue CA certificates for applications such as SSL/TLS decryption.
@@ -115,8 +121,9 @@ To edit and delete Keyrings, find the item you want to edit or delete in the lis
 To download it, you can click the cloud icon under \textbf{Private Key} and \textbf{Certificate}, and wait a few seconds for the file to be downloaded to your local folder. 
 You can search Keyrings based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[3]{Manage Keys with a Hardware Security Module}{Manage Keys with a Hardware Security Module}
+%\pdfbookmark[3]{Manage Keys with a Hardware Security Module}{Manage Keys with a Hardware Security Module}
 \subsubsection*{\hypertarget{link:Manage Keys with a Hardware Security Module}{Manage Keys with a Hardware Security Module}}
+\addcontentsline{toc}{subsubsection}{Manage Keys with a Hardware Security Module}
 \label{sec:decrypt:certificate:keyring:hsm}
 
 A hardware security module (HSM) is a physical device that manages digital keys. An HSM provides secure storage and generation of digital keys. It provides both logical and physical protection of these materials from non-authorized use and potential adversaries. HSM clients integrated with TSG enable enhanced security for the private keys used in SSL/TLS decryption.
@@ -137,8 +144,9 @@ You can integrate an HSM device by the following procedure.
     \item[STEP 7.]	Click \textbf{OK}.
 \end{description}
 
-\pdfbookmark[2]{SSL Decryption Exclusion}{SSL Decryption Exclusion}
+%\pdfbookmark[2]{SSL Decryption Exclusion}{SSL Decryption Exclusion}
 \subsection*{\hypertarget{link:SSL Decryption Exclusion}{SSL Decryption Exclusion}}
+\addcontentsline{toc}{subsection}{SSL Decryption Exclusion}
 \label{sec:decrypt:certificate:exclusion}
 
 SSL Decryption Exclusion can exclude two types of traffic from decryption:
@@ -169,8 +177,9 @@ Go back to SSL Decryption Exclusion tab, you can view detailed information about
 To edit and delete, find the item you want to edit or delete in the list. Click \textbf{Edit} or \textbf{Delete} at the top left. 
 You can search exclusion list based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Cached Intermediate Certificates}{Cached Intermediate Certificates}
+%\pdfbookmark[2]{Cached Intermediate Certificates}{Cached Intermediate Certificates}
 \subsection*{\hypertarget{link:Cached Intermediate Certificates}{Cached Intermediate Certificates}}
+\addcontentsline{toc}{subsection}{Cached Intermediate Certificates}
 \label{sec:decrypt:certificate:cached}
 
 TSG will automatically cache intermediate certificates. You can select \textbf{Settings} > \textbf{Certificate Managements} 
@@ -186,8 +195,9 @@ If the intermediate certificate expires, the system will automatically set the s
 You can search intermediate certificates based on ID, Source Website, Issuer, Common Name and Certificate Fingerprint, or the combination. 
 Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{SSL Fingerprint}{SSL Fingerprint}
+%\pdfbookmark[2]{SSL Fingerprint}{SSL Fingerprint}
 \subsection*{\hypertarget{link:SSL Fingerprint}{SSL Fingerprint}}
+\addcontentsline{toc}{subsection}{SSL Fingerprint}
 \label{sec:decrypt:certificate:fingerprint}
 
 With the improvement of people's security awareness, more and more apps support Pinning. And JA3 fingerprinting is no longer a luxury and is a hard requirement. You can use shared JA3 hash across the network to help accurately identify Pinning applications and then configure the app to Dynamic Bypass or not accordingly in TSG. It can mean the difference between a rapid response and a missed detection. 
@@ -233,15 +243,17 @@ where the origin server selects suitable content or operating parameters for the
 The concept of content tailoring is built into the HTTP standard in RFC1945 “for the sake of tailoring responses to avoid particular user agent limitations.” 
 The information in the User-Agent string contributes to the information that the client sends to the server, since the string can vary considerably from user to user.
 
-\pdfbookmark[1]{Proxy Profiles}{Proxy Profiles}
+%\pdfbookmark[1]{Proxy Profiles}{Proxy Profiles}
 \section*{\hypertarget{link:Proxy Profiles}{Proxy Profiles}}
+\addcontentsline{toc}{section}{Proxy Profiles}
 \label{sec:decrypt:profile}
 
 A policy rule combines with several conditions and one action. The action determines how to control the traffic, and action parameters are managed in policy profiles. 
 While policy objects enable you to identify traffic to enforce policies, policy profiles help you define further action.
 
-\pdfbookmark[2]{Response Pages}{Response Pages}
+%\pdfbookmark[2]{Response Pages}{Response Pages}
 \subsection*{\hypertarget{link:Response Pages}{Response Pages}}
+\addcontentsline{toc}{subsection}{Response Pages}
 \label{sec:decrypt:profile:response}
 
 When the Proxy Policy or Security Policy terminates matched HTTP session with a response page in Deny action, 
@@ -259,8 +271,9 @@ To edit and delete, find the item you want to edit or delete in the list. Click 
 To download it, you can click the cloud icon under \textbf{File}, and wait a few seconds for the file to be downloaded to your local folder. 
 You can search page list based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Insert Scripts}{Insert Scripts}
+%\pdfbookmark[2]{Insert Scripts}{Insert Scripts}
 \subsection*{\hypertarget{link:Insert Scripts}{Insert Scripts}}
+\addcontentsline{toc}{subsection}{Insert Scripts}
 \label{sec:decrypt:profile:insert}
 
 The Proxy Policy can insert a “js” or “css” scripts to webpages. You can upload a script via \textbf{Proxy Profile} > \textbf{Insert Scripts}.
@@ -278,8 +291,9 @@ Click \textbf{Edit} or \textbf{Delete} at the top left. To download it, you can 
 and wait a few seconds for the file to be downloaded to your local folder. 
 You can search scripts list based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Hijack Files}{Hijack Files}
+%\pdfbookmark[2]{Hijack Files}{Hijack Files}
 \subsection*{\hypertarget{link:Hijack Files}{Hijack Files}}
+\addcontentsline{toc}{subsection}{Hijack Files}
 \label{sec:decrypt:profile:hijack}
 
 The Proxy Policy can hijack a downloading file or page. You can upload a file, img or html for hijack via \textbf{Proxy Profile} > \textbf{Hijack Files}.
@@ -299,8 +313,9 @@ Go back to Hijack Files tab, you can view detailed information about the file yo
 Click \textbf{Edit} or \textbf{Delete} at the top left. To download it, you can click the cloud icon under File, and wait a few seconds for the file to be downloaded to your local folder. 
 You can search file list based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Traffic Mirror Profiles}{Traffic Mirror Profiles}
+%\pdfbookmark[2]{Traffic Mirror Profiles}{Traffic Mirror Profiles}
 \subsection*{\hypertarget{link:Traffic Mirror Profiles}{Traffic Mirror Profiles}}
+\addcontentsline{toc}{subsection}{Traffic Mirror Profiles}
 \label{sec:decrypt:profile:mirror}
 
 You also can mirror proxied traffic (decrypted) to third-party servers by referring a traffic mirror profile. The destination servers are described with VLAN Tag or MAC addresses, traffic will be load balanced over multiple servers of one profile.
@@ -318,14 +333,16 @@ Go back to Traffic Mirror Profiles tab, you can view detailed information about 
 To edit and delete, find the item you want to edit or delete in the list. Click \textbf{Edit} or \textbf{Delete} at the top left. 
 You can search profile list based on ID and Name. Enter search conditions in search bar and click search icon.
 
-\pdfbookmark[2]{Decryption Profile}{Decryption Profile}
+%\pdfbookmark[2]{Decryption Profile}{Decryption Profile}
 \subsection*{\hypertarget{link:Decryption Profile}{Decryption Profile}}
+\addcontentsline{toc}{subsection}{Decryption Profile}
 \label{sec:decrypt:profile:decryptionprofile}
 
 A Decryption Profile includes three parts: Certificate Checks, Dynamic bypass and Protocol Version. 
 
-\pdfbookmark[3]{Certificate Checks}{Certificate Checks}
+%\pdfbookmark[3]{Certificate Checks}{Certificate Checks}
 \subsubsection*{\hypertarget{link:Certificate Checks}{Certificate Checks}}
+\addcontentsline{toc}{subsubsection}{Certificate Checks}
 \label{sec:decrypt:profile:decryptionprofile:check}
 
 Server certificate verification options allow you to customize certificate check approaches.
@@ -350,8 +367,9 @@ Server certificate verification options allow you to customize certificate check
     \item \textbf{Pass-through}: For expired, untrusted issuer or self-signed certificate, TSG send a certificate that signed by the default untrusted keyring to client-side. Thus, the client-side browser raises an untrusted issuer warning. For mismatched common names, TSG send a certificate that signed by policy defined keyring, client-side browser raises a common name invalid warning.
 \end{itemize}
 
-\pdfbookmark[3]{Dynamic Bypass}{Dynamic Bypass}
+%\pdfbookmark[3]{Dynamic Bypass}{Dynamic Bypass}
 \subsubsection*{\hypertarget{link:Dynamic Bypass}{Dynamic Bypass}}
+\addcontentsline{toc}{subsubsection}{Dynamic Bypass}
 \label{sec:decrypt:profile:decryptionprofile:bypass}
 
 Dynamic bypass options allow you to customize intercept exceptions on policy basis. If an SSL session matches an intercept policy, and has one of following enabled properties, further communication will be exempt from intercept. That is to say, with dynamic bypass enabled, client-side can visit normally.
@@ -379,8 +397,9 @@ For more details, see \textbf{\hyperlink{link:Dynamic Bypass when Certificate Pi
 \textbf{Certificate Not Installed}: Trusted Root Certificate is Not Installed on Client.  
 For more details, see \textbf{\hyperlink{link:Dynamic Bypass when Certificate is Not Installed}{\color{linkblue}{Dynamic Bypass when Certificate is Not Installed}}}.
 
-\pdfbookmark[4]{Dynamic Bypass when Certificate Pinning}{Dynamic Bypass when Certificate Pinning}
+%\pdfbookmark[4]{Dynamic Bypass when Certificate Pinning}{Dynamic Bypass when Certificate Pinning}
 \hypertarget{link:Dynamic Bypass when Certificate Pinning}{\paragraph{Dynamic Bypass when Certificate Pinning}}
+\addcontentsline{toc}{paragraph}{Dynamic Bypass when Certificate Pinning}
 \label{sec:decrypt:profile:decryptionprofile:bypass:pinning}
 
 %\newline
@@ -415,8 +434,9 @@ If the SSL connection establishment fails as above for 4 or more times in 5 minu
 
 Different applications often have different handshake fingerprints, and therefore the proxy will only bypass those use certificate pinning. 
 
-\pdfbookmark[4]{Dynamic Bypass when Certificate is Not Installed}{Dynamic Bypass when Certificate is Not Installed}
+%\pdfbookmark[4]{Dynamic Bypass when Certificate is Not Installed}{Dynamic Bypass when Certificate is Not Installed}
 \hypertarget{link:Dynamic Bypass when Certificate is Not Installed}{\paragraph{Dynamic Bypass when Certificate is Not Installed}}
+\addcontentsline{toc}{paragraph}{Dynamic Bypass when Certificate is Not Installed}
 \label{sec:decrypt:profile:decryptionprofile:bypass:notinstalled}
 
 %\newline
@@ -440,8 +460,9 @@ Let’s dig into the technical details by a use case. There are two clients, cli
 
 At the beginning, both Client A and B’s SSL connections are failed for their own reasons. And then, the proxy identifies client B’s SSL connection as MITMable by finding Chrome’s SSL fingerprints status is Not Pinning in the SSL fingerprint profile. Finally, Client A is bypassed, and client B is not.
 
-\pdfbookmark[3]{Protocol Version}{Protocol Version}
+%\pdfbookmark[3]{Protocol Version}{Protocol Version}
 \subsubsection*{\hypertarget{link:Protocol Version}{Protocol Version}}
+\addcontentsline{toc}{subsubsection}{Protocol Version}
 \label{sec:decrypt:profile:decryptionprofile:version}
 
 Protocol Versions allows you to configure SSL/TLS versions. By default, Proxy mirrors the client versions. Note that some website disable SSLv3 supports for security concerns, set both minimum and maximum version to SSLv3 will interrupt communications. 
@@ -449,8 +470,9 @@ Protocol Versions allows you to configure SSL/TLS versions. By default, Proxy mi
 
 HTTP/2 is a major revision of the HTTP network protocol that provide increased speed. If Allow HTTP/2 is enabled, user will have better experience, but requires third-party systems to be able to process decrypted HTTP/2 traffic.
 
-\pdfbookmark[3]{Create a Decryption Profile}{Create a Decryption Profile}
+%\pdfbookmark[3]{Create a Decryption Profile}{Create a Decryption Profile}
 \subsubsection*{\hypertarget{link:Create a Decryption Profile}{Create a Decryption Profile}}
+\addcontentsline{toc}{subsubsection}{Create a Decryption Profile}
 \label{sec:decrypt:profile:decryptionprofile:create}
 
 Perform the following to create a decryption profile:
