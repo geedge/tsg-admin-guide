@@ -187,14 +187,17 @@ The proxy fixes this problem by following two mechanisms:
 \addcontentsline{toc}{subsubsection}{TCP Stack}
 \label{sec:appendix_e:sequence:proxy:TCP}
 
-Opening a TCP connection involves a three-way handshake involving packets: the client contacts the server, the server acknowledges the client, and the client acknowledges the server. The proxy’s TCP stack attempts to connect server-side immediately after receiving the client's initial connection request, but waits to return the server acknowledgement until determining whether or not the server-side connection succeeds. This provides greater transparency, as the client receives either an RST or no response, which mirrors what is sent from a server when connections fail.
+Opening a TCP connection involves a three-way handshake packets: the client contacts the server, the server acknowledges the client, and the client acknowledges the server. 
+The proxy’s TCP stack attempts to connect server-side immediately after receiving the client’s initial connection request, but waits to return the server acknowledgement until determining whether or not the server-side connection succeeds.
+The TCP stack act as transparent proxy and keep the same TCP connection source and destination IP and ports.
+This provides greater transparency, as the client receives either an RST or no response, which mirrors what is sent from a server when connections fail. 
 
 %\pdfbookmark[3]{Build SSL Session}{Build SSL Session}
 \subsubsection*{\hypertarget{link:Build SSL Session}{Build SSL Session}}
 \addcontentsline{toc}{subsubsection}{Build SSL Session}
 \label{sec:appendix_e:sequence:proxy:build}
 
-The proxy first builds server-side SSL session, if the server certificate verification is failed, the proxy will sign certificate with untrusted root. That’s because the proxy wants the untrust certificate to warn users that they are trying to access potentially unsafe sites.
+The proxy first builds server-side SSL session, if the server certificate verification is failed, the proxy will sign certificate with untrusted root certificate. That’s because the proxy wants the untrusted certificate to warn users that they are trying to access potentially unsafe sites.
 
 %\pdfbookmark[3]{Proxy Policy Lookup}{Proxy Policy Lookup}
 \subsubsection*{\hypertarget{link:Proxy Policy Lookup}{Proxy Policy Lookup}}
