@@ -60,11 +60,11 @@ it will display columns that the user has previously configured. The fields with
 
                     Ingress—External to Internal 
                 \\\hline
-    \textbf{Sled IP} &	IP of sled which the session was logged \\\hline
-    Client Location &	Location the session client IP from.\\\hline
-    Client ASN &	BGP Autonomous system number the session client IP from\\\hline
-    \textbf{Server Location} &	Location the session server IP from\\\hline
-    Server ASN &	BGP Autonomous system number the session server IP from\\\hline
+    \textbf{Sled IP} &	IP of sled which the session was processed \\\hline
+    Client Location &	Geographic location the client IP\\\hline
+    Client ASN &	BGP Autonomous system number the client IP\\\hline
+    \textbf{Server Location} &	Geographic location the server IP\\\hline
+    Server ASN &	BGP Autonomous system number the server IP\\\hline
     Sessions &	Number of sessions with same client IP, server IP, Application, seen within 5 seconds\\\hline
     Packets Sent &	Number of client-to-server packets for the session\\\hline
     Packets Received &	Number of server-to-client packets for the session\\\hline
@@ -230,13 +230,13 @@ it will display columns that the user has previously configured. The fields with
     SSL.Intercept State &	Intercept State of current SSL session, possible values are:
 
 
-                            0-passthrough,
+                            0-passthrough: not decrypted
 
 
-                            1-intercept
+                            1-intercept: decrypted
 
 
-                            2-shutdown \\\hline
+                            2-shutdown: connection due to exception\\\hline
     \tabincell{l}{SSL.Server Side\\ Latency(ms)} &	Server side establish latency of current SSL session \\\hline
     \tabincell{l}{SSL.Client Side\\ Latency(ms)} &	Client side establish latency of current SSL session \\\hline
     SSL.Server Side Version &	Server-side SSL version latency of current session, possible values are:

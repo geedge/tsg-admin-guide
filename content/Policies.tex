@@ -46,7 +46,7 @@ The policy ID allows you to track the rule across rules even after you disable t
 
 
 \notemark\textit{Note that activation of policy rules on all devices is no more than 1 minute. 
-For details about capacities of policies and URLs/URIs, and other system parameters, see \textcolor{darkblue}{\textbf{\underline{ADC-L404 Datasheet}}}.}
+For details about capacities of policies and URLs/URIs, and other system parameters, see product datasheet.}
 
 %\pdfbookmark[2]{Rule Types}{Rule Types}
 \subsection*{\hypertarget{link:Rule Types}{Rule Types}}
@@ -60,7 +60,7 @@ TSG supports a variety of policy types that work together to safely enable appli
     \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Policy Type}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
     Security & Determine whether to allow, deny, monitor or intercept a session based on traffic attributes such as the IP addresses, subscriber ID, APP ID and protocol fields. 
     For more details, see \hyperlink{link:Security Policy}{\color{linkblue}{Security Policy}}.\\\hline                                                                                                          
-    \begin{tabular}{l}\tabincell{l}{Proxy\\ Manipulation}\end{tabular} & Instruct the proxy how to manipulate (including allow, deny, monitor, redirect, replace, hijack and insert), 
+    \begin{tabular}{l}\tabincell{l}{Proxy}\end{tabular} & Instruct the proxy how to manipulate (including allow, deny, monitor, redirect, replace, hijack and insert), 
     a session based on traffic attributes such as the source and destination IP address, the subscriber ID, and filter, including host, URL, 
     request header, response header, request content and response content. Encrypted traffic Identified will be decrypted for further control. 
     Manipulation requires targeted sessions are intercepted in security policies. For more details, see \hyperlink{link:Proxy Policy}{\color{linkblue}{Proxy Policy}}.\\\hline 
@@ -248,12 +248,13 @@ For traffic that matches the attributes defined in a security policy, you can ap
             Redirect.\\
             Sub Action of Deny:\\
             \textbf{Drop}, silently drops the traffic.\\
-            \textbf{RST}, sends a TCP reset to the client-side device.\\
-            \textbf{Block}, sends 403/404 return code and customized content to \\
+            \textbf{RST}, session was terminated and a TCP reset is sent to both \\
+			the sides of the connection.\\
+            \textbf{Block}, sends HTTP 403/404 response code and customized content to \\
             the client.\\
-            \textbf{Alert}, sends 200/204 return code and customized content to the \\
-            client.\\
-            \textbf{Redirect}, redirects to the link set in the policy configuration.
+            \textbf{Alert}, sends HTTP 200/204 response code and customized content to \\
+            the client.\\
+            \textbf{Redirect}, redirects to the URL set in the policy configuration.
             \end{tabular}\\ \hline                                                                                                          
     Intercept & Intercept HTTP/HTTPS traffic for proxy. If the traffic use SSL/TLS, it will be decrypted.\\\hline 
     Monitor &  Scan all allowed traffic and generate a detailed log.\\\hline 
