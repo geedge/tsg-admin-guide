@@ -82,6 +82,11 @@ This manual is for TSG operators, system administrators and implementation perso
 \addcontentsline{toc}{section}{Logging into the System}
 \label{sec:intro:logging}
 
+%\pdfbookmark[2]{Logging into the Web Interface}{Logging into the Web Interface}
+\subsection*{\hypertarget{link:Logging into the Web Interface}{Logging into the Web Interface}}
+\addcontentsline{toc}{subsection}{Logging into the Web Interface}
+\label{sec:intro:logging:for}
+
 You can use the Web Interface to perform configuration and monitoring tasks with relative ease. 
 This graphical interface allows you to access TSG using HTTP and it is the best way to perform administrative tasks.
 
@@ -101,12 +106,6 @@ However, the best practice is to install the latest version.
 \notemark\textit{Lightweight Directory Access Protocol (LDAP) is a standard protocol for accessing information directories. 
 You can connect to an LDAP server when you set the Authentication Mode to LDAP.}
 
-
-%\pdfbookmark[2]{Logging into the Web Interface}{Logging into the Web Interface}
-\subsection*{\hypertarget{link:Logging into the Web Interface}{Logging into the Web Interface}}
-\addcontentsline{toc}{subsection}{Logging into the Web Interface}
-\label{sec:intro:logging:for}
-
 %\pdfbookmark[2]{Changing Your Password}{Changing Your Password}
 \subsection*{\hypertarget{link:Changing Your Password}{Changing Your Password}}
 \addcontentsline{toc}{subsection}{Changing Your Password}
@@ -116,11 +115,31 @@ You should periodically change your password. The following procedure explains h
 
 
 \begin{description}
-    \item[STEP 1.]Select \textbf{Administration} > \textbf{Users} and find your account item in the list.
+    \item[STEP 1.]Select \textbf{Administration} > \textbf{Admins} and find your account item in the list.
     \item[STEP 2.]Click the item in the list, then click \textbf{Edit}.
     \item[STEP 3.]Check your account information and enter your new password.
     \item[STEP 4.]Click \textbf{OK}.\\
 \end{description}
+
+\subsection*{\hypertarget{link:Logged In Admins}{Logged In Admins}}
+\addcontentsline{toc}{subsection}{Logged In Admins}
+\label{sec:intro:logging:Logged}
+
+TSG administrator can view users’ login status, time, IP address, and disconnect logged in users. When two system users login with the same account, 
+the latter will disconnect the former automatically.    
+
+\subsection*{\hypertarget{link:Admins and Two-Factor Authentication}{Admins and Two-Factor Authentication}}
+\addcontentsline{toc}{subsection}{Admins and Two-Factor Authentication}
+\label{sec:intro:logging:2fa}
+ 
+To configure current account preference, you can click \textbf{My Account} in the upper right corner. You can configure default Language and/or Line per page here. 
+
+
+To prevent unauthorized users from gaining access to an account with nothing more than a stolen password. 
+TSG users can enable Two-Factor authentication strengthen the security of an account. 
+Two-factor authentication is a combination of two of the following: your password and a text with a code sent to your smartphone or other device. 
+It is recommended to use cloud-based mobile authenticator apps such as GOOGLE Authenticator, Microsoft Authenticator. 
+
 
 %\pdfbookmark[2]{Login Restrictions}{Login Restrictions}
 \subsection*{\hypertarget{link:Login Restrictions}{Login Restrictions}}
@@ -171,7 +190,7 @@ Use the following workflow set up a very basic Security policy. This gives you a
     \end{enumerate}
     \item[STEP 2.] (\textcolor{gold}{Optional})To verify that you have set up your basic policies effectively, test whether your Security policy rules are being evaluated and determine which Security policy rule applies to a traffic flow. For example, to verify the policy rule that will be applied for a client with the IP address 192.168.0.1 when it sends a HTTP request to the 172.16.0.1 server:
     \begin{enumerate} 
-        \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
+        \item Select \textbf{System} > \textbf{Trouble Shooting} > \textbf{Policy Verify}.
         \item	Select \textbf{Security Policy Match} from the \textbf{Select Test} drop-down. 
         \item	Enter the \textbf{Client IP} and \textbf{Server IP} addresses.
         \item	Specify the \textbf{Client Port} and \textbf{Server Port}.
@@ -220,7 +239,7 @@ You can perform the following to set up a basic proxy policy. \\
     \item[STEP 2.] (\textcolor{gold}{Optional})To verify that you have set up your basic policies effectively, test whether your Proxy Policy rules are being evaluated 
     and determine which Proxy Policy rule applies to a traffic flow.
     \begin{enumerate} 
-        \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
+        \item Select \textbf{System} > \textbf{Trouble Shooting} > \textbf{Policy Verify}.
         \item Select \textbf{Proxy Policy Match} from the \textbf{Select Test} drop-down. 
         \item Enter the \textbf{Client IP} and \textbf{Server IP} addresses or leave it set to default.
         \item Specify the \textbf{Client Port} and \textbf{Server Port} or leave it set to default.
@@ -317,7 +336,7 @@ and the detail pages of Policies and Objects are locked.
 
 Perform the following steps to add a LOCAL administrative account on TSG.\\
 \begin{description}
-    \item[STEP 1.] Select \textbf{Administration} > \textbf{Users}, select tab Users and click \textbf{Create}.
+    \item[STEP 1.] Select \textbf{Administration} > \textbf{Admins}, select tab Users and click \textbf{Create}.
     \item[STEP 2.] Enter a \textbf{Name} to identify the account.
     \item[STEP 3.] Enter your \textbf{User Name} which is the login name and \textbf{Password}. 
     \item[STEP 4.] Please \textbf{Confirm Password}.
@@ -328,14 +347,14 @@ Perform the following steps to add a LOCAL administrative account on TSG.\\
     For details, see \hyperlink{link:Roles and Permissions}{\textcolor{linkblue}{Roles and Permissions}}.
     \item[STEP 8.] Click \textbf{OK}.
     \item[STEP 9.] (\textcolor{gold}{Optional})To verify that you have add a TSG account effectively, you can \textbf{Sign Out} and log into the system with the new account. 
-    Select \textbf{Administration} > \textbf{Login Log} and you can view your login information.
+    Select \textbf{System Logs} > \textbf{Login Log} and you can view your login information.
 \end{description}
 If compliance, audit, or security requirements stipulate that the default administrative account must be removed from your devices, 
 you can remove it after you create at least one other superuser administrative account. 
 You cannot remove the default administrative account until you configure at least one other superuser administrative account on the device. 
 Perform the following steps to delete an account on TSG.\\
 \begin{description}
-    \item[STEP 1.] Select tab Users of \textbf{Administration} > \textbf{Users} and find the item you want to delete in the list.
+    \item[STEP 1.] Select tab Users of \textbf{Administration} > \textbf{Admins} and find the item you want to delete in the list.
     \item[STEP 2.] Click \textbf{Delete} at the top left. Click \textbf{Delete} to confirm.
 \end{description}
 If you wish to temporarily disable an account, you can search it by User Name or Name at the top right search box. 
@@ -363,7 +382,7 @@ Perform the following to create a new role:
 
 
 \begin{description}
-    \item[STEP 1.] Select \textbf{Administration} > \textbf{Users}, select tab Roles and click \textbf{Create}.
+    \item[STEP 1.] Select \textbf{Administration} > \textbf{Admins}, select tab Roles and click \textbf{Create}.
     \item[STEP 2.] Enter a \textbf{Name} to identify the role.
     \item[STEP 3.] (\textcolor{gold}{Optional})Enter your \textbf{Description}.
     \item[STEP 4.]	Click the icon before each \textbf{Menu} to switch the permission levels, which defines different permissions.
@@ -371,7 +390,7 @@ Perform the following to create a new role:
 \end{description}
 
 
-\notemark\textit{It is recommended to configure the same access permission for Policies, Objects and Settings menu, because their data are related. 
+\notemark\textit{It is recommended to configure the same access permission for Policies, Objects and System menu, because their data are related. 
 Make sure Devices are enabled before you enable Dashboard, because Devices affects the reading of data for device module in Dashboard.}
 
 
@@ -384,7 +403,7 @@ Configuring TSG to connect to a LDAP server enables you to login in LDAP Authent
 
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Administration} > \textbf{LDAP Server} and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{System} > \textbf{Server Profiles} > \textbf{LDAP Server} and click \textbf{Create}.
     \item[STEP 2.]	Define a \textbf{Name} to specify the LDAP server.
     \item[STEP 3.]	Enter your \textbf{Host} and \textbf{Port} of the LDAP server.
     \item[STEP 4.]	Enter your \textbf{User Name}, which is the administrative user of LDAP server, and \textbf{User Mapper} which specifies the hierarchy of LDAP user. 
@@ -395,14 +414,14 @@ Configuring TSG to connect to a LDAP server enables you to login in LDAP Authent
 
 
 After setting LDAP server, you can login using the LDAP accounts of enrolled LDAP server. 
-After a LDAP account login TSG first time, the LDAP accounts will show on the tab \textbf{Users} of \textbf{Administration} > \textbf{Users}. 
+After a LDAP account login TSG first time, the LDAP accounts will show on the tab \textbf{Admins} of \textbf{Administration} > \textbf{Admins}. 
 The column Source indicates the type of account which is shown as LDAP for LDAP account. 
 The column User name includes the full path for LDAP user, and the value of “uid” is the actual login username on TSG. 
 When logging into TSG system for the first time with LDAP user, TSG system will assign the user the role supperreader by default. 
 If the LDAP user requires other role permissions, you need to login by other users who have permission to modify a user’s role to modify it.
 
 
-In \textbf{Administration} > \textbf{LDAP Server} page, you can view the LDAP Server list. Operator displays who has modified the item, and it can be a LOCAL or LDAP account. 
+In \textbf{Server Profiles} > \textbf{LDAP Server} page, you can view the LDAP Server list. Operator displays who has modified the item, and it can be a LOCAL or LDAP account. 
 Select the item you wish to change in the list and click \textbf{Edit} to modify LDAP server information. 
 You can delete or disable the LDAP server and after that you will not be able to log into the system with the LDAP account.
 
@@ -413,7 +432,7 @@ You can delete or disable the LDAP server and after that you will not be able to
 
 If you perform an operation which influence the running of TSG, TSG will generate a log about this action. 
 For example, Audit Log will record the operations of adding or deleting or updating an object or policy, or clearing traffic logs, etc. 
-You can view \textbf{Administration} > \textbf{Audit Log} to see details. You can query audit logs within certain time range by ID, Source IP or Target Type. 
+You can view \textbf{System Logs} > \textbf{Audit Log} to see details. You can query audit logs within certain time range by ID, Source IP or Target Type. 
 Audit logs can be exported as trace evidence. And when you are editing a policy or an object, you will find a link to audit log about this policy or object.
 
 %\pdfbookmark[2]{Mail Server}{Mail Server}
@@ -427,8 +446,8 @@ Configure Mail Server to send mail alerts, which is currently used to send repor
 \begin{description}
     \item[STEP 1.]	If you perform an operation which influence the running of TSG, TSG will generate a log about this action. 
     For example, Audit Log will record the operations of adding or deleting or updating an object or policy, or clearing traffic logs. 
-    You can view \textbf{Administration} > \textbf{Audit Log} to see details.
-    \item[STEP 2.]	Select \textbf{Administration} > \textbf{Mail Server}.
+    You can view \textbf{Administration} > \textbf{Audit Logs} to see details.
+    \item[STEP 2.]	Select \textbf{Server Profiles} > \textbf{EMail Servers}.
     \item[STEP 3.]	For Simple Mail Transport Protocol (SMTP) server (email server), Add a \textbf{Server} and \textbf{Port}.    
     \item[STEP 4.]	Enable \textbf{Need Authentication}.
     \item[STEP 5.]	Define a \textbf{Name} to identify the SMTP server (1-32characters). This field is just a label and doesn’t have to be the hostname of an existing email server. 

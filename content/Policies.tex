@@ -380,7 +380,7 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
 %\pdfbookmark[3]{Voice over Internet Protocol}{Voice over Internet Protocol}
 \subsubsection*{\hypertarget{link:Voice over Internet Protocol}{Voice over Internet Protocol}}
 \addcontentsline{toc}{subsubsection}{Voice over Internet Protocol}
-\label{sec:policies:security:intercept:option}
+\label{sec:policies:security:filter:voip}
 
 Voice over Internet Protocol (VoIP) has become more and more popular as an  alternative to the traditional public switched telephone network (PSTN). 
 VoIP mainly uses RTP as its media protocol to deliver multimedia sessions and SIP for signaling.
@@ -392,9 +392,20 @@ For now, TSG only supports the mentioned actions above with VoIP calls using SIP
 
 To view detailed description about VoIP log fields, see \textbf{Appendix C Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:SIP}{\color{linkblue}{SIP}}} and \textbf{\hyperlink{link:RTP}{\color{linkblue}{RTP}}}.
 
+\subsubsection*{\hypertarget{link:GPRS Tunnelling Protocol(GTP)}{GPRS Tunnelling Protocol(GTP)}}
+\addcontentsline{toc}{subsubsection}{GPRS Tunnelling Protocol(GTP)}
+\label{sec:policies:security:filter:gtp}
+
+GPRS Tunneling Protocol (GTP) allows mobile subscribers to use their phones to establish connections for network access on the move. 
+TSG supports GTP, which allows you to inspect, validate, filter, and perform security checks on GTPv2-C, GTPv1-C. 
+
+
+To view detailed description about GTP log fields, see \textbf{Appendix C Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:GTP-C}{\color{linkblue}{GTP-C}}}.
+
 %\pdfbookmark[2]{Allow Rules}{Allow Rules}
 \subsection*{\hypertarget{link:Allow Rules}{Allow Rules}}
 \addcontentsline{toc}{subsection}{Allow Rules}
+\addtocontents{toc}{\protect\newpage}
 \label{sec:policies:security:allow}
 
 TSG allows the network traffic to pass through, without apply further policy checking. You can define traffic that you choose not to enforce policies because of business, 
@@ -472,7 +483,7 @@ For policies that match SSL Decryption Exclusion are evaluated before intercept 
 %\pdfbookmark[3]{Intercept Trouble Shooting}{Intercept Trouble Shooting}
 \subsubsection*{\hypertarget{link:Intercept Trouble Shooting}{Intercept Trouble Shooting}}
 \addcontentsline{toc}{subsubsection}{Intercept Trouble Shooting}
-\addtocontents{toc}{\protect\newpage}
+%\addtocontents{toc}{\protect\newpage}
 \label{sec:policies:security:intercept:troubleshooting}
 
 You can find out if the interception is successful by checking if the certificates are issued by your pre-configured Root CA. 
@@ -638,10 +649,15 @@ For traffic that matches the attributes defined in a proxy policy, you can apply
     Deny & The Proxy terminate matched HTTP session with an error page. More information of uploading a html file, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Response Pages}{\color{linkblue}{Response Pages}}}.\\ \hline                                                                                                           
     Monitor &  The Proxy produce a log to record matched HTTP session information.\\\hline 
     Redirect &  The Proxy redirect matched HTTP session to a predefined URL. Since redirection
-                need to be performed before delivering response to client, condition of response body is not
-                applicable in this action. You MUST configure the redirect response via Response Code and Redirect
-                URL. The Destination URL should begin with a valid protocol (http:|https:). You SHOULD NOT select
-                301 as Response Code unless you exactly know what you are doing. This action produces a log. \\ \hline 
+                                need to be performed before delivering response to client, condition of response body is not
+                                applicable in this action. You MUST configure the redirect response via Response Code and Redirect
+                                URL. The Destination URL should begin with a valid protocol (http:|https:). You SHOULD NOT select
+                                301 as Response Code unless you exactly know what you are doing. This action produces a log.
+
+
+                                The Redirected URL can include Policy ID, Subscriber ID and/or Client IP. 
+                                For example, http://www.example.com/query?pageid=12345\&policy\_id=\\
+                                \{\{tsg\_policy\_id\}\}\&user\_id=\{\{tsg\_subscriber\_id\}\}\&source\_ip=\{\{tsg\_client\_ip\}\} \\\hline 
     Replace &  The Proxy Searches in a given HTTP part to Find a given string, and Replace any matches with another given string. If no match was found, the session remained untouched. For performance concerns, condition of request body and response body is not available in this action. For example, you can configure the Proxy to search in the response body of URL “www.example.com/index.html”, find every “string1” and replace with “string2”. This action produces a log. You can use regex to do replacement, e.g. case insensitive find “(?i)CaSEInSensitive(?-i)”. You can add multiple replacement.
 
 
@@ -790,6 +806,109 @@ You can also import policies by clicking the import icon. Only json and txt form
 
 Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Policy tab to view the Watch List. You can search policies by ID and Name in the list.
 
+\section*{\hypertarget{link:WAN NAT}{WAN NAT}}
+\addcontentsline{toc}{section}{WAN NAT}
+\label{sec:policies:wannat}
+
+This section describes Network Address Translation (NAT) and how to configure TSG for NAT. 
+
+
+The WAN NAT feature can hide and change the traffic’s source and destination IP address. WAN NAT allows you to not disclose the real IP addresses of hosts that need access to public addresses. 
+
+
+When an internal real user visits an external service, the traffic will be steered to TSG. And the IP address will be included in TSG’s IP pool, when the real user is disconnected, WAN NAT can disguise as the real user and send request to the external service for its own purposes. Thus, WAN-NAT provides larger address space. It offers a very large IP Pool to help you use Web crawler to gain insight and guide Public Opinion. And WAN NAT can reduce the blocking for web crawler. You can use WAN NAT to create Web Crawler, perform Network scan, effect verification and provide virtual service. TSG supports both source address translation (SNAT) and destination address translation (DNAT). 
+
+
+For SNAT, the source address is translated and thereby kept private. It is used for Web Crawler, Network scan, effect verification.
+
+
+DNAT is commonly used for virtual service. TSG translates a destination address to a different destination address; for example, if you have a controlled DNS server, you can direct traffic visiting google DNS to the controlled DNS server. 
+
+\subsection*{\hypertarget{link:Source NAT}{Source NAT}}
+\addcontentsline{toc}{subsection}{Source NAT}
+\label{sec:policies:security:sourcenat}
+
+Source NAT(SNAT) is typically used by internal users to access the Internet; the source address is translated and thereby kept private.
+
+
+Perform the following tasks to configure SNAT:
+
+
+\begin{description}
+    \item[STEP 1.]	Create an SNAT IP Pool object for the translated IP address you plan to use.
+    \begin{enumerate} 
+        \item 	Select \textbf{Profiles} > \textbf{WAN NAT} > \textbf{SNAT IP Pool}, Click \textbf{Create}.  
+        \item 	Add a \textbf{Name} for the IP Pool. 
+        \item 	Specify a \textbf{Color}.
+        \item 	You can view \textbf{History Active IP} and select IP address from them. 
+        \item 	Click \textbf{Reachability Test} to verify reachability of the IP address. It is recommended to use IP address which pass the test.
+        
+
+        \notemark\textit{There are 4 results for reachability test. They are reachable, unreachable, unknown, N/A. If all the data packets sent by TSG are received by server, the result is reachable. If all is not received by the server, the result is unreachable. If only parts of the data packets are received by server, the result is unknown. If the server did not respond, the result is N/A.} 
+        
+        
+        \item 	Add a \textbf{Description}.
+        \item 	Click \textbf{OK}.
+    \end{enumerate} 
+    \item[STEP 2.]	Create a VPN Account for the Original IP address.
+    \begin{enumerate} 
+        \item	Select \textbf{Profiles} > \textbf{WAN NAT} > \textbf{VPN Accounts}, Click \textbf{Create}.
+        \item	Specify a \textbf{Color}.
+        \item	Add a \textbf{VPN Name} and \textbf{Password}.
+        \item	Click \textbf{OK}.
+    \end{enumerate}
+    \item[STEP 3.]	Create the NAT policy.
+    \begin{enumerate}
+        \item	Add a \textbf{Name}.
+        \item	Select \textbf{SNAT} Action.
+        \item	Select the \textbf{VPN Account} you just created. 
+        \item	Select the IP Pools you just created. 
+        \item	For \textbf{Change Source IP}, if you wish to only translate IP address once, select \textbf{Never}; if you wish to translate IP address by time, select \textbf{By Time} and enter how many seconds change each time; if you wish to translate IP address by connection, select \textbf{By Connections} and enter how many connections change each time.
+        \item	Specify \textbf{Connection Timeout}.
+        \item	Add a \textbf{Tag} and \textbf{Description}.
+        \item	Verify it is \textbf{Enabled}.
+        \item	Click \textbf{OK}.
+    \end{enumerate}
+    \item[STEP 4.]	Verify the translation. Take packet capture from server which shows the Client IP changes.
+\end{description}
+
+\subsection*{\hypertarget{link:Destination NAT}{Destination NAT}}
+\addcontentsline{toc}{subsection}{Destination NAT}
+\label{sec:policies:security:dnat}
+
+Destination NAT(DNAT) is performed on incoming packets when the firewall translates a destination address to a different destination address; for example, it translates a public destination address to a private destination address. Destination NAT also offers the option to perform port forwarding or port translation.
+
+
+• Port Forwarding—Can translate a public destination address and port number to a private destination address but keeps the same port number. 
+
+
+• Port Translation—Can translate a public destination address and port number to a private destination address and a different port number, thus keeping the actual port number private. The port translation is configured by entering a Translate Port in the DNAT policy rule.
+
+
+To translate the destination address for all packets on your TSG, as shown in the following procedure:
+
+\begin{description}
+
+    \item[STEP 1.]	Create a VPN Account for the Translated Packet.
+    \begin{enumerate}
+        \item	Select \textbf{Profiles} > \textbf{WAN NAT} > \textbf{VPN Accounts}, Click \textbf{Create}.
+        \item	Specify a \textbf{Color}.
+        \item	Add a \textbf{VPN Name} and \textbf{Password}.
+        \item	Click \textbf{OK}.
+    \end{enumerate}
+    \item[STEP 2.]	Create the NAT policy.
+    \begin{enumerate} 
+        \item	Add a \textbf{Name}.
+        \item	Select \textbf{DNAT} Action.
+        \item	Select the \textbf{Source} and \textbf{Destination}. 
+        \item	Select the \textbf{VPN Account} you just created. 
+        \item	Specify the \textbf{Translate Port} or leave it set to default.
+        \item	Add a \textbf{Tag} and \textbf{Description}.
+        \item	Verify it is \textbf{Enabled}.
+        \item	Click \textbf{OK}.
+    \end{enumerate}
+\end{description}
+
 %\pdfbookmark[1]{Schedules}{Schedules}
 \section*{\hypertarget{link:Schedules}{Schedules}}
 \addcontentsline{toc}{section}{Schedules}
@@ -853,7 +972,7 @@ For example, a Proxy Policy has been defined with ID 4736, Name tsg-test-pxyveri
 
 \begin{description}
     \item[STEP 1.]	\hyperlink{link:Logging into the Web Interface}{\color{linkblue}{Logging into the Web Interface}}.
-    \item[STEP 2.]	Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab to perform a policy match or connectivity test.
+    \item[STEP 2.]	Select \textbf{System} > \textbf{Trouble Shooting} > \textbf{Policy Verify} to perform a policy match or connectivity test.
     \item[STEP 3.]	Enter the required information to perform the policy match test. In this example, just run a \textbf{Proxy Policy Match}.
     \begin{enumerate} 
         \item Select \textbf{Proxy Policy Match} from the Select Test drop-down.

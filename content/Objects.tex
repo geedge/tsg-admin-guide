@@ -68,6 +68,15 @@ You can create the following policy objects on TSG. A policy object consists of 
     \tabincell{l}{URLs/\\URL Group} &  A Uniform Resource Locator, colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A typical URL could have the form http://www.example.com/index.html, which indicates a protocol (http), a hostname (www.example.com), and a file name (index.html). Here the protocol is not allowed when adding. Support exactly matching, prefix matching, suffix matching, and substring matching \\\hline 
     \tabincell{l}{Categories/\\Category Group} &  Category classifies websites based on site content, features, and safety. Once created, the category can be selected as a filter of a policy. This means that a policy will only allow or block requests that match the category. For details, please refer to \hyperlink{link:Categories}{\color{linkblue}{Categories}}.\\\hline 
     \tabincell{l}{Accounts/\\Account Group} &  Stores the account information for your application. For example, you can add your email account as a filter when creating a policy using MAIL application. Support exactly matching, prefix matching, suffix matching and substring matching. \\\hline 
+    \tabincell{l}{Mobile Identities/\\Mobile Identity\\ Group} & Consists of IMSI and Phone Number. Both are string type, composed of decimal numbers with maximum 15 digits. IMSI only supports prefix matching. Phone Number supports exactly matching, prefix matching, suffix matching and substring matching. \\\hline 
+    \tabincell{l}{APNs/\\APN Group} & Access Point Name of GTP users. 
+    
+    
+                                    String type with format like FQDN.
+                    
+                    
+                                    Support exactly matching and suffix matching. \\\hline 
+
     \tabincell{l}{Applications} &  Applications, a patented traffic classification system available in TSG firewalls, determines what an application is irrespective of port, protocol, encryption or any other evasive tactic used by the application. It applies multiple classification mechanisms—application signatures, application protocol decoding, and heuristics—to your network traffic stream to accurately identify applications. An Application allows you to filter applications dynamically. \\\hline 
 \end{longtable}
 
@@ -114,6 +123,9 @@ You can also import objects by clicking the import icon. Only csv and txt format
 
 
 \notemark\textit{The TSG system only provides the export of objects with items, but object group with subordinate object are not allowed to be exported.}
+
+
+TSG allows searching objects based on ID, Name, Description, Operator, Time etc.
 
 
 Select the checkbox for objects in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Object tab to view the Watch List. You can search objects by ID and Name in the list.
@@ -168,7 +180,7 @@ IP Libraries map geographic locations to IP addresses. TSG provides built-in IP 
 The following steps guide you to Create Geography:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Advanced} > \textbf{IP Libraries}, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{System} > \textbf{IP Libraries}, and click \textbf{Create}.
     \item[STEP 2.]	Create Geography. 
     \begin{enumerate} 
         \item Select geography \textbf{Type} between Country and City, if you select Country, you need to select \textbf{Continent} field. Here, select City as an example.
@@ -207,7 +219,7 @@ You can perform the following to create a Subscriber ID:
 \addcontentsline{toc}{section}{Categories}
 \label{sec:objects:category}
 
-Category classifies websites based on site content, features, safety and so on. TSG firewall has built-in categories.
+Category classifies websites based on site content, features, safety and so on. TSG firewall has built-in categories.TSG allows users to create user-defined categories. One FQDN may belong to multiple categories.
 
 
 Please refer to \hyperlink{link:Appendix A Built-in Category}{\color{linkblue}{Appendix A Built-in Category}} for more details.
@@ -226,7 +238,9 @@ AppSketch is a traffic classification system available in TSG firewalls, determi
 The firewall identifies application with predefined and customized signature. The TSG firewall uses protocol decoding in the content inspection stage to determine one application from the other. After the firewall identifies the session application, security policy can be enforced as configured. The identified application as well as IP, port, protocol, Subscriber ID, FQDN and URL in the session is used as key to find rule match.
 
 
-When creating a security policy, there are built-in protocols and well-known Applications and customized Applications in the list. You can search the application you want to fill in. You can also use application selector and group as objects in policy
+When creating a security policy, there are built-in protocols and well-known Applications and customized Applications in the list. 
+You can search the application you want to fill in. You can also use application selector and group as objects in policy.
+TSG reports enable you to show statistics about bytes sent and received based on Application Label and IP address. See \textbf{Monitoring} > \textbf{View and Manage Reports} for details.
 
 %\pdfbookmark[2]{Signatures}{Signatures}
 \subsection*{\hypertarget{link:Signatures}{Signatures}}
@@ -271,7 +285,9 @@ The following demonstrates how to create a customized signature.
 \notemark\textit{Within the same signature, attributes from different protocols are not allowed to serve as Conditions, except for TCP/IP/General Attributes.}
 
 
-You can \textbf{Edit} or \textbf{Delete} your signature and reference one or multiple signatures when creating application object.
+You can \textbf{Edit} or \textbf{Delete} your signature and reference one or multiple signatures when creating application object. 
+You can also import or export user-defined signatures in json format.
+
 
 %\pdfbookmark[2]{Customized Attributes}{Customized Attributes}
 \subsection*{\hypertarget{link:Customized Attributes}{Customized Attributes}}
@@ -305,8 +321,8 @@ The following is a basic example of how to create a customized attribute.
 You can \textbf{Edit} or \textbf{Delete} your customized attributes and download the Uploaded File.
 
 %\pdfbookmark[2]{Custom Application}{Custom Application}
-\subsection*{\hypertarget{link:Custom Application}{Custom Application}}
-\addcontentsline{toc}{subsection}{Custom Application}
+\subsection*{\hypertarget{link:Application Customization}{Application Customization}}
+\addcontentsline{toc}{subsection}{Application Customization} 
 \label{sec:objects:application:customize}
 
 Applications allow you classify all traffic, across all ports, all the time. To ensure that your internal custom applications do not show up as unknown traffic, you can create a custom application. Then practice granular policy control over these applications to minimize the range of unidentified traffic on your network. 
@@ -373,6 +389,9 @@ The following is a basic example of how to create a custom application.
         \item Run the application from a client system that is between the firewall and the application and then check the logs to make sure that you see traffic matching the new application (and that it is being handled per your policy rule).
     \end{enumerate}
 \end{description}
+
+
+\notemark\textit{TSG enables you to import or export custom applications in batch with json format.}
 
 %\pdfbookmark[2]{Application Selector}{Application Selector}
 \subsection*{\hypertarget{link:Application Selector}{Application Selector}}

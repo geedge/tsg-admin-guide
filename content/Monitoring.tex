@@ -40,6 +40,7 @@ The TSG Dashboard include two sub menus, Main Board and Live Chart. Main Board s
     \multirow{5}{*}{Endpoints} & Active Client IP & Displays Active Client IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
                                & Active Server IP & Displays Active Server IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
                                & Active Subscriber ID & Displays Active Subscriber ID by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
+                               & Top APP & Displays Top APP by Sessions, Packets and Bytes. You can view either the table, pie or bar. \\ \cline{2-3}
                                & Top URLs & Displays Top URLs of Security and Proxy Policy Hits by session count. You can view either the tables or bars. \\ \cline{2-3}
                                & Top Domains & Displays Top Domains by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \hline
     \multirow{3}{*}{\tabincell{l}{Proxy Policy\\ Hits}} & Proxy Policy Hits by action & Hits are the times that traffic matched the criteria you defined in the Proxy Policy rule. A display of Proxy Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes number. \\ \cline{2-3}
@@ -69,7 +70,9 @@ Live Chart show network summary, survey statistics, throughput and protocol info
 \addcontentsline{toc}{section}{View and Manage Logs}
 \label{sec:monitor:log}
 
-A log is an automatically generated, time-stamped file that provides an audit trail for network traffic events that TSG monitors. Log records contain columns, which are properties, activities, or behaviors associated with the logged event. Each log type records information for a different event type. You can see the following 4 log types in the Log pages.
+A log is an automatically generated, time-stamped file that provides an audit trail for network traffic events that TSG monitors. 
+Log records contain columns, which are properties, activities, or behaviors associated with the logged event. 
+Each log type records information for a different event type. You can see the following 6 log types in the Log pages.
 
 
 • Security Event Logs 
@@ -82,6 +85,12 @@ A log is an automatically generated, time-stamped file that provides an audit tr
 
 
 • Radius Logs
+
+
+• VoIP Records
+
+
+• GTP-C Records
 
 %\pdfbookmark[2]{Log Types}{Log Types}
 \subsection*{\hypertarget{link:Log Types}{Log Types}}
@@ -98,6 +107,7 @@ Session Records
 
 
 • Session records regardless of policy configuration; it shows all traffic that is allowed on your network. Traffic logs display an entry for the start and end of each session. 
+TSG Session records display Transaction records when clicking more. Session records also consist of GTP, MPLS information. You can view live sessions in session records, but reports do not include live sessions.
 
 
 Radius Logs
@@ -106,6 +116,18 @@ Radius Logs
 • Remote Authentication Dial-In User Service (RADIUS) is a broadly supported networking protocol that provides centralized authentication and authorization. 
 TSG will keep track of radius traffic information, including Packet Type, Account, Nas IP, Framed IP, ACC Status Type and so on. 
 You can use the Account information in radius log to create \hyperlink{link:Subscriber ID}{\color{linkblue}{Subscriber ID}} object.
+
+
+VoIP Records 
+
+
+• Voice over IP (VoIP) requires faster speeds and time-sensitive, real-time delivery. It mainly uses RTP as its media protocol to deliver multimedia sessions and Session Initiation Protocol (SIP) for signaling. SIP can open dynamic pinholes in the firewall where NAT is enabled. TSG only supports t VoIP calls using SIP for signaling and RTP for delivering audio data. TSG will keep track of VoIP traffic regarding general info, action, source, destination, application, transmission and SIP fields. 
+
+
+GTP-C Records 
+
+
+• GTP-C records composed of GTP-C version (v1 or v2), International Mobile Equipment Identity (IMEI), APN and Phone Number. 
 
 
 Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
@@ -152,9 +174,9 @@ TSG log filter supports search by multiple fields in AND/OR relation. You can pe
 \begin{description}
     \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. For example, \textbf{Proxy Event Logs}.
     \item[STEP 2.]	Select the time period picker. By default, it shows logs of \textbf{Last 1 hour}.
-    \item[STEP 3.]  Click \textbf{Add Filter} to add search term. The supported search fields are: Log ID, Policy ID, Subscriber ID, Client IP, Internal IP, Client Port, 
-    Server IP, Server Port, External IP, Action, Sled IP, Schema Type, Data Center, Session ID, TCP Client ISN, TCP Server ISN, Http.URL, Http.Domain, SSL.SNI and SSL. JA3 hash. 
-    Then, select \textbf{Operator}, such as =, !=, in, not in, like, not like, notEmpty, empty. And input the value. If you wish to add multiple search fields, click Add Filter again, and proceed. 
+    \item[STEP 3.]  Click \textbf{Add Filter} to add search term. The supported search fields are: Log ID, Policy ID, Subscriber ID, IMEI, IMSI, Phone Number, Client IP, Internal IP, Client Port, 
+    Server IP, Server Port, External IP, Action, Sled IP, Schema Type, Data Center, Application Label, FQDN Category, Session ID, TCP Client ISN, TCP Server ISN, Http.URL, Http.Domain, SSL.SNI and SSL. JA3 hash etc. 
+    Then, select \textbf{Operator}, such as =, !=, in, not in, like, not like, notEmpty, empty, HAS. And input the value. If you wish to add multiple search fields, click Add Filter again, and proceed. 
     TSG support \textbf{AND}/\textbf{OR} relations between search fileds. For example, enter Client IP 192.168.50.62 and Action Deny to display only entries that contain both fields in the log. 
 \end{description}
 
@@ -249,8 +271,14 @@ This consideration guides you in making the following selections in a custom rep
                         • Session Records
                                     
                         
-                        • Radius Logs \\\hline 
-                        Group by & Collect data from multiple records and group the results by one or more fields (columns).
+                        • Radius Logs 
+                        
+                        
+                        • VoIP Records
+                       
+                       
+                        • GTP-C Records \\\hline 
+                Group by & Collect data from multiple records and group the results by one or more fields (columns).
                         
                         
                         Click the "+" button to add variable.
@@ -317,6 +345,10 @@ This consideration guides you in making the following selections in a custom rep
                                                             Server ASN\\
                                                             Start Time\\
                                                             End Time\\
+                                                            IMEI\\
+                                                            IMSI\\
+                                                            Phone Number\\
+                                                            Application Label\\
                                                             Http.Host\\
                                                             Http.Domain\\
                                                             Http.URL\\
@@ -343,6 +375,10 @@ This consideration guides you in making the following selections in a custom rep
                                                                             Sequence Gap\\ Loss(s2c)\\
                                                                             Unorder Packets\\(c2s)\\
                                                                             Unorder Packets\\(s2c)\\
+                                                                            IMEI\\
+                                                                            IMSI\\
+                                                                            Phone Number\\
+                                                                            Application Label\\
                                                                             Http.Host\\
                                                                             Http.Domain\\
                                                                             Http.URL\\
@@ -382,6 +418,10 @@ This consideration guides you in making the following selections in a custom rep
                                                                                                     End Time\\
                                                                                                     Duration(ms)\\
                                                                                                     Establish Latency(ms)\\
+                                                                                                    IMEI\\
+                                                                                                    IMSI\\
+                                                                                                    Phone Number\\
+                                                                                                    Application Label\\
                                                                                                     Http.Host\\
                                                                                                     Http.Domain\\
                                                                                                     Http.URL\\
@@ -408,6 +448,10 @@ This consideration guides you in making the following selections in a custom rep
                                                                         Server ASN\\
                                                                         Start Time\\
                                                                         End Time\\
+                                                                        IMEI\\
+                                                                        IMSI\\
+                                                                        Phone Number\\
+                                                                        Application Label\\
                                                                         Http.Host\\
                                                                         Http.Domain\\
                                                                         Http.URL\\
@@ -433,6 +477,10 @@ This consideration guides you in making the following selections in a custom rep
                                                                                                     Bytes Received\\
                                                                                                     Duration(ms)\\
                                                                                                     Establish\\ Latency(ms)\\
+                                                                                                    IMEI\\
+                                                                                                    IMSI\\
+                                                                                                    Phone Number\\
+                                                                                                    Application Label\\
                                                                                                     Http.Host\\
                                                                                                     Http.Domain\\
                                                                                                     Http.URL\\
@@ -476,6 +524,10 @@ This consideration guides you in making the following selections in a custom rep
                                                                                                                             End Time\\
                                                                                                                             Duration(ms)\\
                                                                                                                             Establish Latency(ms)\\
+                                                                                                                            IMEI\\
+                                                                                                                            IMSI\\
+                                                                                                                            Phone Number\\
+                                                                                                                            Application Label\\
                                                                                                                             Http.Host\\
                                                                                                                             Http.Domain\\
                                                                                                                             Http.URL
@@ -527,6 +579,9 @@ This consideration guides you in making the following selections in a custom rep
                                                     Data Center\\
                                                     Client ASN\\
                                                     Server ASN\\
+                                                    IMEI\\
+                                                    IMSI\\
+                                                    Phone Number\\
                                                     Http.Host\\
                                                     Http.Domain\\
                                                     Http.URL\\
@@ -547,7 +602,8 @@ This consideration guides you in making the following selections in a custom rep
                                                                                     Http.URL\\
                                                                                     DoH.Host\\
                                                                                     DoH.QNAME\\
-                                                                                    Log ID}  & \tabincell{l}{Policy ID\\
+                                                                                    Log ID\\
+                                                                                    Phone Number}  & \tabincell{l}{Policy ID\\
                                                                                                             Sub Action\\
                                                                                                             Address Type\\
                                                                                                             Server IP\\
@@ -572,7 +628,204 @@ This consideration guides you in making the following selections in a custom rep
                                                                                                             Http.URL\\
                                                                                                             Http.Content Type\\
                                                                                                             DoH.Host\\
-                                                                                                            DoH.QNAME}   \\ \hline                                                                                                                          
+                                                                                                            DoH.QNAME\\
+                                                                                                            Phone Number}   \\ \hline   
+        \tabincell{l}{VoIP\\ Records} &   \tabincell{l}{Server IP\\
+                                                            Client IP\\
+                                                            Internal IP\\
+                                                            External IP\\
+                                                            Sled IP\\
+                                                            Device ID\\
+                                                            Client Location\\
+                                                            Server Location\\
+                                                            Subscriber ID\\
+                                                            Client Port\\
+                                                            Server Port\\
+                                                            Schema Type\\
+                                                            L4 Protocol\\
+                                                            L7 Protocol\\
+                                                            Data Center\\
+                                                            Client ASN\\
+                                                            Server ASN\\
+                                                            Start Time\\
+                                                            End Time\\
+                                                            SIP.Call-ID\\
+                                                            SIP.Originator\\
+                                                            SIP.Responder\\
+                                                            SIP.User-Agent\\
+                                                            SIP.Server\\
+                                                            SIP.Duration\\
+                                                            SIP.Bye\\
+                                                            RTP.Payload\\ Type(c2s)\\
+                                                            RTP.Payload\\ Type(s2c)\\
+                                                            RTP.Direction\\
+                                                            Receive Time
+                                                            }
+                                                    &   \tabincell{l}{Server IP\\
+                                                                            Client IP\\
+                                                                            Internal IP\\
+                                                                            External IP\\
+                                                                            Subscriber ID\\
+                                                                            Sled IP\\
+                                                                            Device ID\\
+                                                                            Packets Sent\\
+                                                                            Packets Received\\
+                                                                            Bytes Sent\\
+                                                                            Bytes Received\\
+                                                                            Sessions\\
+                                                                            Duration(ms)\\
+                                                                            Establish\\ Latency(ms)\\
+                                                                            Fragmentation\\ Packets(c2s)\\
+                                                                            Fragmentation\\ Packets(s2c)\\
+                                                                            Sequence Gap\\ Loss(c2s)\\
+                                                                            Sequence Gap\\ Loss(s2c)\\
+                                                                            Unorder Packets\\(c2s)\\
+                                                                            Unorder Packets\\(s2c)\\
+                                                                            SIP.Call-ID\\
+                                                                            SIP.Originator\\
+                                                                            SIP.Responder\\
+                                                                            SIP.User-Agent\\
+                                                                            SIP.Server\\
+                                                                            SIP.Duration\\
+                                                                            Log ID}  &  \tabincell{l}{Address Type\\
+                                                                                                    Server IP\\
+                                                                                                    Client IP\\
+                                                                                                    Internal IP\\
+                                                                                                    External IP\\
+                                                                                                    Client Port\\
+                                                                                                    Server Port\\
+                                                                                                    Client Location\\
+                                                                                                    Server Location\\
+                                                                                                    Subscriber ID\\
+                                                                                                    Packets Sent\\
+                                                                                                    Packets Received\\
+                                                                                                    Bytes Sent\\
+                                                                                                    Bytes Received\\
+                                                                                                    Fragmentation Packets(c2s)\\
+                                                                                                    Fragmentation Packets(s2c)\\
+                                                                                                    Sequence Gap Loss(c2s)\\
+                                                                                                    Sequence Gap Loss(s2c)\\
+                                                                                                    Unorder Packets(c2s)\\
+                                                                                                    Unorder Packets(s2c)\\
+                                                                                                    L4 Protocol\\
+                                                                                                    L7 Protocol\\
+                                                                                                    Stream Direction\\
+                                                                                                    Direction\\
+                                                                                                    Data Center\\
+                                                                                                    Sled IP\\
+                                                                                                    Device ID\\
+                                                                                                    Schema Type\\
+                                                                                                    Client ASN\\
+                                                                                                    Server ASN\\
+                                                                                                    Start Time\\
+                                                                                                    End Time\\
+                                                                                                    Duration(ms)\\
+                                                                                                    Establish Latency(ms)\\
+                                                                                                    SIP.Call-ID\\
+                                                                                                    SIP.Originator\\
+                                                                                                    SIP.Responder\\
+                                                                                                    SIP.User-Agent\\
+                                                                                                    SIP.Server\\
+                                                                                                    SIP.Duration\\
+                                                                                                    SIP.Bye\\
+                                                                                                    RTP.Payload Type(c2s)\\
+                                                                                                    RTP.Payload Type(s2c)\\
+                                                                                                    RTP.Direction
+                                                                                                    }  \\ \hline 
+    \tabincell{l}{GTP-C\\ Records} &   \tabincell{l}{Server IP\\
+                                                            Client IP\\
+                                                            Internal IP\\
+                                                            External IP\\
+                                                            Sled IP\\
+                                                            Device ID\\
+                                                            Client Location\\
+                                                            Server Location\\
+                                                            Subscriber ID\\
+                                                            Client Port\\
+                                                            Server Port\\
+                                                            Schema Type\\
+                                                            L4 Protocol\\
+                                                            L7 Protocol\\
+                                                            Data Center\\
+                                                            Client ASN\\
+                                                            Server ASN\\
+                                                            Start Time\\
+                                                            End Time\\
+                                                            Version\\
+                                                            APN\\
+                                                            IMEI\\
+                                                            IMSI\\
+                                                            Phone Number\\
+                                                            Receive Time}
+                                            &   \tabincell{l}{Server IP\\
+                                                                            Client IP\\
+                                                                            Internal IP\\
+                                                                            External IP\\
+                                                                            Subscriber ID\\
+                                                                            Sled IP\\
+                                                                            Device ID\\
+                                                                            Packets Sent\\
+                                                                            Packets Received\\
+                                                                            Bytes Sent\\
+                                                                            Bytes Received\\
+                                                                            Sessions\\
+                                                                            Duration(ms)\\
+                                                                            Establish\\ Latency(ms)\\
+                                                                            Fragmentation\\ Packets(c2s)\\
+                                                                            Fragmentation\\ Packets(s2c)\\
+                                                                            Sequence Gap\\ Loss(c2s)\\
+                                                                            Sequence Gap\\ Loss(s2c)\\
+                                                                            Unorder Packets\\(c2s)\\
+                                                                            Unorder Packets\\(s2c)\\
+                                                                            Version\\
+                                                                            APN\\
+                                                                            IMEI\\
+                                                                            IMSI\\
+                                                                            Phone Number\\
+                                                                            Log ID}  &  \tabincell{l}{Address Type\\
+                                                                                                    Server IP\\
+                                                                                                    Client IP\\
+                                                                                                    Internal IP\\
+                                                                                                    External IP\\
+                                                                                                    Client Port\\
+                                                                                                    Server Port\\
+                                                                                                    Client Location\\
+                                                                                                    Server Location\\
+                                                                                                    Subscriber ID\\
+                                                                                                    Packets Sent\\
+                                                                                                    Packets Received\\
+                                                                                                    Bytes Sent\\
+                                                                                                    Bytes Received\\
+                                                                                                    Fragmentation Packets(c2s)\\
+                                                                                                    Fragmentation Packets(s2c)\\
+                                                                                                    Sequence Gap Loss(c2s)\\
+                                                                                                    Sequence Gap Loss(s2c)\\
+                                                                                                    Unorder Packets(c2s)\\
+                                                                                                    Unorder Packets(s2c)\\
+                                                                                                    L4 Protocol\\
+                                                                                                    L7 Protocol\\
+                                                                                                    Stream Direction\\
+                                                                                                    Direction\\
+                                                                                                    Data Center\\
+                                                                                                    Sled IP\\
+                                                                                                    Device ID\\
+                                                                                                    Schema Type\\
+                                                                                                    Client ASN\\
+                                                                                                    Server ASN\\
+                                                                                                    Start Time\\
+                                                                                                    End Time\\
+                                                                                                    Duration(ms)\\
+                                                                                                    Establish Latency(ms)\\
+                                                                                                    Version\\
+                                                                                                    APN\\
+                                                                                                    IMEI\\
+                                                                                                    IMSI\\
+                                                                                                    Phone Number\\
+                                                                                                    End User Address V4\\
+                                                                                                    End User Address V6\\
+                                                                                                    Uplink TEID\\
+                                                                                                    Downlink TEID\\
+                                                                                                    Message Type}  \\ \hline                                                                                                                                                                                                                                                                                                                                                                                
     \end{longtable}
 
     \item[] \notemark\textit{Viewing the SQL query of an existing dataset.\\

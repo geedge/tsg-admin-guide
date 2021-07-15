@@ -11,6 +11,7 @@ This section contains information about configuring TSG advanced features, inclu
 \color{linkblue}
 \hyperlink{link:Proxy TCP Options}{> Proxy TCP Options} \\
 \hyperlink{link:System Usage }{> System Usage } \\
+\hyperlink{link:System Appearance }{> System Appearance } \\
 } 
 \clearpage
 
@@ -22,7 +23,7 @@ This section contains information about configuring TSG advanced features, inclu
 TSG provides TCP default option which keeps the Enable TCP Passthrough and Bypass Duplicated Packet off. However, you can Create your own Proxy TCP Options for special situations. Under certain boundary conditions of network transmission, some network parameters need to be renegotiated during network transmission, such as MTU. The network equipment will renegotiate network parameters through some mechanisms, and the negotiation process may not under precise monitor of TSG. And it may affect related policies. In this case, the affected network parameters need to be preset through the PROXY TCP OPTION.
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Advanced} > \textbf{Proxy TCP Options}, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Proxy} > \textbf{Proxy TCP Options}, and click \textbf{Create}.
     \item[STEP 2.]	Specify Proxy TCP Options name and effective scope.
     \begin{enumerate}
         \item Enter a descriptive \textbf{Name}.
@@ -101,10 +102,17 @@ In this scenario, the storage space for Files is generally smaller than 150\% of
 To configure Storage Usage and expiration period:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Advanced} > \textbf{System Usage}. It displays Storage Usage percentage for Reports and Metrics, Files and Traffic Logs. You can view History Log Storage by time.
+    \item[STEP 1.]	Select \textbf{System} > \textbf{System Usage}. It displays Storage Usage percentage for Reports and Metrics, Files and Traffic Logs. You can view History Log Storage by time.
 
 
 \warnmark\textit{Warning: Please take caution when performing STEP 2 and STEP 3, because this operation is not recoverable.}
     \item[STEP 2.]	(\textcolor{gold}{Optional})Click \textbf{Setting}. Check \CheckedBox  I understand the risks. Enter the Max Days for each type and Click \textbf{OK}. TSG will delete logs and reports that exceed the expiration period. It may take a long time, during which the maximum sustainable log rate will degrade.
     \item[STEP 3.]	(\textcolor{gold}{Optional})To clear data once, click \textbf{Clear} to Clear Traffic Logs, Clear Reports and Metrics, Clear Files or Clear All Data.
 \end{description} 
+
+\section*{\hypertarget{link:System Appearance}{System Appearance}}
+\addcontentsline{toc}{section}{System Appearance}
+\label{sec:setting:appearance}
+
+System appearance enables user to customize firewall’s logo, title and default language. 
+Go to \textbf{System} > \textbf{System Appearance} to upload your own logo, favicon, specify title, and select default language.  

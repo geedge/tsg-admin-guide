@@ -74,7 +74,7 @@ The digital certificates are used to ensure trust between parties in a secure co
 TSG trusts the most common and trusted authorities (CAs) by default. These trusted certificate providers are responsible for issuing the certificates TSG requires to secure connections to the internet. The additional CAs you might want to add are trusted enterprise CAs that your organization requires. You can perform the following to import a certificate:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Certificate Managements} and select \textbf{Trusted Certificate Authorities} tab, Click \textbf{Import}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Decryption} and select \textbf{Trusted Certificate Authorities} tab, Click \textbf{Import}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters. It can use only letters, numbers, hyphens, and underscores.
     \item[STEP 3.]	Click \textbf{Please upload} and upload a PEM (base64-encoded) format file.
     \item[STEP 4.]	Click \textbf{OK}.    
@@ -104,7 +104,7 @@ Note that the built-in certificate with ID 1(\#1) means trusted certificate, and
 You can perform the following to Import a Certificate and Private Key:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Certificate Managements} and select \textbf{Decryption Keyrings} tab, Click \textbf{Create}
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Decryption} > \textbf{SSL Decryption Keyrings}, Click \textbf{Create}
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters.
     \item[STEP 3.]	\textbf{Please Upload} a \textbf{Certificate}. For Intermediate CA, certificate must be a complete chain.
     \item[STEP 4.]	\textbf{Please Upload} a \textbf{Private Key File} separately. It supports PEM (base64-encoded) format only. 
@@ -164,7 +164,7 @@ SSL Decryption Exclusion can exclude two types of traffic from decryption:
 Perform the following to exclude a Server from Decryption:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Certificate Managements} and select \textbf{SSL Decryption Exclusion} tab, Click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Decryption} > \textbf{SSL Decryption Exclusion}, Click \textbf{Create}.
     \item[STEP 2.]	Enter an \textbf{FQDN}, it supports suffix matching and exactly matching only. E.g. *.example.com, \$www.example.com. 
     \item[STEP 3.]	Enter a \textbf{Description}. The description can have up to 255 characters.
     \item[STEP 4.]	Click \textbf{OK}.   
@@ -182,8 +182,8 @@ You can search exclusion list based on ID and Name. Enter search conditions in s
 \addcontentsline{toc}{subsection}{Cached Intermediate Certificates}
 \label{sec:decrypt:certificate:cached}
 
-TSG will automatically cache intermediate certificates. You can select \textbf{Settings} > \textbf{Certificate Managements} 
-and select \textbf{Cached Intermediate Certificates} tab to view detailed information about these Intermediate Certificates. 
+TSG will automatically cache intermediate certificates. You can select \textbf{Profiles} > \textbf{Decryption} 
+and select \textbf{Cached Intermediate Certificates} to view detailed information about these Intermediate Certificates. 
 These Intermediate Certificates are issued by Trusted Certificate Authorities, which is an effort to amend the incomplete certificate chain. 
 TSG will collect the following information: source website, issuer by, issuer to, Cn, and expiry date.
 
@@ -228,7 +228,7 @@ The overall process is as follows:
 Perform the following steps to create an SSL fingerprint:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Certificate Managements}, select \textbf{SSL Fingerprint} tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Decryption} > \textbf{SSL Fingerprint}, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{JA3 Hash}. 
     \item[STEP 3.]	Select Yes or No for \textbf{Pinning}.
     \item[STEP 4.]	(\textcolor{gold}{Optional})Enter a \textbf{Description}. The description can have up to 1024 characters. 
@@ -261,7 +261,7 @@ you can specify a Response Code and a Response Content to generate an error page
 or you could upload a html file via \textbf{Proxy Profile} > \textbf{Response Pages}.
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Proxy Profile}, select \textbf{Response Pages} tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Response Pages} tab, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters.
     \item[STEP 3.]	Please Upload a \textbf{File}. Allow html/htm format only. 
 \end{description} 
@@ -276,10 +276,10 @@ You can search page list based on ID and Name. Enter search conditions in search
 \addcontentsline{toc}{subsection}{Insert Scripts}
 \label{sec:decrypt:profile:insert}
 
-The Proxy Policy can insert a “js” or “css” scripts to webpages. You can upload a script via \textbf{Proxy Profile} > \textbf{Insert Scripts}.
+The Proxy Policy can insert a “js” or “css” scripts to webpages. You can upload a script via \textbf{Proxy} > \textbf{Insert Scripts}.
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Proxy Profile}, select \textbf{Insert Script}s tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Proxy} > \textbf{Insert scripts}, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters.
     \item[STEP 3.]	Please Upload a \textbf{Script}. Allow js” and “css” only.
     \item[STEP 4.]	Select a \textbf{Script Type} from drop-down.     
@@ -296,10 +296,10 @@ You can search scripts list based on ID and Name. Enter search conditions in sea
 \addcontentsline{toc}{subsection}{Hijack Files}
 \label{sec:decrypt:profile:hijack}
 
-The Proxy Policy can hijack a downloading file or page. You can upload a file, img or html for hijack via \textbf{Proxy Profile} > \textbf{Hijack Files}.
+The Proxy Policy can hijack a downloading file or page. You can upload a file, img or html for hijack via \textbf{Proxy} > \textbf{Hijack Files}.
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Proxy Profile}, select \textbf{Hijack Files} tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Proxy} > \textbf{Hijack Files}, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 64 characters.
     \item[STEP 3.]	Please Upload a \textbf{File}. Allow img, exe, apk, and html type only.
     \item[STEP 4.]	Enable Mirror Server Response or enter a \textbf{Download Name}. 
@@ -314,8 +314,8 @@ Click \textbf{Edit} or \textbf{Delete} at the top left. To download it, you can 
 You can search file list based on ID and Name. Enter search conditions in search bar and click search icon.
 
 %\pdfbookmark[2]{Traffic Mirror Profiles}{Traffic Mirror Profiles}
-\subsection*{\hypertarget{link:Traffic Mirror Profiles}{Traffic Mirror Profiles}}
-\addcontentsline{toc}{subsection}{Traffic Mirror Profiles}
+\subsection*{\hypertarget{link:Decryption Mirror Profiles}{Decryption Mirror Profiles}}
+\addcontentsline{toc}{subsection}{Decryption Mirror Profiles}
 \label{sec:decrypt:profile:mirror}
 
 You also can mirror proxied traffic (decrypted) to third-party servers by referring a traffic mirror profile. The destination servers are described with VLAN Tag or MAC addresses, traffic will be load balanced over multiple servers of one profile.
@@ -324,7 +324,7 @@ You also can mirror proxied traffic (decrypted) to third-party servers by referr
 You can manage the profile by the following procedure:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Proxy Profile}, select \textbf{Traffic Mirror Profiles} tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Proxy} > \textbf{Decryption Mirror Profiles} tab, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters.
     \item[STEP 3.]	Select VLAN or MAC as your \textbf{Connectivity} from drop-down.
     \item[STEP 4.]	Enter \textbf{VLAN ID/MAC}. Make sure to input valid mirror destination MAC address. 
@@ -478,7 +478,7 @@ HTTP/2 is a major revision of the HTTP network protocol that provide increased s
 Perform the following to create a decryption profile:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Settings} > \textbf{Proxy Profile}, select \textbf{Decryption Profile} tab, and click \textbf{Create}.
+    \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Decryption} > \textbf{SSL Decryption Profile}, and click \textbf{Create}.
     \item[STEP 2.]	Add a \textbf{Name}. The name is case-sensitive and can have up to 128 characters.
     \item[STEP 3.]	Enable or disable the following certificate checks: \textbf{Common Name}, \textbf{Issuer}, \textbf{Self-signed} and \textbf{Expiry Date}. If you enable Common Name, select Fail-close or Pass-through as your \textbf{Fail Action}. 
     \item[STEP 4.]	Enable or disable the following Dynamic bypass: \textbf{EV Certificate}, \textbf{Certificate Transparency}, \textbf{Mutual Authentication}, \textbf{On Protocol Errors}, \textbf{Certificate Pinning}, \textbf{Certificate Not Installed}.
