@@ -382,7 +382,7 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
 \addcontentsline{toc}{subsubsection}{Voice over Internet Protocol}
 \label{sec:policies:security:filter:voip}
 
-Voice over Internet Protocol (VoIP) has become more and more popular as an  alternative to the traditional public switched telephone network (PSTN). 
+Voice over Internet Protocol (VoIP) has become more and more popular as an alternative to the traditional public switched telephone network (PSTN). 
 VoIP mainly uses RTP as its media protocol to deliver multimedia sessions and SIP for signaling.
 
 
@@ -392,11 +392,13 @@ For now, TSG only supports the mentioned actions above with VoIP calls using SIP
 
 To view detailed description about VoIP log fields, see \textbf{Appendix C Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:SIP}{\color{linkblue}{SIP}}} and \textbf{\hyperlink{link:RTP}{\color{linkblue}{RTP}}}.
 
-\subsubsection*{\hypertarget{link:GPRS Tunnelling Protocol(GTP)}{GPRS Tunnelling Protocol(GTP)}}
-\addcontentsline{toc}{subsubsection}{GPRS Tunnelling Protocol(GTP)}
+\subsubsection*{\hypertarget{link:GPRS Tunneling Protocol(GTP)}{GPRS Tunneling Protocol(GTP)}}
+\addcontentsline{toc}{subsubsection}{GPRS Tunneling Protocol(GTP)}
 \label{sec:policies:security:filter:gtp}
 
 GPRS Tunneling Protocol (GTP) allows mobile subscribers to use their phones to establish connections for network access on the move. 
+GTP creates, modifies, and deletes tunnels for transporting IP payloads between the user equipment, the GPRS support nodes (GSNs) in the GPRS backbone network and the internet. 
+GTP comprises three types of traffic—control plane (GTP-C), user plane (GTP-U), and charging (GTP’ derived from GTP-C) traffic.
 TSG supports GTP, which allows you to inspect, validate, filter, and perform security checks on GTPv2-C, GTPv1-C. 
 
 

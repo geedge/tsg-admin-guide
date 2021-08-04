@@ -25,7 +25,7 @@ to find the information you care about.
 \addcontentsline{toc}{section}{Use the Dashboard}
 \label{sec:monitor:dashboard}
 
-The TSG Dashboard include two sub menus, Main Board and Live Chart. Main Board show general TSG system overview, endpoints, policy hits statistics. By default, the Main Board shows information of the last 24 hours. However, you can customize time range by clicking the time widget. By default, the statistics on the screen will not refresh automatically. You can turn it on and the Minimum Refresh Time is 15s. The following table describes the Main Board widgets:
+The TSG Dashboard include two sub menus, Main board and Live Chart. Main board show general TSG system overview, endpoints, policy hits statistics. By default, the Main board shows information of the last 24 hours. However, you can customize time range by clicking the time widget. By default, the statistics on the screen will not refresh automatically. You can turn it on and the Minimum Refresh Time is 15s. The following table describes the Main board widgets:
 
 
 \begin{longtable}{p{0.15\textwidth}|p{0.21\textwidth}|p{0.56\textwidth}}   
@@ -35,17 +35,17 @@ The TSG Dashboard include two sub menus, Main Board and Live Chart. Main Board s
                                                       & Live & Displays the count number of current active connections, which go through the system. \\ \cline{2-3}
                                                       & Device Count & Device Count shows the devices number in TSG, and the devices number that are in Up, Down and Alarm status. And it provides a link to NEZHA system. \\ \cline{2-3}
                                                       & Security Policy & Enabled count, total count and Disabled count of Security Policy. Hover over Total, and you can also get enabled and disabled count about Proxy Policy. \\ \hline
-    \multirow{2}{*}{\tabincell{l}{Security\\ Policy Hits}} & \tabincell{l}{Security Policy\\ Hits by action}  & Hits are the times that traffic matched the criteria you defined in the Security Policy rule. A display of Security Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes. \\ \cline{2-3}
-                                                                     & \tabincell{l}{Security Policy\\ Top Hits} & Displays Top 10 or 100 Security Policy Hits. You can view either the tables or bars. \\ \hline
+    \multirow{2}{*}{\tabincell{l}{Security\\ Policy Hits}} & \tabincell{l}{Policy\\ Hits by Action}  & Hits are the times that traffic matched the criteria you defined in the Security Policy rule. A display of Security Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes. \\ \cline{2-3}
+                                                                     & \tabincell{l}{Top Hits} & Displays Top 10 or 100 Security Policy Hits. You can view either the tables or bars. \\ \hline
     \multirow{5}{*}{Endpoints} & Active Client IP & Displays Active Client IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
                                & Active Server IP & Displays Active Server IP by Sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
                                & Active Subscriber ID & Displays Active Subscriber ID by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \cline{2-3}
                                & Top APP & Displays Top APP by Sessions, Packets and Bytes. You can view either the table, pie or bar. \\ \cline{2-3}
                                & Top URLs & Displays Top URLs of Security and Proxy Policy Hits by session count. You can view either the tables or bars. \\ \cline{2-3}
                                & Top Domains & Displays Top Domains by sessions, Packets and bytes. You can view either the tables, pies or bars. \\ \hline
-    \multirow{3}{*}{\tabincell{l}{Proxy Policy\\ Hits}} & Proxy Policy Hits by action & Hits are the times that traffic matched the criteria you defined in the Proxy Policy rule. A display of Proxy Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes number. \\ \cline{2-3}
-                                                        & \tabincell{l}{Proxy Policy\\ Pinning} & Displays Pinning information for SSL/TSL traffic. \\ \cline{2-3}
-                                                        & Proxy Policy Top Hits & Displays Top 10 or 100 Proxy Policy Hits. You can view either the tables or bars. \\ \hline                                                                                               
+    \multirow{3}{*}{\tabincell{l}{Proxy Policy\\ Hits}} & Policy Hits by action & Hits are the times that traffic matched the criteria you defined in the Proxy Policy rule. A display of Proxy Policy Hits by action within the current time scope. You can view the Number of hit action by Sessions, Packets and bytes number. \\ \cline{2-3}
+                                                        & \tabincell{l}{Pinning} & Displays Pinning information for SSL/TSL traffic. \\ \cline{2-3}
+                                                        & Top Hits & Displays Top 10 or 100 Proxy Policy Hits. You can view either the tables or bars. \\ \hline                                                                                               
 \end{longtable}
 
 
@@ -107,7 +107,7 @@ Session Records
 
 
 • Session records regardless of policy configuration; it shows all traffic that is allowed on your network. Traffic logs display an entry for the start and end of each session. 
-TSG Session records display Transaction records when clicking more. Session records also consist of GTP, MPLS information. You can view live sessions in session records, but reports do not include live sessions.
+TSG Session records display Transaction records when clicking details. Session records also consist of GTP, MPLS information. You can view live sessions in session records, but reports do not include live sessions.
 
 
 Radius Logs
@@ -127,7 +127,7 @@ VoIP Records
 GTP-C Records 
 
 
-• GTP-C records composed of GTP-C version (v1 or v2), International Mobile Equipment Identity (IMEI), APN and Phone Number. 
+• GTP-C records is composed of GTP-C version (v1 or v2), International Mobile Equipment Identity (IMEI),International Mobile Subscriber Identity (IMSI), APN and Phone Number. 
 
 
 Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
@@ -177,7 +177,7 @@ TSG log filter supports search by multiple fields in AND/OR relation. You can pe
     \item[STEP 3.]  Click \textbf{Add Filter} to add search term. The supported search fields are: Log ID, Policy ID, Subscriber ID, IMEI, IMSI, Phone Number, Client IP, Internal IP, Client Port, 
     Server IP, Server Port, External IP, Action, Sled IP, Schema Type, Data Center, Application Label, FQDN Category, Session ID, TCP Client ISN, TCP Server ISN, Http.URL, Http.Domain, SSL.SNI and SSL. JA3 hash etc. 
     Then, select \textbf{Operator}, such as =, !=, in, not in, like, not like, notEmpty, empty, HAS. And input the value. If you wish to add multiple search fields, click Add Filter again, and proceed. 
-    TSG support \textbf{AND}/\textbf{OR} relations between search fileds. For example, enter Client IP 192.168.50.62 and Action Deny to display only entries that contain both fields in the log. 
+    TSG support \textbf{AND}/\textbf{OR} relations between search fields. For example, enter Client IP 192.168.50.62 and Action Deny to display only entries that contain both fields in the log. 
 \end{description}
 
 %\pdfbookmark[2]{Export Logs}{Export Logs}
@@ -185,7 +185,7 @@ TSG log filter supports search by multiple fields in AND/OR relation. You can pe
 \addcontentsline{toc}{subsection}{Export Logs}
 \label{sec:monitor:log:export}
 
-You can export the contents of a log type to a xlsx file. First, Filter Logs according to time and other conditions. Then, Click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
+You can export the contents of a log type to a xlsx file. Firstly, Filter Logs according to time and other conditions. Then, Click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
 
 
 \notemark\textit{Maximum export log records are 100000.}
@@ -904,7 +904,7 @@ This consideration guides you in making the following selections in a custom rep
         Bundle rest into “Others” & Other items are bundled into the Others category if check this option. This reflects in Category of a Pie chart.\\\hline
         \multicolumn{2}{l}{\textbf{Line} or \textbf{Area}}\\\hline
         X-Axis & \begin{itemize}
-                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset. The selected dataset should include time filed.
+                    \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset. The selected dataset should include time field.
                     
 
                     \notemark\textit{Group by must include Receive Time in selected dataset.}
@@ -953,9 +953,9 @@ This consideration guides you in making the following selections in a custom rep
         \item Select the \textbf{Chart Library} you just created. Enter number and select time unit for \textbf{Time Granularity}. The available options vary depending on the selected chart, only applies to charts with time parameters. This will affect the data density of X-Axis. Here, let it grey by default since it is a Bar chart.
         \item (\textcolor{gold}{optional})Add \textbf{Filter} if you have related requirements. You can apply log message filters to reports and charts. If add multiple charts, the filter field is limited to the common fields of multiple charts. Here don’t add any Filter.
         \item Click \textbf{OK}.
-        \item Wait a while for the generation of the report. Click button (\[\blacktriangleright\]) at the left of the report row to get the details of the result. After the status reach 100\%, click \textbf{View} and you’ll see: firstly, the overviews of traffic statistics, then the traffic trend in the time period and finally the results of your custom selections. 
+        \item Wait a while for the generation of the report. Click button (\mbox{$\blacktriangleright$}) at the left of the report row to get the details of the result. After the status reach 100\%, click \textbf{View} and you’ll see: firstly, the overviews of traffic statistics, then the traffic trend in the time period and finally the results of your custom selections. 
     \end{enumerate}
-
+%\[\blacktriangleright\]
     \item[] Please view the following table for details about new report.
     \begin{longtable}{p{0.18\textwidth}|p{0.76\textwidth}}   
         \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
@@ -996,13 +996,13 @@ This consideration guides you in making the following selections in a custom rep
 \end{description}
 
 \notemark\textit{To base a report on a predefined template, select the predefined Dataset or Chart Libraries.
-If you Enable Schedule for a report, the execution button (\[\blacktriangleright\]) under Operation will not be available and (-) will show in column Operation. 
-You can view the create time of a result for the report, when you click button (\[\blacktriangleright\]) 
-(switch to button (\[\blacktriangledown\]) to indicate folding back) at the left of a row to unfold the report details. 
+If you Enable Schedule for a report, the execution button (\mbox{$\blacktriangleright$}) under Operation will not be available and (-) will show in column Operation. 
+You can view the create time of a result for the report, when you click button (\mbox{$\blacktriangleright$}) 
+(switch to button (\mbox{$\blacktriangledown$}) to indicate folding back) at the left of a row to unfold the report details. 
 Create time shows the time that the report generated this cycle according to the schedule, not the time you configure the report. 
 The reports are displayed in descending order by create time. For example, you create a report with Time Period “today” 
 and Enable Schedule “Daily, Start Time 14:00 \& End Time 18:00” at 9:00 am. In this case, the first result of report 
-which is shown in (\[\blacktriangledown\]) will be created at 14:00 today with Create Time: YYYY-MM-DD 14:00. 
+which is shown in (\mbox{$\blacktriangledown$}) will be created at 14:00 today with Create Time: YYYY-MM-DD 14:00. 
 Meanwhile the percentage which indicates the ready status of the result will reach 100\% after 24:00:00 since the report configuration was set Time Period as “today”. 
 And you can get a new result at the 14:00 and view the report after midnight every day from now on. 
 The report list displays Last Modified Time and Last Execution Time and you can click the column to make the list display in descending or ascending order.} 
@@ -1036,7 +1036,7 @@ TSG captures packets for all traffic or for specific traffic based on filters th
     \begin{enumerate}
         \item Select \textbf{Setting} > \textbf{Trouble Shooting} menu, and select Packet Capture tab.
         \item Enter a descriptive \textbf{Name}.
-        \item Select \textbf{Address Type}, IPV4 or IPV6.
+        \item Select \textbf{Address Type}, IPv4 or IPv6.
         \item Enter \textbf{Client IP}, \textbf{Client Port}, \textbf{Server IP}, \textbf{Server Port}.
         \item Select TCP, UDP or Any as \textbf{Protocol}.
         \item Select \textbf{Effective Devices} leave the value set to any.
