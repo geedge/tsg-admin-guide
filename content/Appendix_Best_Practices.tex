@@ -49,7 +49,7 @@ To improve your overall security posture, use the guidelines in this section to 
             \item	Specify the keywords you wish to monitor as matching criteria for Content field.  
             \item	Enable the policy and submit.
         \end{enumerate}        
-        \item	When the policy is matched, you can view Logs > Security Event Logs and see the mail content.
+        \item	When the policy is matched, you can view Logs > Security Events and see the mail content.
     \end{enumerate}	
 \end{description}
 
@@ -724,7 +724,7 @@ Customize a report to analyze endpoints access of specific Data Center. For exam
 \addcontentsline{toc}{subsection}{The 9$^{th}$: Endpoints Details Analysis for Intercept Action}
 \label{sec:appendix_f:report:9th}
 
-Customize a report to analyze endpoints details of intercept action. For example, create a report to analyze Security Event Logs about multiple dimensional endpoints information. It will include 8 charts and tables, that display endpoints statistics details, including Top Client IP, Server IP, Internal IP, External IP (by Sessions with Bandwidth), Top Domain Distribution (by Sessions with Bandwidth), Top Domain Drilldown Internal IP (by Sessions), Top Domain Drilldown Server IP (by Bandwidth), Top Subscriber ID Drilldown Domain (by Sessions). With the help of this example, you can have a better understanding of the meaning of Drilldown table and bar charts and how to create them.
+Customize a report to analyze endpoints details of intercept action. For example, create a report to analyze Security Events about multiple dimensional endpoints information. It will include 8 charts and tables, that display endpoints statistics details, including Top Client IP, Server IP, Internal IP, External IP (by Sessions with Bandwidth), Top Domain Distribution (by Sessions with Bandwidth), Top Domain Drilldown Internal IP (by Sessions), Top Domain Drilldown Server IP (by Bandwidth), Top Subscriber ID Drilldown Domain (by Sessions). With the help of this example, you can have a better understanding of the meaning of Drilldown table and bar charts and how to create them.
 
 \begin{description}
     \item[STEP 1.]	Create 8 Datasets. Select \textbf{Reports} > \textbf{Datasets} menu, and click \textbf{Create}. Select the same \textbf{Log Type} for the 2 datasets: Security Event.
@@ -781,28 +781,28 @@ Customize a report to analyze endpoints details of intercept action. For example
         \begin{enumerate}
             \item	Select Http.Domain as \textbf{Group by}. 
             \item	Specify the \textbf{Data Bindings}, add field, aggregate, and label. You can add multiple items for data bindings. Field select Log ID; Label set to Sessions.
-            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Event Logs with empty Domain.
+            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Events with empty Domain.
             \item	Click \textbf{OK}.
         \end{enumerate}
         \item Create a Dataset with \textbf{Name} Security-Event-Top-Domain-by-Internal-IP-and-Sessions.
         \begin{enumerate}
             \item	Select Http.Domain and Internal IP as \textbf{Group by}. 
             \item	Specify the \textbf{Data Bindings}, add field, aggregate, and label. You can add multiple items for data bindings. Field select Log ID; Label set to Sessions.
-            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Event Logs with empty Domain.
+            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Events with empty Domain.
             \item	Click \textbf{OK}.
         \end{enumerate}
         \item Create a Dataset with \textbf{Name} Security-Event-Top-Domain-by-Server-IP-and-Bandwidth.
         \begin{enumerate}
             \item	Select Http.Domain and Server IP as \textbf{Group by}. 
             \item	Specify the \textbf{Data Bindings}, add field, aggregate, and label. You can add multiple items for data bindings. Field select Bytes Sent and Bytes Received; aggregate select sum; Label set to Bytes.
-            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Event Logs with empty Domain.
+            \item	Specify \textbf{Filter}. Select Http.Domain as Field; select notEmpty as Operator. This configuration will exclude Security Events with empty Domain.
             \item	Click \textbf{OK}.
         \end{enumerate}
         \item Create a Dataset with \textbf{Name} Security-Event-Top-Subscriber-ID-by-Website-Domains-and-Sessions.
         \begin{enumerate}
             \item	Select Http.Domain and Subscriber ID as \textbf{Group by}. 
             \item	Specify the \textbf{Data Bindings}, add field, aggregate, and label. You can add multiple items for data bindings. Field select Log ID; Label set to Sessions.
-            \item	Specify \textbf{Filter}. You can add multiple items. Select Http.Domain as Field; select notEmpty as Operator. Click add and select Subscriber ID as Field; select notEmpty as Operator. This configuration will exclude Security Event Logs with empty Domain and Subscriber ID.
+            \item	Specify \textbf{Filter}. You can add multiple items. Select Http.Domain as Field; select notEmpty as Operator. Click add and select Subscriber ID as Field; select notEmpty as Operator. This configuration will exclude Security Events with empty Domain and Subscriber ID.
             \item	Click \textbf{OK}.
         \end{enumerate}
     \end{enumerate}

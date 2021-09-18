@@ -75,10 +75,10 @@ Log records contain columns, which are properties, activities, or behaviors asso
 Each log type records information for a different event type. You can see the following 6 log types in the Log pages.
 
 
-• Security Event Logs 
+• Security Events 
 
 
-• Proxy Event Logs
+• Proxy Events
 
 
 • Session Records 
@@ -97,10 +97,10 @@ Each log type records information for a different event type. You can see the fo
 \addcontentsline{toc}{subsection}{Log Types}
 \label{sec:monitor:log:type}
 
-Security Event Logs and Proxy Event Logs
+Security Events and Proxy Events
 
 
-• Security Event Logs and Proxy Event Logs data provides the ability to validate rule additions and rule changes and to monitor the time frame when a rule was used. The log gives you the information to determine whether a rule is effective for access enforcement.
+• Security Events and Proxy Events data provides the ability to validate rule additions and rule changes and to monitor the time frame when a rule was used. The log gives you the information to determine whether a rule is effective for access enforcement.
 
 
 Session Records
@@ -132,6 +132,12 @@ GTP-C Records
 
 Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
 
+
+DoS Events
+
+
+• Dos Events provides detailed statistics on the detected Dos attacks. Currently supports DNS flood, TCP SYN flood, UDP flood and ICMP flood. You can view the Source Countries, Destination Countries, Start Time, End Time, Attack Type, Severity, Sessions/s, Packets/s, Bits/s, etc.
+
 %\pdfbookmark[2]{View Logs}{View Logs}
 \subsection*{\hypertarget{link:View Logs}{View Logs}}
 \addcontentsline{toc}{subsection}{View Logs}
@@ -150,11 +156,11 @@ You can view the different log types on TSG in a tabular format.
     \item[STEP 3.]	View additional details about log entries.
     \begin{enumerate}
         \item Click the \textbf{Log ID} for a specific log entry. The Detailed Log View has more information about the source and destination of the session, as well as a list of sessions related to the log entry.
-        \item (\textcolor{gold}{Optional})If you are viewing Security Event Logs and Proxy Event Logs, hover over the \textbf{Policy ID}, 
+        \item (\textcolor{gold}{Optional})If you are viewing Security Events and Proxy Events, hover over the \textbf{Policy ID}, 
         you can view the Policy Name, Action, Application, Destination, Source and Filter. 
         Hover over the \textbf{Client IP} and \textbf{Server IP}, you can view the corresponding IP, Port, ASN and Location.
-        \item (\textcolor{gold}{Optional}) If you are viewing Radius Log, hover over the \textbf{Subscriber ID}, you can view Subscriber ID, related Security Event Logs and Session Records. 
-        Hover over \textbf{Framed IP}, you can also view related Security Event Logs and Session Records.
+        \item (\textcolor{gold}{Optional}) If you are viewing Radius Log, hover over the \textbf{Subscriber ID}, you can view Subscriber ID, related Security Events and Session Records. 
+        Hover over \textbf{Framed IP}, you can also view related Security Events and Session Records.
     \end{enumerate}
 \end{description}
 
@@ -172,7 +178,7 @@ as a filter spotlights the particular rule you need to find without having to na
 TSG log filter supports search by multiple fields in AND/OR relation. You can perform exact match search and fuzzy search using Operators. To filter logs, follow these steps:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. For example, \textbf{Proxy Event Logs}.
+    \item[STEP 1.]	Select \textbf{Logs}. Select a log type from the list. For example, \textbf{Proxy Events}.
     \item[STEP 2.]	Select the time period picker. By default, it shows logs of \textbf{Last 1 hour}.
     \item[STEP 3.]  Click \textbf{Add Filter} to add search term. The supported search fields are: Log ID, Policy ID, Subscriber ID, IMEI, IMSI, Phone Number, Client IP, Internal IP, Client Port, 
     Server IP, Server Port, External IP, Action, Sled IP, Schema Type, Data Center, Application Label, FQDN Category, Session ID, TCP Client ISN, TCP Server ISN, Http.URL, Http.Domain, SSL.SNI and SSL. JA3 hash etc. 

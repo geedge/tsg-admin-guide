@@ -219,14 +219,14 @@ The Security policy rule construct permits a combination of the required and opt
     \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{\begin{tabular}{l}Required/\\Optional\end{tabular}}}  & \multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Field}} & \textcolor{white}{Description}\\\hline                                                                                                                                                          
     \multirow{3}{*}{Required} & Name & A label (up to 128 characters) that identifies the rule.\\ \cline{2-3}
                               & Action & Specifies an Allow, Deny, Monitor or Intercept action for the traffic based on the criteria you define in the rule. For more details, see \hyperlink{link:Security Actions}{\color{linkblue}{Security Policy Actions}}. \\ \cline{2-3}
-                              & Application & The application that you wish to control. It provides application control and visibility in creating security policies that block unknown applications, while enabling, inspecting, and shaping those that are allowed. For more information, see \textbf{Objects} > \textbf{Applications} and \hyperlink{link:Appendix B Predefined Applications}{\color{linkblue}{Appendix B Predefined Application}}.\\ \hline                                                                                                        
+                              & Application & The application that you wish to control. It provides application control and visibility in creating security policies that block unknown applications, while enabling, inspecting, and shaping those that are allowed. For more information, see \textbf{Objects} > \textbf{Applications}.\\ \hline                                                                                                        
     \multirow{9}{*}{Optional} & Source & Define host IP addresses, address groups, Subscriber ID, IP Learning, or Geographic enforcement.\\ \cline{2-3}
                               & Destination & The location or destination for the packet. Define host IP addresses, address groups, IP Learning, or Geographic enforcement.\\ \cline{2-3}
                               & Filter & All web traffics are compared against the filtering, giving you a way to safely control how your users interact with online content. You will have Filter available when you select only one of the following protocols: HTTP, SSL, DNS, MAIL, FTP, QUIC and SIP in Applicationfield.\\ \cline{2-3}
                               & Tag & A keyword or phrase that help you to identify the policy. \\ \cline{2-3}
                               & Effective Devices & Select the devices that the security rule will be applied.\\ \cline{2-3}
                               & Schedule & Schedule when (day and time) the security rule should be in effect. \\ \cline{2-3}
-                              & Log Session & When enabled, traffic that match security policies will be logged in Security Event Logs. \\ \cline{2-3}
+                              & Log Session & When enabled, traffic that match security policies will be logged in Security Events. \\ \cline{2-3}
                               & Description & A text field, up to 1024 characters, used to describe the rule. \\ \cline{2-3}
                               & Enabled & Only enabled policies will be enforced.\\ \hline                                                                                                 
 \end{longtable}
@@ -589,7 +589,7 @@ when connecting through your network, that they must use their browsers only.
         \item Click \textbf{Verify} to execute the \textbf{Security policy match} test.
     \end{enumerate}
     \item[STEP 15.]	After the policy has been hit. View \textbf{Logs} to monitor the policy rule status and determine the effectiveness of the policy rule. 
-    Select \textbf{Logs} > \textbf{Security Event Logs} and view relative information about the policy.
+    Select \textbf{Logs} > \textbf{Security Events} and view relative information about the policy.
 \end{description}
 
 You can view detailed information about the policy you just created. To edit and delete the policy, find the item you want to edit or delete in the list. Click \textbf{Edit} or \textbf{Delete} at the top left.
@@ -641,7 +641,7 @@ The Proxy Policy rule construct permits a combination of the required and option
                               & Tag & A keyword or phrase that help you to identify the policy. \\ \cline{2-3}
                               & Effective Devices & Select the devices that the security rule will be applied.\\ \cline{2-3}
                               & Schedule & Schedule when (day and time) the security rule should be in effect. \\ \cline{2-3}
-                              & Log Session & When enabled, traffic that match security policies will be logged in Security Event Logs. \\ \cline{2-3}
+                              & Log Session & When enabled, traffic that match security policies will be logged in Security Events. \\ \cline{2-3}
                               & Log Option &  Metadata and All: Metadata only structured logs are recorded. All provides raw log files for some special log fields, such as content of HTTP request header or HTTP response content.\\ \cline{2-3}
                               & Description & A text field, up to 1024 characters, used to describe the rule. \\ \cline{2-3}
                               & Enabled & Only enabled policies will be enforced.\\ \hline                                                                                                 
@@ -804,7 +804,7 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
         \item Click \textbf{Verify} to execute the \textbf{Proxy Policy Match} test.
     \end{enumerate}
     \item[STEP 15.]	(\textcolor{gold}{Optional})After the policy has been hit. View \textbf{Logs} to monitor the policy rule status and determine the effectiveness of the policy rule. 
-    Select \textbf{Logs} > \textbf{Proxy Event Logs} and view relative information about the policy.
+    Select \textbf{Logs} > \textbf{Proxy Events} and view relative information about the policy.
 \end{description}
 
 
