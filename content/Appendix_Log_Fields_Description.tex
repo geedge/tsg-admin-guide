@@ -24,6 +24,45 @@ it will display columns that the user has previously configured. The fields with
     GTP-C Records &	Base and GTP-C \\ \hline
 \end{longtable}
 
+\section*{\hypertarget{link:Dos Events}{Dos Events}}
+\addcontentsline{toc}{section}{Dos Events}
+\label{sec:appendix_c:dosevents}
+
+\begin{longtable}{p{0.3\textwidth}|p{0.62\textwidth}}   
+    \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline  
+    Start Time &	The start time of the attack \\\hline
+    End Time &	The end time of the attack\\\hline
+    Log ID &	A log entry identifier incremented sequentially; each log has a unique number\\\hline
+    Attack Type &	The type includes:
+                    \begin{itemize}                
+                    \item TCP SYN Flood,
+                    \item UDP Flood,
+                    \item ICMP Flood,
+                    \item DNS Flood,
+                    \item DNS Amplification.
+                    \end{itemize} \\\hline
+    Severity &	Critical
+                
+    
+                Severe
+                
+                
+                Major
+                
+                
+                Warning
+                
+                
+                Minor\\\hline
+    Conditions &	The conditions that trigger the event\\\hline
+    Destination IP &	The destination IP address\\\hline
+    Destination Country	 & The destination country name\\\hline
+    Source IPs &	The source IP addresses\\\hline
+    Source Countries &	The source country names\\\hline
+    Sessions/s &	Session rate\\\hline
+    Packets/s &	Packet rate\\\hline
+    Bits/s &	Bit rate\\\hline
+\end{longtable}
 %\pdfbookmark[1]{Base}{Base}
 \section*{\hypertarget{link:Base}{Base}}
 \addcontentsline{toc}{section}{Base}
@@ -160,6 +199,9 @@ it will display columns that the user has previously configured. The fields with
 
                             insert \\\hline
     Http.Session Duration(ms) &	Duration time of current HTTP session \\\hline
+    HTTP.Request Body &	The request body to current HTTP session \\\hline
+    HTTP.Response Body &	The response body to current HTTP session \\\hline
+
 \end{longtable}
 
 %\pdfbookmark[2]{MAIL}{MAIL}
@@ -257,7 +299,11 @@ it will display columns that the user has previously configured. The fields with
 
                                 1-failed \\\hline
     SSL.Error &	Error message of current SSL session \\\hline
-    SSL.JA3 hash &	JA3 Fingerprint is hashed with MD5 \\\hline                                                               
+    SSL.JA3 hash &	JA3 Fingerprint is hashed with MD5 \\\hline
+    SSL.Connection Latency(ms)  &	SSH handshake latency time  \\\hline
+    SSL.Issuer  &	SSL certificate issuer\\\hline
+    SSL.Subject  &	SSL certificate owner\\\hline
+                                                               
 \end{longtable}
 
 %\pdfbookmark[2]{QUIC}{QUIC}
@@ -363,16 +409,16 @@ it will display columns that the user has previously configured. The fields with
 
 \begin{longtable}{p{0.27\textwidth}|p{0.67\textwidth}}   
     \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
-    gtp\_version &	GTP-C version number \\\hline
-    gtp\_apn &	Access Point Name \\\hline
-    gtp\_imei &	International Mobile Equipment Identity \\\hline
-    gtp\_imsi &	International Mobile Subscriber Identity \\\hline
-    gtp\_phone\_number &	Phone Number \\\hline
-    gtp\_uplink\_teid &	Uplink TEID \\\hline
-    gtp\_downlink\_teid &	Downlink TEID \\\hline
-    gtp\_msg\_type &	Create, modify, delete \\\hline
-    gtp\_end\_user\_ipv4 &	IPv4 \\\hline
-    gtp\_end\_user\_ipv6 &	IPv6 \\\hline
+    Version &	GTP-C version number \\\hline
+    APN &	Access Point Name \\\hline
+    IMEI &	International Mobile Equipment Identity \\\hline
+    IMSI &	International Mobile Subscriber Identity \\\hline
+    Phone Number &	Phone Number \\\hline
+    Uplink TEID &	Uplink TEID \\\hline
+    Downlink TEID &	Downlink TEID \\\hline
+    Message Type &	Create, modify, delete \\\hline
+    End User Address V4 &	End user IPv4 address \\\hline
+    End User Address V6 &	End user IPv6 address \\\hline
 \end{longtable} 
 
 %\pdfbookmark[2]{RADIUS}{RADIUS}
@@ -532,5 +578,5 @@ it will display columns that the user has previously configured. The fields with
 
 \begin{longtable}{p{0.3\textwidth}|p{0.64\textwidth}}   
     \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline
-    app\_extra\_info  &	Detail information about the application. \\\hline
+    APP.Extra Info  &	Detail information about the application. \\\hline
 \end{longtable} 
