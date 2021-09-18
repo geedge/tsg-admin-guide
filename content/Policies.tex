@@ -254,10 +254,20 @@ For traffic that matches the attributes defined in a security policy, you can ap
             to the client.\\
             \textbf{Alert}, sends HTTP 200/204 response code and customized content \\  
             to the client.\\
-            \textbf{Redirect}, redirects to the URL set in the policy configuration.
+            \textbf{Redirect}, redirects to the URL set in the policy configuration.\\
+            \textbf{Rate Limit}, limit the bandwidth of the session that matches the \\
+            policy to the set value. Rate supports float number. The unit is \\
+            Kbps, Mbps and Gbps.
             \end{tabular}\\ \hline                                                                                                          
     Intercept & Intercept HTTP/HTTPS traffic for proxy. If the traffic use SSL/TLS, it will be decrypted.\\\hline 
-    Monitor &  Scan all allowed traffic and generate a detailed log.\\\hline 
+    Monitor &  Scan all allowed traffic and generate a detailed log.
+    
+
+    Support Action Parameters: \textbf{Mirror Traffic} which is not enabled by default. If you enable mirror traffic, the current and subsequent packets that hit the policy will be mirror to external device. Enable Add VLAN ID and specify VLAN ID to designate mirror destination address.
+
+
+    Note that the mirror traffic function is only effective on ATCA (TSG9140). Its corresponding Security Event logs will record mirrored\_pkts and mirrored\_bytes of packet mirroring and support retrieval by these fields. 
+    \\\hline 
 \end{longtable}
 
 %\pdfbookmark[2]{Applications and Filters}{Security Applications and Filters}
@@ -592,7 +602,7 @@ You can also import policies by clicking the import icon. Only json and txt form
 
 
 Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Policy tab to view the Watch List. 
-You can search policies by ID and Name in the list. The Watch feature gives you the ability to observe policies and objects on which you wish to keep an eye any time. 
+You can search policies by ID and Name in the list. The Watch feature gives you the ability to observe policies and objects on which you wish to keep an eye any time. In policy list page, click Hit Count if there are any, to view corresponding log list. In policy detail page, click Log Count to jump to corresponding log list.
 
 
 \notemark\textit{Policy No. 0: For traffic that passes through TSG but does not hit any policies, the traffic is executed according to policy No. 0. 
@@ -648,7 +658,8 @@ For traffic that matches the attributes defined in a proxy policy, you can apply
 \begin{longtable}{p{0.12\textwidth}|p{0.82\textwidth}}   
     \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Action}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
     Allow & The Proxy pass-through the matched sessions. The traffic is allowed to proceed to the next step.\\ \hline                                                                                                            
-    Deny & The Proxy terminate matched HTTP session with an error page. More information of uploading a html file, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Response Pages}{\color{linkblue}{Response Pages}}}.\\ \hline                                                                                                           
+    Deny & The Proxy terminate matched HTTP session with an error page. More information of uploading a html file, 
+    see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Response Pages}{\color{linkblue}{Response Pages}}}.\\ \hline                                                                                                           
     Monitor &  The Proxy produce a log to record matched HTTP session information.\\\hline 
     Redirect &  The Proxy redirect matched HTTP session to a predefined URL. Since redirection
                                 need to be performed before delivering response to client, condition of response body is not

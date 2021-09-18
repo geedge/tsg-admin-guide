@@ -1,0 +1,43 @@
+\chapter*{\hypertarget{link:DoS Detection Big}{DoS Detection}}
+\addcontentsline{toc}{chapter}{DoS Detection}
+\label{sec:detection}
+
+A denial-of-service attack (DoS attack) is a cyber-attack in which the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet. Denial of service is typically accomplished by flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled. 
+
+
+In a distributed denial-of-service attack (DDoS attack), the incoming traffic flooding the victim originates from many different sources. This effectively makes it impossible to stop the attack simply by blocking a single source.
+
+
+The implications for victims range from a nuisance to millions of dollars in lost revenue.
+
+
+TSG supports DoS or DDoS detection that includes TCP flood (SYN, ACK, invalid flag combination), UDP flood, ICMP flood, DNS Amplification.   
+
+
+{
+\color{linkblue}
+\hyperlink{link:DoS Overview}{> DoS Overview} \\
+\hyperlink{link:DoS Detection}{> DoS Detection} \\
+} 
+\clearpage
+
+\section*{\hypertarget{link:DoS Overview}{DoS Overview}}
+\addcontentsline{toc}{section}{DoS Overview}
+\label{sec:DoS:overview}
+
+Computer network security is a challenge as old as the Internet itself. In such a DoS attack, the hacker attempts to consume all the resources of a networked system so that no other users can be served. In distributed denial of service (DDoS) attacks, attackers write a program that will covertly send itself to dozens, hundreds, or even thousands of other computers. These computers are known as 'bots' or 'zombies', because they act on behalf of the hackers to launch an attack against target systems. A network of these computers is called a botnet. An administrator of such a botnet is called a botmaster. the botmaster will cause all of these bots to attempt repeated connections to a target site. If the attack is successful, it will deplete all system or network resources, thereby denying service to legitimate users or customers.
+
+
+To circumvent detection, attackers are either increasingly mimicking the behavior of a large number of clients or actually using a large number of IoT clients. The resulting attacks are hard to defend against with standard techniques, as the malicious requests differ from the legitimate ones in intent but not in content. Because each attacking system looks innocent, advanced techniques are required to separate the 'bad' traffic from the 'good' traffic. 
+
+
+\section*{\hypertarget{link:DoS Detection}{DoS Detection}}
+\addcontentsline{toc}{section}{DoS Detection}
+\label{sec:DoS:detection}
+TSG supports DoS or DDoS detection that includes TCP flood (SYN, ACK, invalid flag combination), UDP flood, ICMP flood, DNS Amplification.
+
+
+TSG will display DDoS detection result in two ways: DoS Event Logs and DoS Threat Map. DoS event logs support log retrieval by Source IPs, Destination IP, Attack Type, Start Time and End Time. DoS threat map allows attack trend display within given time span. The attack source and destination are obtained by mapping source IPs, destination IP with geography in IP libraries. DoS threat map displays attacks of last 1 hour by Attack Type, Severity, Top Source Countries, Top Destination and Top Victims. 
+
+
+DoS or DDoS logs are aggregated based on thresholds and baseline. For example, within 30s, there are more than 10000 TCP SYN in destination IP, will be ruled as SYN Flood. To detect Dos attacks, you can customize threshold conditions by creating DoS Detection Profile for Target IPs. The threshold units are Packets/second, Bits/second and Sessions/ second.
