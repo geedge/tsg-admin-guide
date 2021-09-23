@@ -20,7 +20,11 @@ This section contains information about configuring TSG advanced features, inclu
 \addcontentsline{toc}{section}{Proxy TCP Options}
 \label{sec:setting:tcp}
 
-TSG provides TCP default option which keeps the Enable TCP Passthrough and Bypass Duplicated Packet off. However, you can Create your own Proxy TCP Options for special situations. Under certain boundary conditions of network transmission, some network parameters need to be renegotiated during network transmission, such as MTU. The network equipment will renegotiate network parameters through some mechanisms, and the negotiation process may not under precise monitor of TSG. And it may affect related policies. In this case, the affected network parameters need to be preset through the PROXY TCP OPTION.
+TSG provides TCP default option, which keeps the Enable TCP Passthrough and Bypass Duplicated Packet off. 
+However, you can create your Proxy TCP Options for special situations. Under certain boundary conditions of network transmission, 
+some network parameters need to be renegotiated, such as MTU. The network equipment will renegotiate network parameters through some mechanisms, 
+and the negotiation process may not be under the precise monitor of TSG. And it may affect related policies. 
+In this case, the affected network parameters need to be preset through the PROXY TCP OPTION.
 
 \begin{description}
     \item[STEP 1.]	Select \textbf{Profiles} > \textbf{Proxy} > \textbf{Proxy TCP Options}, and click \textbf{Create}.
@@ -33,14 +37,19 @@ TSG provides TCP default option which keeps the Enable TCP Passthrough and Bypas
     \end{enumerate}    
     \item[STEP 3.]	Enable Proxy TCP Options.
     \begin{enumerate}
-        \item (\textcolor{gold}{Optional})\textbf{Enable TCP Passthrough}. When enabled, traffic will bypass TSG proxy system but will not be decrypted. You can enable it, when troubleshooting.
+        \item (\textcolor{gold}{Optional})\textbf{Enable TCP Passthrough}. When enabled, traffic will bypass the TSG proxy system but will not be decrypted. 
+        You can enable it when troubleshooting.
         \item (\textcolor{gold}{Optional})Enable \textbf{bypass Duplicated Packet}.
-        \item Specify Client-side Parameters and Server-side Parameters respectively. They have the same options. 
+        \item Specify Client-side Parameters and Server-side Parameters, respectively. They have the same options. 
         \begin{enumerate}
             \item (\textcolor{gold}{Optional})Enable \textbf{Override MSS}. The MSS range: 536-1460.
             \item (\textcolor{gold}{Optional})Enable \textbf{No Delay}.
             \item Specify \textbf{TTL}. The TTL range: 1-255.
-            \item (\textcolor{gold}{Optional})Enable \textbf{Keepalive}. Specify \textbf{Probe Number}, \textbf{Idle Time} and \textbf{Interval}. Probe Number is the maximum number of keepalive probes TCP should send before dropping the connection. Idle Time is the time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes, if the socket option SO\_KEEPALIVE has been set on this socket. Interval is the time (in seconds) between individual keepalive probes. These three options should not be used in code intended to be portable.
+            \item (\textcolor{gold}{Optional})Enable \textbf{Keepalive}. Specify \textbf{Probe Number}, \textbf{Idle Time}, and \textbf{Interval}. 
+            Probe Number is the maximum number of keepalive probes TCP should send before dropping the connection. 
+            Idle Time is the time (in seconds) the connection needs to remain idle before TCP starts sending keepalive probes 
+            if the socket option SO\_KEEPALIVE has been set on this socket. Interval is the time (in seconds) between individual keepalive probes. 
+            These three options should not be used in code intended to be portable.
             \item Define \textbf{User Timeout}. The User Timeout range: 200\-60000.
         \end{enumerate}        
         \item Click \textbf{OK}.
@@ -54,10 +63,14 @@ You can \textbf{Edit} or \textbf{Delete} your customized Proxy TCP Options.
 \addcontentsline{toc}{section}{System Usage}
 \label{sec:setting:usage}
 
-System usage displays policy and object usage in bar chart and also shows storage usage of files, traffic logs, reports and metrics. Files are unstructured logs carried by session records and will store at least one month by default. Traffic Logs include all four types of logs and will also store at least one month by default. Reports and Metrics are the predefined or customized data aggregated based on multiple dimensions and will store at least one year by default. 
+System usage displays policy and object usage in bar chart and also shows storage usage of files, traffic logs, reports, and metrics. 
+Files are unstructured logs carried by session records and will store at least one month by default. 
+Traffic Logs include all four types of logs and will also store at least one month by default. 
+Reports and Metrics are the predefined or customized data aggregated based on multiple dimensions and will store at least one year by default. 
 
 
-TSG automatically deletes logs and reports that exceed the expiration period. When TSG reaches the storage quota, it automatically deletes older data. Deleting operates every day at 24:00. 
+TSG automatically deletes logs and reports that exceed the expiration period. When TSG reaches the storage quota, 
+it automatically deletes older data. Deleting operates every day at 24:00. 
 
 
 You can estimate server storage space and configure storage parameters. For your convenience, provide the following formula to calculate your required server count. 
@@ -81,13 +94,16 @@ You can estimate server storage space and configure storage parameters. For your
 • Interval in seconds: 86400, Seconds of a day.
 
 
-• Disk Safety Factor: it is normally 0.7. It means 70\% of the storage will be used for runtime data of TSG, including logs, files, reports and metrics. The others will occupy the remaining 30\%, such as OS, Raid5 and temporary data. 
+• Disk Safety Factor: it is normally 0.7. It means 70\% of the storage will be used for runtime data of TSG, including logs, files, reports, and metrics. 
+The others will occupy the remaining 30\%, such as OS, Raid5, and temporary data. 
 
 
-Following are some calculation for a typical scenario:
+Following are some calculations for a typical scenario:
 
 
-Suppose there is a data center which is configured to handle the traffic of mainstream website and applications by TSG. The log rate of session records is 2000/s; the log rate of event logs is 1500/s; the planed storage days is 30 for event logs with files, so does the storage of session records. The RF of event logs storage is set to 2 since event logs, which is raised by hit policies, require more attention. While the RF of session records is set to 1.
+Suppose there is a data center that is configured to handle the traffic of mainstream websites and applications by TSG. The log rate of session records is 2000/s; 
+the log rate of event logs is 1500/s; the planed storage days is 30 for event logs with files, so does the storage of session records. 
+The RF of event logs storage is set to 2 since event logs, raised by hit policies, require more attention. At the same time, the RF of session records is set to 1.
 
 
 • Storage of session records: 2000*30*86400*1KB*0.4*1 = 1.93TB
@@ -96,13 +112,16 @@ Suppose there is a data center which is configured to handle the traffic of main
 • Storage of event logs: 1500*30*86400*1KB*0.4*2 = 2.9TB
 
 
-In this scenario, the storage space for Files is generally smaller than 150\% of storage of session records. The storage space for metrics, which is the data of calculation to set up Mainboard and Live Chart, is less than 100MB every day while the storage space required for reports depends on their complexity and quantity.
+In this scenario, the storage space for Files is generally smaller than 150\% of the storage of session records. 
+The storage space for metrics, which is the data of calculation to set up Mainboard and Live Chart, 
+is less than 100MB every day, while the storage space required for reports depends on their complexity and quantity.
 
 
 To configure Storage Usage and expiration period:
 
 \begin{description}
-    \item[STEP 1.]	Select \textbf{System} > \textbf{System Usage}. It displays Storage Usage percentage for Reports and Metrics, Files and Traffic Logs. You can view History Log Storage by time.
+    \item[STEP 1.]	Select \textbf{System} > \textbf{System Usage}. It displays Storage Usage percentage for Reports and Metrics, Files, and Traffic Logs. 
+    You can view History Log Storage by time.
 
 
 \warnmark\textit{Warning: Please take caution when performing STEP 2 and STEP 3, because this operation is not recoverable.}
@@ -114,5 +133,5 @@ To configure Storage Usage and expiration period:
 \addcontentsline{toc}{section}{System Appearance}
 \label{sec:setting:appearance}
 
-System appearance enables user to customize firewall’s logo, title and default language. 
-Go to \textbf{System} > \textbf{System Appearance} to upload your own logo, favicon, specify title, and select default language.  
+System appearance enables the user to customize system logo, title and default language. 
+Go to \textbf{System} > \textbf{System Appearance} to upload your own logo, favicon, specify title, and select the default language.  

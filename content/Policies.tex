@@ -10,10 +10,10 @@ Any traffic going through TSG has to be associated with a policy. These policies
 flow going through TSG. These instructions control where the traffic goes, how it is processed, if it is processed, and whether or not it is allowed to pass through the gate.
 
 
-When TSG receives a connection packet, it analyzes the source, destination, application and corresponding filters. Using this information, 
+When TSG receives a connection packet, it analyzes the source, destination, application, and corresponding filters. Using this information, 
 TSG attempts to locate a security policy that matches the packet. If a policy matches the parameters, then TSG takes the required action for that policy. 
 If it is Allow, the traffic is allowed to proceed to the next step. If the action is Deny, the traffic is not allowed to proceed. If the action is Monitor, 
-the traffic is scanned and a log is generated. If it is Intercept, the traffic is intercepted and relative proxy policy will be applied. 
+the traffic is scanned, and a log is generated. If it is Intercept, the traffic is intercepted, and a relative proxy policy will be applied. 
 
 {
 \color{linkblue}
@@ -30,7 +30,7 @@ the traffic is scanned and a log is generated. If it is Intercept, the traffic i
 \addcontentsline{toc}{section}{Policy Concepts}
 \label{sec:policies:concepts}
 
-Policies allow you to enforce rules and take action. From TSG’s perspective, network packets are first resembled to a session, and identified as many manageable attributes. 
+Policies allow you to enforce rules and take action. From TSG’s perspective, network packets are first reassembled to a session, and identified as many manageable attributes. 
 For example, a TLS session could be parsed to attributes as IP address, SNI, certificate and so on. For effective management, user could define policy rules with TSG user interface. 
 
 
@@ -112,11 +112,11 @@ Based aforementioned design, security policy rules are enforced as following \te
     \begin{enumerate}
         \item 	Packet layer: The firewall parses IP fragments, reassembles using the defragmentation process, and then parses IP header and TCP/UDP protocol headers if applicable. As application identification is on all layers, the identified application as well as IP address, ASN and Subscriber ID is used as key to find rule match. Because the application is not necessarily known in the first packets, it can take several packets to determine what the underlying application is, and rules without specifying application will be enforced in advance.
         \item 	Session layer: Packets are reassembled to network session and decoded to traffic attributes, e.g. TLS SNI (TLS handshake option), HTTP Host, Mail addresses and DNS QNAME.
-        \item 	Content layer: Content that extracted from one session or more sessions are applicable for keywords scan, e.g. HTTP request body and Mail attachment.
+        \item 	Content layer: Content extracted from one session or more sessions are applicable for keywords scan, e.g. HTTP request body and Mail attachment.
     \end{enumerate}
  \end{description}
 Within the layer, traffic attributes are not acquired simultaneously, which is known as \textbf{parsing stages}. This design offers stateful security functions at the application layer, 
-and the effectiveness of policy enforcement. The parsing stages of common protocols are listed in table below.\\
+and the effectiveness of policy enforcement. The parsing stages of common protocols are listed in the table below.\\
 %\begin{table}[h]
 \begin{longtable}{p{0.17\textwidth}|p{0.77\textwidth}}   
     %\begin{tabularx}{\textwidth}{p{0.17\textwidth}|p{0.77\textwidth}}
@@ -148,7 +148,7 @@ and the effectiveness of policy enforcement. The parsing stages of common protoc
     %\end{tabularx}
 %\end{table}
 \end{longtable}
-As the firewall receives more packets and do more in-depth inspection, more traffic attributes and content are ready for policy enforcement, which is shown in figure below.\\
+As the firewall receives more packets and more in-depth inspection, more traffic attributes and content are ready for policy enforcement, shown in the figure below.\\
 
 
 %\begin{figure}[htb]
@@ -170,22 +170,21 @@ As the firewall receives more packets and do more in-depth inspection, more traf
 \end{figure}
 
 
-It is highly likely that even after only a relatively small number of policies have been created that there will be some that overlap 
-or are subsets of the parameters that the policies use to determine which policy should be matched against the incoming traffic. 
-When this happens there has to be a method to determine which policy should be applied to the packet. The method which is used by TSG is the policy hierarchy. 
-In another words, policies with lower inspection layers and earlier parsing stages are precedent. For example, a HTTP session, its URL appears before response body. 
-That’s why policy rules that inspect HTTP response body, are always evaluated after ones that inspect URL.
+It is highly likely that even after only a relatively small number of policies have been created, there will be some that overlap or are subsets of the policies' parameters 
+to determine which policy should be matched against the incoming traffic. When this happens, there must be a method to determine which policy should be applied to the packet. 
+The method which TSG uses is the policy hierarchy. In other words, policies with lower inspection layers and earlier parsing stages are precedents. 
+For example, in an HTTP session, its URL appears before the response body. That’s why policy rules that inspect HTTP response body are always evaluated after ones that inspect URL.
 
 
 \notemark\textit{A policy rule that combines with condition fields of different layers and stages are evaluated at the last layer and stage. 
 Rule stage is decided by policy condition fields; and rule modification may change the rule stages.}
 
 
-As firewall maybe unable to determine the exact application from the first packet, a session may be allowed through the firewall as undecided 
-until the application is identified, at which time the security rules are re-evaluated and an appropriate action is taken.
+As the firewall may be unable to determine the exact application from the first packet, a session may be allowed through the firewall as undecided until the application is identified. 
+The security rules are re-evaluated, and appropriate action is taken. 
 
 
-For more details about how TSG process packet flow, please see \hyperlink{link:Appendix E TSG Packet Flow}{\color{linkblue}{Appendix E TSG Packet Flow}}.
+For more details about how TSG process packet flow, please see \hyperlink{link:Appendix D TSG Packet Flow}{\color{linkblue}{Appendix D TSG Packet Flow}}.
 
 %\pdfbookmark[1]{Security Policy}{Security Policy}
 \section*{\hypertarget{link:Security Policy}{Security Policy}}
@@ -194,7 +193,7 @@ For more details about how TSG process packet flow, please see \hyperlink{link:A
 
 Security policies determine whether to deny, allow, monitor or intercept a session based on initial session attributes, 
 such as the subscriber ID, IP addresses, ports, protocols and applicable protocol fields (e.g. TLS SNI). 
-On TSG, security policy rules are enforced by firewall module.
+On TSG, security policy rules are enforced by the firewall module.
 
 
 All traffic passing through the firewall is matched against a session and each session is matched against a security policy rule. 
@@ -219,7 +218,9 @@ The Security policy rule construct permits a combination of the required and opt
     \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{\begin{tabular}{l}Required/\\Optional\end{tabular}}}  & \multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Field}} & \textcolor{white}{Description}\\\hline                                                                                                                                                          
     \multirow{3}{*}{Required} & Name & A label (up to 128 characters) that identifies the rule.\\ \cline{2-3}
                               & Action & Specifies an Allow, Deny, Monitor or Intercept action for the traffic based on the criteria you define in the rule. For more details, see \hyperlink{link:Security Actions}{\color{linkblue}{Security Policy Actions}}. \\ \cline{2-3}
-                              & Application & The application that you wish to control. It provides application control and visibility in creating security policies that block unknown applications, while enabling, inspecting, and shaping those that are allowed. For more information, see \textbf{Objects} > \textbf{Applications}.\\ \hline                                                                                                        
+                              & Application & The application that you wish to control. It provides application control and visibility in creating security policies that block unknown applications, 
+                              while enabling, inspecting, and shaping those that are allowed. The Application selection is optional for Deny, Allow and Monitor action.
+                              For more information, see \textbf{Objects} > \textbf{Applications}.\\ \hline                                                                                                        
     \multirow{9}{*}{Optional} & Source & Define host IP addresses, address groups, Subscriber ID, IP Learning, or Geographic enforcement.\\ \cline{2-3}
                               & Destination & The location or destination for the packet. Define host IP addresses, address groups, IP Learning, or Geographic enforcement.\\ \cline{2-3}
                               & Filter & All web traffics are compared against the filtering, giving you a way to safely control how your users interact with online content. You will have Filter available when you select only one of the following protocols: HTTP, SSL, DNS, MAIL, FTP, QUIC and SIP in Applicationfield.\\ \cline{2-3}
@@ -266,7 +267,7 @@ For traffic that matches the attributes defined in a security policy, you can ap
     Support Action Parameters: \textbf{Mirror Traffic} which is not enabled by default. If you enable mirror traffic, the current and subsequent packets that hit the policy will be mirror to external device. Enable Add VLAN ID and specify VLAN ID to designate mirror destination address.
 
 
-    Note that the mirror traffic function is only effective on ATCA (TSG9140). Its corresponding Security Event logs will record mirrored\_pkts and mirrored\_bytes of packet mirroring and support retrieval by these fields. 
+    Note that the mirror traffic function is only available on TSG 9000 Series. Its corresponding Security Event logs will record mirrored\_pkts and mirrored\_bytes of packet mirroring and support retrieval by these fields. 
     \\\hline 
 \end{longtable}
 
@@ -287,21 +288,22 @@ and their relative risk. When you define policy rules to control traffic, applic
 \begin{longtable}{p{0.14\textwidth}|p{0.19\textwidth}|p{0.58\textwidth}}   
     \rowcolor{black}\multicolumn{2}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Applications Type}}  & \textcolor{white}{Description}\\\hline                                                                                                                                                          
     \multirow{3}{*}{Application} & Basic Protocols & Network protocols ensure that computer network devices can transmit and receive data using a common language regardless of their different designs, hardware or infrastructures. 
-    List all 50 basic protocols: 
+    List basic protocols that when selected, field is optional: 
     
     
-    Unknown\_TCP, Unknown\_UDP, Unknown\_Other, DNS, FTP, FTPS, HTTP, HTTPS, ICMP, IKE, IMAP, MAIL, IMAPS, IPSEC, XMPP, L2TP, NTP, POP3, POP3S, PPTP, QUIC, SIP, SMB, SMTP, SMTPS, SPDY, SSH, SSL, SOCKS, TELNET, DHCP, RADIUS, OPENVPN, STUN, TEREDO, DTLS, DoH, ISAKMP, MDNS, NETBIOS, NETFLOW, RDP, RTCP, RTP, SLP, SNMP, SSDP, TFTP, BJNP, LDAP, RTMP, RTSP. 
+    HTTP, SSL, QUIC, DNS, MAIL, FTP, SIP.
+    %Unknown\_TCP, Unknown\_UDP, Unknown\_Other, DNS, FTP, FTPS, HTTP, HTTPS, ICMP, IKE, IMAP, MAIL, IMAPS, IPSEC, XMPP, L2TP, NTP, POP3, POP3S, PPTP, QUIC, SIP, SMB, SMTP, SMTPS, SPDY, SSH, SSL, SOCKS, TELNET, DHCP, RADIUS, OPENVPN, STUN, TEREDO, DTLS, DoH, ISAKMP, MDNS, NETBIOS, NETFLOW, RDP, RTCP, RTP, SLP, SNMP, SSDP, TFTP, BJNP, LDAP, RTMP, RTSP. 
     \\ \cline{2-3}
                                  & \tabincell{l}{Predefined\\ Applications} & TSG has various predefined applications. \\ \cline{2-3}
-                                 & \tabincell{l}{Customized\\ Applications} & TSG allows you create custom applications and reference the customized application objects in policy.\\\hline
-    Selector & Selector & TSG allows you dynamically group applications based on application properties that you define into one object Selector. It is available for Action Allow and Deny. For more details, see \hyperlink{link:Application Selector}{\color{linkblue}{Application Selector}}.    \\ \hline 
+                                 & \tabincell{l}{Customized\\ Applications} & TSG allows you to create custom applications and reference the customized application objects in the policy.\\\hline
+    Selector & Selector & TSG allows you dynamically group applications based on application properties that you define into one Object Selector. It is available for Action Allow and Deny. For more details, see \hyperlink{link:Application Selector}{\color{linkblue}{Application Selector}}.    \\ \hline 
     Group & Group & An application group is an object that contains applications that you want to treat similarly in a policy. It is available for Action Allow and Deny. For more details, see \hyperlink{link:Application Group}{\color{linkblue}{Application Group}}.    \\ \hline                                                                                                 
 \end{longtable}
 
 
-You will have Filter available when you select only one of the following protocols: HTTP, SSL, DNS, MAIL, FTP, QUIC and SIP. 
+You will have Filter available when you select only one of the following protocols: HTTP, SSL, DNS, MAIL, FTP, QUIC, and SIP. 
 The following table lists different Filter fields for each protocol and the available object type you can select for each filter field, 
-it also shows whether each filter field support allow, deny, monitor and intercept action or not. 
+it also shows whether each filter field support allow, deny, monitor, and intercept action or not. 
 
 
 %
@@ -358,7 +360,7 @@ The Evaluation Order for security policy is described as following.
 
 
 Security policy is evaluated before Proxy policy. Proxy manipulation requires targeted sessions are intercepted in security policies. 
-That is to say an intercept security policy rule is the prerequisite for proxy policy. 
+That is to say, an intercept security policy rule is the prerequisite for proxy policy. 
 
 
 Traffic can match one or multiple security policy rules with monitor action. This means traffic can hit multiple security policy rules only with monitor actions. 
@@ -385,7 +387,7 @@ There are three factors in evaluation of policies. They are condition, action an
 \end{description}
 
 
-For more details about how TSG process packet flow, please see \textbf{\hyperlink{link:Appendix E TSG Packet Flow}{\color{linkblue}{Appendix E TSG Packet Flow}}}.
+For more details about how TSG process packet flow, please see \textbf{\hyperlink{link:Appendix D TSG Packet Flow}{\color{linkblue}{Appendix D TSG Packet Flow}}}.
 
 %\pdfbookmark[3]{Voice over Internet Protocol}{Voice over Internet Protocol}
 \subsubsection*{\hypertarget{link:Voice over Internet Protocol}{Voice over Internet Protocol}}
@@ -400,7 +402,7 @@ TSG supports allow, deny and monitor VoIP based on IP address and/or accounts an
 For now, TSG only supports the mentioned actions above with VoIP calls using SIP for signaling and RTP for delivering audio data.
 
 
-To view detailed description about VoIP log fields, see \textbf{Appendix C Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:SIP}{\color{linkblue}{SIP}}} and \textbf{\hyperlink{link:RTP}{\color{linkblue}{RTP}}}.
+To view a detailed description of VoIP log fields, see \textbf{Appendix B Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:SIP}{\color{linkblue}{SIP}}} and \textbf{\hyperlink{link:RTP}{\color{linkblue}{RTP}}}.
 
 \subsubsection*{\hypertarget{link:GPRS Tunneling Protocol(GTP)}{GPRS Tunneling Protocol(GTP)}}
 \addcontentsline{toc}{subsubsection}{GPRS Tunneling Protocol(GTP)}
@@ -412,7 +414,7 @@ GTP comprises three types of traffic—control plane (GTP-C), user plan
 TSG supports GTP, which allows you to inspect, validate, filter, and perform security checks on GTPv2-C, GTPv1-C. 
 
 
-To view detailed description about GTP log fields, see \textbf{Appendix C Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:GTP-C}{\color{linkblue}{GTP-C}}}.
+To view a detailed description of GTP log fields, see \textbf{Appendix B Log Fields Description} > \textbf{Log Fields per Protocol} > \textbf{\hyperlink{link:GTP-C}{\color{linkblue}{GTP-C}}}.
 
 %\pdfbookmark[2]{Allow Rules}{Allow Rules}
 \subsection*{\hypertarget{link:Allow Rules}{Allow Rules}}
@@ -420,7 +422,7 @@ To view detailed description about GTP log fields, see \textbf{Appendix C Log Fi
 \addtocontents{toc}{\protect\newpage}
 \label{sec:policies:security:allow}
 
-TSG allows the network traffic to pass through, without apply further policy checking. You can define traffic that you choose not to enforce policies because of business, 
+TSG allows the network traffic to pass through without applying further policy checking. You can define the traffic attributes that you choose not to enforce policies because of business, 
 regulatory, personal, or other reasons, such as financial, health, military, or government traffic. 
 
 
@@ -432,15 +434,15 @@ If you wish to have logs, it is recommended to create monitor rules with Log Ses
 \addcontentsline{toc}{subsection}{Intercept Rules}
 \label{sec:policies:security:intercept}
 
-Security policy with intercept action allows you to define traffic that you want the Proxy to terminate. Both HTTP and HTTPS sessions could be terminated. 
+A security policy with intercept action allows you to define the traffic you want the Proxy to terminate. Both HTTP and HTTPS sessions could be terminated. 
 You can do further manipulation on intercepted traffic with Proxy Policy. 
 
 
 When an SSL session is set to intercept, the Proxy terminates the client-side session and initiates a new server-side session. 
-Thus, the server certificate is replaced and content is decrypted. 
+Thus, the server certificate is replaced, and content is decrypted. 
 
 
-You can specify different keyrings for individual intercept policy. If not, the Proxy uses the default keyring for trusted website. 
+You can specify different keyrings for individual intercept policy. If not, the Proxy uses the default keyring for a trusted websites. 
 Keyrings are managed via \textbf{Certificate Managements} > \textbf{\hyperlink{link:Decryption Keyrings}{\color{linkblue}{Decryption Keyrings}}}.
 
 %\pdfbookmark[3]{Intercept Options}{Intercept Options}
@@ -449,17 +451,17 @@ Keyrings are managed via \textbf{Certificate Managements} > \textbf{\hyperlink{l
 \label{sec:policies:security:intercept:option}
 
 While policy objects enable you to identify traffic to enforce policies, policy profiles help you define further action. 
-When you create an Intercept policy and select the SSL application to enable access to encrypted sites, you will have three Action Parameters, 
-namely Keyring, Mirror Decrypted Traffic and Decryption Profile. They serve as your intercept options. 
+When you create an Intercept policy and select the SSL application to enable access to encrypted sites, you will have three action parameters: 
+Keyring, Mirror Decrypted Traffic, and Decryption Profile. They serve as your intercept options.
 
 
-• You can specify a Keyring or use TrustedDefault. To specify a different Keyring, select the item from drop-down or click the plus icon to create a new one. For more details, see \hyperlink{link:Decryption Keyrings}{\color{linkblue}{Decryption Keyrings}}. 
+• You can specify a Keyring or use TrustedDefault. To specify a different Keyring, select the item from the drop-down or click the plus icon to create a new one. For more details, see \hyperlink{link:Decryption Keyrings}{\color{linkblue}{Decryption Keyrings}}. 
 
 
-• If you enable Mirror Decrypted Traffic, you can select one item from drop-down or click the plus icon to create a new profile. For more details, see \hyperlink{link:Traffic Mirror Profile}{\color{linkblue}{Traffic Mirror Profile}}.
+• If you enable Mirror Decrypted Traffic, you can select one item from the drop-down or click the plus icon to create a new profile. For more details, see \hyperlink{link:Traffic Mirror Profile}{\color{linkblue}{Traffic Mirror Profile}}.
 
 
-• You can use decryption-default for your Decryption Profile, or you can select different one from drop-down and create new ones. For more details, see \hyperlink{link:Decryption Profile}{\color{linkblue}{Decryption Profile}}.
+• You can use decryption-default for your Decryption Profile, or select a different one from the drop-down and create new ones. For more details, see \hyperlink{link:Decryption Profile}{\color{linkblue}{Decryption Profile}}.
 
 %\pdfbookmark[3]{Proxy Limitations}{Proxy Limitations}
 \subsubsection*{\hypertarget{link:Proxy Limitations}{Proxy Limitations}}
@@ -480,7 +482,7 @@ personal, or other reasons. The other is traffic that breaks decryption for tech
         \item[-] Apple Store   
     \end{itemize} 
     \item Mutual Authentication (Client Certificate Request) 
-    \item Some android System that unable to install root certificate
+    \item Some Android OS that unable to install the root certificate
     \item Website using HPKP
     \item Nonstandard SSL/TLS implications
     \item SSLv1.0, SSLv2.0 are not supported
@@ -499,21 +501,21 @@ For policies that match SSL Decryption Exclusion are evaluated before intercept 
 \label{sec:policies:security:intercept:troubleshooting}
 
 You can find out if the interception is successful by checking if the certificates are issued by your pre-configured Root CA. 
-You should exercise with cautions because web applications may not cooperate with SSL interception.
+You should exercise caution because web applications may not cooperate with SSL interception.
 
 
 • Your connection is not private/secure
 
 
-Visit the website that should match the intercept rule. For Chrome, Microsoft Internet Explorer and Firefox, click the lock icon next to the address bar to view website certificates. 
-If the browser warning that the connection is not secure, one possible reason is you haven’t install/trust the root certificate yet. 
+Visit the website that should match the intercept rule. For Chrome, Microsoft Internet Explorer, and Firefox, click the lock icon next to the address bar to view website certificates. 
+If the browser is warning that the connection is not secure, one possible reason is you haven’t installed/trusted the root certificate yet. 
 
 
-Another possible reason is that the site uses an incomplete certificate chain, the Proxy doesn’t automatically fix the chain as a browser would. 
-Although Proxy is able to cache unseen intermediate certificates that issued 
+Another possible reason is that the site uses an incomplete certificate chain. The Proxy doesn’t automatically fix the chain as a browser would. 
+Although Proxy can cache unseen intermediate certificates issued 
 by trusted root (\textbf{Certificate Managements} > \textbf{\hyperlink{link:Cached Intermediate Certificates}{\color{linkblue}{Cached Intermediate Certificates}}}), 
-you still need to manually download the missing intermediate certificates occasionally. 
-Missing certificates could be import via \textbf{Certificate Managements} > \textbf{\hyperlink{link:Trusted Certificate Authorities}{\color{linkblue}{Trusted Certificate Authorities}}}.
+you still need to download the missing intermediate certificates occasionally manually. 
+Missing certificates could be imported via \textbf{Certificate Managements} > \textbf{\hyperlink{link:Trusted Certificate Authorities}{\color{linkblue}{Trusted Certificate Authorities}}}.
 
 
 • Handling Web Sites Where Decrypt Re-sign Works for a Browser but not an App (SSL or Certificate Authority Pinning)
@@ -521,23 +523,23 @@ Missing certificates could be import via \textbf{Certificate Managements} > \tex
 
 Some apps for smart phones and other devices use a technique called SSL (or Certificate Authority) pinning. 
 The SSL pinning technique embeds the hash of the original server certificate inside the app itself. 
-As a result, when the app receives the resigned certificate from TSG, the hash validation fails and the connection is aborted. 
+As a result, when the app receives the resigned certificate from TSG, the hash validation fails and abort the connection. 
 
 
-If internet users cannot connect to the web site using the site’s app, but they can connect using the web browser, 
-even when using the browser on the same device where the app fails. For example, users cannot use the Facebook iOS or android app, 
-but they can point Safari or Chrome at https://www.facebook.com and make a successful connection. 
+If internet users cannot connect to the website using the site’s app, but they can connect using the web browser, 
+even when using the browser on the same device where the app fails. For example, users cannot use the Facebook iOS or Android app, 
+but they can visit https://www.facebook.com with Safari or Chrome.
 
 
 Because SSL pinning is specifically used to avoid man-in-the-middle attacks, there is no workaround. You must choose between the following options:
 
 
-- Support app users, by enabling Certificate Pinning dynamic bypass option, in which case you can only decrypt browser traffic to the site. 
+- Support app users, by enabling the Certificate Pinning dynamic bypass option, in which case you can only decrypt browser traffic to the site. 
 For more details, see \textbf{Proxy Profiles} > \textbf{\hyperlink{link:Trusted Certificate Authorities}{\color{linkblue}{Decryption Profile}}}.
 
 
 - Force users to use browsers only. If you must decrypt traffic to the site, you will need to inform users that they cannot use the site’s app 
-when connecting through your network, that they must use their browsers only.
+when connecting through your network, and use their browsers only.
 
 %\pdfbookmark[2]{Create a Security Policy Rule}{Create a Security Policy Rule}
 \subsection*{\hypertarget{link:Create a Security Policy Rule}{Create a Security Policy Rule}}
@@ -552,34 +554,36 @@ when connecting through your network, that they must use their browsers only.
     \item[STEP 4.]	Define the matching criteria for the destination fields in the packet. Specify one or multiple \textbf{Destination} IP Addresses or leave the value set to any.
     
     
-    \notemark\textit{As a best practice, use address objects as the Destination Address to enable access to only specific servers or specific groups of servers especially 
+    \notemark\textit{As a best practice, use address objects as the Destination Address to enable access to only specific servers or specific groups of servers, especially 
     for commonly exploited services, such as DNS and VPN.}
-    \item[STEP 5.]	Select one or more \textbf{Applications}. There are built-in protocols and well-known Applications and customized Applications in the list. 
-    You can search the application you want to fill in. You can also use application \textbf{Selector} and \textbf{Group} as objects in policy. 
+    \item[STEP 5.]	Select one or more \textbf{Applications}. There are built-in protocols and well-known Applications, and customized Applications in the list. 
+    You can search the application you want to fill in. You can also use the application \textbf{Selector} and \textbf{Group} as objects in the policy. 
     For more details, see \textbf{Security Policy} > \textbf{\hyperlink{link:Security Applications and Filters}{\color{linkblue}{Applications and Filters}}} and \textbf{Objects} > \textbf{\hyperlink{link:Applications}{\color{linkblue}{Applications}}}.
     \item[STEP 6.]	(\textcolor{gold}{Optional}) Specify a \textbf{Filter} as match criteria for the rule. For example, select a \textbf{Category} for \textbf{Host}. 
     If you select a category, only web traffic will match the rule and only if the traffic is destined for that specified category. 
     For more details, see \textbf{Security Policy} > \textbf{\hyperlink{link:Security Applications and Filters}{\color{linkblue}{Applications and Filters}}}.
     
     
-    \notemark\textit{Filter is not available when multiple or no applications are selected.}
+    \notemark\textit{The filter is not available when multiple or no applications are selected.}
     \item[STEP 7.]	(\textcolor{gold}{Optional})Specify a \textbf{Tag} or leave the value empty.
     You can select one or more Policy Tags which are created from \textbf{Policies} > \textbf{Tags} previously. 
     Optionally, you can click the plus icon to create new Tags. After you click the icon, a page will slide in on the right. Enter the \textbf{Tag Category}. 
     Pick a \textbf{Color}. And add one or multiple \textbf{Tags}. Then you can select the tag you just created from the list.
     \item[STEP 8.]	Specify \textbf{Effective Devices} by choosing Device Tags or leave the value empty, which means the policy is effective on all devices by default. 
-    Device Tags are built-in labels to classify the devices according to user’s requirement when TSG is deployed. Normally, the Device Tags will be classified by areas or ISPs.
+    Device Tags are built-in labels to classify the devices according to the user’s requirement when TSG is deployed. Normally, the Device Tags will be classified by areas or ISPs.
     \item[STEP 9.]	(\textcolor{gold}{Optional})Enter a \textbf{Description} for the rule.
     \item[STEP 10.]	(\textcolor{gold}{Optional})Select a \textbf{Schedule} or leave the value set to always. For more details, see \textbf{Policies} > \textbf{\hyperlink{link:Schedules}{\color{linkblue}{Schedules}}}.
     
     
     \notemark\textit{If you select a schedule, the schedule will determine when the policy will be enabled and effective. 
-    This means you don’t have to turn the Enabled switch on. Because the policy will automatically be effective according to your specified schedule. 
-    And even if you set the policy Enabled, the policy will not be effective, if it has not reached the schedule time frame.}
-    \item[STEP 11.]	Verify that \textbf{Log Session} is enabled if you wish to have logs. Only traffic that matches a Security policy rule will be logged. 
+    This means you don’t have to turn the Enabled switch on. Because the policy will automatically be effective according to your specified schedule, 
+    and even if you set the policy Enabled, the policy will not be effective if it has not reached the schedule time frame.}
+    \item[STEP 11.]	Verify that \textbf{Log Session} is enabled if you wish to have event logs. Only traffic that matches a Security policy rule will be logged. 
     \item[STEP 12.]	Verify that \textbf{Enabled} is enabled.
     \item[STEP 13.]	Click \textbf{OK} to save the policy rule.
-    \item[STEP 14.]	(\textcolor{gold}{Optional})To verify that you have set up your policies effectively, test whether your Security policy rules are being evaluated and determine which Security policy rule applies to a traffic flow. For example, to verify the policy rule that will be applied for a client with the IP address 192.168.0.1 when it sends a HTTP request to the 172.16.0.1 server:
+    \item[STEP 14.]	(\textcolor{gold}{Optional})To verify that you have set up your policies effectively, test whether your Security policy rules are being evaluated 
+    and determine which rule applies to a traffic flow. For example, to verify the policy rule that will be applied for a client with the IP address 192.168.0.1 
+    when it sends an HTTP request to the 172.16.0.1 server:
     \begin{enumerate} 
         \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
         \item Select \textbf{Security Policy Match} from the \textbf{Select Test} drop-down. 
@@ -588,21 +592,23 @@ when connecting through your network, that they must use their browsers only.
         \item Select the \textbf{Protocol} and \textbf{APP ID}. 
         \item Click \textbf{Verify} to execute the \textbf{Security policy match} test.
     \end{enumerate}
-    \item[STEP 15.]	After the policy has been hit. View \textbf{Logs} to monitor the policy rule status and determine the effectiveness of the policy rule. 
+    \item[STEP 15.]	After the policy has been hit, view \textbf{Logs} to monitor the policy rule status and determine the effectiveness. 
     Select \textbf{Logs} > \textbf{Security Events} and view relative information about the policy.
 \end{description}
 
 You can view detailed information about the policy you just created. To edit and delete the policy, find the item you want to edit or delete in the list. Click \textbf{Edit} or \textbf{Delete} at the top left.
 
 
-You can export the contents of policies to a json file. First, search policies according to ID, Name. Then, click the Export icon on the right to download and save the file to your local folder.
+You can export the contents of policies to a JSON file. First, search policies according to ID, Name. Then, click the Export icon on the right to download and save the file to your local folder.
 
 
-You can also import policies by clicking the import icon. Only json and txt formats can be uploaded. You can take the exported file as template for import.
+You can also import policies by clicking the import icon. Only JSON and txt formats can be uploaded. You can take the exported file as a template for import.
 
 
-Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Policy tab to view the Watch List. 
-You can search policies by ID and Name in the list. The Watch feature gives you the ability to observe policies and objects on which you wish to keep an eye any time. In policy list page, click Hit Count if there are any, to view corresponding log list. In policy detail page, click Log Count to jump to corresponding log list.
+Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. 
+And then, you can click the star icon in the bottom right and select the Policy tab to view the Watch List. 
+You can search policies by ID and Name in the list. The Watch feature gives you the ability to observe policies and objects on which you wish to keep an eye at any time. 
+On policy list page, click Hit Count if there are any, to view the corresponding log list. On policy detail page, click Log Count to jump to the corresponding log list.
 
 
 \notemark\textit{Policy No. 0: For traffic that passes through TSG but does not hit any policies, the traffic is executed according to policy No. 0. 
@@ -613,13 +619,17 @@ The conditions of policy No. 0 are all any, and by default the action is Allow. 
 \addcontentsline{toc}{section}{Proxy Policy}
 \label{sec:policies:proxy}
 
-Proxy policy instructs the proxy how to manipulate a session. Manipulation requires targeted sessions are intercepted in security policies. An individual manipulation policy rules determine whether to allow, monitor, deny or manipulate a session based on traffic attributes. Valid objects depend on specific action.
+The proxy policy instructs the proxy on how to manipulate a session. Manipulation requires targeted sessions are intercepted in security policies. 
+An individual manipulation policy rules determine whether to allow, monitor, deny or manipulate a session based on traffic attributes. Valid objects depend on a specific action.
 
 
-Proxy policy works correctly on all platforms, including Windows, Linux, MacOS, Android, iOS, etc. and also supports console commands, such as wget and curl, mobile devices, tablets and workstations in all locations. But TSG does not support TV device that cannot install the certificate, and device with Android 7.0 and versions below. 
+The proxy policy works correctly on all platforms, including Windows, Linux, macOS, Android, iOS, etc., and also supports console commands, 
+such as wget and curl, mobile devices, tablets, and workstations in all locations. But TSG does not support TV devices that cannot install the certificate, 
+and device with Android 7.0 and versions below. 
 
 
-For the site which breaks decryption for certificate pinning, the proxy only can bypass or deny the traffic based on your configuration. For more details, see \hyperlink{link:Decryption}{\color{linkblue}{Decryption}}.
+For the site which breaks decryption for certificate pinning, the proxy only can bypass or deny the traffic based on your configuration. 
+For more details, see \hyperlink{link:Decryption}{\color{linkblue}{Decryption}}.
 
 %\pdfbookmark[2]{Components of a Proxy Policy Rule}{Components of a Proxy Policy Rule}
 \subsection*{\hypertarget{link:Components of a Proxy Policy Rule}{Components of a Proxy Policy Rule}}
@@ -634,16 +644,19 @@ The Proxy Policy rule construct permits a combination of the required and option
     \multirow{2}{*}{Required} & Name & A label (up to 128 characters) that identifies the rule.\\ \cline{2-3}
                               & Action & Specifies an Allow, Deny, Monitor, Redirect, Replace, Hijack or Insert action for the traffic based on the criteria you define in the rule. 
                               For more details, see \hyperlink{link:Proxy Actions}{\color{linkblue}{Proxy Policy Actions}}. \\ \hline
-    \multirow{11}{*}{Optional} & Source & Define host IP addresses, address groups, Subscriber ID, IP Learning, or Geographic enforcement.\\ \cline{2-3}
-                              & Destination & The location or destination for the packet. Define host IP addresses, address groups, IP Learning, or Geographic enforcement.\\ \cline{2-3}
-                              & Filter & All web traffics are compared against the filtering, giving you a way to safely control how your users interact with online content. You must fill one of the Source, Destination or Filter.\\ \cline{2-3}
-                              & Application & The application that you wish to control. It provides application control and visibility in creating proxy policies that block unknown applications, while enabling, inspecting, and shaping those that are allowed.\\ \cline{2-3}                                                                                                      
+    \multirow{11}{*}{Optional} & Source & Define Client IP addresses, address groups, Subscriber ID, IP Learning, or Geographic enforcement.\\ \cline{2-3}
+                              & Destination & Define Server IP addresses, address groups, IP Learning, or Geographic enforcement.\\ \cline{2-3}
+                              & Filter & All network sessions are compared against the filtering, giving you a way to safely control how your users interact with online content. 
+                              You must fill one of the Sources, Destination, or Filter.\\ \cline{2-3}
+                              & Application & The application that you wish to control. It provides application control and visibility in creating proxy policies 
+                              that block unknown applications, while enabling, inspecting, and shaping allowed ones.\\ \cline{2-3}                                                                                                      
                               & Tag & A keyword or phrase that help you to identify the policy. \\ \cline{2-3}
                               & Effective Devices & Select the devices that the security rule will be applied.\\ \cline{2-3}
                               & Schedule & Schedule when (day and time) the security rule should be in effect. \\ \cline{2-3}
-                              & Log Session & When enabled, traffic that match security policies will be logged in Security Events. \\ \cline{2-3}
-                              & Log Option &  Metadata and All: Metadata only structured logs are recorded. All provides raw log files for some special log fields, such as content of HTTP request header or HTTP response content.\\ \cline{2-3}
-                              & Description & A text field, up to 1024 characters, used to describe the rule. \\ \cline{2-3}
+                              & Log Session & When enabled, traffic that matches security policies will be logged in Security Events. \\ \cline{2-3}
+                              & Log Option &  Metadata and All: Metadata only structured logs are recorded. Metadata only structured logs are recorded. 
+                              All provide raw log files for particular log fields, such as content of HTTP request header or HTTP response content.\\ \cline{2-3}
+                              & Description & A text field, up to 1024 characters, is used to describe the rule. \\ \cline{2-3}
                               & Enabled & Only enabled policies will be enforced.\\ \hline                                                                                                 
 \end{longtable}
 
@@ -657,12 +670,12 @@ For traffic that matches the attributes defined in a proxy policy, you can apply
 
 \begin{longtable}{p{0.12\textwidth}|p{0.82\textwidth}}   
     \rowcolor{black}\multicolumn{1}{l!{\color{white}\vrule width 0.5pt}}{\textcolor{white}{Action}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
-    Allow & The Proxy pass-through the matched sessions. The traffic is allowed to proceed to the next step.\\ \hline                                                                                                            
-    Deny & The Proxy terminate matched HTTP session with an error page. More information of uploading a html file, 
+    Allow & The Proxy passes the matched sessions. The traffic is allowed to proceed to the next step.\\ \hline                                                                                                            
+    Deny & The Proxy terminated matched HTTP session with an error page. For more information of uploading an HTML file, 
     see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Response Pages}{\color{linkblue}{Response Pages}}}.\\ \hline                                                                                                           
     Monitor &  The Proxy produce a log to record matched HTTP session information.\\\hline 
-    Redirect &  The Proxy redirect matched HTTP session to a predefined URL. Since redirection
-                                need to be performed before delivering response to client, condition of response body is not
+    Redirect &  The Proxy redirects matched HTTP sessions to a predefined URL. Since redirection
+                                needs to be performed before delivering a response to client, the condition of response body is not
                                 applicable in this action. You MUST configure the redirect response via Response Code and Redirect
                                 URL. The Destination URL should begin with a valid protocol (http:|https:). You SHOULD NOT select
                                 301 as Response Code unless you exactly know what you are doing. This action produces a log.
@@ -671,12 +684,16 @@ For traffic that matches the attributes defined in a proxy policy, you can apply
                                 The Redirected URL can include Policy ID, Subscriber ID and/or Client IP. 
                                 For example, http://www.example.com/query?pageid=12345\&policy\_id=\\
                                 \{\{tsg\_policy\_id\}\}\&user\_id=\{\{tsg\_subscriber\_id\}\}\&source\_ip=\{\{tsg\_client\_ip\}\} \\\hline 
-    Replace &  The Proxy Searches in a given HTTP part to Find a given string, and Replace any matches with another given string. If no match was found, the session remained untouched. For performance concerns, condition of request body and response body is not available in this action. For example, you can configure the Proxy to search in the response body of URL “www.example.com/index.html”, find every “string1” and replace with “string2”. This action produces a log. You can use regex to do replacement, e.g. case insensitive find “(?i)CaSEInSensitive(?-i)”. You can add multiple replacement.
+    Replace &  The Proxy Searches in a given HTTP part to Find a given string and Replace any matches with another given string. 
+    If no match was found, the session remained untouched. For performance concerns, the condition of the request body and response body is not available in this action. 
+    For example, you can configure the Proxy to search in the response body of URL “www.example.com/index.html”, find every “string1” and replace with “string2”. 
+    This action produces a log. You can use regex to do replacement, e.g. case insensitive find “(?i)CaSEInSensitive(?-i)”. You can add multiple replacement.
 
 
-    \notemark \textit{Note that when searching and replacing content, there must be at least 512 characters of the replaced content. And the system support utf8 encoding and has the ability to replace content of different languages, including Kazakh, Russian and English.}\\ \hline 
-    Hijack & The Proxy hijack a downloading file. Supported file type are img, exe, apk and html. More information of uploading a file for hijack, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Hijack Files}{\color{linkblue}{Hijack Files}}}.\\ \hline 
-    Insert & The Proxy insert a “js” or “css” scripts to webpages. More details of uploading a script, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Insert Scripts}{\color{linkblue}{Insert Scripts}}}.\\ \hline           
+    \notemark \textit{Note that when searching and replacing content, there must be at least 512 characters of the replaced content. 
+    And the system supports utf8 encoding and can replace the content of different languages, including Chinese, English, Russian and Kazakh.}\\ \hline 
+    Hijack & The Proxy hijacks a downloading file. Supported file types are img, exe, apk and html. More information of uploading a file for hijack, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Hijack Files}{\color{linkblue}{Hijack Files}}}.\\ \hline 
+    Insert & The Proxy inserts a “js” or “css” scripts to webpages. For more details of uploading a script, see \textbf{Proxy Profile} > \textbf{\hyperlink{link:Insert Scripts}{\color{linkblue}{Insert Scripts}}}.\\ \hline           
 \end{longtable}
 
 %\pdfbookmark[2]{Applications and Filters}{Proxy Applications and Filters}
@@ -684,7 +701,7 @@ For traffic that matches the attributes defined in a proxy policy, you can apply
 \addcontentsline{toc}{subsection}{Applications and Filters}
 \label{sec:policies:proxy:filter}
 
-Only two basic protocol HTTP and DoH are available for the Application in proxy policy. The following table lists different Filter fields for the two protocols and the available object type you can select for each filter field, it also shows whether each filter field support allow, deny, monitor, redirect, replace, hijack and insert action or not. 
+Only two basic protocols HTTP and DoH are available for the Application in proxy policy. The following table lists different Filter fields for the two protocols and the available object type you can select for each filter field, it also shows whether each filter field support allow, deny, monitor, redirect, replace, hijack and insert action or not. 
 
 
 Only two basic protocol HTTP and DoH are available for the Application in proxy policy. The following table lists different Filter fields for the two protocols and the available object type you can select for each filter field, it also shows whether each filter field support allow, deny, monitor, redirect, replace, hijack and insert action or not. 
@@ -737,13 +754,17 @@ Object type available for Filter:
 The Evaluation Order for proxy policy is described as following. 
 
 
-Security policy is evaluated in preference to Proxy policy. Proxy manipulation requires targeted sessions are intercepted in security policies. That is to say an intercept security policy is the prerequisite for proxy policy.
+Security policy is evaluated in preference to Proxy policy. Proxy manipulation requires targeted sessions are intercepted in security policies. 
+That is to say, an intercept security policy is a prerequisite for proxy policy.
 
 
-For proxy policies with allow action, traffic can only hit one policy that meets the defined criteria. After a match is triggered, subsequent rules are not evaluated. Except allow action, proxy policies with other actions can be matched together only with monitor policies. This means traffic can hit a block proxy policy and a monitor proxy policy that meets the defined criteria at the same time. It is important to know the policy evaluation order to create policies accordingly.
+For proxy policies with allow action, traffic can only hit one policy that meets the defined criteria. After a match is triggered, subsequent rules are not evaluated. 
+Except allow action, proxy policies with other actions can be matched together only with monitor policies. 
+This means traffic can hit a block proxy policy and a monitor proxy policy that meets the defined criteria at the same time. 
+It is important to know the policy evaluation order to create policies accordingly.
 
 
-There are three factors in evaluation of policies. They are condition, action and policy ID in sequence. 
+There are three factors in the evaluation of policies. They are condition, action and policy ID in sequence. 
 
 
 \begin{description}[leftmargin=0pt]
@@ -760,7 +781,7 @@ There are three factors in evaluation of policies. They are condition, action an
 \end{description}
 
 
-For more details about how TSG process packet flow, please see \textbf{\hyperlink{link:Appendix E TSG Packet Flow}{\color{linkblue}{Appendix E TSG Packet Flow}}}.
+For more details about how TSG processes packet flow, please see \textbf{\hyperlink{link:Appendix D TSG Packet Flow}{\color{linkblue}{Appendix D TSG Packet Flow}}}.
 
 %\pdfbookmark[2]{Create a Proxy Policy Rule}{Create a Proxy Policy Rule}
 \subsection*{\hypertarget{link:Create a Proxy Policy Rule}{Create a Proxy Policy Rule}}
@@ -774,7 +795,7 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
     \item[STEP 4.]	Define the matching criteria for the destination fields in the packet. Specify single or multiple \textbf{Destination} IP Addresses or leave the value set to any.
 
 
-    \notemark\textit{As a best practice, use address objects as the Destination Address to enable access to only specific servers or specific groups of servers especially for commonly exploited services, such as DNS and VPN.}
+    \notemark\textit{As a best practice, use address objects as the Destination Address to enable access to only specific servers or specific groups of servers, especially for commonly exploited services, such as DNS and VPN.}
     \item[STEP 5.]	(\textcolor{gold}{Optional})If the Action is Redirect, specify the \textbf{Application}.
     \item[STEP 6.]	(\textcolor{gold}{Optional}) Specify \textbf{Filters} as match criteria for the rule. For example, select a \textbf{Category} for \textbf{Host}. 
     If you select a category, only web traffic will match the rule and only if the traffic is destined for that specified category. 
@@ -788,13 +809,15 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
     \item[STEP 10.]	Select a \textbf{Schedule} or leave the value set to always. For more details, see \textbf{Policies} > \textbf{\hyperlink{link:Schedules}{\color{linkblue}{Schedules}}}.
 
 
-    \notemark\textit{If you select a schedule, the schedule will determine when the policy will be enabled and effective. This means you don’t have to turn the Enabled switch on. Because the policy will automatically be effective according to your specified schedule. And even if you set the policy Enabled, the policy will not be effective, if it has not reached the schedule time frame.}
+    \notemark\textit{If you select a schedule, the schedule will determine when the policy will be enabled and effective. This means you don’t have to turn the Enabled switch on. 
+    Because the policy will automatically be effective according to your specified schedule, and even if you set the policy Enabled, 
+    the policy will not be effective if it has not reached the schedule time frame.}
     \item[STEP 11.]	Verify that \textbf{Log Session} is enabled if you wish to have proxy event logs. Only traffic that matches a Proxy policy rule will be logged. 
-    When \textbf{Log Session} is enabled, select one of \textbf{Log Options}, Metadata only or All. If option Metadata only is enabled, only structured logs are recorded for the proxy policy rule. 
-    While option All provides raw log files for some special log fields, such as content of HTTP request header or HTTP response content. For more details of logs, see \textbf{\hyperlink{link:View and Manage Logs}{\color{linkblue}{View and Manage Logs}}}.
+    When \textbf{Log Session} is enabled, select one of \textbf{Log Options}, Metadata only, or All. If option Metadata only is enabled, only structured logs are recorded for the proxy policy rule. 
+    While option All provides raw log files for some special log fields, such as the HTTP request header or HTTP response content. For more details of logs, see \textbf{\hyperlink{link:View and Manage Logs}{\color{linkblue}{View and Manage Logs}}}.
     \item[STEP 12.]	Verify that \textbf{Enabled} is on if you don’t have a schedule.
     \item[STEP 13.]	Click \textbf{OK} to save the policy rule.
-    \item[STEP 14.]	(\textcolor{gold}{Optional})To verify that you have set up your policies effectively, test whether your Proxy Policy rules are being evaluated and determine which Proxy Policy rule applies to a traffic flow. 
+    \item[STEP 14.]	(\textcolor{gold}{Optional})To verify that you have set up your policies effectively, test whether your Proxy Policy rules are being evaluated and determine which rule applies to a traffic flow. 
     \begin{enumerate}
         \item Select \textbf{Settings} > \textbf{Trouble Shooting} and select \textbf{Policy Verify} tab.
         \item Select \textbf{Proxy Policy Match} from the \textbf{Select Test} drop-down. 
@@ -811,13 +834,14 @@ For more details about how TSG process packet flow, please see \textbf{\hyperlin
 You can view detailed information about the policy you just created. To edit and delete the policy, find the item you want to edit or delete in the list. Click \textbf{Edit} or \textbf{Delete} at the top left.
 
 
-You can export the contents of policies to a json file. First, search policies according to ID, Name. Then, click the Export icon on the right to download and save the file to your local folder.
+You can export the contents of policies to a JSON file. First, search policies according to ID, Name. Then, click the Export icon on the right to download and save the file to your local folder.
 
 
-You can also import policies by clicking the import icon. Only json and txt formats can be uploaded. You can take the exported file as template for import.
+You can also import policies by clicking the import icon. Only JSON and txt formats can be uploaded. You can take the exported file as a template for import.
 
 
-Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then you can click the star icon in the bottom right and select Policy tab to view the Watch List. You can search policies by ID and Name in the list.
+Select the checkbox for policies in the list and Click \textbf{Watch} at the bottom to add to Watch List. And then, you can click the star icon in the bottom right and
+ select the Policy tab to view the Watch List. You can search policies by ID and Name in the list.
 
 \section*{\hypertarget{link:WAN NAT}{WAN NAT}}
 \addcontentsline{toc}{section}{WAN NAT}
@@ -826,22 +850,27 @@ Select the checkbox for policies in the list and Click \textbf{Watch} at the bot
 This section describes Network Address Translation (NAT) and how to configure TSG for NAT. 
 
 
-The WAN NAT feature can hide and change the traffic’s source and destination IP address. WAN NAT allows you to not disclose the real IP addresses of hosts that need access to public addresses. 
+The WAN NAT feature can hide and change the traffic’s source and destination IP address. WAN NAT allows you not to disclose the real IP addresses of hosts 
+that need access to public addresses. 
 
 
-When an internal real user visits an external service, the traffic will be steered to TSG. And the IP address will be included in TSG’s IP pool, when the real user is disconnected, WAN NAT can disguise as the real user and send request to the external service for its own purposes. Thus, WAN-NAT provides larger address space. It offers a very large IP Pool to help you use Web crawler to gain insight and guide Public Opinion. And WAN NAT can reduce the blocking for web crawler. You can use WAN NAT to create Web Crawler, perform Network scan, effect verification and provide virtual service. TSG supports both source address translation (SNAT) and destination address translation (DNAT). 
+When a real internal real user visits an external service, the traffic will be steered to TSG. And the IP address will be included in TSG’s IP pool. 
+When the real user is disconnected, WAN NAT can disguise as the real user and send the request to the external service for its own purposes. 
+Thus, WAN-NAT provides larger address space. It offers a very large IP Pool to help you use Web crawler to gain insight and guide Public Opinion. 
+And WAN NAT can reduce the blocking for web crawlers. You can use WAN NAT to create Web Crawler, perform a network scan, effect verification and provide virtual service. 
+TSG supports both source address translation (SNAT) and destination address translation (DNAT). 
 
 
 For SNAT, the source address is translated and thereby kept private. It is used for Web Crawler, Network scan, effect verification.
 
 
-DNAT is commonly used for virtual service. TSG translates a destination address to a different destination address; for example, if you have a controlled DNS server, you can direct traffic visiting google DNS to the controlled DNS server. 
+DNAT is offen used for virtual service. TSG translates a destination address to a different destination address; for example, if you have a controlled DNS server, you can direct traffic visiting google DNS to the controlled DNS server. 
 
 \subsection*{\hypertarget{link:Source NAT}{Source NAT}}
 \addcontentsline{toc}{subsection}{Source NAT}
 \label{sec:policies:security:sourcenat}
 
-Source NAT(SNAT) is typically used by internal users to access the Internet; the source address is translated and thereby kept private.
+Internal users typically use source NAT(SNAT) to access the Internet; the source address is translated and thereby kept private.
 
 
 Perform the following tasks to configure SNAT:
@@ -854,10 +883,12 @@ Perform the following tasks to configure SNAT:
         \item 	Add a \textbf{Name} for the IP Pool. 
         \item 	Specify a \textbf{Color}.
         \item 	You can view \textbf{History Active IP} and select IP address from them. 
-        \item 	Click \textbf{Reachability Test} to verify reachability of the IP address. It is recommended to use IP address which pass the test.
+        \item 	Click \textbf{Reachability Test} to verify the reachability of the IP address. It is recommended to use IP address that pass the test.
         
 
-        \notemark\textit{There are 4 results for reachability test. They are reachable, unreachable, unknown, N/A. If all the data packets sent by TSG are received by server, the result is reachable. If all is not received by the server, the result is unreachable. If only parts of the data packets are received by server, the result is unknown. If the server did not respond, the result is N/A.} 
+        \notemark\textit{There are 4 results for the reachability test. They are reachable, unreachable, unknown, N/A. If all the data packets sent by TSG are received by server, 
+        the result is reachable. If the server does not receive all, the result is unreachable. If only parts of the data packets are received by server, the result is unknown. 
+        If the server does not respond, the result is N/A.} 
         
         
         \item 	Add a \textbf{Description}.
@@ -876,13 +907,15 @@ Perform the following tasks to configure SNAT:
         \item	Select \textbf{SNAT} Action.
         \item	Select the \textbf{VPN Account} you just created. 
         \item	Select the IP Pools you just created. 
-        \item	For \textbf{Change Source IP}, if you wish to only translate IP address once, select \textbf{Never}; if you wish to translate IP address by time, select \textbf{By Time} and enter how many seconds change each time; if you wish to translate IP address by connection, select \textbf{By Connections} and enter how many connections change each time.
+        \item For \textbf{Change Source IP}, if you use a fixed IP, select \textbf{Never}. 
+        If you want to change IP addresses by time, select \textbf{By Time} and enter how many seconds change each time. 
+        If you want to change IP address by connection, select \textbf{By Connections} and enter how often it changes.
         \item	Specify \textbf{Connection Timeout}.
         \item	Add a \textbf{Tag} and \textbf{Description}.
         \item	Verify it is \textbf{Enabled}.
         \item	Click \textbf{OK}.
     \end{enumerate}
-    \item[STEP 4.]	Verify the translation. Take packet capture from server which shows the Client IP changes.
+    \item[STEP 4.]	Verify the translation. Take packet capture from the server which shows the Client IP changes.
 \end{description}
 
 \subsection*{\hypertarget{link:Destination NAT}{Destination NAT}}
@@ -927,7 +960,10 @@ To translate the destination address for all packets on your TSG, as shown in th
 \addcontentsline{toc}{section}{Schedules}
 \label{sec:policies:schedules}
 
-Schedules is the time frame that is applied to the policy or report. Schedules allow you to control the time period for which security rules and proxy rules are in effect. This can be something as simple as a time range that the sessions are allowed to start such as between 8:00 am and 5:00 pm. Something more complex like business hours that include a break for lunch and time of the session’s initiation may need assign multiple schedules to a policy because it will require multiple time ranges. You can then apply these schedules to the rules and reports.
+A schedule is the time frame that is applied to the policy or report. Schedules allow you to control the time period for which security rules and proxy rules are in effect. 
+This can be something as simple as a time range that the sessions are allowed to start such as between 8:00 am and 5:00 pm. 
+Something more complex like business hours that include a break for lunch and time of the session’s initiation may need to assign multiple schedules to a policy 
+because it will require multiple time ranges. You can then apply these schedules to the rules and reports.
 
 
 Types of Schedules:
@@ -939,7 +975,8 @@ Types of Schedules:
 • One-time: Policy or report is effective once during the specified days and time period. You can apply one-time schedules to control policies or reports related to one-time events. 
 
 
-The schedule page displays the full list of predefined and custom schedules. To view the policies to which a schedule is attached, to apply a schedule to a policy or to change the applied schedule, go to the corresponding policy Edit page. 
+The schedule page displays the full list of predefined and custom schedules. To view the policies to which a schedule is attached, 
+go to the corresponding policy Edit page to apply a schedule to a policy or change the applied schedule. 
 
 
 \notemark\textit{You cannot delete a schedule that is currently applied to a policy. To do so, you must apply a different schedule to the policy or delete the policy itself.}
@@ -964,7 +1001,7 @@ Perform the following to create a schedule.
 Verify the policy rules in your running configuration to ensure that your policies appropriately allow and deny traffic and access to applications and websites in compliance with your business needs and requirements. 
 
 
-You can test and verify that your policy rules by executing policy match tests for your TSG directly from the web interface.
+You can test and verify your policy rules by executing match tests for your TSG directly from the web interface.
 
 
 For example, a Proxy Policy has been defined with ID 4736, Name tsg-test-pxyverify. And the basic information about this policy is listed as following.
@@ -989,15 +1026,19 @@ For example, a Proxy Policy has been defined with ID 4736, Name tsg-test-pxyveri
     \item[STEP 3.]	Enter the required information to perform the policy match test. In this example, just run a \textbf{Proxy Policy Match}.
     \begin{enumerate} 
         \item Select \textbf{Proxy Policy Match} from the Select Test drop-down.
-        \item Enter the \textbf{Client IP} and \textbf{Server IP} addresses or leave it set to default. If you wish to match your specified policy, enter at least one Client IP that is in Source IP set and enter at least one Server IP that is in Destination IP set. If the Source or Destination is any in your policy, leave the corresponding Client IP or Server IP set to default. Here fill in Client IP 192.168.50.71.
+        \item Enter the \textbf{Client IP} and \textbf{Server IP} addresses or leave it set to default. If you wish to match your specified policy, 
+        enter at least one Client IP in Source IP set and enter at least one Server IP in the Destination IP set. 
+        If the Source or Destination is any in your policy, leave the corresponding Client IP or Server IP set to default. Here fill in Client IP 192.168.50.71.
         \item Specify the \textbf{Client Port} and \textbf{Server Port} or leave it set to default.
-        \item Select the \textbf{Protocol} from Any, TCP and UDP.
+        \item Select the \textbf{Protocol} from Any, TCP, and UDP.
         \item Specify \textbf{Subscriber ID} if your specified policy references Subscriber ID object.
         \item Select \textbf{APP ID} from the Applications side page, and you can search your application by name. Here select HTTP.
-        \item If you selected one of HTTP, SSL, DNS, MAIL, FTP and QUIC as \textbf{APP ID}, you need to add corresponding additional filter for your policy rule testing. And you need to fill in all the filter fields defined in the policy, but you can add only one item for each field. For example, click plus, and add “www.vip.com” for Host; click plus, and add “microsoft.com” for URL; click plus and add “beer” for Response Header.
+        \item If you selected HTTP, SSL, DNS, MAIL, FTP, or QUIC as Application, you need to add a corresponding additional filter for your policy rule testing. 
+        it would be best if you filled in all the filter fields defined in the policy, but you can add only one item for each field. 
+        For example, click “+”, and add “www.vip.com” for Host; click “+”, and add “microsoft.com” for URL; click “+” and add “beer” for Response Header.
     \end{enumerate}
     \item[STEP 4.]	Click \textbf{Verify} to execute the \textbf{Proxy policy match} test.
-    \item[STEP 5.]	Review the \textbf{Policy Match} and \textbf{Object Match} result to see the policy rules.
+    \item[STEP 5.]	Review the \textbf{Policy Match} and \textbf{Object Match} results to see the policy rules.
 \end{description} 
 
 

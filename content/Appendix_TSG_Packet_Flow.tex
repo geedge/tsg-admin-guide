@@ -1,8 +1,8 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-%\pdfbookmark[0]{Appendix E TSG Packet Flow}{Appendix E TSG Packet Flow}
-\chapter*{\hypertarget{link:Appendix E TSG Packet Flow}{Appendix E TSG Packet Flow}}
-\addcontentsline{toc}{chapter}{Appendix E TSG Packet Flow}
+%\pdfbookmark[0]{Appendix D TSG Packet Flow}{Appendix D TSG Packet Flow}
+\chapter*{\hypertarget{link:Appendix D TSG Packet Flow}{Appendix D TSG Packet Flow}}
+\addcontentsline{toc}{chapter}{Appendix D TSG Packet Flow}
 \label{sec:appendix_e}
 
 %\pdfbookmark[1]{Overview}{Overview}
@@ -13,7 +13,10 @@
 This document describes the packet handling sequence in TSG. TSG Firewall performs stateful checks, TSG proxy performs decryption. 
 
 
-The Ingress stage, session stage and egress stage are the three stages of TSG traffic processing. The ingress and egress stages handle network functions and make packet forwarding decisions on a per-packet basis. The remaining stages are session-based security functions such as application identification and content inspection. TSG does not change the operation of the MPLS, 802.1Q, IPv4, IPv6 protocols regardless of the configured policies.
+The Ingress stage, session stage, and egress stage are the three stages of TSG traffic processing. 
+The ingress and egress stages handle network functions and make packet forwarding decisions on a per-packet basis. 
+The remaining stages are session-based security functions such as application identification and content inspection. 
+TSG does not change the operation of the MPLS, 802.1Q, IPv4, IPv6 protocols regardless of the configured policies.
 
 %\begin{figure}[htb]
 	%\includegraphics[width=\textwidth]{images/pakcet_life_2020}
@@ -37,14 +40,17 @@ The Ingress stage, session stage and egress stage are the three stages of TSG tr
 \addcontentsline{toc}{subsection}{Ingress Stage}
 \label{sec:appendix_e:sequence:ingress}
 
-The ingress stage receives packets from the network interface, parses those packets, and then determines whether a given packet is subject to further inspection. If the packet is subject to further inspection, the system continues with a session lookup and the packet enters the session stage. Otherwise, the system forwards the packet to the egress stage.
+The ingress stage receives packets from the network interface, parses those packets, and then determines whether a given packet is subject to further inspection. 
+If the packet is subject to further inspection, the system continues with a session lookup, and the packet enters the session stage. 
+Otherwise, the system forwards the packet to the egress stage.
 
 %\pdfbookmark[3]{Layer 2 Decode}{Layer 2 Decode}
 \subsubsection*{\hypertarget{link:Layer 2 Decode}{Layer 2 Decode}}
 \addcontentsline{toc}{subsubsection}{Layer 2 Decode}
 \label{sec:appendix_e:sequence:ingress:decode}
 
-Packet parsing starts with the Ethernet (Layer-2) header of the packet received from the wire. VLAN, MPLS, MAC\_IN\_MAC headers are parsed here. The ingress port, 802.1q tag, and destination MAC address are used as keys to lookup the ingress logical interface. 
+Packet parsing starts with the Ethernet (Layer-2) header of the packet received from the wire. VLAN, MPLS, MAC\_IN\_MAC headers are parsed here. 
+The ingress port, 802.1q tag, and destination MAC address are used as keys to lookup the logical ingress interface. 
 
 %\pdfbookmark[3]{Tunnel Decapsulation}{Tunnel Decapsulation}
 \subsubsection*{\hypertarget{link:Tunnel Decapsulation}{Tunnel Decapsulation}}
@@ -58,7 +64,9 @@ If the packet has PPPOE, IPIP, GRE, PPTP, L2TP, Teredo, GTP encapsulations, they
 \addcontentsline{toc}{subsubsection}{IP Defragmentation}
 \label{sec:appendix_e:sequence:ingress:defragmentation}
 
-After the IP header is parsed (Layer-3), the TSG parses IP fragments, reassembles using the defragmentation process, and then feeds the packet back to the parser starting with the IP header.  At this stage, a fragment may be discarded due to tear-drop attack (overlapping fragments), fragmentation errors, or if the TSG hits system limits on buffered fragments (hits the max packet threshold).
+After parsing the IP header (Layer-3), the TSG parses IP fragments, reassembles using the defragmentation process, and then feeds the packet back to the parser starting with the IP header.  
+A fragment may be discarded at this stage due to tear-drop attack (overlapping fragments), fragmentation errors, or if the TSG hits system limits on buffered fragments 
+(hits the max packet threshold).
 
 %\pdfbookmark[2]{Session Setup}{Session Setup}
 \subsection*{\hypertarget{link:Session Setup}{Session Setup}}
@@ -77,10 +85,13 @@ If the packet is subject to firewall inspection, it performs a flow lookup on th
 • Protocol: The IP protocol number from the IP header is used to derive the flow key. 
 
 
-The firewall stores active flows in the flow lookup table. When a packet is determined to be eligible for firewall inspection, the firewall extracts the 5-tuple flow key from the packet and then performs a flow lookup to match the packet with an existing flow. Each flow has a client and server component. For TCP, the client is the sender of the TCP SYN packet of the session from firewall’s perspective. For UDP, the client is the sender with smaller Port number. The server is the receiver of this first packet. 
+The firewall stores active flows in the flow table. When a packet is determined to be eligible for firewall inspection, 
+the firewall extracts the 5-tuple flow key from the packet and then performs a flow lookup to match the packet with an existing flow. 
+Each flow has a client and server component. For TCP, the client is the sender of the TCP SYN packet of the session from the firewall’s perspective. 
+For UDP, the client is the sender with a smaller Port number. The server is the receiver of this first packet. 
 
 
-If the packet belongs to on new session, firewall performs a session setup.
+If the packet belongs to on new session, the firewall performs a session setup.
 
 
 The firewall uses the IP address of the packet to query mapping tables.
@@ -95,7 +106,7 @@ The firewall uses the IP address of the packet to query mapping tables.
 • Geo-IP mapping table: The geographical location is fetched.
 
 
-There is a chance that above information is not available at this point. In that case, policies with these conditions cannot be enforced.
+There is a chance that the above information is not available at this point. In that case, policies with these conditions cannot be enforced.
 
 %\pdfbookmark[2]{Session Maintenance}{Session Maintenance}
 \subsection*{\hypertarget{link:Session Maintenance}{Session Maintenance}}
@@ -105,19 +116,25 @@ There is a chance that above information is not available at this point. In that
 A packet that matches an existing session will enter the session maintenance stages. This stage starts with Layer 2 to Layer 4 firewall processing:
 
 
-• If the session is in close wait state, then the firewall discards the packet by forwarding to egress stage. 
+• If the session is in a close wait state, the firewall discards the packet by forwarding to the egress stage.
 
 
 • If the session is active, refresh session timeout.
 
 
-• If the packet is a TCP FIN/RST, the session TCP half closed timer is started if this is the first FIN packet received (half closed session) or the TCP Time Wait timer is started if this is the second FIN packet or RST packet. The session is closed as soon as either of these timers expire. 
+• If the packet is a TCP FIN/RST, the session TCP half-closed timer is started if this is the first FIN packet received (half-closed session) 
+or the TCP Time Wait timer is started if this is the second FIN packet or RST packet. The session is closed as soon as either of these timers expires. 
 
 
-If an application uses TCP as the transport, the firewall processes it by the TCP reassembly module before it sends the data stream into the security-processing module. The TCP reassembly module will also perform window check, buffer out-of-order data while skipping TCP retransmission. The firewall drops the packets if there is a reassembly error or if it receives too many out-of-order fragments, resulting in the reassembly buffers filling up.
+If an application uses TCP as the transport, the firewall processes it by the TCP reassembly module before sending the data stream into the security-processing module. 
+The TCP reassembly module will also perform window check, buffer out-of-order data while skipping TCP retransmission. 
+The firewall drops the packets if there is a reassembly error or if it receives too many out-of-order fragments, resulting in the reassembly buffers filling up.
 
 
-A packet matching an existing session is subject to further processing if packet has TCP/UDP data (payload). If the firewall does not detect the session application, it performs application identification. If the identification is non-conclusive, the content inspection module runs known protocol decoder checks and heuristics to help identify the application. The application identification result could change throughout the life of the session. Once a traffic attribute is parsed, it’s subject to security policy enforcement.
+A packet matching an existing session is subject to further processing if a packet has TCP/UDP data (payload). 
+If the firewall does not detect the session application, it performs application identification. 
+If the identification is non-conclusive, the content inspection module runs known protocol decoder checks and heuristics to help identify the application. 
+The application identification result could change throughout the life of the session. Once a traffic attribute is parsed, it’s subject to security policy enforcement.
 
 %\pdfbookmark[2]{Firewall Process}{Firewall Process}
 \subsection*{\hypertarget{link:Firewall Process}{Firewall Process}}
@@ -136,27 +153,33 @@ The firewall decodes Layer 7 protocols such as HTTP, SSL/TLS and DNS, to get tra
 \addcontentsline{toc}{subsubsection}{Application Identification}
 \label{sec:appendix_e:sequence:firewall:identification}
 
-The firewall identifies application with built-in and customized signature. The firewall uses protocol decoding in the content inspection stage to determine if an application changes from one application to another. After the firewall identifies the session application, security policy will be enforced as configured. 
+The firewall identifies applications with built-in and customized signatures. The firewall uses protocol decoding in the content inspection stage to determine 
+if an application changes from one application to another. After the firewall identifies the session application, the security policy will be enforced as configured. 
 
 %\pdfbookmark[3]{Content Decode}{Content Decode}
 \subsubsection*{\hypertarget{link:Content Decode}{Content Decode}}
 \addcontentsline{toc}{subsubsection}{Content Decode}
 \label{sec:appendix_e:sequence:firewall:contentdecode}
 
-The firewall decodes the flow and parses attributes and content, then scan them for keywords, e.g., email attachments that are text-based. If it results in keywords detection, then the corresponding security policy action is taken. Application identification is still on at this stage, as the more traffic attributes are parsed, application identification result may be changed. 
+The firewall decodes the flow, parses attributes and content, and then scans them for keywords, e.g., text-based email attachments. 
+If it results in keywords detection, then the corresponding security policy action is taken. 
+Application identification is still on at this stage; as more traffic attributes are parsed, the application identification result may be changed.
 
 %\pdfbookmark[3]{Security Policy Lookup}{Security Policy Lookup}
 \subsubsection*{\hypertarget{link:Security Policy Lookup}{Security Policy Lookup}}
 \addcontentsline{toc}{subsubsection}{Security Policy Lookup}
 \label{sec:appendix_e:sequence:firewall:lookup}
 
-The firewall uses application ANY, IP, port, Geographic and Subscriber ID to perform the lookup and check for a rule match. In case of a rule match, if the policy action is set to ‘deny’, the firewall drops the packet. 
+The firewall uses application ANY, IP, port, Geographic and Subscriber ID to perform the lookup and check for a rule match. 
+In case of a rule match, if the policy action is set to ‘deny’, the firewall drops the packet. 
 
 
-If security policy action is set to intercept and the application is SSL or HTTP, the firewall sends session packets to Proxy to perform decryption.
+If security policy action is set to intercept and the application is SSL or HTTP, the firewall sends session packets to Proxy to decrypt.
 
 
-After more packet transferred, identified application as well as FQDN, URL and applicable protocol fields in the session are used as key to find rule match. If the session matches a security rule, and the rule has logging enabled, the firewall generates a security event log at the session end.
+After more packets are transferred, identified application and FQDN, URL, and applicable protocol fields in the session are used as a key to find rule match. 
+If the session matches a security rule and has logging enabled, the firewall generates a security event log at the session end.
+
 
 %\pdfbookmark[2]{Proxy Process}{Proxy Process}
 \subsection*{\hypertarget{link:Proxy Process}{Proxy Process}}
@@ -180,17 +203,19 @@ The proxy fixes this problem by following two mechanisms:
 • Duplicate packet identification: For TSG sent packets, TSG adds its 4-tuple, IPID, acknowledge number, sequence number and timestamp (if applicable) to the Bloom filter. For received packet, TSG will query the Bloom filter with the aforementioned protocol fields. If a packet is considered duplicate, it will be bypassed, if not, it will be delivered to TCP stack.
 
 
-• Duplicate flow detection: Since not all traffic flows have duplicate packets, do duplicate identification on each packet is a waste of CPU and memory, moreover, it induces performance overhead. Hence, only the TCP flows with duplicate SYN or SYN/ACK packet will conduct duplicate packet identification. 
+• Duplicate flow detection: Since not all traffic flows have duplicate packets, do duplicate identification on each packet is a waste of CPU and memory. 
+Moreover, it induces performance overhead. Hence, only the TCP flows with duplicate SYN or SYN/ACK packet will conduct duplicate packet identification. 
 
 %\pdfbookmark[3]{TCP Stack}{TCP Stack}
 \subsubsection*{\hypertarget{link:TCP Stack}{TCP Stack}}
 \addcontentsline{toc}{subsubsection}{TCP Stack}
 \label{sec:appendix_e:sequence:proxy:TCP}
 
-Opening a TCP connection involves a three-way handshake packets: the client contacts the server, the server acknowledges the client, and the client acknowledges the server. 
-The proxy’s TCP stack attempts to connect server-side immediately after receiving the client’s initial connection request, but waits to return the server acknowledgement until determining whether or not the server-side connection succeeds.
-The TCP stack act as transparent proxy and keep the same TCP connection source and destination IP and ports.
-This provides greater transparency, as the client receives either an RST or no response, which mirrors what is sent from a server when connections fail. 
+Opening a TCP connection involves a three-way handshake: the client contacts the server, the server acknowledges the client, and the client acknowledges the server. 
+The proxy’s TCP stack attempts to connect server-side immediately after receiving the client’s initial connection request, 
+but waits to return the server acknowledgment until determining whether or not the server-side connection succeeds. 
+The TCP stack act as a transparent proxy and keep the same TCP connection source and destination IP and ports. 
+This provides greater transparency, as the client receives either an RST or no response, which mirrors what is sent from a server when connections fail.
 
 %\pdfbookmark[3]{Build SSL Session}{Build SSL Session}
 \subsubsection*{\hypertarget{link:Build SSL Session}{Build SSL Session}}

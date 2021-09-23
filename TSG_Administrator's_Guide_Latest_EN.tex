@@ -59,6 +59,9 @@
 \input{content/titlepage}		% INCLUDE: all titlepages
 \cleardoublepage
 
+\pagestyle{empty}				% no header or footers
+\input{content/copypage}		% INCLUDE: all titlepages
+\cleardoublepage
 
 \begingroup % Local scope for the following commands
 %\addtocontents{toc}{\protect\newpage}
@@ -116,12 +119,12 @@
 %\part{Appendix Part}
 \input{content/Appendix_Built-in_Category}         % INCLUDE: Appendix_A
 \cleardoublepage
-\input{content/Appendix_Predefined_Applications}         % INCLUDE: Appendix_B
-\cleardoublepage
+%\input{content/Appendix_Predefined_Applications}         % INCLUDE: Appendix_B
+%\cleardoublepage
 \input{content/Appendix_Log_Fields_Description}         % INCLUDE: Appendix_C
 \cleardoublepage
-%\input{content/Appendix_Predefined_Reports}         % INCLUDE: Appendix_D
-%\cleardoublepage
+\input{content/Appendix_Predefined_Reports}         % INCLUDE: Appendix_D
+\cleardoublepage
 \input{content/Appendix_TSG_Packet_Flow}         % INCLUDE: Appendix_E
 \cleardoublepage
 \input{content/Appendix_Best_Practices}         % INCLUDE: Appendix_F
@@ -151,9 +154,7 @@
 % --------------------------
 % Copy matter
 % --------------------------
-\pagestyle{empty}				% no header or footers
-\input{content/copypage}		% INCLUDE: all titlepages
-\cleardoublepage
+
 
 % **************************************************
 % End of Document CONTENT

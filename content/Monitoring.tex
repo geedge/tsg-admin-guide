@@ -5,11 +5,12 @@
 \addcontentsline{toc}{chapter}{Monitoring}
 \label{sec:monitor}
 
-To forestall potential issues and to accelerate incidence response when needed, TSG provides intelligence about traffic and user patterns using customizable and informative reports. 
-The dashboard, logs, and reports on TSG allow you to monitor activity on your network. You can monitor the logs and filter the information to generate reports with predefined 
-or customized views. For example, you can use the predefined templates to generate reports on user activities or analyze the reports and logs to interpret unusual behavior 
-on your network and generate a custom report on the traffic pattern. For a visually engaging presentation of network activity, the dashboard chart, with which you can interact 
-to find the information you care about. 
+TSG provides intelligence about traffic and user patterns using customizable and informative reports to forestall potential issues and accelerate incidence response when needed. 
+The dashboard, logs, and reports on TSG allow you to monitor activity on your network. You can monitor the logs and filter the information to generate reports with predefined or 
+customized views. For example, you can use the predefined templates to generate reports on user activities or analyze the reports and logs to interpret unusual behavior 
+on your network and generate a custom report on the traffic pattern. For a visually engaging presentation of network activity, the dashboard chart, 
+with which you can interact to find the information you care about. 
+ 
 
 {
 \color{linkblue}
@@ -25,7 +26,10 @@ to find the information you care about.
 \addcontentsline{toc}{section}{Use the Dashboard}
 \label{sec:monitor:dashboard}
 
-The TSG Dashboard include two sub menus, Main board and Live Chart. Main board show general TSG system overview, endpoints, policy hits statistics. By default, the Main board shows information of the last 24 hours. However, you can customize time range by clicking the time widget. By default, the statistics on the screen will not refresh automatically. You can turn it on and the Minimum Refresh Time is 15s. The following table describes the Main board widgets:
+The TSG Dashboard includes three sub-menus, the Main dashboard, Live Charts, and DoS Threat Map. The main dashboard shows a general TSG overview, endpoints, 
+policy hits statistics. By default, the Main dashboard shows information of the last 24 hours. However, you can customize the time range by clicking the time widget. 
+By default, the statistics on the screen will not refresh automatically. You can turn it on, and the Minimum Refresh Time is 15s. 
+The following table describes the main dashboard widgets:
 
 
 \begin{longtable}{p{0.15\textwidth}|p{0.21\textwidth}|p{0.56\textwidth}}   
@@ -84,7 +88,7 @@ Each log type records information for a different event type. You can see the fo
 • Session Records 
 
 
-• Radius Logs
+• Radius Records
 
 
 • VoIP Records
@@ -100,7 +104,8 @@ Each log type records information for a different event type. You can see the fo
 Security Events and Proxy Events
 
 
-• Security Events and Proxy Events data provides the ability to validate rule additions and rule changes and to monitor the time frame when a rule was used. The log gives you the information to determine whether a rule is effective for access enforcement.
+• Security Events and Proxy Events data can validate rule additions and rule changes and monitor the time frame when a rule was used. 
+The log gives you the information to determine whether a rule is effective for access enforcement.
 
 
 Session Records
@@ -110,18 +115,21 @@ Session Records
 TSG Session records display Transaction records when clicking details. Session records also consist of GTP, MPLS information. You can view live sessions in session records, but reports do not include live sessions.
 
 
-Radius Logs
+Radius Records
 
 
 • Remote Authentication Dial-In User Service (RADIUS) is a broadly supported networking protocol that provides centralized authentication and authorization. 
 TSG will keep track of radius traffic information, including Packet Type, Account, Nas IP, Framed IP, ACC Status Type and so on. 
-You can use the Account information in radius log to create \hyperlink{link:Subscriber ID}{\color{linkblue}{Subscriber ID}} object.
+You can use the Account information in the radius records to create \hyperlink{link:Subscriber ID}{\color{linkblue}{Subscriber ID}} object.
 
 
 VoIP Records 
 
 
-• Voice over IP (VoIP) requires faster speeds and time-sensitive, real-time delivery. It mainly uses RTP as its media protocol to deliver multimedia sessions and Session Initiation Protocol (SIP) for signaling. SIP can open dynamic pinholes in the firewall where NAT is enabled. TSG only supports t VoIP calls using SIP for signaling and RTP for delivering audio data. TSG will keep track of VoIP traffic regarding general info, action, source, destination, application, transmission and SIP fields. 
+• Voice over IP (VoIP) requires faster speeds and time-sensitive, real-time delivery. It mainly uses RTP as its media protocol to 
+deliver multimedia sessions and Session Initiation Protocol (SIP) for signaling. SIP can open dynamic pinholes in the firewall where NAT is enabled. 
+TSG only supports t VoIP calls using SIP for signaling and RTP for delivering audio data. 
+TSG will track VoIP traffic regarding general info, action, source, destination, application, transmission and SIP fields. 
 
 
 GTP-C Records 
@@ -130,13 +138,14 @@ GTP-C Records
 • GTP-C records is composed of GTP-C version (v1 or v2), International Mobile Equipment Identity (IMEI),International Mobile Subscriber Identity (IMSI), APN and Phone Number. 
 
 
-Please refer to \hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Logs Fields Description}} for more details.
+Please refer to \hyperlink{link:Appendix B Log Fields Description}{\color{linkblue}{Appendix B Logs Fields Description}} for more details.
 
 
 DoS Events
 
 
-• Dos Events provides detailed statistics on the detected Dos attacks. Currently supports DNS flood, TCP SYN flood, UDP flood and ICMP flood. You can view the Source Countries, Destination Countries, Start Time, End Time, Attack Type, Severity, Sessions/s, Packets/s, Bits/s, etc.
+• Dos Events provides detailed statistics on the detected Dos attacks. Currently supports DNS flood, TCP SYN flood, UDP flood and ICMP flood. 
+You can view the Source Countries, Destination Countries, Start Time, End Time, Attack Type, Severity, Sessions/s, Packets/s, Bits/s, etc.
 
 %\pdfbookmark[2]{View Logs}{View Logs}
 \subsection*{\hypertarget{link:View Logs}{View Logs}}
@@ -191,10 +200,11 @@ TSG log filter supports search by multiple fields in AND/OR relation. You can pe
 \addcontentsline{toc}{subsection}{Export Logs}
 \label{sec:monitor:log:export}
 
-You can export the contents of a log type to a xlsx file. Firstly, Filter Logs according to time and other conditions. Then, Click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
+You can export the contents of a log type to a xlsx file. Firstly, Filter Logs according to time and other conditions. 
+Then, click the Log Export icon on the right. Wait a few seconds for the file to be generated and downloaded to your local folder. 
 
 
-\notemark\textit{Maximum export log records are 100000.}
+\notemark\textit{You can export up to 100,000 records a time..}
 
 %\pdfbookmark[1]{View and Manage Reports}{View and Manage Reports}
 \section*{\hypertarget{link:View and Manage Reports}{View and Manage Reports}}
@@ -210,18 +220,21 @@ The purpose of the report is to summarize a large amount of log data. Based on t
 \notemark\textit{Note that the report itself does not provide any recommendations or give any indication of problems. Users must analyze and consider network problems based on report data and graphs.}
 
 
-TSG includes a number of predefined datasets, charts and reports. It can basically meet the needs of most users. 
+TSG includes several predefined datasets, charts and reports. It can basically meet the needs of most users. 
 You can quickly view network activities based on preset reports for event or behavior analysis. 
-For more details about predefined reports, please refer to \hyperlink{link:Appendix D Predefined Reports}{\color{linkblue}{Appendix D Predefined Reports}}.
+For more details about predefined reports, please refer to \hyperlink{link:Appendix C Predefined Reports}{\color{linkblue}{Appendix C Predefined Reports}}.
 
 
-You can use predefined reports as-is, or you can build custom reports that meet your needs for specific data and actionable tasks. Create and schedule custom reports that show exactly the information you want to see by filtering on conditions and columns to include. You can also include aggregate function for more specific drill down on report data.
+You can use predefined reports as-is, or build custom reports that meet your needs for specific data and actionable tasks. 
+Create and schedule custom reports that show exactly the information you want to see by filtering on conditions and columns to include. 
+You can also include an aggregate function for more specific drill down on report data.
 
 
-In order to create purposeful custom reports, you must consider the attributes or key pieces of information that you want to retrieve and analyze. Reports can be sent for email delivery or FTP service if you enable notification when creating a report. 
+To create purposeful custom reports, you must consider the attributes or key pieces of information that you want to retrieve and analyze. 
+Reports can be sent for email delivery or FTP service if you enable notification when creating a report. 
 
 
-Report is a set of data placed in orderly charts. A chart contains two elements: 
+A report is a set of data placed in orderly charts. A chart contains two elements: 
 
 
 • The data set is a SELECT query that extracts the specified data from the database. 
@@ -230,7 +243,8 @@ Report is a set of data placed in orderly charts. A chart contains two elements:
 • In what format the data is displayed (for example: pie chart, bar chart and table). 
 
 
-Each chart is associated with one dataset. When you generate a report, the dataset associated with each chart extracts data from the logs and populates the charts. Each dataset requires a specific log type.
+Each chart is associated with one dataset. The dataset associated with each chart extracts data from the logs and populates the charts when you generate a report. 
+Each dataset requires a specific log type.
 
 
 To customize a report, you need to follow three steps.
@@ -246,18 +260,24 @@ This consideration guides you in making the following selections in a custom rep
 
 
 \begin{description}
-    \item[STEP 1.]	Create a Dataset. Dataset specify what data to extract from logs.
+    \item[STEP 1.]	Create a Dataset. Dataset specifies what data to extract from logs.
     \begin{enumerate}
         \item Select \textbf{Reports} > \textbf{Datasets} menu, and click \textbf{Create}.
         \item Enter a \textbf{Name}.
-        \item Select a \textbf{Log Type} from the following: Security Event, Proxy Event, Session Records and Radius. Because session records show all traffic that is allowed on your network, select session records.
-        \item Select the \textbf{Group by}. Fields are the result fields of a dataset collection, include group by fields and metric fields. Fields are the dimensions of your report. This will serve as the X-Axis Data Binding options for Chart Libraries. The report mainly displays client IP, so select client IP.
-        \item Specify the \textbf{Data Bindings}, add Field, Aggregate, and Label, which serve as legend of your Chart Libraries. Variable consists of log field. You can add at least one or multiple variables. Aggregate is metric function and the available options are sum, min, max, avg, count, and count distinct. Label is the legend that will show in your Chart Libraries. In this case, Field select Sessions; Aggregate select sum; and sessions is filled in for Label by default.
-        \item (\textcolor{gold}{optional})Specify \textbf{Filter} and \textbf{Having}. Query conditions, only calculated within the data range of a certain field or a few fields that match a specific expression. All lines that do not match the conditions will be excluded from the collections of data. Your selections will automatically generate a SQL. Filter conditions is before data aggregation, and Having is after data aggregation. Since the visiting target is Google, you can set Feild as Http.Domain, set Aggregate as Suffix and set Value to “google.com”. 
+        \item Select a \textbf{Log Type} from the following: Security Event, Proxy Event, Session Records and Radius. 
+        Because session records show all traffic that is allowed on your network, select session records.
+        \item Select the \textbf{Group by}. Fields are the result fields of a dataset collection, include groups by fields and metric fields. 
+        Fields are the dimensions of your report. This will serve as the X-Axis Data Binding options for Chart Libraries. The report mainly displays client IP, so select client IP.
+        \item Specify the \textbf{Data Bindings}, add Field, Aggregate, and Label, which serve as the legend of your Chart Libraries. Variable consists of log field. 
+        You can add at least one or multiple variables. Aggregate is a metric function and the available options are sum, min, max, avg, count, and count distinct. 
+        The label is the legend that will show in your Chart Libraries. In this case, Field select Sessions; Aggregate select sum; and sessions is filled in for Label by default.
+        \item (\textcolor{gold}{optional})Specify \textbf{Filter} and \textbf{Having}. Query conditions, are only calculated within a certain field's data range or a few fields that match a specific expression. 
+        All lines that do not match the conditions will be excluded from the collection of data. Your selections will automatically generate a SQL. 
+        Filter conditions are before data aggregation, and Having is after data aggregation. Since the visiting target is Google, you can set Feild as Http.Domain, set Aggregate as Suffix and set Value to “google.com”. 
         \item Click \textbf{OK}.
     \end{enumerate}    
 
-    \item[]Please view the following table for details about new dataset.
+    \item[]Please view the following table for details about the dataset.
 
         \begin{longtable}{p{0.16\textwidth}|p{0.78\textwidth}}   
                 \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
@@ -277,7 +297,7 @@ This consideration guides you in making the following selections in a custom rep
                         • Session Records
                                     
                         
-                        • Radius Logs 
+                        • Radius Records 
                         
                         
                         • VoIP Records
@@ -290,20 +310,20 @@ This consideration guides you in making the following selections in a custom rep
                         Click the "+" button to add variable.
                         
                         
-                        \notemark\textit{Field in Group by will serve as the X-Axis Data Binding options for Chart Libraries.}
+                        \notemark\textit{The field in Group by will serve as the X-Axis Data Binding options for Chart Libraries.}
                         
                         
-                        For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Log Fields Description}}}. \\\hline 
+                        For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix B Log Fields Description}{\color{linkblue}{Appendix B Log Fields Description}}}. \\\hline 
                 Data Bindings & Data Bindings are the result fields of a dataset collection, include group by log fields.
                 
                 
-                                Click the "+" button to add field, aggregate, and description information.
+                                Click the "+" button to add a field, aggregate, and description information.
                                 
                                 \begin{itemize}
                                     \item Field: log fields
                                     
 
-                                    For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix C Log Fields Description}{\color{linkblue}{Appendix C Log Fields Description}}}.
+                                    For the detailed meaning of each Log Field, please view \textbf{\hyperlink{link:Appendix B Log Fields Description}{\color{linkblue}{Appendix B Log Fields Description}}}.
                                     \item Aggregate: Metric function, Select a value from the dropdown list. The available options vary depending on the selected variable.
                                     \begin{itemize}
                                         \item sum \item min  \item max \item avg \item count \item Count Distinct
@@ -553,7 +573,7 @@ This consideration guides you in making the following selections in a custom rep
                                                                                                                                     Mail.To\\
                                                                                                                                     Mail.Subject\\
                                                                                                                                     Quic.SNI}  \\ \arrayrulecolor{black} \hline 
-        \tabincell{l}{Radius\\ Logs} & \tabincell{l}{Nas IP\\
+        \tabincell{l}{Radius\\ Records} & \tabincell{l}{Nas IP\\
                                                     Framed IP\\
                                                     Subscriber ID\\
                                                     Receive Time}  & \tabincell{l}{Framed IP\\
@@ -848,7 +868,7 @@ This consideration guides you in making the following selections in a custom rep
         \item Click \textbf{OK}.
     \end{enumerate}
 
-    \item[] Please view the following table for details about new chart library.
+    \item[] Please view the following table for details about the chart library.
 
 
     \begin{longtable}{p{0.16\textwidth}|p{0.78\textwidth}}   
@@ -856,14 +876,14 @@ This consideration guides you in making the following selections in a custom rep
         Name & Enter a name for the dataset.\\\hline  
         Description & Enter a description of the chart. \\\hline 
         Dataset & Select a dataset from the dropdown list. \\\hline
-        Chart Type & Select a graph type from the dropdown list, one of Table, Bar, Pie, Line and Area. This selection affects the rest of the available selections.
+        Chart Type & Select a graph type from the dropdown list, one of Table, Bar, Pie, Line, and Area. This selection affects the rest of the available selections.
         
         
-                    \notemark\textit{For Line and Area type, Receive Time field must be chosen as one of Group By – Variable in selected dataset to generate meaningful report.} \\\hline
+                    \notemark\textit{For Line and Area type, Receive Time field must be selected as one of Group By – Variable in the selected dataset to generate a meaningful report.} \\\hline
         \tabincell{l}{Data\\ Bindings} & The data bindings vary depending on the chart type selected. \\\hline
         \multicolumn{2}{l}{\textbf{Table}}\\\hline
         Table Type & Regular or Drilldown. \\\hline  
-        Add Column & Click to add Column. Up to 15 columns can be added for a Regular table. 
+        Add Column & Click to add Column. Up to 15 columns can be added to a Regular table. 
         
         
                     Drilldown tables have three columns.\\\hline 
@@ -894,7 +914,7 @@ This consideration guides you in making the following selections in a custom rep
                     \item Format: Select a format from the dropdown list: Bandwidth, Counter, Default and Percentage.
                     \item Label: Enter a label for the axis.            
                  \end{itemize} \\\hline 
-        Bundle rest into “Others” & Other items are bundled into the Others category if check this option. This reflects in ‘X’ Label of a Bar chart. \\\hline 
+        Bundle rest into “Others” & Other items are bundled into the Others category if you check this option. This reflects in the ‘X’ Label of a Bar chart. \\\hline 
         \multicolumn{2}{l}{\textbf{Pie}}\\\hline
         Category & \begin{itemize}
                         \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
@@ -907,7 +927,7 @@ This consideration guides you in making the following selections in a custom rep
                     \item Format: Select a format from the dropdown list: Bandwidth, Counter, Default and Percentage.
                     \item Label: Enter a label for the axis.
                  \end{itemize} \\\hline
-        Bundle rest into “Others” & Other items are bundled into the Others category if check this option. This reflects in Category of a Pie chart.\\\hline
+        Bundle rest into “Others” & Other items are bundled into the Others category if you check this option. This reflects in the Category of a Pie chart.\\\hline
         \multicolumn{2}{l}{\textbf{Line} or \textbf{Area}}\\\hline
         X-Axis & \begin{itemize}
                     \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset. The selected dataset should include time field.
@@ -918,8 +938,8 @@ This consideration guides you in making the following selections in a custom rep
                  \end{itemize} \\\hline
         Lines & \begin{itemize}
                     \item Data Binding: Select a value from the dropdown list. The available options vary depending on the selected dataset.
-                    \item Format: Select from the dropdown list, one of: Bandwidth, Counter and Default.
-                    \item Type: Select from the dropdown list, one of: Line Up and Line Down.
+                    \item Format dropdown list: Select one from Bandwidth, Counter and Default.
+                    \item Type dropdown list: Select one from Line Up and Line Down.
                     
 
                     \notemark\textit{If data in Y-Axis has different units, please select Line Up and Line Down respectively.}
@@ -954,15 +974,17 @@ This consideration guides you in making the following selections in a custom rep
         \item (\textcolor{gold}{Optional})If you \textbf{Enable Notification}, you can select FTP or Email as Output Profile. 
         \begin{itemize}
             \item Email: Enter recipient's e-mail.
-            \item FTP: Enter server, port, username, password and directory.
+            \item FTP: Enter server, port, username, password, and directory.
         \end{itemize}
         \item Select the \textbf{Chart Library} you just created. Enter number and select time unit for \textbf{Time Granularity}. The available options vary depending on the selected chart, only applies to charts with time parameters. This will affect the data density of X-Axis. Here, let it grey by default since it is a Bar chart.
-        \item (\textcolor{gold}{optional})Add \textbf{Filter} if you have related requirements. You can apply log message filters to reports and charts. If add multiple charts, the filter field is limited to the common fields of multiple charts. Here don’t add any Filter.
+        \item (\textcolor{gold}{optional})Add \textbf{Filter} if you have related requirements. You can apply log message filters to reports and charts. 
+        If you add multiple charts, the filter field is limited to the common fields of multiple charts. Here don’t add any Filter.
         \item Click \textbf{OK}.
-        \item Wait a while for the generation of the report. Click button (\mbox{$\blacktriangleright$}) at the left of the report row to get the details of the result. After the status reach 100\%, click \textbf{View} and you’ll see: firstly, the overviews of traffic statistics, then the traffic trend in the time period and finally the results of your custom selections. 
+        \item Wait a while for the generation of the report. Click the button (\mbox{$\blacktriangleright$}) at the left of the report row to get the details of the result. 
+        After the status reaches 100\%, click \textbf{View} and you’ll see: firstly, the overviews of traffic statistics, then the traffic trend in the time period and finally the results of your custom selections. 
     \end{enumerate}
 %\[\blacktriangleright\]
-    \item[] Please view the following table for details about new report.
+    \item[] Please view the following table for details about the report.
     \begin{longtable}{p{0.18\textwidth}|p{0.76\textwidth}}   
         \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline                                                                                                                                                          
         Name & Enter a name for the dataset.\\\hline  
@@ -977,7 +999,7 @@ This consideration guides you in making the following selections in a custom rep
                         \end{itemize} \\\hline 
         \tabincell{l}{Enable\\ Schedule} & Select to enable schedules.\\\hline 
         Schedule & Select a schedule from the dropdown list to run the report.\\\hline
-        \tabincell{l}{Enable\\ Notification} & Setting report notification profile.\\\hline
+        \tabincell{l}{Enable\\ Notification} & Set report notification profile.\\\hline
         Output Profile & Select the output profile from the dropdown list:
                         \begin{itemize}
                             \item Email: Enter recipient's e-mail.
@@ -986,7 +1008,7 @@ This consideration guides you in making the following selections in a custom rep
         Chart Library & Click the button “+” and select a chart from the slide page Chart Library. \\\hline 
         \tabincell{l}{Time\\ Granularity} & Enter number and select time unit. The available options vary depending on the selected chart, only applies to charts with time parameters.\\\hline 
         Add Chart & Click the "+ Add Chart" button to add more charts.\\\hline 
-        Filter & You can apply log message filters to reports and charts. If add multiple charts, the filter field is limited to the common fields of multiple charts.
+        Filter & You can apply log message filters to reports and charts. If you add multiple charts, the filter field is limited to the common fields of multiple charts.
                 
         
                 Click the "+ Add Condition" button to add log Field, Operator, and Value.
@@ -1007,14 +1029,14 @@ You can view the create time of a result for the report, when you click button (
 (switch to button (\mbox{$\blacktriangledown$}) to indicate folding back) at the left of a row to unfold the report details. 
 Create time shows the time that the report generated this cycle according to the schedule, not the time you configure the report. 
 The reports are displayed in descending order by create time. For example, you create a report with Time Period “today” 
-and Enable Schedule “Daily, Start Time 14:00 \& End Time 18:00” at 9:00 am. In this case, the first result of report 
-which is shown in (\mbox{$\blacktriangledown$}) will be created at 14:00 today with Create Time: YYYY-MM-DD 14:00. 
+and Enable Schedule “Daily, Start Time 14:00 \& End Time 18:00” at 9:00 am. In this case, the first report 
+result shown in (\mbox{$\blacktriangledown$}) will be created at 14:00 today with Create Time: YYYY-MM-DD 14:00. 
 Meanwhile the percentage which indicates the ready status of the result will reach 100\% after 24:00:00 since the report configuration was set Time Period as “today”. 
 And you can get a new result at the 14:00 and view the report after midnight every day from now on. 
 The report list displays Last Modified Time and Last Execution Time and you can click the column to make the list display in descending or ascending order.} 
 
 
-For more details about reports best practice, please refer to \hyperlink{link:Make Your Own Reports}{\color{linkblue}{Appendix F Make Your Own Reports}}
+For more details about reports best practice, please refer to \hyperlink{link:Make Your Own Reports}{\color{linkblue}{Appendix E Make Your Own Reports}}
 
 
 Advantages of TSG report: 
@@ -1029,18 +1051,20 @@ Advantages of TSG report:
 \addcontentsline{toc}{section}{Take Packet Captures}
 \label{sec:monitor:packet}
 
-TSG captures packets for all traffic or for specific traffic based on filters that you define. For example, you can configure TSG to only capture packets to and from a specific source and destination IP address or port. You may need to take packet captures when creating a custom application, because you have to gather information about the application.
+TSG captures packets for all traffic or for specific traffic based on filters that you define. 
+For example, you can configure TSG only to capture packets to and from a specific source and destination IP address or port. 
+You may need to take packet captures when creating a custom application because you have to gather information about the application.
 
 \begin{description}
     \item[STEP 1.]	Before you start a packet capture, identify the attributes of the traffic that you want to capture.
 
 
-    For example, to determine the source IP address, and the destination IP address for traffic between two systems. 
+    For example, to determine the source IP address and the destination IP address for traffic between two systems. 
     If you wish to troubleshoot a Security Event Log, go to \textbf{Logs} > \textbf{Security Event Log} and locate the traffic log for the two systems. 
     Click the \textbf{Log ID} to view the Client IP, Client Port, Server IP, Server Port.
     \item[STEP 2.]	Set packet capture conditions, so TSG only captures traffic you are interested in.
     \begin{enumerate}
-        \item Select \textbf{Setting} > \textbf{Trouble Shooting} menu, and select Packet Capture tab.
+        \item Select \textbf{Setting} > \textbf{Trouble Shooting} menu and select Packet Capture tab.
         \item Enter a descriptive \textbf{Name}.
         \item Select \textbf{Address Type}, IPv4 or IPv6.
         \item Enter \textbf{Client IP}, \textbf{Client Port}, \textbf{Server IP}, \textbf{Server Port}.
@@ -1049,7 +1073,8 @@ TSG captures packets for all traffic or for specific traffic based on filters th
         \item Enter \textbf{Captured Number} and \textbf{Capture Duration}.
         \item Click \textbf{OK}.
     \end{enumerate} 
-    \item[STEP 3.]	Packet Capture will automatically start after you created it. Generate traffic that matches the filters that you defined. It will stop after your capture duration expires, or you can turn it off manually after TSG captures the data that you want to analyze.
+    \item[STEP 3.]	Packet Capture will automatically start after you create it. Generate traffic that matches the filters that you defined. 
+    It will stop after your capture duration expires, or you can turn it off manually after TSG captures the data you want to analyze.
     \item[STEP 4.]	Click the triangle icon to the left in the list to expand the item, then click \textbf{Download} to download packets or \textbf{Delete} to delete packets.
     \item[STEP 5.]	View the packet capture files using a network packet analyzer.
 \end{description}

@@ -1,8 +1,8 @@
 % !TEX root = ../TSG_Administrator's_Guide_Latest_EN.tex
 %
-%\pdfbookmark[0]{Appendix C Log Fields Description}{Appendix C Log Fields Description}
-\chapter*{\hypertarget{link:Appendix C Log Fields Description}{Appendix C Log Fields Description}}
-\addcontentsline{toc}{chapter}{Appendix C Log Fields Description}
+%\pdfbookmark[0]{Appendix B Log Fields Description}{Appendix B Log Fields Description}
+\chapter*{\hypertarget{link:Appendix B Log Fields Description}{Appendix B Log Fields Description}}
+\addcontentsline{toc}{chapter}{Appendix B Log Fields Description}
 \label{sec:appendix_c}
 
 \notemark\textit{The column with * is the default display column after logging in to the system for the first time. Once the user has made the configuration, 
@@ -19,7 +19,7 @@ it will display columns that the user has previously configured. The fields with
     Security Events &	All types \\\hline 
     Proxy Events &	Base, HTTP and DoH \\\hline 
     Session Records &	All types except Radius \\\hline 
-    Radius Logs &	Base and Radius \\\hline 
+    Radius Records &	Base and Radius \\\hline 
     VoIP Records &	Base, SIP and RTP \\ \hline
     GTP-C Records &	Base and GTP-C \\ \hline
 \end{longtable}
@@ -38,8 +38,7 @@ it will display columns that the user has previously configured. The fields with
                     \item TCP SYN Flood,
                     \item UDP Flood,
                     \item ICMP Flood,
-                    \item DNS Flood,
-                    \item DNS Amplification.
+                    \item DNS Flood.
                     \end{itemize} \\\hline
     Severity &	Critical
                 
@@ -70,99 +69,119 @@ it will display columns that the user has previously configured. The fields with
 
 \begin{longtable}{p{0.34\textwidth}|p{0.58\textwidth}}   
     \rowcolor{black}\multicolumn{1}{l!\vlinewhite}{\textcolor{white}{Field}}  & \textcolor{white}{Description} \\\hline  
-    Log ID * &	A log entry identifier incremented sequentially; each log has a unique number \\\hline
-    \textbf{Receive Time *} &	Time the log was received \\\hline
-    \textbf{Subscriber ID *} &	Identifier of RADIUS Accounting for Subscriber Access (if applicable) \\\hline
-    \textbf{Client IP *} &	Original session client IP address. \\\hline
-    \textbf{Internal IP} &	Internal region IP of the session (if applicable) \\\hline
-    Client Port &	Client port utilized by the session \\\hline
-    L4 Protocol &	Transport layer protocol associated with the session \\\hline
-    Address Type &	IP protocol version associated with the session, 4 or 6 \\\hline
-    \textbf{Server IP *} &	Original session server IP address \\\hline
-    \textbf{Server Port *} &	Server port utilized by the session \\\hline
-    \textbf{External IP} &	 External region IP of the session (if applicable) \\\hline
-    \textbf{Action} &	Action taken for the session; possible values are:
-                    \begin{itemize}
-                        \item Allow - session was allowed by policy. 
-                        \item Deny - session was denied by policy.  
-                        \item Monitor - session was allowed by policy and a log will be generated when matched.
-                        \item Intercept - Intercept HTTP/HTTPS traffic for proxy. If the traffic use SSL/TSL, it will be decrypted.  
-                        \item Redirect - The Proxy redirect matched HTTP session to a predefined URL. 
-                        \item Replace - The Proxy Searches in a given HTTP part to Find a given string, and Replace any matches with another given string.     
-                        \item Hijack - The Proxy hijack a downloading file. 
-                        \item Insert - The Proxy insert a “js” or “css” scripts to webpages. 
-                    \end{itemize}
-                 \\\hline
-    Direction &	Indicates session client-to-server direction, possible values are:
-
-
-                    Egress—Internal to External
-
-
-                    Ingress—External to Internal 
+    \multicolumn{2}{l}{\textbf{General}} \\\hline 
+    Receive Time * &	Time the log was received \\\hline
+    Log ID * &	A log entry identifier is incremented sequentially; each log has a unique number \\\hline
+    Session ID &	An internal numerical identifier applied to the session \\\hline
+    Direction &	Indicates session client-to-server direction, 
+                Internal to External or Ingress—External to Internal \\\hline
+    Stream Direction &	Captured packet direction of the session, possible values are: c2s, s2c, double  \\\hline
+    Start Time &	Time of session start  \\\hline
+    End Time &	Time of session end \\\hline
+    Duration(ms) &	The elapsed time of the session  \\\hline
+    Establish Latency(ms) &	Establish time of the session  \\\hline
+    Processing Time	& Processing time in the system  \\\hline
+    Device ID &	Unique identifier of devices on which the session was logged  \\\hline
+    Data Center &	Name of the data center on which the session was processed \\\hline
+    Sled IP &	IP of the sled which the session was processed  \\\hline
+    \multicolumn{2}{l}{\textbf{Action}}  \\\hline
+    Action &	Action taken for the session; possible values are:
+                \begin{itemize}
+                    \item Allow - session was allowed by policy. 
+                    \item Deny - session was denied by policy.  
+                    \item Monitor - session was allowed by policy and a log will be generated when matched.
+                    \item Intercept - Intercept HTTP/HTTPS traffic for proxy. If the traffic use SSL/TSL, it will be decrypted.  
+                    \item Redirect - The Proxy redirect matched HTTP session to a predefined URL. 
+                    \item Replace - The Proxy Searches in a given HTTP part to Find a given string, and Replace any matches with another given string.     
+                    \item Hijack - The Proxy hijack a downloading file. 
+                    \item Insert - The Proxy insert a “js” or “css” scripts to webpages. 
+                \end{itemize}
                 \\\hline
-    \textbf{Sled IP} &	IP of sled which the session was processed \\\hline
-    Client Location &	Geographic location the client IP\\\hline
-    Client ASN &	BGP Autonomous system number the client IP\\\hline
-    \textbf{Server Location} &	Geographic location the server IP\\\hline
+    Sub Action * &	Sub Action taken for action; possible values are:
+
+
+                    drop—session was dropped by deny action
+
+
+                    block—session was blocked by deny action
+
+
+                    alert—session was alerted by deny action
+
+
+                    allow—session was allowed by intercept action
+
+
+                    deny—session was denied by intercept action
+
+
+                    monitor—session was monitored by intercept action
+
+
+                    redirect—session was redirected by intercept action
+
+
+                    replace—session was replaced by intercept action
+
+
+                    hijack—session was hijacked by intercept action
+
+
+                    insert—session was inserted by intercept action \\\hline
+    Policy ID &	The matched policy ID \\\hline
+    \multicolumn{2}{l}{\textbf{Source}} \\\hline
+    Client IP &	Original session client IP address.  \\\hline
+    Internal IP &	Internal region IP of the session (if applicable) \\\hline
+    Client Port &	Client port utilized by the session  \\\hline
+    Client Location &	Geographic location the client IP \\\hline
+    Client ASN &	BGP Autonomous system number the client IP \\\hline
+    Subscriber ID &	Identifier of RADIUS Accounting for Subscriber Access (if applicable) \\\hline
+    IMEI &	International Mobile Equipment Identity \\\hline
+    IMSI &	International Mobile Subscriber Identity  \\\hline
+    Phone Number &	The user’s phone number  \\\hline
+    \multicolumn{2}{l}{\textbf{Destination}} \\\hline
+    Server IP &	Original session server IP address \\\hline
+    External IP	& External region IP of the session (if applicable)\\\hline
+    Server Port &	Server port utilized by the session\\\hline
+    Server Location &	Geographic location the server IP\\\hline
     Server ASN &	BGP Autonomous system number the server IP\\\hline
+    \multicolumn{2}{l}{\textbf{Application}} \\\hline
+    User Define APP Name &	Customized App name \\\hline
+    Application Label &	Application label associated with the session \\\hline
+    Surrogate ID &	App surrogate ID \\\hline
+    L7 Protocol &	Layer 7 Protocol associated with the session \\\hline
+    Protocol Label &	Protocol associated with the session \\\hline
+    FQDN Category &	Service category \\\hline
+    L4 Protocol &	Transport layer protocol associated with the session \\\hline
+    \multicolumn{2}{l}{\textbf{Transmission}} \\\hline
     Sessions &	Number of sessions with same client IP, server IP, Application, seen within 5 seconds\\\hline
     Packets Sent &	Number of client-to-server packets for the session\\\hline
     Packets Received &	Number of server-to-client packets for the session\\\hline
+    Packets Sent (Diff)	& Diff number of client-to-server packets for the session\\\hline
+    Packets Received (Diff)	& Diff number of server-to-client packets for the session\\\hline
     Bytes Sent &	Number of bytes in the client-to-server direction of the session\\\hline
     Bytes Received &	Number of bytes in the server-to-client direction of the session\\\hline
-    \textbf{Sub Action *} &	Sub Action taken for action; possible values are:
-
-
-                            drop—session was dropped by deny action
-
-
-                            block—session was blocked by deny action
-
-
-                            alert—session was alerted by deny action
-
-
-                            allow—session was allowed by intercept action
-
-
-                            deny—session was denied by intercept action
-
-
-                            monitor—session was monitored by intercept action
-
-
-                            redirect—session was redirected by intercept action
-
-
-                            replace—session was replaced by intercept action
-
-
-                            hijack—session was hijacked by intercept action
-
-
-                            insert—session was inserted by intercept action \\\hline
-    Device ID &	Unique identifier of devices on which the session was logged  \\\hline
-    Data Center &	Name of data center on which the session was logged \\\hline
-    Application Label &	Application label associated with the session \\\hline
-    Protocol Label &	Protocol associated with the session \\\hline
-    L7 Protocol &	Layer 7 Protocol associated with the session \\\hline
-    Start Time &	Time of session start  \\\hline
-    End Time &	Time of session end \\\hline
-    Establish Latency &	Establish time of the session \\\hline
-    Duration(ms) &	Elapsed time of the session \\\hline
-    Stream Direction &	Captured packet direction of the session, possible values are: c2s, s2c, double \\\hline
-    Session ID &	An internal numerical identifier applied of the session \\\hline
-    Fragmentation Packets(c2s) &	Number of IP fragment packets in client-to-server direction of the session \\\hline
-    Fragmentation Packets(s2c) &	Number of IP fragment packets in server-to-client direction of the session \\\hline
+    Bytes Sent (Diff) &	Diff number of bytes in the client-to-server direction of the session\\\hline
+    Bytes Received (Diff) &	Diff number of bytes in the server-to-client direction of the session\\\hline
+    Fragmentation Packets(c2s) &	Number of IP fragment packets in client-to-server direction of the session\\\hline
+    Fragmentation Packets(s2c) &	Number of IP fragment packets in server-to-client direction of the session\\\hline
     Sequence Gap Loss(c2s) &	Number of TCP gap loss packets in client-to-server direction of the session \\\hline
     Sequence Gap Loss(s2c) &	Number of TCP gap loss packets in server-to-client direction of the session \\\hline
-    Unorder Packets(c2s) &	Number of TCP out of order packets in client-to-server direction of the session \\\hline
+    Unorder Packets(cs2) &	Number of TCP out of order packets in client-to-server direction of the session \\\hline
     Unorder Packets(s2c) &	Number of TCP out of order packets in server-to-client direction of the session \\\hline
-    TCP Client ISN &	TCP uses a three-way handshake to establish a reliable connection. The connection is full duplex, and both sides synchronize (SYN) and acknowledge (ACK) each other. 
-    The client chooses an initial sequence number, set in the first SYN packet. Initial sequence numbers (ISN) refers to the unique 32-bit sequence number assigned to each new connection 
-    on a TCP-based data communication. An ISN is unique to each connection and separated by each device. Now use a random number in ISN selection process to defeat malicious attacks. \\\hline 
-    TCP Server ISN &	The server also chooses its own initial sequence number, set in the SYN/ACK packet. Each side acknowledges each other's sequence number by incrementing it. \\\hline                                 
+    Packet Retransmission(c2s) &	Number of TCP retransmission packets in client-to-server direction of the session\\\hline
+    Packet Retransmission(s2c) &	Number of TCP retransmission packets in server-to-client direction of the session\\\hline
+    Byte Retransmission(c2s) &	Number of TCP retransmission bytes in client-to-server direction of the session \\\hline
+    Byte Retransmission(s2c) &	Number of TCP retransmission bytes in server-to-client direction of the session \\\hline
+    TCP Client ISN &	TCP uses a three-way handshake to establish a reliable connection. The connection is full duplex, and both sides synchronize (SYN) and acknowledge (ACK) each other. The client chooses an initial sequence number, set in the first SYN packet. Initial sequence numbers (ISN) refers to the unique 32-bit sequence number assigned to each new connection on a TCP-based data communication. An ISN is unique to each connection and separated by each device. Now use a random number in ISN selection process to defeat malicious attacks.\\\hline
+    TCP Server ISN &	The server also chooses its own initial sequence number, set in the SYN/ACK packet. Each side acknowledges each other's sequence number by incrementing it.\\\hline
+    Mirrored Packets &	Number of mirrored packets \\\hline
+    Mirrored Bytes &	Number of mirrored bytes\\\hline
+    \multicolumn{2}{l}{\textbf{Other}} \\\hline
+    Address Type &	IP protocol version associated with the session, 4 or 6 \\\hline
+    Schema Type &	Protocol type: BASE, HTTP, MAIL, DNS, SSL, FTP, BGP, VoIP, RADIUS, QUIC, DoH, SIP, RTP, APP, GTP-C \\\hline
+    Tunnels &	Information of tunnel \\\hline
+    Stream Error &	Error information of stream\\\hline                  
 \end{longtable}
 
 %\pdfbookmark[1]{Log Fields per Protocol}{Log Fields per Protocol}
